@@ -1,0 +1,95 @@
+Swing Trade Project
+
+Overview
+This is an in progress project designed to scan stocks in the S&P 500, with plans to expand to additional universes in the future. Stocks are filtered using a defined set of technical criteria, described in setup_rules.py, and only those that meet the requirements are selected as candidates. For each selected stock, charts are automatically generated that display price action along with calculated indicators, as implemented in charting.py.
+
+Project Goals
+-Learn about the stock market and explore swing trading strategies through hands-on analysis rather than theory alone.
+-Develop data analysis skills by scraping stock data, building a repeatable pipeline, and extracting only the information relevant to the strategy being tested.
+-Apply existing programming and data analysis skills while using the project as a structured way to study price behavior and recurring patterns across different stocks.
+-Define success as having a seamless, automated process that identifies stocks worth deeper investigation and supports informed decision-making for a swing trading strategy.
+
+Strategy Overview
+The strategy implemented in this project is a trend-based swing trading approach designed to identify stocks showing strong upward momentum that temporarily pull back before potentially continuing higher. The focus is on finding structured price behavior rather than predicting short-term market movements.
+
+The process begins with universe selection, where stocks are drawn from the S&P 500 to ensure sufficient liquidity and stable price behavior. This helps reduce noise and avoids thinly traded securities.
+
+Next, trend-based filtering is applied to identify stocks that are already in established uptrends. This ensures that candidate stocks are aligned with broader market momentum rather than attempting to trade against prevailing trends.
+
+Once an uptrend is identified, the strategy looks for pullback and reclaim behavior, where price temporarily retraces toward short-term support before recovering. These pullbacks are interpreted as periods of consolidation rather than trend reversals, and a reclaim of support is used as a signal that buying pressure may be returning.
+
+Finally, the output of the scan is a set of candidates for manual review, not automatic trades. Charts are generated for each candidate to allow for human evaluation, pattern recognition, and further analysis before any trading decisions are made
+
+Workflow
+The project follows a structured pipeline that moves from data collection to human evaluation:
+
+Load stock universe
+Select stocks from the S&P 500 to define the initial analysis universe.
+
+Apply setup rules
+Filter stocks using predefined technical criteria to identify those that meet the strategy’s conditions.
+
+Scan for candidates
+Evaluate each stock against the setup rules and retain only qualifying candidates.
+
+Generate charts
+Automatically create charts for each candidate, including price data and calculated indicators.
+
+Export PDF gallery
+Compile generated charts into a daily PDF for efficient review.
+
+Manual review and note-taking
+Review candidates visually, record observations, and track outcomes for further learning.
+
+Project Structure
+SwingTrade/
+│
+├── main.py
+├── run.bat
+│
+├── src/
+│   ├── universe.py
+│   ├── scanner.py
+│   ├── setup_rules.py
+│   ├── charting.py
+│   └── reporting.py
+│
+└── data/
+    ├── charts/
+    └── run_logs/
+
+TODO Files
+(You will fill in descriptions later — just list them for now)
+Root
+main.py
+run.bat
+src/
+universe.py
+scanner.py
+setup_rules.py
+charting.py
+reporting.py
+data/
+charts/
+run_logs/
+journal.csv
+docs/
+journal.md
+
+Current Status - What is working now!
+Universe scanning - Current S&P 500 stocks
+Setup filtering - Filters specified above
+Chart generation - Graphs for all candidate stocks
+PDF gallery export - PDF of all graphs of candidate stocks
+Scheduled automation - Main is ran automatically at 6pm Central
+
+***TODO Planned Improvements
+(Future ideas — no commitment)
+Additional filters
+Scoring/ranking
+Forward return analysis
+Visualization dashboard
+Expanded universe
+
+Disclaimer
+This project is for educational and research purposes only and does not constitute financial advice. The analysis and tools provided are intended to support learning and exploration of market behavior, not to recommend or automate trading decisions. Any trading decisions made using insights from this project are the sole responsibility of the user.

@@ -1,0 +1,142 @@
+Market filter passed: SPY > SMA200 on 2026-01-05 (Close=687.72, SMA200=628.12)
+Scanned 100/503 tickers...
+Scanned 200/503 tickers...
+Scanned 300/503 tickers...
+Scanned 400/503 tickers...
+Scanned 500/503 tickers...
+
+=== SIGNALS TODAY ===
+ticker  has_signal_today  last_date most_recent_signal_date  signals_in_lookback
+  ISRG              True 2026-01-05              2026-01-05                   14
+     L              True 2026-01-05              2026-01-05                   12
+  FFIV              True 2026-01-05              2026-01-05                   12
+   ICE              True 2026-01-05              2026-01-05                   10
+   MET              True 2026-01-05              2026-01-05                    9
+   ROK              True 2026-01-05              2026-01-05                    9
+   WTW              True 2026-01-05              2026-01-05                    9
+   AXP              True 2026-01-05              2026-01-05                    8
+   GWW              True 2026-01-05              2026-01-05                    8
+  HBAN              True 2026-01-05              2026-01-05                    8
+   COO              True 2026-01-05              2026-01-05                    8
+   BDX              True 2026-01-05              2026-01-05                    7
+  RVTY              True 2026-01-05              2026-01-05                    7
+   MCO              True 2026-01-05              2026-01-05                    6
+  CBRE              True 2026-01-05              2026-01-05                    6
+   PRU              True 2026-01-05              2026-01-05                    6
+    IR              True 2026-01-05              2026-01-05                    6
+  DXCM              True 2026-01-05              2026-01-05                    6
+   WAT              True 2026-01-05              2026-01-05                    6
+  BKNG              True 2026-01-05              2026-01-05                    2
+   DAL              True 2026-01-05              2026-01-05                    2
+   STZ              True 2026-01-05              2026-01-05                    2
+Saved chart: data/charts/2026-01-05\ISRG_2026-01-05.png
+Saved chart: data/charts/2026-01-05\L_2026-01-05.png
+Saved chart: data/charts/2026-01-05\FFIV_2026-01-05.png
+Saved chart: data/charts/2026-01-05\ICE_2026-01-05.png
+Saved chart: data/charts/2026-01-05\MET_2026-01-05.png
+Saved chart: data/charts/2026-01-05\ROK_2026-01-05.png
+Saved chart: data/charts/2026-01-05\WTW_2026-01-05.png
+Saved chart: data/charts/2026-01-05\AXP_2026-01-05.png
+Saved chart: data/charts/2026-01-05\GWW_2026-01-05.png
+Saved chart: data/charts/2026-01-05\HBAN_2026-01-05.png
+Saved chart: data/charts/2026-01-05\COO_2026-01-05.png
+Saved chart: data/charts/2026-01-05\BDX_2026-01-05.png
+Saved chart: data/charts/2026-01-05\RVTY_2026-01-05.png
+Saved chart: data/charts/2026-01-05\MCO_2026-01-05.png
+Saved chart: data/charts/2026-01-05\CBRE_2026-01-05.png
+Saved chart: data/charts/2026-01-05\PRU_2026-01-05.png
+Saved chart: data/charts/2026-01-05\IR_2026-01-05.png
+Saved chart: data/charts/2026-01-05\DXCM_2026-01-05.png
+Saved chart: data/charts/2026-01-05\WAT_2026-01-05.png
+Saved chart: data/charts/2026-01-05\BKNG_2026-01-05.png
+Saved chart: data/charts/2026-01-05\DAL_2026-01-05.png
+Saved chart: data/charts/2026-01-05\STZ_2026-01-05.png
+
+Saved PDF gallery: data/charts/2026-01-05/gallery_2026-01-05.pdf
+
+Saved: scan_results.csv
+Market filter passed: SPY > SMA200 on 2026-01-06 (Close=691.81, SMA200=628.75)
+Scanned 100/503 tickers...
+Scanned 200/503 tickers...
+Scanned 300/503 tickers...
+Scanned 400/503 tickers...
+Scanned 500/503 tickers...
+
+=== SIGNALS TODAY ===
+ticker  has_signal_today  last_date most_recent_signal_date  signals_in_lookback
+  GRMN              True 2026-01-06              2026-01-06                   12
+   BMY              True 2026-01-06              2026-01-06                   10
+  CPAY              True 2026-01-06              2026-01-06                    7
+   MAS              True 2026-01-06              2026-01-06                    7
+  VRTX              True 2026-01-06              2026-01-06                    5
+  BIIB              True 2026-01-06              2026-01-06                    5
+  EPAM              True 2026-01-06              2026-01-06                    4
+Saved chart: data/charts/2026-01-06\GRMN_2026-01-06.png
+Saved chart: data/charts/2026-01-06\BMY_2026-01-06.png
+Saved chart: data/charts/2026-01-06\CPAY_2026-01-06.png
+Saved chart: data/charts/2026-01-06\MAS_2026-01-06.png
+Saved chart: data/charts/2026-01-06\VRTX_2026-01-06.png
+Saved chart: data/charts/2026-01-06\BIIB_2026-01-06.png
+Saved chart: data/charts/2026-01-06\EPAM_2026-01-06.png
+
+Saved PDF gallery: data/charts/2026-01-06/gallery_2026-01-06.pdf
+
+Saved: scan_results.csv
+Market filter passed: SPY > SMA200 on 2026-01-07 (Close=689.58, SMA200=629.38)
+Scanned 100/503 tickers...
+Scanned 200/503 tickers...
+Scanned 300/503 tickers...
+Scanned 500/503 tickers...
+
+=== SIGNALS TODAY ===
+ticker  has_signal_today  last_date most_recent_signal_date  signals_in_lookback
+  CVNA              True 2026-01-07              2026-01-07                    4
+  VLTO              True 2026-01-07              2026-01-07                    4
+Saved chart: data/charts/2026-01-07\CVNA_2026-01-07.png
+Saved chart: data/charts/2026-01-07\VLTO_2026-01-07.png
+
+Saved PDF gallery: data/charts/2026-01-07/gallery_2026-01-07.pdf
+
+Saved: scan_results.csv
+
+1 Failed download:
+['SNA']: TypeError("'NoneType' object is not subscriptable")
+Market filter passed: SPY > SMA200 on 2026-01-08 (Close=689.51, SMA200=629.96)
+Scanned 100/503 tickers...
+Scanned 200/503 tickers...
+Scanned 300/503 tickers...
+Scanned 400/503 tickers...
+Scanned 500/503 tickers...
+
+=== SIGNALS TODAY ===
+ticker  has_signal_today  last_date most_recent_signal_date  signals_in_lookback
+ BRK-B              True 2026-01-08              2026-01-08                   14
+   KMI              True 2026-01-08              2026-01-08                   12
+   SPG              True 2026-01-08              2026-01-08                   11
+   ROL              True 2026-01-08              2026-01-08                   11
+   AVY              True 2026-01-08              2026-01-08                   11
+  CTAS              True 2026-01-08              2026-01-08                    9
+   YUM              True 2026-01-08              2026-01-08                    8
+   HIG              True 2026-01-08              2026-01-08                    6
+  ACGL              True 2026-01-08              2026-01-08                    6
+   CHD              True 2026-01-08              2026-01-08                    6
+    GL              True 2026-01-08              2026-01-08                    6
+    EG              True 2026-01-08              2026-01-08                    4
+    RL              True 2026-01-08              2026-01-08                    2
+Saved chart: data/charts/2026-01-08\BRK-B_2026-01-08.png
+Saved chart: data/charts/2026-01-08\KMI_2026-01-08.png
+Saved chart: data/charts/2026-01-08\SPG_2026-01-08.png
+Saved chart: data/charts/2026-01-08\ROL_2026-01-08.png
+Saved chart: data/charts/2026-01-08\AVY_2026-01-08.png
+Saved chart: data/charts/2026-01-08\CTAS_2026-01-08.png
+Saved chart: data/charts/2026-01-08\YUM_2026-01-08.png
+Saved chart: data/charts/2026-01-08\HIG_2026-01-08.png
+Saved chart: data/charts/2026-01-08\ACGL_2026-01-08.png
+Saved chart: data/charts/2026-01-08\CHD_2026-01-08.png
+Saved chart: data/charts/2026-01-08\GL_2026-01-08.png
+Saved chart: data/charts/2026-01-08\EG_2026-01-08.png
+Saved chart: data/charts/2026-01-08\RL_2026-01-08.png
+
+Saved PDF gallery: data/charts/2026-01-08/gallery_2026-01-08.pdf
+
+Saved: scan_results.csv
