@@ -140,3 +140,24 @@ Saved chart: data/charts/2026-01-08\RL_2026-01-08.png
 Saved PDF gallery: data/charts/2026-01-08/gallery_2026-01-08.pdf
 
 Saved: scan_results.csv
+Market filter passed: SPY > SMA200 on 2026-01-09 (Close=694.07, SMA200=630.55)
+Scanned 100/503 tickers...
+Scanned 200/503 tickers...
+Scanned 300/503 tickers...
+Scanned 400/503 tickers...
+Scanned 500/503 tickers...
+
+=== SIGNALS TODAY ===
+ticker  has_signal_today  last_date most_recent_signal_date  signals_in_lookback
+   PFE              True 2026-01-09              2026-01-09                    8
+   HST              True 2026-01-09              2026-01-09                    8
+   FIX              True 2026-01-09              2026-01-09                    6
+  CVNA              True 2026-01-09              2026-01-09                    5
+Saved chart: data/charts/2026-01-09\PFE_2026-01-09.png
+Saved chart: data/charts/2026-01-09\HST_2026-01-09.png
+Saved chart: data/charts/2026-01-09\FIX_2026-01-09.png
+Saved chart: data/charts/2026-01-09\CVNA_2026-01-09.png
+
+Saved PDF gallery: data/charts/2026-01-09/gallery_2026-01-09.pdf
+
+Saved: scan_results.csv
