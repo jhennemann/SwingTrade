@@ -1,6 +1,6 @@
 {
   "ticker": "PRU",
-  "run_date": "2026-01-11",
+  "run_date": "2026-01-12",
   "signal_date": "2026-01-05",
   "benchmark": "^GSPC",
   "technical_lookback_days": 90,

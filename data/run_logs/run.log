@@ -161,3 +161,24 @@ Saved chart: data/charts/2026-01-09\CVNA_2026-01-09.png
 Saved PDF gallery: data/charts/2026-01-09/gallery_2026-01-09.pdf
 
 Saved: scan_results.csv
+Market filter passed: SPY > SMA200 on 2026-01-12 (Close=695.16, SMA200=631.19)
+Scanned 100/503 tickers...
+Scanned 200/503 tickers...
+Scanned 300/503 tickers...
+Scanned 400/503 tickers...
+Scanned 500/503 tickers...
+
+=== SIGNALS TODAY ===
+ticker  has_signal_today  last_date most_recent_signal_date  signals_in_lookback
+    EA              True 2026-01-12              2026-01-12                   11
+   TSN              True 2026-01-12              2026-01-12                   10
+   FTV              True 2026-01-12              2026-01-12                    9
+   LLY              True 2026-01-12              2026-01-12                    5
+   JBL              True 2026-01-12              2026-01-12                    4
+Traceback (most recent call last):
+  File "C:\Users\jake4\OneDrive\VS Code\SwingTrade\main.py", line 91, in <module>
+    main()
+  File "C:\Users\jake4\OneDrive\VS Code\SwingTrade\main.py", line 36, in main
+    chart_gen = ChartGenerator(output_dir=chart_output_dir) 
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: ChartGenerator.__init__() got an unexpected keyword argument 'output_dir'

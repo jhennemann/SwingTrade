@@ -81,6 +81,7 @@ class ProgressViewer:
         df = df.copy()
         df["SMA20"] = df["Close"].rolling(20).mean()
         df["SMA50"] = df["Close"].rolling(50).mean()
+        df["VOL_SMA20"] = df["Volume"].rolling(20).mean()
         return df
 
     def _run_dir(self, run_date: date, ticker: str) -> str:
@@ -104,7 +105,7 @@ class ProgressViewer:
     ) -> dict[str, str]:
         """
         Saves ONLY:
-          - report.pdf (performance + technical side-by-side)
+          - report.pdf (technical+volume above performance)
           - meta.json  (summary metrics for the run)
 
         Folder structure:
@@ -156,7 +157,7 @@ class ProgressViewer:
         perf_png = fig_to_png_bytes(fig1)
 
         # -------------------------
-        # Technical: show last N days, but compute SMAs from longer history
+        # Technical: price + SMA + volume (stacked)
         # -------------------------
         today = run_date  # use run_date as the "today" anchor for reproducibility
         indicator_start = (today - timedelta(days=indicator_history_days)).isoformat()
@@ -174,18 +175,36 @@ class ProgressViewer:
                 f"Technical plot window is empty for {ticker}. Plot start was {plot_start.isoformat()}."
             )
 
-        fig2 = plt.figure(figsize=(12, 6))
-        plt.plot(stock_tech_plot.index, stock_tech_plot["Close"], label="Close")
-        plt.plot(stock_tech_plot.index, stock_tech_plot["SMA20"], label="SMA20")
-        plt.plot(stock_tech_plot.index, stock_tech_plot["SMA50"], label="SMA50")
+        # Create a 2-row figure: price on top, volume on bottom
+        fig2, (ax_price, ax_vol) = plt.subplots(
+            2,
+            1,
+            figsize=(12, 7),
+            sharex=True,
+            gridspec_kw={"height_ratios": [3, 1]},
+        )
+
+        # ---- Price + SMAs ----
+        ax_price.plot(stock_tech_plot.index, stock_tech_plot["Close"], label="Close", linewidth=1.5)
+        ax_price.plot(stock_tech_plot.index, stock_tech_plot["SMA20"], label="SMA20", linestyle="--")
+        ax_price.plot(stock_tech_plot.index, stock_tech_plot["SMA50"], label="SMA50", linestyle="--")
 
         start_dt = pd.to_datetime(start_date)
-        plt.axvline(start_dt, color="red", linestyle="--", linewidth=1.5, label="Signal date")
+        ax_price.axvline(start_dt, color="red", linestyle=":", linewidth=1.5, label="Signal date")
 
-        plt.title(f"{safe_ticker} technical view (last {technical_lookback_days} days)")
-        plt.xlabel("Date")
-        plt.ylabel("Price")
-        plt.legend()
+        ax_price.set_title(f"{safe_ticker} technical view (last {technical_lookback_days} days)")
+        ax_price.legend(loc="upper left")
+        ax_price.grid(True)
+
+        # ---- Volume ----
+        ax_vol.bar(stock_tech_plot.index, stock_tech_plot["Volume"], width=1.0, label="Volume")
+        ax_vol.plot(stock_tech_plot.index, stock_tech_plot["VOL_SMA20"], label="VOL_SMA20", linewidth=1.2)
+
+        ax_vol.axvline(start_dt, color="red", linestyle=":", linewidth=1.0)
+        ax_vol.set_ylabel("Volume")
+        ax_vol.legend(loc="upper left")
+        ax_vol.grid(True)
+
         plt.tight_layout()
         tech_png = fig_to_png_bytes(fig2)
 

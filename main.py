@@ -6,7 +6,7 @@ from src.reporting import PDFGalleryExporter
 
 import yfinance as yf
 import pandas as pd
-from datetime import datetime
+from datetime import datetime, date
 
 
 def main():
@@ -29,13 +29,25 @@ def main():
     today = results[results["has_signal_today"]]
     print(today.to_string(index=False))
 
-    # ---- generate charts ----
-    signal_day = today["last_date"].iloc[0] if not today.empty else "unknown-date"
-    chart_output_dir = f"data/charts/{signal_day}"
+    # -------------------------------------------------
+    # Determine the RUN DATE for this scan
+    # -------------------------------------------------
+    if today.empty:
+        print("\nNo signals today.")
+        run_date = date.today()
+    else:
+        # last_date is already the scan date (Timestamp or string)
+        run_date = pd.to_datetime(today["last_date"].iloc[0]).date()
 
-    chart_gen = ChartGenerator(output_dir=chart_output_dir) 
+    # -------------------------------------------------
+    # Chart generator (ROOT ONLY — no date here)
+    # -------------------------------------------------
+    chart_gen = ChartGenerator(base_dir="data/charts")
     chart_paths = []
 
+    # -------------------------------------------------
+    # Generate charts per ticker
+    # -------------------------------------------------
     for _, row in today.iterrows():
         ticker = row["ticker"]
         signal_date = pd.to_datetime(row["most_recent_signal_date"])
@@ -59,30 +71,45 @@ def main():
         chart_path = chart_gen.save_chart(
             df=df,
             ticker=ticker,
-            signal_date=signal_date
+            signal_date=signal_date,
+            run_date=run_date,  # 🔑 ensures YYYY/MM/DD matches scan date
+            filename="pullback_setup.png"
         )
 
         chart_paths.append(chart_path)
         print(f"Saved chart: {chart_path}")
 
-    # ---- export PDF gallery ----
+    # -------------------------------------------------
+    # Export PDF gallery (optional)
+    # -------------------------------------------------
     if chart_paths:
-        # Use the signal day shown in your table (last_date is already string like 2026-01-02)
-        signal_day = today["last_date"].iloc[0] if not today.empty else "unknown-date"
-        pdf_out = f"{chart_output_dir}/gallery_{signal_day}.pdf"
+        pdf_out = (
+            f"data/charts/"
+            f"{run_date.year:04d}/"
+            f"{run_date.month:02d}/"
+            f"{run_date.isoformat()}/"
+            f"gallery_{run_date.isoformat()}.pdf"
+        )
+
 
         exporter = PDFGalleryExporter(cols=2, rows=2)
         pdf_path = exporter.export(
             image_paths=chart_paths,
             output_pdf_path=pdf_out,
             title="SwingTrade Setup Gallery",
-            subtitle=f"Signal date: {signal_day} | Generated: {datetime.now().strftime('%Y-%m-%d %H:%M')}"
+            subtitle=(
+                f"Signal date: {run_date.isoformat()} | "
+                f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M')}"
+            ),
         )
 
         print(f"\nSaved PDF gallery: {pdf_path}")
     else:
         print("\nNo charts generated; skipping PDF export.")
 
+    # -------------------------------------------------
+    # Save scan results
+    # -------------------------------------------------
     results.to_csv("scan_results.csv", index=False)
     print("\nSaved: scan_results.csv")
 
