@@ -1,0 +1,15 @@
+{
+  "ticker": "PRU",
+  "run_date": "2026-01-14",
+  "signal_date": "2026-01-05",
+  "benchmark": "^GSPC",
+  "technical_lookback_days": 90,
+  "indicator_history_days": 365,
+  "stock_change_pct": -0.664621,
+  "benchmark_change_pct": 0.893799,
+  "relative_outperformance_pct": -1.558419,
+  "perf_start_close": 117.36000061035156,
+  "perf_end_close": 116.58000183105469,
+  "bench_start_close": 6902.0498046875,
+  "bench_end_close": 6963.740234375
+}

@@ -1,0 +1,15 @@
+{
+  "ticker": "CTAS",
+  "run_date": "2026-01-14",
+  "signal_date": "2026-01-08",
+  "benchmark": "^GSPC",
+  "technical_lookback_days": 90,
+  "indicator_history_days": 365,
+  "stock_change_pct": 1.292971,
+  "benchmark_change_pct": 0.610858,
+  "relative_outperformance_pct": 0.682113,
+  "perf_start_close": 190.25999450683594,
+  "perf_end_close": 192.72000122070312,
+  "bench_start_close": 6921.4599609375,
+  "bench_end_close": 6963.740234375
+}

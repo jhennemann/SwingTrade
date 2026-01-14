@@ -182,3 +182,22 @@ Traceback (most recent call last):
     chart_gen = ChartGenerator(output_dir=chart_output_dir) 
                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 TypeError: ChartGenerator.__init__() got an unexpected keyword argument 'output_dir'
+Market filter passed: SPY > SMA200 on 2026-01-13 (Close=693.77, SMA200=631.82)
+Scanned 100/503 tickers...
+Scanned 200/503 tickers...
+Scanned 300/503 tickers...
+Scanned 400/503 tickers...
+Scanned 500/503 tickers...
+
+=== SIGNALS TODAY ===
+ticker  has_signal_today  last_date most_recent_signal_date  signals_in_lookback
+   CAH              True 2026-01-13              2026-01-13                    8
+  LULU              True 2026-01-13              2026-01-13                    4
+    RL              True 2026-01-13              2026-01-13                    3
+Saved chart: data/charts\2026\01\2026-01-13\CAH\pullback_setup.png
+Saved chart: data/charts\2026\01\2026-01-13\LULU\pullback_setup.png
+Saved chart: data/charts\2026\01\2026-01-13\RL\pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/01/2026-01-13/gallery_2026-01-13.pdf
+
+Saved: scan_results.csv
