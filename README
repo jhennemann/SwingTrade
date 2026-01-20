@@ -1,4 +1,7 @@
-Swing Trade Project
+Swing Trade Project (In Progress)
+
+Terminal Commands: python main.py to run the daily scan, python -m src.progress_viewer <TICKER> <Date: Ex 1/2> for progress
+
 
 Overview
 This is an in progress project designed to scan stocks in the S&P 500, with plans to expand to additional universes in the future. Stocks are filtered using a defined set of technical criteria, described in setup_rules.py, and only those that meet the requirements are selected as candidates. For each selected stock, charts are automatically generated that display price action along with calculated indicators, as implemented in charting.py.

@@ -201,3 +201,69 @@ Saved chart: data/charts\2026\01\2026-01-13\RL\pullback_setup.png
 Saved PDF gallery: data/charts/2026/01/2026-01-13/gallery_2026-01-13.pdf
 
 Saved: scan_results.csv
+Market filter passed: SPY > SMA200 on 2026-01-15 (Close=694.85, SMA200=633.17)
+Scanned 100/502 tickers...
+Scanned 200/502 tickers...
+Scanned 300/502 tickers...
+Scanned 400/502 tickers...
+Scanned 500/502 tickers...
+
+=== SIGNALS TODAY ===
+ticker  has_signal_today  last_date most_recent_signal_date  signals_in_lookback
+    EA              True 2026-01-15              2026-01-15                   12
+   HST              True 2026-01-15              2026-01-15                    9
+   CVS              True 2026-01-15              2026-01-15                    6
+   TKO              True 2026-01-15              2026-01-15                    6
+    RL              True 2026-01-15              2026-01-15                    4
+   ADP              True 2026-01-15              2026-01-15                    1
+Saved chart: data/charts\2026\01\2026-01-15\EA\pullback_setup.png
+Saved chart: data/charts\2026\01\2026-01-15\HST\pullback_setup.png
+Saved chart: data/charts\2026\01\2026-01-15\CVS\pullback_setup.png
+Saved chart: data/charts\2026\01\2026-01-15\TKO\pullback_setup.png
+Saved chart: data/charts\2026\01\2026-01-15\RL\pullback_setup.png
+Saved chart: data/charts\2026\01\2026-01-15\ADP\pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/01/2026-01-15/gallery_2026-01-15.pdf
+
+Saved: scan_results.csv
+Market filter passed: SPY > SMA200 on 2026-01-15 (Close=692.24, SMA200=633.16)
+Scanned 100/502 tickers...
+Scanned 200/502 tickers...
+Scanned 300/502 tickers...
+Scanned 500/502 tickers...
+
+=== SIGNALS TODAY ===
+ticker  has_signal_today  last_date most_recent_signal_date  signals_in_lookback
+   HST              True 2026-01-15              2026-01-15                    9
+   CVS              True 2026-01-15              2026-01-15                    6
+    RL              True 2026-01-15              2026-01-15                    4
+   ADP              True 2026-01-15              2026-01-15                    1
+Saved chart: data/charts\2026\01\2026-01-15\HST\pullback_setup.png
+Saved chart: data/charts\2026\01\2026-01-15\CVS\pullback_setup.png
+Saved chart: data/charts\2026\01\2026-01-15\RL\pullback_setup.png
+Saved chart: data/charts\2026\01\2026-01-15\ADP\pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/01/2026-01-15/gallery_2026-01-15.pdf
+
+Saved: scan_results.csv
+Market filter passed: SPY > SMA200 on 2026-01-16 (Close=691.66, SMA200=633.81)
+Scanned 100/502 tickers...
+Scanned 200/502 tickers...
+Scanned 300/502 tickers...
+Scanned 400/502 tickers...
+Scanned 500/502 tickers...
+
+=== SIGNALS TODAY ===
+ticker  has_signal_today  last_date most_recent_signal_date  signals_in_lookback
+  ARES              True 2026-01-16              2026-01-16                    8
+   AVB              True 2026-01-16              2026-01-16                    7
+   BRO              True 2026-01-16              2026-01-16                    5
+   CPT              True 2026-01-16              2026-01-16                    5
+Saved chart: data/charts\2026\01\2026-01-16\ARES\pullback_setup.png
+Saved chart: data/charts\2026\01\2026-01-16\AVB\pullback_setup.png
+Saved chart: data/charts\2026\01\2026-01-16\BRO\pullback_setup.png
+Saved chart: data/charts\2026\01\2026-01-16\CPT\pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/01/2026-01-16/gallery_2026-01-16.pdf
+
+Saved: scan_results.csv
