@@ -1,5 +1,8 @@
 name: SwingTrade Daily Run
 
+permissions:
+  contents: write
+
 on:
   schedule:
     - cron: '0 18 * * 1-5'  # M-F at 6 PM UTC
