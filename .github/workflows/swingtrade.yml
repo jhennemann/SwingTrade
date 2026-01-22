@@ -1,7 +1,7 @@
 name: SwingTrade Daily Run
 
 permissions:
-  contents: write
+  contents: write # to push generated files back to the repo
 
 on:
   schedule:
