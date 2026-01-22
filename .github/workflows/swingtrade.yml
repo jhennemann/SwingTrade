@@ -32,7 +32,7 @@ jobs:
           python main.py >> data/run_logs/run.log 2>&1
 
       - name: Upload logs
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: swingtrade-run-log
           path: data/run_logs/run.log
