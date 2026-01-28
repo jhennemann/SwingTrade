@@ -33,7 +33,8 @@ jobs:
             requests \
             beautifulsoup4 \
             lxml \
-            reportlab
+            reportlab \
+            pandas_market_calendars
 
       - name: Run SwingTrade
         run: |

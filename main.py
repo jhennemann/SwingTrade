@@ -3,6 +3,8 @@ from src.setup_rules import PullbackUptrendSetup
 from src.scanner import SetupScanner
 from src.charting import ChartGenerator
 from src.reporting import PDFGalleryExporter
+from src.market_calendar import market_is_open
+
 
 import yfinance as yf
 import pandas as pd
@@ -10,6 +12,9 @@ from datetime import datetime, date
 
 
 def main():
+    if not market_is_open():
+        print("Market is closed today. Skipping scan.")
+        return
     universe = SP500UniverseStockAnalysis()
 
     setup = PullbackUptrendSetup(
