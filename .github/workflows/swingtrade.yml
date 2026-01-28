@@ -1,38 +1,44 @@
 name: SwingTrade Daily Run
 
 permissions:
-  contents: write # to push generated files back to the repo
+  contents: write
 
 on:
   schedule:
-    - cron: '0 18 * * 1-5'  # M-F at 6 PM UTC
+    # Weekdays at 6:00 PM Central (23:00 UTC)
+    - cron: "0 23 * * 1-5"
   workflow_dispatch:
 
 jobs:
   run_swingtrade:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./
+    timeout-minutes: 30
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Set up Python 3.12
-        uses: actions/setup-python@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          python-version: 3.12
+          python-version: "3.12"
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install yfinance pandas matplotlib lxml reportlab
+          pip install \
+            yfinance \
+            pandas \
+            matplotlib \
+            requests \
+            beautifulsoup4 \
+            lxml \
+            reportlab
 
       - name: Run SwingTrade
         run: |
           mkdir -p data/run_logs
-          python main.py >> data/run_logs/run.log 2>&1
+          python main.py | tee data/run_logs/run.log
 
       - name: Upload logs
         uses: actions/upload-artifact@v4
@@ -41,14 +47,15 @@ jobs:
           path: data/run_logs/run.log
 
       - name: Commit and push generated files
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add data/charts data/progress scan_results.csv
-          git diff --cached --quiet && echo "No changes to commit" || (
+          git add data/charts scan_results.csv data/run_logs || true
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
             git commit -m "Automated SwingTrade run [skip ci]"
-            git push https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }} HEAD:main
-          )
+            git push
+          fi
