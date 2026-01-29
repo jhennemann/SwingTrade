@@ -1,4 +1,4 @@
-Market filter passed: SPY > SMA200 on 2026-01-28 (Close=695.42, SMA200=639.53)
+Market filter passed: SPY > SMA200 on 2026-01-29 (Close=694.04, SMA200=640.33)
 Scanned 100/502 tickers...
 Scanned 200/502 tickers...
 Scanned 300/502 tickers...
@@ -7,15 +7,23 @@ Scanned 500/502 tickers...
 
 === SIGNALS TODAY ===
 ticker  has_signal_today  last_date most_recent_signal_date  signals_in_lookback
-    GS              True 2026-01-28              2026-01-28                    8
-   VMC              True 2026-01-28              2026-01-28                    5
-  SNPS              True 2026-01-28              2026-01-28                    4
-  INTC              True 2026-01-28              2026-01-28                    3
-Saved chart: data/charts/2026/01/2026-01-28/GS/pullback_setup.png
-Saved chart: data/charts/2026/01/2026-01-28/VMC/pullback_setup.png
-Saved chart: data/charts/2026/01/2026-01-28/SNPS/pullback_setup.png
-Saved chart: data/charts/2026/01/2026-01-28/INTC/pullback_setup.png
+   SPG              True 2026-01-29              2026-01-29                   12
+    RF              True 2026-01-29              2026-01-29                    9
+  CPAY              True 2026-01-29              2026-01-29                    9
+    BK              True 2026-01-29              2026-01-29                    8
+   YUM              True 2026-01-29              2026-01-29                    8
+    CB              True 2026-01-29              2026-01-29                    7
+  BIIB              True 2026-01-29              2026-01-29                    6
+   PSA              True 2026-01-29              2026-01-29                    5
+Saved chart: data/charts/2026/01/2026-01-29/SPG/pullback_setup.png
+Saved chart: data/charts/2026/01/2026-01-29/RF/pullback_setup.png
+Saved chart: data/charts/2026/01/2026-01-29/CPAY/pullback_setup.png
+Saved chart: data/charts/2026/01/2026-01-29/BK/pullback_setup.png
+Saved chart: data/charts/2026/01/2026-01-29/YUM/pullback_setup.png
+Saved chart: data/charts/2026/01/2026-01-29/CB/pullback_setup.png
+Saved chart: data/charts/2026/01/2026-01-29/BIIB/pullback_setup.png
+Saved chart: data/charts/2026/01/2026-01-29/PSA/pullback_setup.png
 
-Saved PDF gallery: data/charts/2026/01/2026-01-28/gallery_2026-01-28.pdf
+Saved PDF gallery: data/charts/2026/01/2026-01-29/gallery_2026-01-29.pdf
 
 Saved: scan_results.csv
