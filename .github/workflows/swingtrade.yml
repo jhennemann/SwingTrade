@@ -32,7 +32,7 @@ jobs:
       - name: Run SwingTrade
         run: |
           mkdir -p data/run_logs
-          python main.py >> data/run_logs/run.log 2>&1
+          python main.py | tee -a data/run_logs/run.log
 
       - name: Upload logs
         uses: actions/upload-artifact@v3
