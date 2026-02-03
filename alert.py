@@ -2,6 +2,13 @@ import yfinance as yf
 import pandas as pd
 from email.mime.text import MIMEText
 import smtplib
+import os
+
+EMAIL = os.getenv("EMAIL")
+PASSWORD = os.getenv("APP_PASSWORD")
+
+if not EMAIL or not PASSWORD:
+    raise RuntimeError("Missing email secrets")
 
 TICKER_FILE = "tickerAlert.txt"
 
@@ -19,17 +26,15 @@ def read_tickers():
     return tickers
 
 def send_email_alert(subject, body, to_email):
-    from_email = "jake4henn@gmail.com"
-    from_password = ""  # app password for Gmail
 
     msg = MIMEText(body)
     msg["Subject"] = subject
-    msg["From"] = from_email
+    msg["From"] = EMAIL
     msg["To"] = to_email
 
     with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
-        server.login(from_email, from_password)
-        server.sendmail(from_email, [to_email], msg.as_string())
+        server.login(EMAIL, PASSWORD)
+        server.sendmail(EMAIL, [EMAIL], msg.as_string())
 
 def main():
     tickers = read_tickers()
@@ -54,7 +59,7 @@ def main():
         send_email_alert(
             subject="SwingTrade Alert",
             body="\n".join(alerts),
-            to_email="jake4henn@gmail.com"
+            to_email=EMAIL
         )
         print("\n".join(alerts))
     else:
