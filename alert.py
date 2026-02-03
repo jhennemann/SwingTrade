@@ -61,6 +61,11 @@ def main():
         if df.empty or len(df) < 50:
             continue
 
+
+        if isinstance(df.columns, pd.MultiIndex):
+          df.columns = df.columns.get_level_values(0)
+
+          
         df["SMA50"] = df["Close"].rolling(50).mean()
         latest_close = float(df["Close"].iloc[-1])
         latest_sma50 = float(df["SMA50"].iloc[-1])
