@@ -62,8 +62,9 @@ def main():
             continue
 
         df["SMA50"] = df["Close"].rolling(50).mean()
-        latest_close = df["Close"].iloc[-1]
-        latest_sma50 = df["SMA50"].iloc[-1]
+        latest_close = float(df["Close"].iloc[-1])
+        latest_sma50 = float(df["SMA50"].iloc[-1])
+
 
         if latest_close < latest_sma50:
             alerts.append(f"{ticker} below SMA50: Close={latest_close:.2f}, SMA50={latest_sma50:.2f}")
