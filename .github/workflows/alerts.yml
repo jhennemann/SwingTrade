@@ -25,5 +25,6 @@ jobs:
         env:
           EMAIL: ${{ secrets.EMAIL }}
           APP_PASSWORD: ${{ secrets.APP_PASSWORD }}
+          PHONE: ${{ secrets.PHONE }}
         run: |
           python alert.py
