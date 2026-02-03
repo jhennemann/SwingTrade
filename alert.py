@@ -6,9 +6,10 @@ import os
 
 EMAIL = os.getenv("EMAIL")
 PASSWORD = os.getenv("APP_PASSWORD")
+PHONE = os.getenv("PHONE")
 
-if not EMAIL or not PASSWORD:
-    raise RuntimeError("Missing email secrets")
+if not EMAIL or not PASSWORD or not PHONE:
+    raise RuntimeError("Missing email or phone secrets")
 
 TICKER_FILE = "tickerAlert.txt"
 
@@ -50,7 +51,7 @@ def send_email_alert(subject, body, to_email):
 
     with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
         server.login(EMAIL, PASSWORD)
-        server.sendmail(EMAIL, [EMAIL], msg.as_string())
+        server.sendmail(EMAIL, [to_email], msg.as_string())
 
 def main():
     tickers = read_tickers()
@@ -65,7 +66,7 @@ def main():
         if isinstance(df.columns, pd.MultiIndex):
           df.columns = df.columns.get_level_values(0)
 
-          
+
         df["SMA50"] = df["Close"].rolling(50).mean()
         latest_close = float(df["Close"].iloc[-1])
         latest_sma50 = float(df["SMA50"].iloc[-1])
@@ -81,7 +82,7 @@ def main():
         send_email_alert(
             subject="SwingTrade Alert",
             body="\n".join(alerts),
-            to_email=EMAIL
+            to_email=PHONE
         )
         print("\n".join(alerts))
     else:
