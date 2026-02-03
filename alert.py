@@ -46,7 +46,7 @@ def send_email_alert(subject, body, to_email):
 
     msg = MIMEText(body)
     msg["Subject"] = subject
-    msg["From"] = EMAIL
+    msg["From"] = "SWING TRADE ALERT <{}>".format(EMAIL)
     msg["To"] = to_email
 
     with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
