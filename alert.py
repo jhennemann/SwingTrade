@@ -14,15 +14,31 @@ TICKER_FILE = "tickerAlert.txt"
 
 def read_tickers():
     tickers = []
+
     with open(TICKER_FILE, "r") as f:
         for line in f:
             line = line.strip()
+
             if not line:
                 continue
+
+            # skip header lines
+            if line.lower().startswith("ticker"):
+                continue
+
             parts = line.split(",")
+
             ticker = parts[0].strip().upper()
-            buy_price = float(parts[1].strip()) if len(parts) > 1 else None
+            buy_price = None
+
+            if len(parts) > 1 and parts[1].strip():
+                try:
+                    buy_price = float(parts[1].strip())
+                except ValueError:
+                    print(f"Skipping invalid price for {ticker}")
+
             tickers.append((ticker, buy_price))
+
     return tickers
 
 def send_email_alert(subject, body, to_email):
