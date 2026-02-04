@@ -39,8 +39,9 @@ class SetupScanner:
         ok is True if SPY Close > SMA200 on most recent trading day in lookback.
         """
         spy = self._download("SPY")
-        if spy.empty or len(spy) < 220:
-            return (False, None, None, None)
+        if spy.empty or "Close" not in spy or spy["Close"].isna().all():
+            print("SPY data missing — treating market as neutral")
+            return (True, None, None, None)
 
         spy = spy.copy()
         spy["SMA200"] = spy["Close"].rolling(200).mean()
