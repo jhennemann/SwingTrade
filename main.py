@@ -3,11 +3,14 @@ from src.setup_rules import PullbackUptrendSetup
 from src.scanner import SetupScanner
 from src.charting import ChartGenerator
 from src.reporting import PDFGalleryExporter
-from src.market_calendar import market_is_open
 
 import yfinance as yf
 import pandas as pd
 from datetime import datetime, date
+
+from src.ranking import rank_signals
+from src.market_calendar import market_is_open
+
 
 
 def main():
@@ -41,10 +44,17 @@ def main():
     )
 
     results = scanner.scan(all_tickers)
-
+    
+    # Rank signals by quality
+    results = rank_signals(results)
+    
     print("\n=== SIGNALS TODAY ===")
     today = results[results["has_signal_today"]]
-    print(today.to_string(index=False))
+    
+    if not today.empty:
+        print(today[["rank", "ticker", "relative_strength", "last_date"]].to_string(index=False))
+    else:
+        print("No signals today.")
 
     # -------------------------------------------------
     # Determine the RUN DATE for this scan
