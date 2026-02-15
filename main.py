@@ -1,10 +1,9 @@
-from src.universe import SP500UniverseStockAnalysis
+from src.universe import SP500UniverseStockAnalysis, Nasdaq100Universe
 from src.setup_rules import PullbackUptrendSetup
 from src.scanner import SetupScanner
 from src.charting import ChartGenerator
 from src.reporting import PDFGalleryExporter
 from src.market_calendar import market_is_open
-
 
 import yfinance as yf
 import pandas as pd
@@ -15,10 +14,23 @@ def main():
     if not market_is_open():
         print("Market is closed today. Skipping scan.")
         return
-    universe = SP500UniverseStockAnalysis()
+    
+    # Load universes
+    print("Loading stock universes...")
+    sp500 = SP500UniverseStockAnalysis()
+    print(f"✓ S&P 500: {len(sp500.tickers)} stocks")
+    
+    nasdaq100 = Nasdaq100Universe()
+    print(f"✓ NASDAQ 100: {len(nasdaq100.tickers)} stocks")
+    
+    # Combine and deduplicate
+    all_tickers = list(set(sp500.tickers + nasdaq100.tickers))
+    overlap = len(sp500.tickers) + len(nasdaq100.tickers) - len(all_tickers)
+    print(f"✓ Combined universe: {len(all_tickers)} stocks ({overlap} overlap)")
+    print()
 
     setup = PullbackUptrendSetup(
-        pullback_pct=0.01,
+        pullback_pct=0.02,
         use_volume=True
     )
 
@@ -28,7 +40,7 @@ def main():
         require_market_ok=True
     )
 
-    results = scanner.scan(universe.tickers)
+    results = scanner.scan(all_tickers)
 
     print("\n=== SIGNALS TODAY ===")
     today = results[results["has_signal_today"]]
@@ -77,7 +89,7 @@ def main():
             df=df,
             ticker=ticker,
             signal_date=signal_date,
-            run_date=run_date,  # 🔑 ensures YYYY/MM/DD matches scan date
+            run_date=run_date,
             filename="pullback_setup.png"
         )
 
@@ -96,15 +108,15 @@ def main():
             f"gallery_{run_date.isoformat()}.pdf"
         )
 
-
         exporter = PDFGalleryExporter(cols=2, rows=2)
         pdf_path = exporter.export(
             image_paths=chart_paths,
             output_pdf_path=pdf_out,
-            title="SwingTrade Setup Gallery",
+            title="SwingTrade Setup Gallery - S&P 500 + NASDAQ 100",
             subtitle=(
                 f"Signal date: {run_date.isoformat()} | "
-                f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M')}"
+                f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M')} | "
+                f"Universe: {len(all_tickers)} stocks"
             ),
         )
 

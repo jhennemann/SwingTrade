@@ -8,7 +8,7 @@ class PullbackUptrendSetup:
       - Confirmation: Today closes back above SMA20 (reclaim)
       - Optional: Pullback day volume < VOL_SMA20 (quiet pullback)
     """
-    def __init__(self, pullback_pct: float = 0.01, use_volume: bool = True):
+    def __init__(self, pullback_pct: float = 0.02, use_volume: bool = True):
         self.pullback_pct = pullback_pct
         self.use_volume = use_volume
 

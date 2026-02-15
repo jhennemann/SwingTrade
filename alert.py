@@ -4,6 +4,7 @@ from email.mime.text import MIMEText
 import smtplib
 import os
 from datetime import datetime
+from src.exit_rules import SimpleExitRules
 
 EMAIL = os.getenv("EMAIL")
 PASSWORD = os.getenv("APP_PASSWORD")
@@ -60,6 +61,13 @@ def send_email_alert(subject, body, to_email):
 def main():
     print(f"=== SwingTrade Alerts - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} ===\n")
     
+    # Create exit rules calculator
+    exit_rules = SimpleExitRules(
+        stop_loss_pct=0.02,
+        profit_target_pct=0.07,
+        max_hold_days=10
+    )
+    
     # Read tickers
     tickers = read_tickers()
     print(f"Monitoring {len(tickers)} tickers\n")
@@ -93,20 +101,41 @@ def main():
                     f"   Close: ${latest_close:.2f} | SMA50: ${latest_sma50:.2f} ({pct_below:.1f}% below)"
                 )
             
-            # Alert 2: Below buy price
-            if buy_price and latest_close < buy_price:
-                loss_pct = ((buy_price - latest_close) / buy_price) * 100
-                alerts.append(
-                    f"📉 {ticker} below buy price\n"
-                    f"   Current: ${latest_close:.2f} | Bought: ${buy_price:.2f} ({loss_pct:.1f}% loss)"
-                )
-            
-            print(f"✓ {ticker}: ${latest_close:.2f} (SMA50: ${latest_sma50:.2f})")
+            # Alert 2: Position tracking (if you have entry price)
+            if buy_price:
+                # Calculate P&L
+                pnl_pct = ((latest_close - buy_price) / buy_price) * 100
+                
+                # Calculate exit levels
+                exits = exit_rules.calculate_exits(buy_price)
+                stop = exits['stop_loss']
+                target = exits['profit_target']
+                
+                # Alert if stop loss hit
+                if latest_close <= stop:
+                    alerts.append(
+                        f"🛑 {ticker} HIT STOP LOSS\n"
+                        f"   Entry: ${buy_price:.2f} | Current: ${latest_close:.2f} ({pnl_pct:+.1f}%)\n"
+                        f"   Stop: ${stop:.2f}"
+                    )
+                # Alert if profit target hit
+                elif latest_close >= target:
+                    alerts.append(
+                        f"🎯 {ticker} HIT PROFIT TARGET\n"
+                        f"   Entry: ${buy_price:.2f} | Current: ${latest_close:.2f} ({pnl_pct:+.1f}%)\n"
+                        f"   Target: ${target:.2f}"
+                    )
+                # Just log current status (no alert)
+                else:
+                    print(f"✓ {ticker}: ${latest_close:.2f} | P&L: {pnl_pct:+.1f}% | Stop: ${stop:.2f} | Target: ${target:.2f}")
+            else:
+                # No entry price, just show current price
+                print(f"✓ {ticker}: ${latest_close:.2f} (SMA50: ${latest_sma50:.2f})")
         
         except Exception as e:
             print(f"❌ {ticker}: Error - {e}")
     
-    # Send alerts
+     # Send alerts
     if alerts:
         alert_body = "\n\n".join(alerts)
         print(f"\n{'='*60}")
@@ -120,7 +149,35 @@ def main():
             to_email=PHONE
         )
     else:
-        print("\n✅ No alerts triggered - all positions healthy")
+        # Build status summary for text message
+        status_lines = ["✅ No alerts triggered - all positions healthy\n"]
+        
+        for ticker, buy_price in tickers:
+            if buy_price:
+                try:
+                    df = yf.download(ticker, period="5d", interval="1d", progress=False, auto_adjust=False)
+                    if df.empty:
+                        continue
+                    
+                    if isinstance(df.columns, pd.MultiIndex):
+                        df.columns = df.columns.get_level_values(0)
+                    
+                    latest_close = float(df["Close"].iloc[-1])
+                    pnl_pct = ((latest_close - buy_price) / buy_price) * 100
+                    
+                    status_lines.append(f"{ticker}: {pnl_pct:+.1f}%")
+                except:
+                    continue
+        
+        status_body = "\n".join(status_lines)
+        print(f"\n{status_body}\n")
+        
+        # Send status update text
+        send_email_alert(
+            subject="SwingTrade Status - All Positions Healthy",
+            body=status_body,
+            to_email=PHONE
+        )
 
 if __name__ == "__main__":
     main()
