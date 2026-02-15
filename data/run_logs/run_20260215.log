@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/home/runner/work/SwingTrade/SwingTrade/main.py", line 6, in <module>
+    from src.market_calendar import market_is_open
+  File "/home/runner/work/SwingTrade/SwingTrade/src/market_calendar.py", line 1, in <module>
+    import pandas_market_calendars as mcal
+ModuleNotFoundError: No module named 'pandas_market_calendars'
