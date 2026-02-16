@@ -17,6 +17,7 @@ def main():
     if not market_is_open():
         print("Market is closed today. Skipping scan.")
         return
+
     
     # Load universes
     print("Loading stock universes...")
@@ -44,12 +45,13 @@ def main():
     )
 
     results = scanner.scan(all_tickers)
-    
-    # Rank signals by quality
-    results = rank_signals(results)
+
+    today = results[results["has_signal_today"]]  # ← Filter first
+
+    if not today.empty:
+        today = rank_signals(today)
     
     print("\n=== SIGNALS TODAY ===")
-    today = results[results["has_signal_today"]]
     
     if not today.empty:
         print(today[["rank", "ticker", "relative_strength", "last_date"]].to_string(index=False))
