@@ -139,7 +139,15 @@ def main():
     # -------------------------------------------------
     # Save scan results
     # -------------------------------------------------
-    results.to_csv("scan_results.csv", index=False)
+    csv_path = (
+    f"data/charts/"
+    f"{run_date.year:04d}/"
+    f"{run_date.month:02d}/"
+    f"{run_date.isoformat()}/"
+    f"scan_results_{run_date.isoformat()}.csv"
+    )
+    results.to_csv(csv_path, index=False)
+    print(f"\nSaved: {csv_path}")
     print("\nSaved: scan_results.csv")
 
 

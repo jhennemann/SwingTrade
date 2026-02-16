@@ -1,2 +1,2 @@
 ticker,entry_price
-PRU,117.28
+NEM,19.09
