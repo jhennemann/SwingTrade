@@ -14,10 +14,10 @@ from src.market_calendar import market_is_open
 
 
 def main():
-    if not market_is_open():
+    '''if not market_is_open():
         print("Market is closed today. Skipping scan.")
         return
-
+'''
     
     # Load universes
     print("Loading stock universes...")

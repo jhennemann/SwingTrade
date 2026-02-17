@@ -1,4 +1,4 @@
 ticker,entry_price
-NEM,19.09
+NEM,119.09
 HII,406.06
 ULTA,660.00
