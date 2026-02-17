@@ -1,0 +1,25 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 518 stocks (86 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-02-17 (Close=682.85, SMA200=649.30)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+Calculating relative strength scores...
+
+=== SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1    APH           5.663589 2026-02-17
+    2   CTAS           3.189328 2026-02-17
+Saved chart: data/charts/2026/02/2026-02-17/APH/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-17/CTAS/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/02/2026-02-17/gallery_2026-02-17.pdf
+
+Saved: data/charts/2026/02/2026-02-17/scan_results_2026-02-17.csv
+
+Saved: scan_results.csv
