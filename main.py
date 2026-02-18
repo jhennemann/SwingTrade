@@ -14,10 +14,10 @@ from src.market_calendar import market_is_open
 
 
 def main():
-    '''if not market_is_open():
+    if not market_is_open():
         print("Market is closed today. Skipping scan.")
         return
-'''
+
     
     # Load universes
     print("Loading stock universes...")
@@ -50,6 +50,11 @@ def main():
 
     if not today.empty:
         today = rank_signals(today)
+        # Merge ranked data back into results
+        results = results.set_index('ticker')
+        today = today.set_index('ticker')
+        results.update(today)
+        results = results.reset_index()
     
     print("\n=== SIGNALS TODAY ===")
     

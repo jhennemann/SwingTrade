@@ -1,17 +1,14 @@
 import yfinance as yf
 import pandas as pd
-from email.mime.text import MIMEText
-import smtplib
 import os
+import requests
 from datetime import datetime
 from src.exit_rules import SimpleExitRules
 
-EMAIL = os.getenv("EMAIL")
-PASSWORD = os.getenv("APP_PASSWORD")
-PHONE = os.getenv("PHONE")
+DISCORD_WEBHOOK = os.getenv("DISCORD_WEBHOOK_URL")
 
-if not EMAIL or not PASSWORD or not PHONE:
-    raise RuntimeError("Missing EMAIL, APP_PASSWORD, or PHONE secrets")
+if not DISCORD_WEBHOOK:
+    raise RuntimeError("Missing DISCORD_WEBHOOK_URL secret")
 
 TICKER_FILE = "tickerAlert.txt"
 
@@ -41,21 +38,18 @@ def read_tickers():
     
     return tickers
 
-def send_email_alert(subject, body, to_email):
-    """Send email via Gmail SMTP."""
+def send_discord_alert(message: str):
+    """Send message to Discord via webhook."""
     try:
-        msg = MIMEText(body)
-        msg["Subject"] = subject
-        msg["From"] = f"SwingTrade Alert <{EMAIL}>"
-        msg["To"] = to_email
-        
-        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
-            server.login(EMAIL, PASSWORD)
-            server.sendmail(EMAIL, [to_email], msg.as_string())
-        
-        print(f"✅ Alert sent to {to_email}")
+        response = requests.post(
+            DISCORD_WEBHOOK,
+            json={"content": message},
+            timeout=10
+        )
+        response.raise_for_status()
+        print(f"✅ Alert sent to Discord")
     except Exception as e:
-        print(f"❌ Failed to send email: {e}")
+        print(f"❌ Failed to send Discord message: {e}")
         raise
 
 def main():
@@ -73,6 +67,7 @@ def main():
     print(f"Monitoring {len(tickers)} tickers\n")
     
     alerts = []
+    status_lines = []
     
     for ticker, buy_price in tickers:
         try:
@@ -97,7 +92,7 @@ def main():
             if latest_close < latest_sma50:
                 pct_below = ((latest_sma50 - latest_close) / latest_sma50) * 100
                 alerts.append(
-                    f"🔴 {ticker} below SMA50\n"
+                    f"🔴 **{ticker}** below SMA50\n"
                     f"   Close: ${latest_close:.2f} | SMA50: ${latest_sma50:.2f} ({pct_below:.1f}% below)"
                 )
             
@@ -114,19 +109,20 @@ def main():
                 # Alert if stop loss hit
                 if latest_close <= stop:
                     alerts.append(
-                        f"🛑 {ticker} HIT STOP LOSS\n"
+                        f"🛑 **{ticker} HIT STOP LOSS**\n"
                         f"   Entry: ${buy_price:.2f} | Current: ${latest_close:.2f} ({pnl_pct:+.1f}%)\n"
                         f"   Stop: ${stop:.2f}"
                     )
                 # Alert if profit target hit
                 elif latest_close >= target:
                     alerts.append(
-                        f"🎯 {ticker} HIT PROFIT TARGET\n"
+                        f"🎯 **{ticker} HIT PROFIT TARGET**\n"
                         f"   Entry: ${buy_price:.2f} | Current: ${latest_close:.2f} ({pnl_pct:+.1f}%)\n"
                         f"   Target: ${target:.2f}"
                     )
-                # Just log current status (no alert)
+                # Track status for healthy positions
                 else:
+                    status_lines.append(f"{ticker}: {pnl_pct:+.1f}%")
                     print(f"✓ {ticker}: ${latest_close:.2f} | P&L: {pnl_pct:+.1f}% | Stop: ${stop:.2f} | Target: ${target:.2f}")
             else:
                 # No entry price, just show current price
@@ -135,49 +131,18 @@ def main():
         except Exception as e:
             print(f"❌ {ticker}: Error - {e}")
     
-     # Send alerts
+    # Send Discord message
     if alerts:
-        alert_body = "\n\n".join(alerts)
+        alert_body = "🚨 **SwingTrade Alerts**\n\n" + "\n\n".join(alerts)
         print(f"\n{'='*60}")
         print("🚨 ALERTS TRIGGERED:")
         print(alert_body)
         print(f"{'='*60}\n")
-        
-        send_email_alert(
-            subject=f"SwingTrade Alert - {len(alerts)} Warning(s)",
-            body=alert_body,
-            to_email=PHONE
-        )
+        send_discord_alert(alert_body)
     else:
-        # Build status summary for text message
-        status_lines = ["✅ No alerts triggered - all positions healthy\n"]
-        
-        for ticker, buy_price in tickers:
-            if buy_price:
-                try:
-                    df = yf.download(ticker, period="5d", interval="1d", progress=False, auto_adjust=False)
-                    if df.empty:
-                        continue
-                    
-                    if isinstance(df.columns, pd.MultiIndex):
-                        df.columns = df.columns.get_level_values(0)
-                    
-                    latest_close = float(df["Close"].iloc[-1])
-                    pnl_pct = ((latest_close - buy_price) / buy_price) * 100
-                    
-                    status_lines.append(f"{ticker}: {pnl_pct:+.1f}%")
-                except:
-                    continue
-        
-        status_body = "\n".join(status_lines)
+        status_body = "✅ **No alerts triggered - all positions healthy**\n\n" + "\n".join(status_lines)
         print(f"\n{status_body}\n")
-        
-        # Send status update text
-        send_email_alert(
-            subject="SwingTrade Status - All Positions Healthy",
-            body=status_body,
-            to_email=PHONE
-        )
+        send_discord_alert(status_body)
 
 if __name__ == "__main__":
     main()

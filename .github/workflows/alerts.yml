@@ -37,8 +37,6 @@ jobs:
 
       - name: Run alert script
         env:
-          EMAIL: ${{ secrets.EMAIL }}
-          APP_PASSWORD: ${{ secrets.APP_PASSWORD }}
-          PHONE: ${{ secrets.PHONE }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: |
           python alert.py

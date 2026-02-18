@@ -1,0 +1,15 @@
+{
+  "ticker": "ULTA",
+  "run_date": "2026-02-17",
+  "signal_date": "2026-02-16",
+  "benchmark": "^GSPC",
+  "technical_lookback_days": 90,
+  "indicator_history_days": 365,
+  "stock_change_pct": 0.0,
+  "benchmark_change_pct": 0.0,
+  "relative_outperformance_pct": 0.0,
+  "perf_start_close": 706.8200073242188,
+  "perf_end_close": 706.8200073242188,
+  "bench_start_close": 6843.22021484375,
+  "bench_end_close": 6843.22021484375
+}

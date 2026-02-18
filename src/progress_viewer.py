@@ -135,11 +135,28 @@ class ProgressViewer:
         if perf.empty:
             raise ValueError("No overlapping dates between stock and benchmark for performance window.")
 
-        stock_change = (perf[ticker].iloc[-1] / perf[ticker].iloc[0] - 1) * 100
-        bench_change = (perf[benchmark].iloc[-1] / perf[benchmark].iloc[0] - 1) * 100
+                # Get open prices instead of close
+        stock_open = self._download(ticker, start_date)
+        bench_open = self._download(benchmark, start_date)
 
-        stock_norm = normalize_to_100(perf[ticker])
-        bench_norm = normalize_to_100(perf[benchmark])
+        if stock_open.empty or bench_open.empty:
+            raise ValueError("Missing open price data")
+
+        # Use Open price for both start and end
+        stock_start_open = stock_open["Open"].iloc[1] if len(stock_open) > 1 else stock_open["Open"].iloc[0]
+        stock_end_open = stock_open["Open"].iloc[-1]
+        bench_start_open = bench_open["Open"].iloc[1] if len(bench_open) > 1 else bench_open["Open"].iloc[0]
+        bench_end_open = bench_open["Open"].iloc[-1]
+
+        stock_change = (stock_end_open / stock_start_open - 1) * 100
+        bench_change = (bench_end_open / bench_start_open - 1) * 100
+
+        # Create Open price series for normalized chart
+        open_perf = pd.concat([stock_open["Open"], bench_open["Open"]], axis=1, join="inner").dropna()
+        open_perf.columns = [ticker, benchmark]
+
+        stock_norm = normalize_to_100(open_perf[ticker])
+        bench_norm = normalize_to_100(open_perf[benchmark])
 
         # Build performance figure (in memory)
         fig1 = plt.figure(figsize=(12, 6))
