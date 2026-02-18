@@ -2,41 +2,71 @@ import yfinance as yf
 import pandas as pd
 import os
 import requests
+import json
 from datetime import datetime
 from src.exit_rules import SimpleExitRules
+from google.oauth2.service_account import Credentials
+from googleapiclient.discovery import build
 
 DISCORD_WEBHOOK = os.getenv("DISCORD_WEBHOOK_URL")
+SHEET_ID = os.getenv("SHEET_ID")
+SHEET_TAB_NAME = os.getenv("SHEET_TAB_NAME", "Positions")
+GOOGLE_CREDS_JSON = os.getenv("GOOGLE_SHEETS_CREDENTIALS")
 
 if not DISCORD_WEBHOOK:
     raise RuntimeError("Missing DISCORD_WEBHOOK_URL secret")
+if not SHEET_ID or not GOOGLE_CREDS_JSON:
+    raise RuntimeError("Missing SHEET_ID or GOOGLE_SHEETS_CREDENTIALS secret")
 
-TICKER_FILE = "tickerAlert.txt"
-
-def read_tickers():
-    """Read tickers and optional buy prices from file."""
-    if not os.path.exists(TICKER_FILE):
-        raise FileNotFoundError(f"{TICKER_FILE} not found in repo")
-    
-    tickers = []
-    with open(TICKER_FILE, "r") as f:
-        for line in f:
-            line = line.strip()
-            if not line or line.lower().startswith("ticker"):
+def read_tickers_from_sheet():
+    """Read tickers and prices from Google Sheet."""
+    try:
+        # Parse credentials from JSON string
+        creds_dict = json.loads(GOOGLE_CREDS_JSON)
+        creds = Credentials.from_service_account_info(
+            creds_dict,
+            scopes=['https://www.googleapis.com/auth/spreadsheets.readonly']
+        )
+        
+        # Build service
+        service = build('sheets', 'v4', credentials=creds)
+        
+        # Read data
+        range_name = f"{SHEET_TAB_NAME}!A:B"
+        result = service.spreadsheets().values().get(
+            spreadsheetId=SHEET_ID,
+            range=range_name
+        ).execute()
+        
+        values = result.get('values', [])
+        
+        if not values:
+            print("⚠️  Sheet is empty")
+            return []
+        
+        tickers = []
+        for i, row in enumerate(values):
+            # Skip header row
+            if i == 0 or not row:
                 continue
             
-            parts = line.split(",")
-            ticker = parts[0].strip().upper()
+            ticker = row[0].strip().upper() if len(row) > 0 else None
             buy_price = None
             
-            if len(parts) > 1 and parts[1].strip():
+            if len(row) > 1 and row[1].strip():
                 try:
-                    buy_price = float(parts[1].strip())
+                    buy_price = float(row[1].strip())
                 except ValueError:
-                    print(f"⚠️  Invalid price for {ticker}: '{parts[1].strip()}'")
+                    print(f"⚠️  Invalid price for {ticker}: '{row[1]}'")
             
-            tickers.append((ticker, buy_price))
-    
-    return tickers
+            if ticker:
+                tickers.append((ticker, buy_price))
+        
+        return tickers
+        
+    except Exception as e:
+        print(f"❌ Error reading Google Sheet: {e}")
+        raise
 
 def send_discord_alert(message: str):
     """Send message to Discord via webhook."""
@@ -62,9 +92,9 @@ def main():
         max_hold_days=10
     )
     
-    # Read tickers
-    tickers = read_tickers()
-    print(f"Monitoring {len(tickers)} tickers\n")
+    # Read tickers from Google Sheet
+    tickers = read_tickers_from_sheet()
+    print(f"Monitoring {len(tickers)} tickers from Google Sheet\n")
     
     alerts = []
     status_lines = []
