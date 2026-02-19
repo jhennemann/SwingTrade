@@ -1,0 +1,28 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 100 stocks
+✓ Combined universe: 516 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-02-18 (Close=686.29, SMA200=649.94)
+Scanned 100/516 tickers...
+Scanned 200/516 tickers...
+Scanned 300/516 tickers...
+Scanned 400/516 tickers...
+Scanned 500/516 tickers...
+Calculating relative strength scores...
+
+=== SIGNALS TODAY ===
+Traceback (most recent call last):
+  File "/home/runner/work/SwingTrade/SwingTrade/main.py", line 160, in <module>
+    main()
+  File "/home/runner/work/SwingTrade/SwingTrade/main.py", line 62, in main
+    print(today[["rank", "ticker", "relative_strength", "last_date"]].to_string(index=False))
+          ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.12/x64/lib/python3.12/site-packages/pandas/core/frame.py", line 4384, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.12/x64/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 6302, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "/opt/hostedtoolcache/Python/3.12.12/x64/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 6355, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['ticker'] not in index"
