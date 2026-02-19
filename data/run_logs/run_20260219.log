@@ -1,0 +1,55 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 100 stocks
+✓ Combined universe: 516 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-02-18 (Close=686.29, SMA200=649.94)
+Scanned 100/516 tickers...
+Scanned 200/516 tickers...
+Scanned 300/516 tickers...
+Scanned 400/516 tickers...
+Scanned 500/516 tickers...
+Calculating relative strength scores...
+
+=== SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1     MU         103.869366 2026-02-18
+    2   MRNA         103.234158 2026-02-18
+    3    FCX          52.661267 2026-02-18
+    4    HAL          30.540583 2026-02-18
+    5   KLAC          29.099973 2026-02-18
+    6    CFG          23.110323 2026-02-18
+    7   DXCM          19.441167 2026-02-18
+    8    LHX          18.716242 2026-02-18
+    9     GM          17.798077 2026-02-18
+   10   FFIV          17.790476 2026-02-18
+   11     GS          15.510023 2026-02-18
+   12      C          13.918792 2026-02-18
+   13    TFC          13.497464 2026-02-18
+   14    URI           9.135390 2026-02-18
+   15   HSIC           4.449787 2026-02-18
+   16   NVDA          -1.110372 2026-02-18
+   17   INCY          -3.964978 2026-02-18
+Saved chart: data/charts/2026/02/2026-02-18/MU/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-18/MRNA/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-18/FCX/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-18/HAL/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-18/KLAC/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-18/CFG/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-18/DXCM/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-18/LHX/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-18/GM/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-18/FFIV/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-18/GS/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-18/C/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-18/TFC/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-18/URI/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-18/HSIC/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-18/NVDA/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-18/INCY/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/02/2026-02-18/gallery_2026-02-18.pdf
+
+Saved: data/charts/2026/02/2026-02-18/scan_results_2026-02-18.csv
+
+Saved: scan_results.csv
