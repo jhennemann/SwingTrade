@@ -46,20 +46,25 @@ def main():
 
     results = scanner.scan(all_tickers)
 
-    today = results[results["has_signal_today"]]  # ← Filter first
+    today = results[results["has_signal_today"]]
 
     if not today.empty:
         today = rank_signals(today)
         # Merge ranked data back into results
         results = results.set_index('ticker')
-        today = today.set_index('ticker')
-        results.update(today)
+        today_indexed = today.set_index('ticker')
+        results.update(today_indexed)
         results = results.reset_index()
-    
+
     print("\n=== SIGNALS TODAY ===")
-    
+
     if not today.empty:
-        print(today[["rank", "ticker", "relative_strength", "last_date"]].to_string(index=False))
+        # Show the columns that exist
+        display_cols = []
+        for col in ["rank", "ticker", "relative_strength", "last_date"]:
+            if col in today.columns:
+                display_cols.append(col)
+        print(today[display_cols].to_string(index=False))
     else:
         print("No signals today.")
 
