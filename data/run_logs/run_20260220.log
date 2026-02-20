@@ -1,0 +1,45 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 517 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-02-20 (Close=689.43, SMA200=651.15)
+Scanned 100/517 tickers...
+Scanned 200/517 tickers...
+Scanned 300/517 tickers...
+Scanned 400/517 tickers...
+Scanned 500/517 tickers...
+Calculating relative strength scores...
+
+=== SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1   MCHP          48.572878 2026-02-20
+    2   KLAC          28.510151 2026-02-20
+    3    CFG          20.583305 2026-02-20
+    4    WSM          20.579249 2026-02-20
+    5   CHRW          19.865042 2026-02-20
+    6   SBUX          13.883223 2026-02-20
+    7    PFG          10.149617 2026-02-20
+    8   HBAN          10.103827 2026-02-20
+    9   VRTX           9.380992 2026-02-20
+   10      F           5.006432 2026-02-20
+   11   HSIC           3.767324 2026-02-20
+   12    SHW           3.599846 2026-02-20
+   13    RMD           0.337434 2026-02-20
+Saved chart: data/charts/2026/02/2026-02-20/MCHP/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-20/KLAC/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-20/CFG/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-20/WSM/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-20/CHRW/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-20/SBUX/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-20/PFG/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-20/HBAN/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-20/VRTX/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-20/F/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-20/HSIC/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-20/SHW/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-20/RMD/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/02/2026-02-20/gallery_2026-02-20.pdf
+
+Saved signals with RS: data/charts/2026/02/2026-02-20/scan_results_2026-02-20.csv
