@@ -156,9 +156,15 @@ def main():
     f"{run_date.isoformat()}/"
     f"scan_results_{run_date.isoformat()}.csv"
     )
-    results.to_csv(csv_path, index=False)
-    print(f"\nSaved: {csv_path}")
-    print("\nSaved: scan_results.csv")
+
+    # Save the signals with RS data (or empty df if no signals)
+    if not today.empty:
+        today.to_csv(csv_path, index=False)
+        print(f"\nSaved signals with RS: {csv_path}")
+    else:
+        # Save empty results
+        results.to_csv(csv_path, index=False)
+        print(f"\nNo signals today - saved empty results: {csv_path}")
 
 
 if __name__ == "__main__":
