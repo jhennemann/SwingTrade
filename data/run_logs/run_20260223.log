@@ -1,0 +1,27 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 517 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-02-23 (Close=682.39, SMA200=651.77)
+Scanned 100/517 tickers...
+Scanned 200/517 tickers...
+Scanned 300/517 tickers...
+Scanned 400/517 tickers...
+Scanned 500/517 tickers...
+Calculating relative strength scores...
+
+=== SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1   MDLZ           5.718729 2026-02-23
+    2    PFE           4.118135 2026-02-23
+    3   TSCO          -2.065723 2026-02-23
+    4   AAPL          -4.987551 2026-02-23
+Saved chart: data/charts/2026/02/2026-02-23/MDLZ/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-23/PFE/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-23/TSCO/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-23/AAPL/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/02/2026-02-23/gallery_2026-02-23.pdf
+
+Saved signals with RS: data/charts/2026/02/2026-02-23/scan_results_2026-02-23.csv
