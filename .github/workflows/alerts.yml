@@ -38,8 +38,6 @@ jobs:
       - name: Run alert script
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          SHEET_ID: ${{ secrets.SHEET_ID }}
-          SHEET_TAB_NAME: ${{ secrets.SHEET_TAB_NAME }}
-          GOOGLE_SHEETS_CREDENTIALS: ${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}
+          ONEDRIVE_EXCEL_URL: ${{ secrets.ONEDRIVE_EXCEL_URL }}
         run: |
           python alert.py
