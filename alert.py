@@ -4,6 +4,7 @@ import os
 import requests
 from datetime import datetime
 from src.exit_rules import SimpleExitRules
+from io import BytesIO
 
 DISCORD_WEBHOOK = os.getenv("DISCORD_WEBHOOK_URL")
 ONEDRIVE_URL = os.getenv("ONEDRIVE_EXCEL_URL")
@@ -19,7 +20,7 @@ def read_tickers_from_excel():
         response.raise_for_status()
         
         # Read Excel file from downloaded content
-        df = pd.read_excel(response.content, sheet_name="Positions")
+        df = pd.read_excel(BytesIO(response.content), sheet_name="Positions")
         
         tickers = []
         for _, row in df.iterrows():
