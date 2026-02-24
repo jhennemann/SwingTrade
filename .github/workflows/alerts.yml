@@ -26,15 +26,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Verify tickerAlert.txt exists
-        run: |
-          if [ ! -f tickerAlert.txt ]; then
-            echo "ERROR: tickerAlert.txt not found!"
-            exit 1
-          fi
-          echo "Found tickerAlert.txt with contents:"
-          cat tickerAlert.txt
-
       - name: Run alert script
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
