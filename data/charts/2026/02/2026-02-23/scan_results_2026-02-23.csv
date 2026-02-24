@@ -1,0 +1,5 @@
+ticker,has_signal_today,last_date,most_recent_signal_date,signals_in_lookback,relative_strength,rank
+MDLZ,True,2026-02-23,2026-02-23,7,5.718728523700967,1
+PFE,True,2026-02-23,2026-02-23,12,4.11813532936165,2
+TSCO,True,2026-02-23,2026-02-23,5,-2.0657231883151383,3
+AAPL,True,2026-02-23,2026-02-23,4,-4.9875505939589555,4
