@@ -19,7 +19,7 @@ if not SHEET_ID or not GOOGLE_CREDS_JSON:
     raise RuntimeError("Missing SHEET_ID or GOOGLE_SHEETS_CREDENTIALS secret")
 
 def read_tickers_from_sheet():
-    """Read tickers and prices from Google Sheet."""
+    """Read tickers, prices, dates, and sectors from Google Sheet."""
     try:
         # Parse credentials from JSON string
         creds_dict = json.loads(GOOGLE_CREDS_JSON)
@@ -31,8 +31,8 @@ def read_tickers_from_sheet():
         # Build service
         service = build('sheets', 'v4', credentials=creds)
         
-        # Read data
-        range_name = f"{SHEET_TAB_NAME}!A:B"
+        # Read data - now reading columns A through D
+        range_name = f"{SHEET_TAB_NAME}!A:D"
         result = service.spreadsheets().values().get(
             spreadsheetId=SHEET_ID,
             range=range_name
@@ -50,17 +50,30 @@ def read_tickers_from_sheet():
             if i == 0 or not row:
                 continue
             
-            ticker = row[0].strip().upper() if len(row) > 0 else None
-            buy_price = None
+            ticker = row[0].strip().upper() if len(row) > 0 and row[0] else None
             
-            if len(row) > 1 and row[1].strip():
+            # Parse entry price
+            buy_price = None
+            if len(row) > 1 and row[1]:
                 try:
-                    buy_price = float(row[1].strip())
+                    buy_price = float(str(row[1]).strip())
                 except ValueError:
                     print(f"⚠️  Invalid price for {ticker}: '{row[1]}'")
             
+            # Parse signal date
+            signal_date = None
+            if len(row) > 2 and row[2]:
+                try:
+                    # Try parsing the date
+                    signal_date = pd.to_datetime(row[2]).date()
+                except:
+                    print(f"⚠️  Invalid date for {ticker}: '{row[2]}'")
+            
+            # Get sector
+            sector = row[3].strip() if len(row) > 3 and row[3] else None
+            
             if ticker:
-                tickers.append((ticker, buy_price))
+                tickers.append((ticker, buy_price, signal_date, sector))
         
         return tickers
         
@@ -97,9 +110,9 @@ def main():
     print(f"Monitoring {len(tickers)} tickers from Google Sheet\n")
     
     alerts = []
-    status_lines = []
+    status_data = []  # Store full data for sorting
     
-    for ticker, buy_price in tickers:
+    for ticker, buy_price, signal_date, sector in tickers:
         try:
             # Download data
             df = yf.download(ticker, period="3mo", interval="1d", progress=False, auto_adjust=False)
@@ -136,24 +149,43 @@ def main():
                 stop = exits['stop_loss']
                 target = exits['profit_target']
                 
+                # Calculate days held if signal_date exists
+                days_held = None
+                if signal_date:
+                    days_held = (datetime.now().date() - signal_date).days
+                
+                # Calculate distance to target
+                distance_to_target = ((target - latest_close) / latest_close) * 100
+                
                 # Alert if stop loss hit
                 if latest_close <= stop:
-                    alerts.append(
-                        f"🛑 **{ticker} HIT STOP LOSS**\n"
-                        f"   Entry: ${buy_price:.2f} | Current: ${latest_close:.2f} ({pnl_pct:+.1f}%)\n"
-                        f"   Stop: ${stop:.2f}"
-                    )
+                    alert_text = f"🛑 **{ticker} HIT STOP LOSS**\n   Entry: ${buy_price:.2f} | Current: ${latest_close:.2f} ({pnl_pct:+.1f}%)\n   Stop: ${stop:.2f}"
+                    if days_held:
+                        alert_text += f" | Day {days_held}/10"
+                    alerts.append(alert_text)
+                    
                 # Alert if profit target hit
                 elif latest_close >= target:
-                    alerts.append(
-                        f"🎯 **{ticker} HIT PROFIT TARGET**\n"
-                        f"   Entry: ${buy_price:.2f} | Current: ${latest_close:.2f} ({pnl_pct:+.1f}%)\n"
-                        f"   Target: ${target:.2f}"
-                    )
+                    alert_text = f"🎯 **{ticker} HIT PROFIT TARGET**\n   Entry: ${buy_price:.2f} | Current: ${latest_close:.2f} ({pnl_pct:+.1f}%)\n   Target: ${target:.2f}"
+                    if days_held:
+                        alert_text += f" | Day {days_held}/10"
+                    alerts.append(alert_text)
+                    
                 # Track status for healthy positions
                 else:
-                    status_lines.append(f"{ticker}: {pnl_pct:+.1f}%")
-                    print(f"✓ {ticker}: ${latest_close:.2f} | P&L: {pnl_pct:+.1f}% | Stop: ${stop:.2f} | Target: ${target:.2f}")
+                    # Store data for sorting
+                    status_data.append({
+                        'ticker': ticker,
+                        'pnl_pct': pnl_pct,
+                        'days_held': days_held,
+                        'distance_to_target': distance_to_target,
+                        'sector': sector
+                    })
+                    
+                    log_text = f"✓ {ticker}: ${latest_close:.2f} | P&L: {pnl_pct:+.1f}% | Stop: ${stop:.2f} | Target: ${target:.2f}"
+                    if days_held:
+                        log_text += f" | Day {days_held}/10"
+                    print(log_text)
             else:
                 # No entry price, just show current price
                 print(f"✓ {ticker}: ${latest_close:.2f} (SMA50: ${latest_sma50:.2f})")
@@ -170,7 +202,28 @@ def main():
         print(f"{'='*60}\n")
         send_discord_alert(alert_body)
     else:
-        status_body = "✅ **No alerts triggered - all positions healthy**\n\n" + "\n".join(status_lines)
+        if status_data:
+            # Calculate portfolio average
+            avg_pnl = sum(d['pnl_pct'] for d in status_data) / len(status_data)
+            
+            # Sort by P&L descending
+            status_data.sort(key=lambda x: x['pnl_pct'], reverse=True)
+            
+            # Build status lines with enhanced info
+            status_lines = []
+            for d in status_data:
+                line = f"{d['ticker']}: {d['pnl_pct']:+.1f}%"
+                if d['days_held']:
+                    line += f" (Day {d['days_held']}/10)"
+                # Add emoji if close to target
+                if d['distance_to_target'] < 1.0:
+                    line += " 🎯"
+                status_lines.append(line)
+            
+            status_body = f"✅ **All positions healthy - Portfolio avg: {avg_pnl:+.1f}%**\n\n" + "\n".join(status_lines)
+        else:
+            status_body = "✅ **No positions to monitor**"
+            
         print(f"\n{status_body}\n")
         send_discord_alert(status_body)
 
