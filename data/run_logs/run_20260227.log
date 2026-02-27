@@ -1,0 +1,51 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 517 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-02-27 (Close=685.99, SMA200=654.18)
+Scanned 100/517 tickers...
+Scanned 200/517 tickers...
+Scanned 300/517 tickers...
+Scanned 400/517 tickers...
+Scanned 500/517 tickers...
+Calculating relative strength scores...
+
+=== SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1    RTX          19.381136 2026-02-27
+    2   CARR          19.003719 2026-02-27
+    3    AOS          17.599084 2026-02-27
+    4    DVN          16.173295 2026-02-27
+    5   CTRA          15.260718 2026-02-27
+    6    ADM          13.820806 2026-02-27
+    7    WMT          13.169982 2026-02-27
+    8   MDLZ           9.329522 2026-02-27
+    9      T           9.102648 2026-02-27
+   10    PHM           7.761237 2026-02-27
+   11   BIIB           5.805811 2026-02-27
+   12   REGN           4.691955 2026-02-27
+   13   ABBV           2.781887 2026-02-27
+   14     KR           1.150756 2026-02-27
+   15    DHI           0.563564 2026-02-27
+   16    AZO          -2.514718 2026-02-27
+Saved chart: data/charts/2026/02/2026-02-27/RTX/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-27/CARR/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-27/AOS/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-27/DVN/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-27/CTRA/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-27/ADM/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-27/WMT/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-27/MDLZ/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-27/T/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-27/PHM/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-27/BIIB/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-27/REGN/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-27/ABBV/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-27/KR/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-27/DHI/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-27/AZO/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/02/2026-02-27/gallery_2026-02-27.pdf
+
+Saved signals with RS: data/charts/2026/02/2026-02-27/scan_results_2026-02-27.csv
