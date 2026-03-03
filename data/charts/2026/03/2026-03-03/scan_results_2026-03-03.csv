@@ -1,0 +1,5 @@
+ticker,has_signal_today,last_date,most_recent_signal_date,signals_in_lookback,relative_strength,rank
+TGT,True,2026-03-03,2026-03-03,7,32.48536520451209,1
+CHRW,True,2026-03-03,2026-03-03,8,22.908953782280516,2
+AKAM,True,2026-03-03,2026-03-03,7,18.468521512357682,3
+WMT,True,2026-03-03,2026-03-03,10,11.974287276409045,4

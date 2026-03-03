@@ -1,0 +1,27 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 517 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-03-03 (Close=680.33, SMA200=655.14)
+Scanned 100/517 tickers...
+Scanned 200/517 tickers...
+Scanned 300/517 tickers...
+Scanned 400/517 tickers...
+Scanned 500/517 tickers...
+Calculating relative strength scores...
+
+=== SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1    TGT          32.485365 2026-03-03
+    2   CHRW          22.908954 2026-03-03
+    3   AKAM          18.468522 2026-03-03
+    4    WMT          11.974287 2026-03-03
+Saved chart: data/charts/2026/03/2026-03-03/TGT/pullback_setup.png
+Saved chart: data/charts/2026/03/2026-03-03/CHRW/pullback_setup.png
+Saved chart: data/charts/2026/03/2026-03-03/AKAM/pullback_setup.png
+Saved chart: data/charts/2026/03/2026-03-03/WMT/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/03/2026-03-03/gallery_2026-03-03.pdf
+
+Saved signals with RS: data/charts/2026/03/2026-03-03/scan_results_2026-03-03.csv
