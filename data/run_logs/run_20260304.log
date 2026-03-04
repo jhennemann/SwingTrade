@@ -1,0 +1,39 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 517 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-03-04 (Close=685.13, SMA200=655.62)
+Scanned 100/517 tickers...
+Scanned 200/517 tickers...
+Scanned 300/517 tickers...
+Scanned 400/517 tickers...
+Scanned 500/517 tickers...
+Calculating relative strength scores...
+
+=== SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1  CMCSA          25.457097 2026-03-04
+    2    HST          16.651777 2026-03-04
+    3   SBUX          14.214656 2026-03-04
+    4   FAST          11.961188 2026-03-04
+    5    HIG           9.924832 2026-03-04
+    6   REGN           9.706372 2026-03-04
+    7   VRTX           5.001754 2026-03-04
+    8   CSCO           3.801050 2026-03-04
+    9    MGM           1.772827 2026-03-04
+   10    ARM         -12.090150 2026-03-04
+Saved chart: data/charts/2026/03/2026-03-04/CMCSA/pullback_setup.png
+Saved chart: data/charts/2026/03/2026-03-04/HST/pullback_setup.png
+Saved chart: data/charts/2026/03/2026-03-04/SBUX/pullback_setup.png
+Saved chart: data/charts/2026/03/2026-03-04/FAST/pullback_setup.png
+Saved chart: data/charts/2026/03/2026-03-04/HIG/pullback_setup.png
+Saved chart: data/charts/2026/03/2026-03-04/REGN/pullback_setup.png
+Saved chart: data/charts/2026/03/2026-03-04/VRTX/pullback_setup.png
+Saved chart: data/charts/2026/03/2026-03-04/CSCO/pullback_setup.png
+Saved chart: data/charts/2026/03/2026-03-04/MGM/pullback_setup.png
+Saved chart: data/charts/2026/03/2026-03-04/ARM/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/03/2026-03-04/gallery_2026-03-04.pdf
+
+Saved signals with RS: data/charts/2026/03/2026-03-04/scan_results_2026-03-04.csv
