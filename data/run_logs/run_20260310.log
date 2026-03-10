@@ -1,0 +1,36 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 517 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-03-10 (Close=677.18, SMA200=657.34)
+Scanned 100/517 tickers...
+Scanned 200/517 tickers...
+Scanned 300/517 tickers...
+Scanned 400/517 tickers...
+Scanned 500/517 tickers...
+
+=== SIGNALS TODAY ===
+No signals today.
+
+No signals today.
+
+No charts generated; skipping PDF export.
+Traceback (most recent call last):
+  File "/home/runner/work/SwingTrade/SwingTrade/main.py", line 171, in <module>
+    main()
+  File "/home/runner/work/SwingTrade/SwingTrade/main.py", line 166, in main
+    results.to_csv(csv_path, index=False)
+  File "/opt/hostedtoolcache/Python/3.12.12/x64/lib/python3.12/site-packages/pandas/core/generic.py", line 3988, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.12/x64/lib/python3.12/site-packages/pandas/io/formats/format.py", line 1025, in to_csv
+    csv_formatter.save()
+  File "/opt/hostedtoolcache/Python/3.12.12/x64/lib/python3.12/site-packages/pandas/io/formats/csvs.py", line 251, in save
+    with get_handle(
+         ^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.12/x64/lib/python3.12/site-packages/pandas/io/common.py", line 793, in get_handle
+    check_parent_directory(str(handle))
+  File "/opt/hostedtoolcache/Python/3.12.12/x64/lib/python3.12/site-packages/pandas/io/common.py", line 652, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: 'data/charts/2026/03/2026-03-10'
