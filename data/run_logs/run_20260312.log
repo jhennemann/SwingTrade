@@ -1,0 +1,37 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 517 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-03-12 (Close=666.06, SMA200=658.24)
+Scanned 100/517 tickers...
+Scanned 200/517 tickers...
+Scanned 300/517 tickers...
+Scanned 400/517 tickers...
+Scanned 500/517 tickers...
+Calculating relative strength scores...
+
+=== SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1    APD          20.713470 2026-03-12
+    2   COST          18.744236 2026-03-12
+    3     NI          13.773484 2026-03-12
+    4    PPL          13.275882 2026-03-12
+    5    VTR          11.670979 2026-03-12
+    6     WM          11.448731 2026-03-12
+    7    LNT          11.205780 2026-03-12
+    8    CMS          10.662663 2026-03-12
+    9    RSG           7.008052 2026-03-12
+Saved chart: data/charts/2026/03/2026-03-12/APD/pullback_setup.png
+Saved chart: data/charts/2026/03/2026-03-12/COST/pullback_setup.png
+Saved chart: data/charts/2026/03/2026-03-12/NI/pullback_setup.png
+Saved chart: data/charts/2026/03/2026-03-12/PPL/pullback_setup.png
+Saved chart: data/charts/2026/03/2026-03-12/VTR/pullback_setup.png
+Saved chart: data/charts/2026/03/2026-03-12/WM/pullback_setup.png
+Saved chart: data/charts/2026/03/2026-03-12/LNT/pullback_setup.png
+Saved chart: data/charts/2026/03/2026-03-12/CMS/pullback_setup.png
+Saved chart: data/charts/2026/03/2026-03-12/RSG/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/03/2026-03-12/gallery_2026-03-12.pdf
+
+Saved signals with RS: data/charts/2026/03/2026-03-12/scan_results_2026-03-12.csv
