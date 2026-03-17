@@ -1,0 +1,23 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 517 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-03-02 (Close=686.38, SMA200=654.68)
+Scanned 100/517 tickers...
+Scanned 200/517 tickers...
+Scanned 300/517 tickers...
+Scanned 400/517 tickers...
+Scanned 500/517 tickers...
+Calculating relative strength scores...
+
+=== SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1   STLD          17.134447 2026-03-02
+    2    EMR          12.379627 2026-03-02
+Saved chart: data/charts/2026/03/2026-03-02/STLD/pullback_setup.png
+Saved chart: data/charts/2026/03/2026-03-02/EMR/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/03/2026-03-02/gallery_2026-03-02.pdf
+
+Saved signals with RS: data/charts/2026/03/2026-03-02/scan_results_2026-03-02.csv

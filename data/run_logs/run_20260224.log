@@ -1,0 +1,43 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 517 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-02-24 (Close=687.35, SMA200=652.40)
+Scanned 100/517 tickers...
+Scanned 200/517 tickers...
+Scanned 300/517 tickers...
+Scanned 400/517 tickers...
+Scanned 500/517 tickers...
+Calculating relative strength scores...
+
+=== SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1    DOW          28.733510 2026-02-24
+    2   ULTA          27.139719 2026-02-24
+    3   NXPI          19.964641 2026-02-24
+    4    CMI          19.665720 2026-02-24
+    5    STZ          17.538598 2026-02-24
+    6    ADM          11.208438 2026-02-24
+    7   SBUX          10.186416 2026-02-24
+    8    ETN           8.491360 2026-02-24
+    9      F           6.528848 2026-02-24
+   10    CAG           6.054475 2026-02-24
+   11    CPT           1.436843 2026-02-24
+   12    ZTS          -0.368816 2026-02-24
+Saved chart: data/charts/2026/02/2026-02-24/DOW/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-24/ULTA/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-24/NXPI/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-24/CMI/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-24/STZ/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-24/ADM/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-24/SBUX/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-24/ETN/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-24/F/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-24/CAG/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-24/CPT/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-24/ZTS/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/02/2026-02-24/gallery_2026-02-24.pdf
+
+Saved signals with RS: data/charts/2026/02/2026-02-24/scan_results_2026-02-24.csv

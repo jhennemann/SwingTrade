@@ -1,0 +1,55 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 517 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-02-26 (Close=689.30, SMA200=653.67)
+Scanned 100/517 tickers...
+Scanned 200/517 tickers...
+Scanned 300/517 tickers...
+Scanned 400/517 tickers...
+Scanned 500/517 tickers...
+Calculating relative strength scores...
+
+=== SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1   ODFL          40.700226 2026-02-26
+    2     SW          29.023220 2026-02-26
+    3   JBHT          25.651952 2026-02-26
+    4    CCL          24.781346 2026-02-26
+    5    SWK          22.893119 2026-02-26
+    6    UPS          21.157358 2026-02-26
+    7    IEX          18.685186 2026-02-26
+    8   IBKR          16.015991 2026-02-26
+    9    EMR          14.422173 2026-02-26
+   10     GS          13.242309 2026-02-26
+   11    DAL           8.586855 2026-02-26
+   12     WM           6.994733 2026-02-26
+   13    ROK           4.144946 2026-02-26
+   14    AFL           2.707276 2026-02-26
+   15    ARE           2.476735 2026-02-26
+   16   OTIS           2.427551 2026-02-26
+   17   CINF          -1.827320 2026-02-26
+   18  BRK-B          -2.483633 2026-02-26
+Saved chart: data/charts/2026/02/2026-02-26/ODFL/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-26/SW/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-26/JBHT/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-26/CCL/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-26/SWK/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-26/UPS/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-26/IEX/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-26/IBKR/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-26/EMR/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-26/GS/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-26/DAL/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-26/WM/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-26/ROK/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-26/AFL/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-26/ARE/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-26/OTIS/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-26/CINF/pullback_setup.png
+Saved chart: data/charts/2026/02/2026-02-26/BRK-B/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/02/2026-02-26/gallery_2026-02-26.pdf
+
+Saved signals with RS: data/charts/2026/02/2026-02-26/scan_results_2026-02-26.csv

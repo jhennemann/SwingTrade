@@ -1,0 +1,41 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 517 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-03-13 (Close=662.29, SMA200=658.60)
+Scanned 100/517 tickers...
+Scanned 200/517 tickers...
+Scanned 300/517 tickers...
+Scanned 400/517 tickers...
+Scanned 500/517 tickers...
+Calculating relative strength scores...
+
+=== SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1     MU          85.716140 2026-03-13
+    2    MSI          32.481054 2026-03-13
+    3    TGT          22.581539 2026-03-13
+    4    OKE          22.447925 2026-03-13
+    5    LIN          19.067642 2026-03-13
+    6    AEE          16.780498 2026-03-13
+    7    NEE          16.534769 2026-03-13
+    8    RTX          16.108729 2026-03-13
+    9    WEC          14.760438 2026-03-13
+   10    WMT          12.059346 2026-03-13
+   11    SRE          10.632487 2026-03-13
+Saved chart: data/charts/2026/03/2026-03-13/MU/pullback_setup.png
+Saved chart: data/charts/2026/03/2026-03-13/MSI/pullback_setup.png
+Saved chart: data/charts/2026/03/2026-03-13/TGT/pullback_setup.png
+Saved chart: data/charts/2026/03/2026-03-13/OKE/pullback_setup.png
+Saved chart: data/charts/2026/03/2026-03-13/LIN/pullback_setup.png
+Saved chart: data/charts/2026/03/2026-03-13/AEE/pullback_setup.png
+Saved chart: data/charts/2026/03/2026-03-13/NEE/pullback_setup.png
+Saved chart: data/charts/2026/03/2026-03-13/RTX/pullback_setup.png
+Saved chart: data/charts/2026/03/2026-03-13/WEC/pullback_setup.png
+Saved chart: data/charts/2026/03/2026-03-13/WMT/pullback_setup.png
+Saved chart: data/charts/2026/03/2026-03-13/SRE/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/03/2026-03-13/gallery_2026-03-13.pdf
+
+Saved signals with RS: data/charts/2026/03/2026-03-13/scan_results_2026-03-13.csv
