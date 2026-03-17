@@ -82,14 +82,16 @@ def read_tickers_from_sheet():
         raise
 
 def send_discord_alert(message: str):
-    """Send message to Discord via webhook."""
+    """Send message to Discord via webhook, chunking if over 2000 chars."""
+    chunks = [message[i:i+1900] for i in range(0, len(message), 1900)]
     try:
-        response = requests.post(
-            DISCORD_WEBHOOK,
-            json={"content": message},
-            timeout=10
-        )
-        response.raise_for_status()
+        for chunk in chunks:
+            response = requests.post(
+                DISCORD_WEBHOOK,
+                json={"content": chunk},
+                timeout=10
+            )
+            response.raise_for_status()
         print(f"✅ Alert sent to Discord")
     except Exception as e:
         print(f"❌ Failed to send Discord message: {e}")
