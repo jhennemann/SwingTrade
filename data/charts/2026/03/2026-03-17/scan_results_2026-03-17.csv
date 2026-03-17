@@ -1,0 +1,4 @@
+ticker,has_signal_today,last_date,most_recent_signal_date,signals_in_lookback,relative_strength,rank
+PFE,True,2026-03-17,2026-03-17,13,10.46425153539925,1
+TRV,True,2026-03-17,2026-03-17,8,5.157715177751254,2
+ABNB,True,2026-03-17,2026-03-17,8,-0.6828561363965924,3
