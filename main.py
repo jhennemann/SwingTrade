@@ -164,11 +164,11 @@ def main():
     )
 
     if not today.empty:
+        os.makedirs(os.path.dirname(csv_path), exist_ok=True)
         today.to_csv(csv_path, index=False)
         print(f"\nSaved signals with RS: {csv_path}")
     else:
-        results.to_csv(csv_path, index=False)
-        print(f"\nNo signals today - saved empty results: {csv_path}")
+        print(f"\nNo signals today - skipping CSV save")
 
     # -------------------------------------------------
     # Push to Supabase
