@@ -30,6 +30,9 @@ jobs:
         run: |
           mkdir -p data/run_logs
           python main.py 2>&1 | tee data/run_logs/run_$(date +%Y%m%d).log
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4

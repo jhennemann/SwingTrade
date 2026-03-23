@@ -11,6 +11,9 @@ from datetime import datetime, date
 from src.ranking import rank_signals
 from src.market_calendar import market_is_open
 
+import os
+from supabase import create_client
+
 
 
 def main():
@@ -149,6 +152,9 @@ def main():
     # -------------------------------------------------
     # Save scan results
     # -------------------------------------------------
+# -------------------------------------------------
+    # Save scan results
+    # -------------------------------------------------
     csv_path = (
     f"data/charts/"
     f"{run_date.year:04d}/"
@@ -157,14 +163,47 @@ def main():
     f"scan_results_{run_date.isoformat()}.csv"
     )
 
-    # Save the signals with RS data (or empty df if no signals)
     if not today.empty:
         today.to_csv(csv_path, index=False)
         print(f"\nSaved signals with RS: {csv_path}")
     else:
-        # Save empty results
         results.to_csv(csv_path, index=False)
         print(f"\nNo signals today - saved empty results: {csv_path}")
+
+    # -------------------------------------------------
+    # Push to Supabase
+    # -------------------------------------------------
+    supabase_url = os.environ.get("SUPABASE_URL")
+    supabase_key = os.environ.get("SUPABASE_ANON_KEY")
+
+    if supabase_url and supabase_key:
+        try:
+            supabase = create_client(supabase_url, supabase_key)
+            
+            df_to_push = today if not today.empty else pd.DataFrame()
+            
+            if not df_to_push.empty:
+                # Delete today's existing records first to avoid duplicates
+                supabase.table("signals").delete().eq("last_date", run_date.isoformat()).execute()
+                
+                # Insert new records
+                records = df_to_push.to_dict(orient="records")
+                for record in records:
+                    # Convert any non-serializable types
+                    for k, v in record.items():
+                        if pd.isna(v):
+                            record[k] = None
+                        elif hasattr(v, 'isoformat'):
+                            record[k] = v.isoformat()
+                
+                supabase.table("signals").insert(records).execute()
+                print(f"✓ Pushed {len(records)} signals to Supabase")
+            else:
+                print("No signals to push to Supabase")
+        except Exception as e:
+            print(f"❌ Failed to push to Supabase: {e}")
+    else:
+        print("Supabase credentials not found, skipping push")
 
 
 if __name__ == "__main__":

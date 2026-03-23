@@ -8,3 +8,4 @@ requests>=2.31.0
 pandas_market_calendars>=4.1.4
 google-auth>=2.16.0
 google-api-python-client>=2.80.0
+supabase
