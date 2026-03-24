@@ -1,0 +1,3 @@
+ticker,has_signal_today,last_date,most_recent_signal_date,signals_in_lookback,relative_strength,rank
+EXPD,True,2026-02-11,2026-02-11,11,-1.3656379500965654,1
+DG,True,2026-02-11,2026-02-11,7,-9.117030151815941,2
