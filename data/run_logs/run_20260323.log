@@ -3,7 +3,7 @@ Loading stock universes...
 ✓ NASDAQ 100: 101 stocks
 ✓ Combined universe: 517 stocks (87 overlap)
 
-Market filter failed (SPY <= SMA200). Last date: 2026-03-23, Close: 657.760009765625, SMA200: 660.6733993530273
+Market filter failed (SPY <= SMA200). Last date: 2026-03-23, Close: 655.3800048828125, SMA200: 660.6614993286133
 
 === SIGNALS TODAY ===
 No signals today.
