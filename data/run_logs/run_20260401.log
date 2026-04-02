@@ -1,0 +1,16 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 517 stocks (87 overlap)
+
+Market filter failed (SPY <= SMA200). Last date: 2026-04-01, Close: 655.239990234375, SMA200: 662.3098495483398
+
+=== SIGNALS TODAY ===
+No signals today.
+
+No signals today.
+
+No charts generated; skipping PDF export.
+
+No signals today - skipping CSV save
+No signals to push to Supabase
