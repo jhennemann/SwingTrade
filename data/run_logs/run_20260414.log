@@ -1,0 +1,25 @@
+Loading stock universes...
+✓ S&P 500: 502 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 516 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-04-14 (Close=694.46, SMA200=665.17)
+Scanned 100/516 tickers...
+Scanned 200/516 tickers...
+Scanned 300/516 tickers...
+Scanned 400/516 tickers...
+Scanned 500/516 tickers...
+Calculating relative strength scores...
+
+=== SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1    EXC           8.381220 2026-04-14
+    2   INSM          -5.373238 2026-04-14
+Saved chart: data/charts/2026/04/2026-04-14/EXC/pullback_setup.png
+Saved chart: data/charts/2026/04/2026-04-14/INSM/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/04/2026-04-14/gallery_2026-04-14.pdf
+
+Saved signals with RS: data/charts/2026/04/2026-04-14/scan_results_2026-04-14.csv
+❌ Failed to push to Supabase: {'message': 'new row violates row-level security policy for table "signals"', 'code': '42501', 'hint': None, 'details': None}
+No DISCORD_WEBHOOK_URL set — skipping signal alert
