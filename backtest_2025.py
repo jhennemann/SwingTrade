@@ -1,17 +1,19 @@
 """
 backtest_2025.py
 
-Scans every trading day in 2025, detects PullbackUptrendSetup signals,
+Scans every trading day across SCAN_YEARS, detects PullbackUptrendSetup signals,
 simulates trade outcomes, and analyzes win rate by RS threshold.
 
 Reads price data from the cache/ folder — run download_cache.py first.
+Make sure DOWNLOAD_START in download_cache.py is early enough for all years
+(e.g. "2022-01-01" to cover 2023-2025 with warm SMAs).
 
 Usage:
     python download_cache.py   # once, or to refresh prices
     python backtest_2025.py    # as many times as you want
 
 Output:
-    backtest_2025_summary.csv  — win rate / avg P&L by RS threshold and stop loss
+    backtest_summary.csv  — win rate / avg P&L by year, RS threshold, entry mode, stop loss
 """
 
 from datetime import date
@@ -24,17 +26,20 @@ from src.universe import SP500UniverseStockAnalysis, Nasdaq100Universe
 
 # ── Config ─────────────────────────────────────────────────────────────────────
 CACHE_DIR    = Path("cache")    # populated by download_cache.py
-SCAN_YEAR    = 2025
+SCAN_YEARS   = [2023, 2024, 2025]
 
 PROFIT_TARGET    = 0.07
 MAX_DAYS         = 10
 RS_LOOKBACK      = 60              # Trading days for RS calculation
 
-STOP_LOSS_VALUES = [0.02, 0.03, 0.04, 0.05]  # tested in sequence, no re-download needed
-ENTRY_MODES      = ["open", "close"]               # open = next day open; close = signal day close
-RS_THRESHOLDS    = [0, 10, 20, 30, 40, 50, 60, 70, 80]
+ENTRY_MODE   = "open"   # fixed: next day open
+STOP_LOSS    = 0.02
+PROFIT_TARGET = 0.07
 
-OUTPUT_SUMMARY   = Path("backtest_2025_summary.csv")
+RS_THRESHOLDS  = [0, 10, 20, 30, 40, 50, 60, 70, 80]
+SIL_THRESHOLDS = [1, 2, 3, 4, 5]  # signals_in_lookback — max allowed (lower = rarer setup)
+
+OUTPUT_SUMMARY   = Path("backtest_summary.csv")
 
 
 
@@ -117,9 +122,9 @@ def calc_rs_at_date(ticker: str, signal_date: date, cache: dict) -> float:
 
 
 # ── Signal Detection ───────────────────────────────────────────────────────────
-def build_spy_market_filter(cache: dict) -> set[date]:
+def build_spy_market_filter(cache: dict, scan_year: int) -> set[date]:
     """
-    Returns a set of dates in SCAN_YEAR where SPY Close > SMA200.
+    Returns a set of dates in scan_year where SPY Close > SMA200.
     Only these dates pass the market filter.
     """
     spy_df = cache.get("SPY")
@@ -133,24 +138,24 @@ def build_spy_market_filter(cache: dict) -> set[date]:
     valid_dates = set(
         idx.date()
         for idx, row in spy_df.iterrows()
-        if idx.year == SCAN_YEAR and row["Close"] > row["SMA200"]
+        if idx.year == scan_year and row["Close"] > row["SMA200"]
     )
 
-    total_days = sum(1 for idx in spy_df.index if idx.year == SCAN_YEAR)
-    print(f"  SPY market filter: {len(valid_dates)}/{total_days} trading days in {SCAN_YEAR} pass (SPY > SMA200)")
+    total_days = sum(1 for idx in spy_df.index if idx.year == scan_year)
+    print(f"  SPY market filter: {len(valid_dates)}/{total_days} trading days in {scan_year} pass (SPY > SMA200)")
     return valid_dates
 
 
-def detect_signals(cache: dict, tickers: list[str]) -> list[dict]:
+def detect_signals(cache: dict, tickers: list[str], scan_year: int) -> list[dict]:
     """
-    Run PullbackUptrendSetup on every ticker and collect signals in SCAN_YEAR.
+    Run PullbackUptrendSetup on every ticker and collect signals in scan_year.
     Applies SPY SMA200 market filter — no signals taken on days SPY is below SMA200.
     Returns list of dicts: ticker, signal_date, rs.
     """
-    print(f"\nDetecting signals for {SCAN_YEAR}...")
+    print(f"\nDetecting signals for {scan_year}...")
 
     # Build market filter upfront
-    valid_market_dates = build_spy_market_filter(cache)
+    valid_market_dates = build_spy_market_filter(cache, scan_year)
 
     setup = PullbackUptrendSetup(pullback_pct=0.02, use_volume=True)
 
@@ -166,10 +171,10 @@ def detect_signals(cache: dict, tickers: list[str]) -> list[dict]:
             df_prep   = setup.prepare(df)
             df_signal = setup.apply(df_prep)
 
-            # Filter to signal rows within SCAN_YEAR
+            # Filter to signal rows within scan_year
             mask = (
                 df_signal["signal"] &
-                (df_signal.index.year == SCAN_YEAR)
+                (df_signal.index.year == scan_year)
             )
             signal_rows = df_signal[mask]
 
@@ -182,10 +187,14 @@ def detect_signals(cache: dict, tickers: list[str]) -> list[dict]:
                     continue
 
                 rs = calc_rs_at_date(ticker, signal_date, cache)
+                # signals_in_lookback = total signals for this ticker in its full history up to signal_date
+                sil = int(df_signal[df_signal.index.date <= signal_date]["signal"].sum())
                 all_signals.append({
                     "ticker":      ticker,
                     "signal_date": signal_date,
                     "rs":          rs,
+                    "sil":         sil,
+                    "year":        scan_year,
                 })
 
         except Exception as e:
@@ -194,7 +203,7 @@ def detect_signals(cache: dict, tickers: list[str]) -> list[dict]:
         if i % 100 == 0:
             print(f"  [{i}/{len(tickers)}] scanned — {len(all_signals)} signals so far")
 
-    print(f"\nTotal signals found in {SCAN_YEAR}: {len(all_signals)} ({filtered_out} filtered out by SPY SMA200)")
+    print(f"  Total signals found in {scan_year}: {len(all_signals)} ({filtered_out} filtered out by SPY SMA200)")
     return all_signals
 
 
@@ -205,6 +214,7 @@ def simulate_trade(
     cache: dict,
     stop_loss: float = 0.02,
     entry_mode: str = "open",
+    profit_target: float = 0.07,
 ) -> dict | None:
     """
     Simulate entry/exit from cache.
@@ -240,7 +250,7 @@ def simulate_trade(
             return None
 
         stop_price   = entry_price * (1 - stop_loss)
-        target_price = entry_price * (1 + PROFIT_TARGET)
+        target_price = entry_price * (1 + profit_target)
 
         exit_price  = None
         exit_date   = None
@@ -357,10 +367,26 @@ def summarize_by_rs(df: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
-def print_exit_breakdown(summary_df: pd.DataFrame):
+def print_rs_table(summary_df: pd.DataFrame):
+    """Print compact win rate / avg P&L table."""
+    print(f"{'RS ≥':<8} {'Trades':<10} {'Win Rate':<12} {'Avg P&L'}")
+    print("-" * 45)
+    for _, row in summary_df.iterrows():
+        if row["n_trades"] == 0:
+            print(f"{int(row['rs_min']):<8} {'0':<10} {'—':<12} {'—'}")
+        else:
+            print(
+                f"{int(row['rs_min']):<8} "
+                f"{int(row['n_trades']):<10} "
+                f"{row['win_rate']:.1f}%{'':<7} "
+                f"{row['avg_pnl']:+.2f}%"
+            )
+
+
+def print_exit_breakdown(summary_df: pd.DataFrame, label: str = ""):
     """Print a second table showing exit reason counts and avg P&L per reason."""
     print(f"\n{'=' * 75}")
-    print(f"  Exit Reason Breakdown by RS Threshold — {SCAN_YEAR}")
+    print(f"  Exit Reason Breakdown — {label}")
     print(f"{'=' * 75}")
     print(f"{'RS ≥':<8} {'Trades':<8} {'Stops':<8} {'Stop P&L':<12} {'Targets':<10} {'Target P&L':<13} {'Time':<7} {'Time P&L'}")
     print("-" * 75)
@@ -386,77 +412,83 @@ def print_exit_breakdown(summary_df: pd.DataFrame):
 # ── Main ───────────────────────────────────────────────────────────────────────
 def main():
     print("=" * 60)
-    print(f"  SwingTrade Backtest — {SCAN_YEAR}")
+    print(f"  SwingTrade Backtest — {', '.join(str(y) for y in SCAN_YEARS)}")
     print("=" * 60 + "\n")
 
     # 1. Universe
     tickers = load_universe()
 
-    # 2. Build price cache
+    # 2. Load price cache
     cache = load_price_cache(tickers)
 
-    # 3. Detect signals
-    signals = detect_signals(cache, tickers)
+    # 3. Detect signals across all years
+    all_signals = []
+    for year in SCAN_YEARS:
+        year_signals = detect_signals(cache, tickers, scan_year=year)
+        all_signals.extend(year_signals)
 
-    if not signals:
+    print(f"\nTotal signals across all years: {len(all_signals)}")
+
+    if not all_signals:
         print("No signals found — check setup_rules or date range.")
         return
 
-    # 4. Simulate & analyze for each entry mode and stop loss value
+    # 4. Simulate all trades once with fixed stop/target
+    print(f"\nSimulating {len(all_signals)} trades (Target={PROFIT_TARGET:.0%} | Stop={STOP_LOSS:.0%})...")
+    trades = []
+    for sig in all_signals:
+        trade = simulate_trade(
+            sig["ticker"], sig["signal_date"], cache,
+            stop_loss=STOP_LOSS, entry_mode=ENTRY_MODE,
+            profit_target=PROFIT_TARGET,
+        )
+        if trade:
+            trade["rs"]   = sig["rs"]
+            trade["sil"]  = sig["sil"]
+            trade["year"] = sig["year"]
+            trades.append(trade)
+
+    print(f"  Simulated: {len(trades)} trades")
+
+    if not trades:
+        print("No trades to analyze.")
+        return
+
+    trades_df = pd.DataFrame(trades)
+
+    # 5. Print RS threshold table (all signals, no SIL filter)
+    print(f"\n{'=' * 60}")
+    print(f"  Win Rate by RS Threshold — ALL YEARS (no SIL filter)")
+    print(f"{'=' * 60}")
+    print_rs_table(summarize_by_rs(trades_df))
+
+    # 6. Print SIL filter tables
+    print(f"\n{'=' * 60}")
+    print(f"  Win Rate by RS Threshold — filtered by Signals in Lookback")
+    print(f"{'=' * 60}")
+    for max_sil in SIL_THRESHOLDS:
+        subset = trades_df[trades_df["sil"] <= max_sil]
+        if subset.empty:
+            continue
+        print(f"\n  SIL ≤ {max_sil} ({len(subset)} trades)")
+        print("-" * 45)
+        print_rs_table(summarize_by_rs(subset))
+
+    # 7. Save summary
     all_summaries = []
+    base = summarize_by_rs(trades_df)
+    base["sil_filter"] = "none"
+    all_summaries.append(base)
+    for max_sil in SIL_THRESHOLDS:
+        subset = trades_df[trades_df["sil"] <= max_sil]
+        if not subset.empty:
+            s = summarize_by_rs(subset)
+            s["sil_filter"] = f"<={max_sil}"
+            all_summaries.append(s)
 
-    for entry_mode in ENTRY_MODES:
-        for stop_loss in STOP_LOSS_VALUES:
-            label = f"Entry={entry_mode} | Stop={stop_loss:.0%}"
-            print(f"\nSimulating {len(signals)} trades ({label})...")
-            trades = []
-            for sig in signals:
-                trade = simulate_trade(
-                    sig["ticker"], sig["signal_date"], cache,
-                    stop_loss=stop_loss, entry_mode=entry_mode
-                )
-                if trade:
-                    trade["rs"]         = sig["rs"]
-                    trade["stop_loss"]  = stop_loss
-                    trade["entry_mode"] = entry_mode
-                    trades.append(trade)
-
-            print(f"  Simulated: {len(trades)} trades")
-
-            if not trades:
-                continue
-
-            trades_df  = pd.DataFrame(trades)
-            summary_df = summarize_by_rs(trades_df)
-            summary_df["stop_loss"]  = stop_loss
-            summary_df["entry_mode"] = entry_mode
-            all_summaries.append(summary_df)
-
-            # Print win rate table
-            print(f"\n{'=' * 60}")
-            print(f"  {label} | Win Rate by RS Threshold — {SCAN_YEAR}")
-            print(f"{'=' * 60}")
-            print(f"{'RS ≥':<8} {'Trades':<10} {'Win Rate':<12} {'Avg P&L'}")
-            print("-" * 45)
-            for _, row in summary_df.iterrows():
-                if row["n_trades"] == 0:
-                    print(f"{int(row['rs_min']):<8} {'0':<10} {'—':<12} {'—'}")
-                else:
-                    print(
-                        f"{int(row['rs_min']):<8} "
-                        f"{int(row['n_trades']):<10} "
-                        f"{row['win_rate']:.1f}%{'':<7} "
-                        f"{row['avg_pnl']:+.2f}%"
-                    )
-
-            # Print exit breakdown
-            print_exit_breakdown(summary_df)
-
-    # 5. Save combined summary CSV
-    if all_summaries:
-        combined = pd.concat(all_summaries, ignore_index=True)
-        combined.to_csv(OUTPUT_SUMMARY, index=False)
-        print(f"\n✓ Combined summary saved to {OUTPUT_SUMMARY}")
+    combined = pd.concat(all_summaries, ignore_index=True)
+    combined.to_csv(OUTPUT_SUMMARY, index=False)
+    print(f"\n✓ Summary saved to {OUTPUT_SUMMARY}")
 
     print(f"\nDone.")
 

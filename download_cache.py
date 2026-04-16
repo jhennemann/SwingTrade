@@ -27,7 +27,7 @@ import yfinance as yf
 from src.universe import SP500UniverseStockAnalysis, Nasdaq100Universe
 
 # ── Config ─────────────────────────────────────────────────────────────────────
-DOWNLOAD_START          = "2024-01-01"  # Start early so SMAs are warm by Jan 2025
+DOWNLOAD_START          = "2022-01-01"  # Start early so SMAs are warm by Jan 2025
 DOWNLOAD_END            = "2026-01-01"
 CACHE_DIR               = Path("cache")
 SLEEP_BETWEEN_DOWNLOADS = 0.1          # Light throttle to avoid rate limiting

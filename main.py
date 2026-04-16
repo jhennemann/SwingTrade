@@ -207,11 +207,11 @@ def main():
 
     # Push to Supabase
     supabase_url = os.environ.get("SUPABASE_URL")
-    supabase_key = os.environ.get("SUPABASE_ANON_KEY")
+    supabase_service_key = os.environ.get("SUPABASE_SERVICE_KEY")
 
-    if supabase_url and supabase_key:
+    if supabase_url and supabase_service_key:
         try:
-            supabase = create_client(supabase_url, supabase_key)
+            supabase = create_client(supabase_url, supabase_service_key)
 
             df_to_push = today if not today.empty else pd.DataFrame()
 
