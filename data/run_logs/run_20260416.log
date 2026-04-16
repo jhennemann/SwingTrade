@@ -20,4 +20,4 @@ Saved PDF gallery: data/charts/2026/04/2026-04-15/gallery_2026-04-15.pdf
 
 Saved signals with RS: data/charts/2026/04/2026-04-15/scan_results_2026-04-15.csv
 ✓ Pushed 1 signals to Supabase
-No DISCORD_WEBHOOK_URL set — skipping signal alert
+✅ Signal alert sent to Discord
