@@ -3,7 +3,7 @@ Loading stock universes...
 ✓ NASDAQ 100: 101 stocks
 ✓ Combined universe: 517 stocks (87 overlap)
 
-Market filter passed: SPY > SMA200 on 2026-04-15 (Close=699.94, SMA200=665.60)
+Market filter passed: SPY > SMA200 on 2026-04-16 (Close=701.66, SMA200=666.01)
 Scanned 100/517 tickers...
 Scanned 200/517 tickers...
 Scanned 300/517 tickers...
@@ -13,11 +13,21 @@ Calculating relative strength scores...
 
 === SIGNALS TODAY ===
  rank ticker  relative_strength  last_date
-    1   PANW         -14.138832 2026-04-15
-Saved chart: data/charts/2026/04/2026-04-15/PANW/pullback_setup.png
+    1    DOW          38.141568 2026-04-16
+    2    HAL          11.986186 2026-04-16
+    3    CNP           6.937057 2026-04-16
+    4   NTAP           4.415191 2026-04-16
+    5   EVRG           4.245790 2026-04-16
+    6    WEC           3.937024 2026-04-16
+Saved chart: data/charts/2026/04/2026-04-16/DOW/pullback_setup.png
+Saved chart: data/charts/2026/04/2026-04-16/HAL/pullback_setup.png
+Saved chart: data/charts/2026/04/2026-04-16/CNP/pullback_setup.png
+Saved chart: data/charts/2026/04/2026-04-16/NTAP/pullback_setup.png
+Saved chart: data/charts/2026/04/2026-04-16/EVRG/pullback_setup.png
+Saved chart: data/charts/2026/04/2026-04-16/WEC/pullback_setup.png
 
-Saved PDF gallery: data/charts/2026/04/2026-04-15/gallery_2026-04-15.pdf
+Saved PDF gallery: data/charts/2026/04/2026-04-16/gallery_2026-04-16.pdf
 
-Saved signals with RS: data/charts/2026/04/2026-04-15/scan_results_2026-04-15.csv
-✓ Pushed 1 signals to Supabase
+Saved signals with RS: data/charts/2026/04/2026-04-16/scan_results_2026-04-16.csv
+✓ Pushed 6 signals to Supabase
 ✅ Signal alert sent to Discord

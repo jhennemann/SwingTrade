@@ -1,0 +1,27 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 517 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-04-17 (Close=710.14, SMA200=666.48)
+Scanned 100/517 tickers...
+Scanned 200/517 tickers...
+Scanned 300/517 tickers...
+Scanned 400/517 tickers...
+Scanned 500/517 tickers...
+Calculating relative strength scores...
+
+=== SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1    PFE           2.522654 2026-04-17
+    2    TJX           1.660893 2026-04-17
+    3   PLTR         -14.831305 2026-04-17
+Saved chart: data/charts/2026/04/2026-04-17/PFE/pullback_setup.png
+Saved chart: data/charts/2026/04/2026-04-17/TJX/pullback_setup.png
+Saved chart: data/charts/2026/04/2026-04-17/PLTR/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/04/2026-04-17/gallery_2026-04-17.pdf
+
+Saved signals with RS: data/charts/2026/04/2026-04-17/scan_results_2026-04-17.csv
+✓ Pushed 3 signals to Supabase
+✅ Signal alert sent to Discord
