@@ -1,0 +1,31 @@
+name: Price Updater
+
+on:
+  schedule:
+    # Every hour 9 AM - 4 PM CT (13:00 - 21:00 UTC), Mon-Fri
+    # Wide window covers both CST (UTC-6) and CDT (UTC-5) year-round
+    - cron: '0 13-21 * * 1-5'
+  workflow_dispatch: # allow manual trigger for testing
+
+jobs:
+  price-update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          pip install yfinance pandas supabase python-dotenv
+
+      - name: Run price updater
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: python price_updater.py
