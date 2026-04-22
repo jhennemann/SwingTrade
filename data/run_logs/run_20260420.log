@@ -1,0 +1,49 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 517 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-04-20 (Close=708.72, SMA200=666.92)
+Scanned 100/517 tickers...
+Scanned 200/517 tickers...
+Scanned 300/517 tickers...
+Scanned 400/517 tickers...
+Scanned 500/517 tickers...
+Calculating relative strength scores...
+
+=== SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1    APD           10.48768 2026-04-20
+Saved chart: data/charts/2026/04/2026-04-20/APD/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/04/2026-04-20/gallery_2026-04-20.pdf
+
+Saved signals with RS: data/charts/2026/04/2026-04-20/scan_results_2026-04-20.csv
+
+=== CHECKING EXITS FOR 23 OPEN SIGNALS ===
+  DOW: missing buy_price or last_date, skipping
+  HAL: missing buy_price or last_date, skipping
+  CNP: missing buy_price or last_date, skipping
+  NTAP: missing buy_price or last_date, skipping
+  EVRG: missing buy_price or last_date, skipping
+  WEC: missing buy_price or last_date, skipping
+  PFE: missing buy_price or last_date, skipping
+  TJX: missing buy_price or last_date, skipping
+  PLTR: missing buy_price or last_date, skipping
+  PANW: missing buy_price or last_date, skipping
+  WELL: missing buy_price or last_date, skipping
+  LHX: missing buy_price or last_date, skipping
+  DVA: missing buy_price or last_date, skipping
+  VLO: missing buy_price or last_date, skipping
+  FFIV: missing buy_price or last_date, skipping
+  LHX: missing buy_price or last_date, skipping
+  EXPE: missing buy_price or last_date, skipping
+  EXC: missing buy_price or last_date, skipping
+  INSM: missing buy_price or last_date, skipping
+  PWR: missing buy_price or last_date, skipping
+  PCG: missing buy_price or last_date, skipping
+  JNJ: missing buy_price or last_date, skipping
+  VTR: missing buy_price or last_date, skipping
+
+✓ Pushed 1 new signals to Supabase
+✅ Signal alert sent to Discord
