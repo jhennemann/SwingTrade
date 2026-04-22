@@ -4,8 +4,8 @@ permissions:
   contents: read
 
 on:
-  schedule:
-    - cron: "0 22 * * 1-5"  # 5:00 PM CDT (4:00 PM CST)
+  # schedule:
+  #   - cron: "0 22 * * 1-5"  # 5:00 PM CDT (4:00 PM CST)
   workflow_dispatch:
 
 jobs:
