@@ -1,0 +1,4 @@
+ticker,has_signal_today,last_date,most_recent_signal_date,signals_in_lookback,relative_strength,rank
+AEE,True,2026-04-27,2026-04-27,10,5.0031820531441396,1
+ADM,True,2026-04-27,2026-04-27,10,1.4459493651806765,2
+MTB,True,2026-04-27,2026-04-27,12,-5.000087417959376,3
