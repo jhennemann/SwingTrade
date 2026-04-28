@@ -1,0 +1,39 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 517 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-04-24 (Close=713.94, SMA200=668.65)
+Scanned 100/517 tickers...
+Scanned 200/517 tickers...
+Scanned 300/517 tickers...
+Scanned 400/517 tickers...
+Scanned 500/517 tickers...
+Calculating relative strength scores...
+
+=== SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1    OKE           8.512567 2026-04-24
+    2   BKNG         -14.739602 2026-04-24
+Saved chart: data/charts/2026/04/2026-04-24/OKE/pullback_setup.png
+Saved chart: data/charts/2026/04/2026-04-24/BKNG/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/04/2026-04-24/gallery_2026-04-24.pdf
+
+Saved signals with RS: data/charts/2026/04/2026-04-24/scan_results_2026-04-24.csv
+
+=== CHECKING EXITS FOR 11 OPEN SIGNALS ===
+  APD: still open (3 days in trade)
+  DVA: still open (1 days in trade)
+  AEP: no post-entry price data yet
+  LIN: no post-entry price data yet
+  PNW: no post-entry price data yet
+  CNP: still open (5 days in trade)
+  WEC: still open (5 days in trade)
+  PLTR: missing buy_price or last_date, skipping
+  PFE: missing buy_price or last_date, skipping
+  TJX: missing buy_price or last_date, skipping
+  FFIV: still open (8 days in trade)
+
+✓ Pushed 2 new signals to Supabase
+✅ Signal alert sent to Discord

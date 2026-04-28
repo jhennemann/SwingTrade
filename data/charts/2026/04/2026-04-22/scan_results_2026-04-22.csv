@@ -1,0 +1,4 @@
+ticker,has_signal_today,last_date,most_recent_signal_date,signals_in_lookback,relative_strength,rank
+DVA,True,2026-04-22,2026-04-22,6,42.063170128235484,1
+FANG,True,2026-04-22,2026-04-22,4,19.578582898545726,2
+BKR,True,2026-04-22,2026-04-22,9,8.42998558489021,3

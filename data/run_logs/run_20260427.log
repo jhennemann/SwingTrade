@@ -1,0 +1,39 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 517 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-04-27 (Close=715.17, SMA200=669.10)
+Scanned 100/517 tickers...
+Scanned 200/517 tickers...
+Scanned 300/517 tickers...
+Scanned 400/517 tickers...
+Scanned 500/517 tickers...
+Calculating relative strength scores...
+
+=== SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1    AEE           5.003182 2026-04-27
+    2    ADM           1.445949 2026-04-27
+    3    MTB          -5.000087 2026-04-27
+Saved chart: data/charts/2026/04/2026-04-27/AEE/pullback_setup.png
+Saved chart: data/charts/2026/04/2026-04-27/ADM/pullback_setup.png
+Saved chart: data/charts/2026/04/2026-04-27/MTB/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/04/2026-04-27/gallery_2026-04-27.pdf
+
+Saved signals with RS: data/charts/2026/04/2026-04-27/scan_results_2026-04-27.csv
+
+=== CHECKING EXITS FOR 9 OPEN SIGNALS ===
+  APD: still open (4 days in trade)
+  DVA: still open (2 days in trade)
+  AEP: still open (1 days in trade)
+  LIN: still open (1 days in trade)
+  PNW: still open (1 days in trade)
+  OKE: no post-entry price data yet
+  BKNG: no post-entry price data yet
+  CNP: still open (6 days in trade)
+  WEC: still open (6 days in trade)
+
+✓ Pushed 3 new signals to Supabase
+✅ Signal alert sent to Discord

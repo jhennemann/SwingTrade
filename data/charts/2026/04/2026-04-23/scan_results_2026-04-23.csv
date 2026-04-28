@@ -1,0 +1,5 @@
+ticker,has_signal_today,last_date,most_recent_signal_date,signals_in_lookback,relative_strength,rank
+AEP,True,2026-04-23,2026-04-23,7,11.524560681954066,1
+LIN,True,2026-04-23,2026-04-23,15,10.653439140018218,2
+PNW,True,2026-04-23,2026-04-23,7,8.555424690331748,3
+STZ,True,2026-04-23,2026-04-23,6,-0.8783884311187595,4
