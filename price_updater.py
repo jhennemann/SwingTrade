@@ -112,8 +112,16 @@ def main():
         should_close, reason = is_exit_hit(current_price, buy_price, signal_date)
 
         if should_close:
+            pct_change = (current_price - buy_price) / buy_price if buy_price else None
+            days_held = (date.today() - signal_date).days
+
             supabase.table("signals").update({
                 "status": "closed",
+                "exit_price": current_price,
+                "exit_date": date.today().isoformat(),
+                "exit_reason": reason,
+                "win_loss": round(pct_change, 6) if pct_change is not None else None,
+                "days_held": days_held,
                 "current_price": None,
                 "current_price_updated_at": None,
             }).eq("id", signal_id).execute()
@@ -129,10 +137,9 @@ def main():
     # ── 2. Clean up stale open signals older than cutoff ──────────────────────
     stale_response = (
         supabase.table("signals")
-        .select("id, ticker")
+        .select("id, ticker, current_price, buy_price, last_date")
         .eq("status", "open")
         .lt("last_date", cutoff)
-        .not_.is_("current_price", "null")
         .execute()
     )
 
@@ -140,12 +147,21 @@ def main():
     if stale_rows:
         print(f"  Cleaning up {len(stale_rows)} stale signal(s)...")
         for row in stale_rows:
+            current = row.get("current_price")
+            buy = row.get("buy_price")
+            pct = (current - buy) / buy if current and buy else None
+            days = (date.today() - date.fromisoformat(row["last_date"])).days
+
             supabase.table("signals").update({
                 "status": "closed",
+                "exit_price": current,
+                "exit_date": date.today().isoformat(),
+                "exit_reason": "max hold reached",
+                "win_loss": round(pct, 6) if pct is not None else None,
+                "days_held": days,
                 "current_price": None,
                 "current_price_updated_at": None,
             }).eq("id", row["id"]).execute()
-            print(f"    🔴 {row['ticker']} marked closed (stale)")
 
     print("\n✅ Price update complete.")
 

@@ -18,7 +18,7 @@ import os
 import time
 import yfinance as yf
 import pandas as pd
-from datetime import date
+from datetime import date, timedelta
 from supabase import create_client
 from dotenv import load_dotenv
 
@@ -67,7 +67,7 @@ def backfill_exits():
             df = yf.download(
                 ticker,
                 start=last_date,
-                end=date.today().isoformat(),
+                end=(date.today() + timedelta(days=1)).isoformat(),
                 interval="1d",
                 auto_adjust=False,
                 progress=False,
