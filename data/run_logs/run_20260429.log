@@ -1,0 +1,45 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 517 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-04-29 (Close=711.58, SMA200=669.98)
+Scanned 100/517 tickers...
+Scanned 200/517 tickers...
+Scanned 300/517 tickers...
+Scanned 400/517 tickers...
+Scanned 500/517 tickers...
+Calculating relative strength scores...
+
+=== SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1    APA          49.183128 2026-04-29
+    2     CF          33.861630 2026-04-29
+    3    EOG          22.782426 2026-04-29
+    4    ETR          14.593646 2026-04-29
+Saved chart: data/charts/2026/04/2026-04-29/APA/pullback_setup.png
+Saved chart: data/charts/2026/04/2026-04-29/CF/pullback_setup.png
+Saved chart: data/charts/2026/04/2026-04-29/EOG/pullback_setup.png
+Saved chart: data/charts/2026/04/2026-04-29/ETR/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/04/2026-04-29/gallery_2026-04-29.pdf
+
+Saved signals with RS: data/charts/2026/04/2026-04-29/scan_results_2026-04-29.csv
+
+=== CHECKING EXITS FOR 13 OPEN SIGNALS ===
+  APD: still open (6 days in trade)
+  LIN: still open (3 days in trade)
+  PNW: still open (3 days in trade)
+  AEP: still open (3 days in trade)
+  OKE: still open (2 days in trade)
+  CNP: still open (8 days in trade)
+  ADM: still open (1 days in trade)
+  WEC: still open (8 days in trade)
+  AEE: still open (1 days in trade)
+  MPC: no post-entry price data yet
+  BX: no post-entry price data yet
+  VLO: no post-entry price data yet
+  FDS: no post-entry price data yet
+
+✓ Pushed 4 new signals to Supabase
+✅ Signal alert sent to Discord

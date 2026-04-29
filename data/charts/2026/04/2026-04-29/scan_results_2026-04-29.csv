@@ -1,0 +1,5 @@
+ticker,has_signal_today,last_date,most_recent_signal_date,signals_in_lookback,relative_strength,rank
+APA,True,2026-04-29,2026-04-29,6,49.18312800004323,1
+CF,True,2026-04-29,2026-04-29,8,33.86162963977244,2
+EOG,True,2026-04-29,2026-04-29,7,22.782425717800848,3
+ETR,True,2026-04-29,2026-04-29,9,14.59364552803577,4
