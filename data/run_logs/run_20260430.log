@@ -1,0 +1,76 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 517 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-04-30 (Close=718.66, SMA200=670.46)
+Scanned 100/517 tickers...
+Scanned 200/517 tickers...
+Scanned 300/517 tickers...
+Scanned 400/517 tickers...
+Scanned 500/517 tickers...
+Calculating relative strength scores...
+
+=== SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1   CIEN         103.386429 2026-04-30
+    2   AMAT          27.825196 2026-04-30
+    3    WAB           7.353307 2026-04-30
+    4    MAR           6.708184 2026-04-30
+    5    ATO           5.830841 2026-04-30
+    6    LNT           5.275570 2026-04-30
+    7    AEE           3.764500 2026-04-30
+    8   EVRG           2.532086 2026-04-30
+    9    PLD           0.592914 2026-04-30
+   10    WEC          -0.664154 2026-04-30
+   11   COST          -1.033853 2026-04-30
+   12    CCI          -1.631238 2026-04-30
+   13     GS          -3.585526 2026-04-30
+   14    GWW          -7.542134 2026-04-30
+   15    DIS          -7.814596 2026-04-30
+   16    PNC         -10.738244 2026-04-30
+   17     BX         -11.391645 2026-04-30
+   18   HBAN         -16.614151 2026-04-30
+   19   ARES         -19.175880 2026-04-30
+Saved chart: data/charts/2026/04/2026-04-30/CIEN/pullback_setup.png
+Saved chart: data/charts/2026/04/2026-04-30/AMAT/pullback_setup.png
+Saved chart: data/charts/2026/04/2026-04-30/WAB/pullback_setup.png
+Saved chart: data/charts/2026/04/2026-04-30/MAR/pullback_setup.png
+Saved chart: data/charts/2026/04/2026-04-30/ATO/pullback_setup.png
+Saved chart: data/charts/2026/04/2026-04-30/LNT/pullback_setup.png
+Saved chart: data/charts/2026/04/2026-04-30/AEE/pullback_setup.png
+Saved chart: data/charts/2026/04/2026-04-30/EVRG/pullback_setup.png
+Saved chart: data/charts/2026/04/2026-04-30/PLD/pullback_setup.png
+Saved chart: data/charts/2026/04/2026-04-30/WEC/pullback_setup.png
+Saved chart: data/charts/2026/04/2026-04-30/COST/pullback_setup.png
+Saved chart: data/charts/2026/04/2026-04-30/CCI/pullback_setup.png
+Saved chart: data/charts/2026/04/2026-04-30/GS/pullback_setup.png
+Saved chart: data/charts/2026/04/2026-04-30/GWW/pullback_setup.png
+Saved chart: data/charts/2026/04/2026-04-30/DIS/pullback_setup.png
+Saved chart: data/charts/2026/04/2026-04-30/PNC/pullback_setup.png
+Saved chart: data/charts/2026/04/2026-04-30/BX/pullback_setup.png
+Saved chart: data/charts/2026/04/2026-04-30/HBAN/pullback_setup.png
+Saved chart: data/charts/2026/04/2026-04-30/ARES/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/04/2026-04-30/gallery_2026-04-30.pdf
+
+Saved signals with RS: data/charts/2026/04/2026-04-30/scan_results_2026-04-30.csv
+
+=== CHECKING EXITS FOR 14 OPEN SIGNALS ===
+  APD: still open (7 days in trade)
+  LIN: still open (4 days in trade)
+  PNW: still open (4 days in trade)
+  AEP: still open (4 days in trade)
+  OKE: still open (3 days in trade)
+  ADM: still open (2 days in trade)
+  ✓ AEE: stop exit on 2026-04-29 | P&L: -2.00% | days: 2
+  MPC: still open (1 days in trade)
+  ✓ BX: stop exit on 2026-04-29 | P&L: -2.00% | days: 1
+  VLO: still open (1 days in trade)
+  APA: no post-entry price data yet
+  CF: no post-entry price data yet
+  EOG: no post-entry price data yet
+  ETR: no post-entry price data yet
+
+✓ Pushed 19 new signals to Supabase
+✅ Signal alert sent to Discord
