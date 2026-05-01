@@ -1,0 +1,68 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 517 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-05-01 (Close=720.65, SMA200=670.94)
+Scanned 100/517 tickers...
+Scanned 200/517 tickers...
+Scanned 300/517 tickers...
+Scanned 400/517 tickers...
+Scanned 500/517 tickers...
+Calculating relative strength scores...
+
+=== SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1   COIN          24.535407 2026-05-01
+    2   ORCL          19.551065 2026-05-01
+    3   SHOP           8.419696 2026-05-01
+    4   VRSN           5.940657 2026-05-01
+    5    DAL          -7.496625 2026-05-01
+    6   DASH         -10.712188 2026-05-01
+    7   MELI         -15.427898 2026-05-01
+Saved chart: data/charts/2026/05/2026-05-01/COIN/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-01/ORCL/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-01/SHOP/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-01/VRSN/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-01/DAL/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-01/DASH/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-01/MELI/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/05/2026-05-01/gallery_2026-05-01.pdf
+
+Saved signals with RS: data/charts/2026/05/2026-05-01/scan_results_2026-05-01.csv
+
+=== CHECKING EXITS FOR 30 OPEN SIGNALS ===
+  APD: still open (8 days in trade)
+  LIN: still open (5 days in trade)
+  PNW: still open (5 days in trade)
+  AEP: still open (5 days in trade)
+  OKE: still open (4 days in trade)
+  ADM: still open (3 days in trade)
+  MPC: still open (2 days in trade)
+  VLO: still open (2 days in trade)
+  APA: still open (1 days in trade)
+  EOG: still open (1 days in trade)
+  ETR: still open (1 days in trade)
+  BX: no post-entry price data yet
+  HBAN: no post-entry price data yet
+  ARES: no post-entry price data yet
+  CIEN: no post-entry price data yet
+  AMAT: no post-entry price data yet
+  WAB: no post-entry price data yet
+  MAR: no post-entry price data yet
+  ATO: no post-entry price data yet
+  LNT: no post-entry price data yet
+  AEE: no post-entry price data yet
+  EVRG: no post-entry price data yet
+  PLD: no post-entry price data yet
+  WEC: no post-entry price data yet
+  COST: no post-entry price data yet
+  CCI: no post-entry price data yet
+  GS: no post-entry price data yet
+  GWW: no post-entry price data yet
+  DIS: no post-entry price data yet
+  PNC: no post-entry price data yet
+
+✓ Pushed 7 new signals to Supabase
+✅ Signal alert sent to Discord
