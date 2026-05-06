@@ -1,0 +1,99 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 517 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-05-06 (Close=733.83, SMA200=672.40)
+Scanned 100/517 tickers...
+Scanned 200/517 tickers...
+Scanned 300/517 tickers...
+Scanned 400/517 tickers...
+Scanned 500/517 tickers...
+Calculating relative strength scores...
+
+=== SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1    DLR           9.709975 2026-05-06
+    2   SBAC           9.501404 2026-05-06
+    3    HWM           8.211564 2026-05-06
+    4   NVDA           4.204841 2026-05-06
+    5    WAB           3.728097 2026-05-06
+    6   ASML           3.249062 2026-05-06
+    7    KIM           1.229100 2026-05-06
+    8    PSA          -0.330788 2026-05-06
+    9     BK          -0.340371 2026-05-06
+   10    SNA          -3.665586 2026-05-06
+   11    PLD          -4.303751 2026-05-06
+   12    EXR          -4.322510 2026-05-06
+   13      O          -5.854270 2026-05-06
+   14   CVNA          -6.616166 2026-05-06
+   15    JPM          -7.088374 2026-05-06
+   16    GWW          -7.555841 2026-05-06
+   17    FER          -7.861272 2026-05-06
+   18   VICI          -8.077698 2026-05-06
+   19    CFG          -8.883558 2026-05-06
+   20   MNST          -9.731044 2026-05-06
+   21     BA         -11.245098 2026-05-06
+   22     BX         -12.849016 2026-05-06
+   23    PNC         -13.478669 2026-05-06
+   24    TFC         -13.830406 2026-05-06
+   25   MELI         -15.120283 2026-05-06
+   26   HBAN         -16.419524 2026-05-06
+   27    VMC         -16.514654 2026-05-06
+Saved chart: data/charts/2026/05/2026-05-06/DLR/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-06/SBAC/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-06/HWM/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-06/NVDA/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-06/WAB/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-06/ASML/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-06/KIM/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-06/PSA/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-06/BK/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-06/SNA/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-06/PLD/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-06/EXR/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-06/O/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-06/CVNA/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-06/JPM/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-06/GWW/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-06/FER/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-06/VICI/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-06/CFG/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-06/MNST/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-06/BA/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-06/BX/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-06/PNC/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-06/TFC/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-06/MELI/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-06/HBAN/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-06/VMC/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/05/2026-05-06/gallery_2026-05-06.pdf
+
+Saved signals with RS: data/charts/2026/05/2026-05-06/scan_results_2026-05-06.csv
+
+=== CHECKING EXITS FOR 21 OPEN SIGNALS ===
+  VRSN: missing buy_price or last_date, skipping
+  DAL: missing buy_price or last_date, skipping
+  DASH: missing buy_price or last_date, skipping
+  MELI: missing buy_price or last_date, skipping
+  SHOP: missing buy_price or last_date, skipping
+  COIN: missing buy_price or last_date, skipping
+  ORCL: missing buy_price or last_date, skipping
+  AEP: still open (8 days in trade)
+  LRCX: no post-entry price data yet
+  ZBRA: no post-entry price data yet
+  GS: no post-entry price data yet
+  KEY: no post-entry price data yet
+  DAL: no post-entry price data yet
+  FITB: no post-entry price data yet
+  RF: no post-entry price data yet
+  AMAT: no post-entry price data yet
+  AME: no post-entry price data yet
+  FTV: no post-entry price data yet
+  EOG: still open (4 days in trade)
+  CCI: still open (3 days in trade)
+  GS: still open (3 days in trade)
+
+✓ Pushed 27 new signals to Supabase
+✅ Signal alert sent to Discord
