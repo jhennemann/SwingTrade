@@ -1,0 +1,57 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 517 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-05-07 (Close=731.58, SMA200=672.91)
+Scanned 100/517 tickers...
+Scanned 200/517 tickers...
+Scanned 300/517 tickers...
+Scanned 400/517 tickers...
+Scanned 500/517 tickers...
+Calculating relative strength scores...
+
+=== SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1   CBRE          -7.592115 2026-05-07
+    2    AZO         -10.569914 2026-05-07
+Saved chart: data/charts/2026/05/2026-05-07/CBRE/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-07/AZO/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/05/2026-05-07/gallery_2026-05-07.pdf
+
+Saved signals with RS: data/charts/2026/05/2026-05-07/scan_results_2026-05-07.csv
+
+=== CHECKING EXITS FOR 29 OPEN SIGNALS ===
+  VRSN: missing buy_price or last_date, skipping
+  DAL: missing buy_price or last_date, skipping
+  DASH: missing buy_price or last_date, skipping
+  MELI: missing buy_price or last_date, skipping
+  SHOP: missing buy_price or last_date, skipping
+  COIN: missing buy_price or last_date, skipping
+  ORCL: missing buy_price or last_date, skipping
+  LRCX: still open (1 days in trade)
+  RF: still open (1 days in trade)
+  ✓ ZBRA: stop exit on 2026-05-06 | P&L: -2.00% | days: 1
+  GS: still open (1 days in trade)
+  KEY: still open (1 days in trade)
+  ✓ FTV: stop exit on 2026-05-06 | P&L: -2.00% | days: 1
+  PLD: no post-entry price data yet
+  EXR: no post-entry price data yet
+  CVNA: no post-entry price data yet
+  FER: no post-entry price data yet
+  VICI: no post-entry price data yet
+  MNST: no post-entry price data yet
+  BA: no post-entry price data yet
+  BX: no post-entry price data yet
+  PNC: no post-entry price data yet
+  MELI: no post-entry price data yet
+  SBAC: no post-entry price data yet
+  NVDA: no post-entry price data yet
+  KIM: no post-entry price data yet
+  PSA: no post-entry price data yet
+  CCI: still open (4 days in trade)
+  GS: still open (4 days in trade)
+
+✓ Pushed 2 new signals to Supabase
+✅ Signal alert sent to Discord
