@@ -1,0 +1,58 @@
+Loading stock universes...
+✓ S&P 500: 502 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 516 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-05-08 (Close=737.62, SMA200=673.43)
+Scanned 100/516 tickers...
+Scanned 200/516 tickers...
+Scanned 300/516 tickers...
+Scanned 400/516 tickers...
+Scanned 500/516 tickers...
+Calculating relative strength scores...
+
+=== SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1   COIN          34.304354 2026-05-08
+    2    HAL           7.885003 2026-05-08
+    3   SATS           6.786147 2026-05-08
+    4   JBHT           3.926928 2026-05-08
+    5    BAX         -12.119519 2026-05-08
+Saved chart: data/charts/2026/05/2026-05-08/COIN/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-08/HAL/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-08/SATS/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-08/JBHT/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-08/BAX/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/05/2026-05-08/gallery_2026-05-08.pdf
+
+Saved signals with RS: data/charts/2026/05/2026-05-08/scan_results_2026-05-08.csv
+
+=== CHECKING EXITS FOR 24 OPEN SIGNALS ===
+  VRSN: missing buy_price or last_date, skipping
+  DAL: missing buy_price or last_date, skipping
+  DASH: missing buy_price or last_date, skipping
+  MELI: missing buy_price or last_date, skipping
+  SHOP: missing buy_price or last_date, skipping
+  COIN: missing buy_price or last_date, skipping
+  ORCL: missing buy_price or last_date, skipping
+  LRCX: still open (2 days in trade)
+  GS: still open (2 days in trade)
+  ✓ BX: stop exit on 2026-05-07 | P&L: -2.00% | days: 1
+  PNC: still open (1 days in trade)
+  SBAC: still open (1 days in trade)
+  NVDA: still open (1 days in trade)
+  KIM: still open (1 days in trade)
+  PSA: still open (1 days in trade)
+  PLD: still open (1 days in trade)
+  EXR: still open (1 days in trade)
+  ✓ FER: stop exit on 2026-05-07 | P&L: -2.00% | days: 1
+  VICI: still open (1 days in trade)
+  BA: still open (1 days in trade)
+  CBRE: no post-entry price data yet
+  AZO: no post-entry price data yet
+  CCI: still open (5 days in trade)
+  GS: still open (5 days in trade)
+
+✓ Pushed 5 new signals to Supabase
+✅ Signal alert sent to Discord
