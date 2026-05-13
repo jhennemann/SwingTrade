@@ -38,7 +38,7 @@ export default function Layout() {
       <header>
       <nav className="navbar navbar-dark bg-dark main-nav">
         <Link to="/" className="navbar-brand fw-bold d-flex align-items-center gap-2">
-          <img src="/p44/chart2.svg" alt="SwingTrade logo" style={{ width: '24px', height: '24px' }} />
+          <img src="/chart2.svg" alt="SwingTrade logo" style={{ width: '24px', height: '24px' }} />
           SwingTrade
         </Link>
 
