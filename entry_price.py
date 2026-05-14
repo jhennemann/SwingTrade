@@ -17,6 +17,14 @@ supabase = create_client(
     os.environ["SUPABASE_SERVICE_KEY"],
 )
 
+def get_last_trading_day() -> date:
+    """Return the most recent weekday (skips weekends)."""
+    d = date.today() - timedelta(days=1)
+    # If yesterday was Saturday (5) or Sunday (6), step back to Friday
+    while d.weekday() >= 5:
+        d -= timedelta(days=1)
+    return d
+
 
 def get_open_price(ticker: str) -> float | None:
     """Fetch today's opening price via the first 1-minute bar."""
@@ -46,7 +54,7 @@ def get_open_price(ticker: str) -> float | None:
 
 
 def main():
-    yesterday = (date.today() - timedelta(days=1)).isoformat()
+    yesterday = get_last_trading_day().isoformat()
 
     print(f"🔍 Looking for signals from {yesterday} with no buy_price...")
 
