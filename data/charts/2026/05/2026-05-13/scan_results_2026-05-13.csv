@@ -1,0 +1,3 @@
+ticker,has_signal_today,last_date,most_recent_signal_date,signals_in_lookback,relative_strength,rank
+BK,True,2026-05-13,2026-05-13,13,4.809070271456362,1
+TXT,True,2026-05-13,2026-05-13,6,-17.010616187481464,2

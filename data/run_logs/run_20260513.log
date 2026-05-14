@@ -1,0 +1,53 @@
+Loading stock universes...
+✓ S&P 500: 502 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 516 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-05-13 (Close=742.31, SMA200=674.98)
+Scanned 100/516 tickers...
+Scanned 200/516 tickers...
+Scanned 300/516 tickers...
+Scanned 400/516 tickers...
+Scanned 500/516 tickers...
+Calculating relative strength scores...
+
+=== SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1     BK           4.809070 2026-05-13
+    2    TXT         -17.010616 2026-05-13
+Saved chart: data/charts/2026/05/2026-05-13/BK/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-13/TXT/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/05/2026-05-13/gallery_2026-05-13.pdf
+
+Saved signals with RS: data/charts/2026/05/2026-05-13/scan_results_2026-05-13.csv
+
+=== CHECKING EXITS FOR 25 OPEN SIGNALS ===
+  DASH: missing buy_price or last_date, skipping
+  MELI: missing buy_price or last_date, skipping
+  SHOP: missing buy_price or last_date, skipping
+  VRSN: missing buy_price or last_date, skipping
+  DAL: missing buy_price or last_date, skipping
+  COIN: missing buy_price or last_date, skipping
+  ORCL: missing buy_price or last_date, skipping
+  ✓ LRCX: stop exit on 2026-05-12 | P&L: -2.00% | days: 5
+  GS: still open (5 days in trade)
+  VICI: still open (4 days in trade)
+  BA: still open (4 days in trade)
+  PSA: still open (4 days in trade)
+  PLD: still open (4 days in trade)
+  EXR: still open (4 days in trade)
+  BAX: missing buy_price or last_date, skipping
+  COIN: missing buy_price or last_date, skipping
+  HAL: missing buy_price or last_date, skipping
+  SATS: missing buy_price or last_date, skipping
+  JBHT: missing buy_price or last_date, skipping
+  AMP: no post-entry price data yet
+  MET: no post-entry price data yet
+  GS: still open (8 days in trade)
+  CCI: still open (8 days in trade)
+  NDAQ: no post-entry price data yet
+  BKR: no post-entry price data yet
+
+✓ Pushed 2 new signals to Supabase
+✅ Signal alert sent to Discord
