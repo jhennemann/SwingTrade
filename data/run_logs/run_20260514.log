@@ -1,0 +1,65 @@
+Loading stock universes...
+✓ S&P 500: 502 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 516 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-05-14 (Close=748.17, SMA200=675.55)
+Scanned 100/516 tickers...
+Scanned 200/516 tickers...
+Scanned 300/516 tickers...
+Scanned 400/516 tickers...
+Scanned 500/516 tickers...
+Calculating relative strength scores...
+
+=== SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1    GEV          21.358555 2026-05-14
+    2   NTRS           3.989842 2026-05-14
+    3    PLD          -6.701299 2026-05-14
+    4   CINF          -7.513000 2026-05-14
+    5    NSC          -8.161736 2026-05-14
+    6    RJF         -10.861535 2026-05-14
+    7    BXP         -14.544351 2026-05-14
+    8    HAS         -14.601903 2026-05-14
+    9    LII         -15.835620 2026-05-14
+Saved chart: data/charts/2026/05/2026-05-14/GEV/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-14/NTRS/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-14/PLD/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-14/CINF/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-14/NSC/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-14/RJF/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-14/BXP/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-14/HAS/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-14/LII/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/05/2026-05-14/gallery_2026-05-14.pdf
+
+Saved signals with RS: data/charts/2026/05/2026-05-14/scan_results_2026-05-14.csv
+
+=== CHECKING EXITS FOR 23 OPEN SIGNALS ===
+  SHOP: missing buy_price or last_date, skipping
+  VRSN: missing buy_price or last_date, skipping
+  DAL: missing buy_price or last_date, skipping
+  TXT: no post-entry price data yet
+  DASH: missing buy_price or last_date, skipping
+  MELI: missing buy_price or last_date, skipping
+  COIN: missing buy_price or last_date, skipping
+  ORCL: missing buy_price or last_date, skipping
+  BK: no post-entry price data yet
+  GS: still open (6 days in trade)
+  EXR: still open (5 days in trade)
+  BA: still open (5 days in trade)
+  PSA: still open (5 days in trade)
+  PLD: still open (5 days in trade)
+  BAX: missing buy_price or last_date, skipping
+  COIN: missing buy_price or last_date, skipping
+  HAL: missing buy_price or last_date, skipping
+  SATS: missing buy_price or last_date, skipping
+  JBHT: missing buy_price or last_date, skipping
+  AMP: still open (1 days in trade)
+  MET: still open (1 days in trade)
+  NDAQ: still open (1 days in trade)
+  BKR: still open (1 days in trade)
+
+✓ Pushed 9 new signals to Supabase
+✅ Signal alert sent to Discord
