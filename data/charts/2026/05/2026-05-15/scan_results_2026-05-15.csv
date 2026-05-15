@@ -1,0 +1,5 @@
+ticker,has_signal_today,last_date,most_recent_signal_date,signals_in_lookback,relative_strength,rank
+WST,True,2026-05-15,2026-05-15,17,18.403303942461125,1
+DVN,True,2026-05-15,2026-05-15,12,4.274425184705555,2
+MSFT,True,2026-05-15,2026-05-15,1,-0.9991111697819521,3
+EG,True,2026-05-15,2026-05-15,5,-4.531285246558303,4

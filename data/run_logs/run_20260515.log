@@ -1,0 +1,47 @@
+Loading stock universes...
+✓ S&P 500: 502 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 516 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-05-15 (Close=739.17, SMA200=676.07)
+Scanned 100/516 tickers...
+Scanned 200/516 tickers...
+Scanned 300/516 tickers...
+Scanned 400/516 tickers...
+Scanned 500/516 tickers...
+Calculating relative strength scores...
+
+=== SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1    WST          18.403304 2026-05-15
+    2    DVN           4.274425 2026-05-15
+    3   MSFT          -0.999111 2026-05-15
+    4     EG          -4.531285 2026-05-15
+Saved chart: data/charts/2026/05/2026-05-15/WST/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-15/DVN/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-15/MSFT/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-15/EG/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/05/2026-05-15/gallery_2026-05-15.pdf
+
+Saved signals with RS: data/charts/2026/05/2026-05-15/scan_results_2026-05-15.csv
+
+=== CHECKING EXITS FOR 15 OPEN SIGNALS ===
+  BK: still open (1 days in trade)
+  PLD: no post-entry price data yet
+  CINF: no post-entry price data yet
+  NSC: no post-entry price data yet
+  RJF: no post-entry price data yet
+  BXP: no post-entry price data yet
+  HAS: no post-entry price data yet
+  GEV: no post-entry price data yet
+  NTRS: no post-entry price data yet
+  GS: still open (7 days in trade)
+  PLD: still open (6 days in trade)
+  HAL: still open (4 days in trade)
+  NDAQ: still open (2 days in trade)
+  AMP: still open (2 days in trade)
+  MET: still open (2 days in trade)
+
+✓ Pushed 4 new signals to Supabase
+✅ Signal alert sent to Discord
