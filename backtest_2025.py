@@ -28,19 +28,17 @@ from src.universe import SP500UniverseStockAnalysis, Nasdaq100Universe
 CACHE_DIR    = Path("cache")    # populated by download_cache.py
 SCAN_YEARS   = [2023, 2024, 2025]
 
-PROFIT_TARGET    = 0.07
 MAX_DAYS         = 10
 RS_LOOKBACK      = 60              # Trading days for RS calculation
 
-ENTRY_MODE   = "open"   # fixed: next day open
-STOP_LOSS    = 0.02
+ENTRY_MODE    = "open"   # fixed: next day open
+STOP_LOSS     = 0.02
 PROFIT_TARGET = 0.07
 
 RS_THRESHOLDS  = [0, 10, 20, 30, 40, 50, 60, 70, 80]
 SIL_THRESHOLDS = [1, 2, 3, 4, 5]  # signals_in_lookback — max allowed (lower = rarer setup)
 
 OUTPUT_SUMMARY   = Path("backtest_summary.csv")
-
 
 
 # ── Universe ───────────────────────────────────────────────────────────────────
@@ -90,6 +88,21 @@ def load_price_cache(tickers: list[str]) -> dict[str, pd.DataFrame]:
         print(f"  Run download_cache.py to fetch missing tickers.\n")
 
     return cache
+
+def calc_atr(df: pd.DataFrame, signal_date: date, period: int = 14) -> float:
+    hist = df[df.index.date <= signal_date].tail(period + 1)
+    if len(hist) < period + 1:
+        return None
+    high = hist["High"].astype(float)
+    low = hist["Low"].astype(float)
+    close = hist["Close"].astype(float)
+    prev_close = close.shift(1)
+    tr = pd.concat([
+        high - low,
+        (high - prev_close).abs(),
+        (low - prev_close).abs()
+    ], axis=1).max(axis=1)
+    return float(tr.iloc[1:].mean())
 
 
 # ── RS Calculation (point-in-time) ─────────────────────────────────────────────
@@ -146,18 +159,24 @@ def build_spy_market_filter(cache: dict, scan_year: int) -> set[date]:
     return valid_dates
 
 
-def detect_signals(cache: dict, tickers: list[str], scan_year: int) -> list[dict]:
+def detect_signals(
+    cache: dict,
+    tickers: list[str],
+    scan_year: int,
+    setup_kwargs: dict | None = None,
+) -> list[dict]:
     """
     Run PullbackUptrendSetup on every ticker and collect signals in scan_year.
     Applies SPY SMA200 market filter — no signals taken on days SPY is below SMA200.
-    Returns list of dicts: ticker, signal_date, rs.
+    Returns list of dicts: ticker, signal_date, rs, sil, sma50_slope.
     """
     print(f"\nDetecting signals for {scan_year}...")
 
     # Build market filter upfront
     valid_market_dates = build_spy_market_filter(cache, scan_year)
 
-    setup = PullbackUptrendSetup(pullback_pct=0.02, use_volume=True)
+    setup_kwargs = setup_kwargs or {}
+    setup = PullbackUptrendSetup(**setup_kwargs)
 
     all_signals = []
     filtered_out = 0
@@ -187,14 +206,31 @@ def detect_signals(cache: dict, tickers: list[str], scan_year: int) -> list[dict
                     continue
 
                 rs = calc_rs_at_date(ticker, signal_date, cache)
+
+                # ATR filter — skip high volatility stocks
+                atr = calc_atr(df, signal_date)
+                close_price = float(df[df.index.date <= signal_date]["Close"].iloc[-1])
+                if atr is None or (atr / close_price) > 0.03:
+                    continue
+
                 # signals_in_lookback = total signals for this ticker in its full history up to signal_date
                 sil = int(df_signal[df_signal.index.date <= signal_date]["signal"].sum())
+
+                # SMA50 slope: compare today's SMA50 to 10 days ago
+                sma50_series = df_prep["SMA50"]
+                sma50_vals = sma50_series[sma50_series.index.date <= signal_date]
+                if len(sma50_vals) >= 11:
+                    slope = (sma50_vals.iloc[-1] - sma50_vals.iloc[-11]) / sma50_vals.iloc[-11] * 100
+                else:
+                    slope = None
+
                 all_signals.append({
-                    "ticker":      ticker,
-                    "signal_date": signal_date,
-                    "rs":          rs,
-                    "sil":         sil,
-                    "year":        scan_year,
+                    "ticker":       ticker,
+                    "signal_date":  signal_date,
+                    "rs":           rs,
+                    "sil":          sil,
+                    "year":         scan_year,
+                    "sma50_slope":  slope,
                 })
 
         except Exception as e:
@@ -443,9 +479,10 @@ def main():
             profit_target=PROFIT_TARGET,
         )
         if trade:
-            trade["rs"]   = sig["rs"]
-            trade["sil"]  = sig["sil"]
-            trade["year"] = sig["year"]
+            trade["rs"]          = sig["rs"]
+            trade["sil"]         = sig["sil"]
+            trade["year"]        = sig["year"]
+            trade["sma50_slope"] = sig["sma50_slope"]
             trades.append(trade)
 
     print(f"  Simulated: {len(trades)} trades")
@@ -456,13 +493,42 @@ def main():
 
     trades_df = pd.DataFrame(trades)
 
-    # 5. Print RS threshold table (all signals, no SIL filter)
+    # Export stop loss trades for analysis
+    stops_df = trades_df[trades_df["exit_reason"] == "Stop Loss"].copy()
+    stops_df = stops_df.sort_values("pnl")
+    stops_df.to_csv("stop_losses.csv", index=False)
+    print(f"\n✓ Exported {len(stops_df)} stop loss trades to stop_losses.csv")
+
+    print(f"\n{'=' * 75}")
+    print(f"  Exit Reason Breakdown — ALL TRADES")
+    print(f"{'=' * 75}")
+    print_exit_breakdown(summarize_by_rs(trades_df), label="All trades")
+
+    # 5. SMA50 slope split
+    rising       = trades_df[trades_df["sma50_slope"] > 0]
+    flat_falling = trades_df[trades_df["sma50_slope"] <= 0]
+    slope_none   = trades_df[trades_df["sma50_slope"].isna()]
+
+    print(f"\n{'=' * 60}")
+    print(f"  SMA50 Slope Analysis")
+    print(f"{'=' * 60}")
+    print(f"  Rising (slope > 0):       {len(rising)} trades")
+    print(f"  Flat/Falling (slope <= 0): {len(flat_falling)} trades")
+    print(f"  No slope data:            {len(slope_none)} trades")
+
+    print(f"\nSMA50 Slope > 0 ({len(rising)} trades):")
+    print_rs_table(summarize_by_rs(rising))
+
+    print(f"\nSMA50 Slope <= 0 ({len(flat_falling)} trades):")
+    print_rs_table(summarize_by_rs(flat_falling))
+
+    # 6. Print RS threshold table (all signals, no SIL filter)
     print(f"\n{'=' * 60}")
     print(f"  Win Rate by RS Threshold — ALL YEARS (no SIL filter)")
     print(f"{'=' * 60}")
     print_rs_table(summarize_by_rs(trades_df))
 
-    # 6. Print SIL filter tables
+    # 7. Print SIL filter tables
     print(f"\n{'=' * 60}")
     print(f"  Win Rate by RS Threshold — filtered by Signals in Lookback")
     print(f"{'=' * 60}")
@@ -474,7 +540,7 @@ def main():
         print("-" * 45)
         print_rs_table(summarize_by_rs(subset))
 
-    # 7. Save summary
+    # 8. Save summary
     all_summaries = []
     base = summarize_by_rs(trades_df)
     base["sil_filter"] = "none"

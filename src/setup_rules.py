@@ -5,12 +5,21 @@ class PullbackUptrendSetup:
     Setup checks: Uptrend AND pullback yesterday AND reclaim today
       - Trend: Close > SMA50 and SMA20 > SMA50
       - Pullback: Yesterday was near SMA20 (within pullback_pct) and at/below SMA20
-      - Confirmation: Today closes back above SMA20 (reclaim)
+      - Confirmation: Today closes back above SMA20 by reclaim_pct
       - Optional: Pullback day volume < VOL_SMA20 (quiet pullback)
+      - Optional: Close > SMA200 for longer-term trend confirmation
     """
-    def __init__(self, pullback_pct: float = 0.02, use_volume: bool = True):
+    def __init__(
+        self,
+        pullback_pct: float = 0.02,
+        use_volume: bool = True,
+        reclaim_pct: float = 0.0,
+        require_sma200: bool = False,
+    ):
         self.pullback_pct = pullback_pct
         self.use_volume = use_volume
+        self.reclaim_pct = reclaim_pct
+        self.require_sma200 = require_sma200
 
     def prepare(self, df: pd.DataFrame) -> pd.DataFrame:
         df = df.copy()
@@ -19,6 +28,7 @@ class PullbackUptrendSetup:
 
         df["SMA20"] = df["Close"].rolling(20).mean()
         df["SMA50"] = df["Close"].rolling(50).mean()
+        df["SMA200"] = df["Close"].rolling(200).mean()
         df["VOL_SMA20"] = df["Volume"].rolling(20).mean()
         return df
 
@@ -27,6 +37,8 @@ class PullbackUptrendSetup:
 
         # --- Trend filter (today) ---
         trend = (df["Close"] > df["SMA50"]) & (df["SMA20"] > df["SMA50"])
+        if self.require_sma200:
+            trend = trend & (df["Close"] > df["SMA200"])
 
         # --- Pullback & reclaim logic uses yesterday vs today ---
         prev_close = df["Close"].shift(1)
@@ -37,8 +49,8 @@ class PullbackUptrendSetup:
         pullback_below_or_at = prev_close <= prev_sma20
         pullback_day = pullback_near & pullback_below_or_at
 
-        # Today reclaims SMA20 (closes above)
-        reclaim = df["Close"] > df["SMA20"]
+        # Today reclaims SMA20 by the configured margin
+        reclaim = df["Close"] > (df["SMA20"] * (1 + self.reclaim_pct))
 
         # Combine
         signal = trend & pullback_day & reclaim
