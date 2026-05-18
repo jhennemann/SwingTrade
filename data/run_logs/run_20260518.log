@@ -1,0 +1,65 @@
+Loading stock universes...
+✓ S&P 500: 502 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 516 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-05-18 (Close=738.65, SMA200=676.60)
+Scanned 100/516 tickers...
+Scanned 200/516 tickers...
+Scanned 300/516 tickers...
+Scanned 400/516 tickers...
+Scanned 500/516 tickers...
+Calculating relative strength scores...
+
+=== SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1   NTRS           9.485891 2026-05-18
+    2   TROW           1.770491 2026-05-18
+    3   PAYX          -0.120056 2026-05-18
+    4      D          -3.060070 2026-05-18
+    5    AVB          -3.203728 2026-05-18
+    6    MAR          -3.411211 2026-05-18
+    7    EQR          -4.912272 2026-05-18
+    8    PLD          -7.129027 2026-05-18
+    9    BXP          -7.741368 2026-05-18
+   10     EW          -8.305207 2026-05-18
+   11    AIG         -10.270063 2026-05-18
+   12    MAA         -12.054650 2026-05-18
+Saved chart: data/charts/2026/05/2026-05-18/NTRS/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-18/TROW/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-18/PAYX/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-18/D/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-18/AVB/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-18/MAR/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-18/EQR/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-18/PLD/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-18/BXP/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-18/EW/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-18/AIG/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-18/MAA/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/05/2026-05-18/gallery_2026-05-18.pdf
+
+Saved signals with RS: data/charts/2026/05/2026-05-18/scan_results_2026-05-18.csv
+
+=== CHECKING EXITS FOR 17 OPEN SIGNALS ===
+  BK: still open (2 days in trade)
+  BXP: still open (1 days in trade)
+  NTRS: still open (1 days in trade)
+  PLD: still open (1 days in trade)
+  CINF: still open (1 days in trade)
+  NSC: still open (1 days in trade)
+  RJF: still open (1 days in trade)
+  GS: still open (8 days in trade)
+  DVN: no post-entry price data yet
+  MSFT: no post-entry price data yet
+  EG: no post-entry price data yet
+  WST: no post-entry price data yet
+  ✓ PLD: stop exit on 2026-05-15 | P&L: -2.00% | days: 7
+  HAL: still open (5 days in trade)
+  NDAQ: still open (3 days in trade)
+  AMP: still open (3 days in trade)
+  MET: still open (3 days in trade)
+
+✓ Pushed 12 new signals to Supabase
+✅ Signal alert sent to Discord
