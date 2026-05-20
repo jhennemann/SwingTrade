@@ -1,0 +1,53 @@
+Loading stock universes...
+✓ S&P 500: 502 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 516 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-05-19 (Close=733.73, SMA200=677.16)
+Scanned 100/516 tickers...
+Scanned 200/516 tickers...
+Scanned 300/516 tickers...
+Scanned 400/516 tickers...
+Scanned 500/516 tickers...
+Calculating relative strength scores...
+
+=== SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1   WELL          -2.590944 2026-05-19
+    2    LNT          -4.835045 2026-05-19
+Saved chart: data/charts/2026/05/2026-05-19/WELL/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-19/LNT/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/05/2026-05-19/gallery_2026-05-19.pdf
+
+Saved signals with RS: data/charts/2026/05/2026-05-19/scan_results_2026-05-19.csv
+
+=== CHECKING EXITS FOR 25 OPEN SIGNALS ===
+  BK: still open (3 days in trade)
+  PLD: still open (2 days in trade)
+  CINF: still open (2 days in trade)
+  NSC: still open (2 days in trade)
+  BXP: still open (2 days in trade)
+  NTRS: still open (2 days in trade)
+  DVN: still open (1 days in trade)
+  MSFT: still open (1 days in trade)
+  EG: still open (1 days in trade)
+  WST: still open (1 days in trade)
+  TROW: no post-entry price data yet
+  PAYX: no post-entry price data yet
+  MAR: no post-entry price data yet
+  EQR: no post-entry price data yet
+  PLD: no post-entry price data yet
+  BXP: no post-entry price data yet
+  EW: no post-entry price data yet
+  AIG: no post-entry price data yet
+  MAA: no post-entry price data yet
+  NTRS: no post-entry price data yet
+  D: no post-entry price data yet
+  AVB: no post-entry price data yet
+  MET: still open (4 days in trade)
+  NDAQ: still open (4 days in trade)
+  AMP: still open (4 days in trade)
+
+✓ Pushed 2 new signals to Supabase
+✅ Signal alert sent to Discord
