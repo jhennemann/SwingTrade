@@ -1,0 +1,88 @@
+Loading stock universes...
+✓ S&P 500: 502 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 516 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-05-20 (Close=741.25, SMA200=677.71)
+Scanned 100/516 tickers...
+Scanned 200/516 tickers...
+Scanned 300/516 tickers...
+Scanned 400/516 tickers...
+Scanned 500/516 tickers...
+Calculating relative strength scores...
+
+=== SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1      Q          20.742959 2026-05-20
+    2   ORCL          20.290370 2026-05-20
+    3   LRCX          10.140195 2026-05-20
+    4    STT          10.117357 2026-05-20
+    5   CDNS           9.311006 2026-05-20
+    6    GLW           5.689236 2026-05-20
+    7    IRM           5.612108 2026-05-20
+    8   SNPS           4.138875 2026-05-20
+    9   ODFL           2.518157 2026-05-20
+   10    ROK           1.473116 2026-05-20
+   11    HLT          -3.582066 2026-05-20
+   12   CHRW          -4.250459 2026-05-20
+   13    KIM          -4.838131 2026-05-20
+   14   ASML          -5.392011 2026-05-20
+   15    FDX          -5.828481 2026-05-20
+   16    HWM          -6.334657 2026-05-20
+   17    BXP          -7.602677 2026-05-20
+   18    DIS          -7.862702 2026-05-20
+   19    EXR         -10.084967 2026-05-20
+Saved chart: data/charts/2026/05/2026-05-20/Q/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-20/ORCL/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-20/LRCX/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-20/STT/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-20/CDNS/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-20/GLW/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-20/IRM/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-20/SNPS/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-20/ODFL/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-20/ROK/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-20/HLT/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-20/CHRW/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-20/KIM/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-20/ASML/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-20/FDX/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-20/HWM/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-20/BXP/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-20/DIS/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-20/EXR/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/05/2026-05-20/gallery_2026-05-20.pdf
+
+Saved signals with RS: data/charts/2026/05/2026-05-20/scan_results_2026-05-20.csv
+
+=== CHECKING EXITS FOR 26 OPEN SIGNALS ===
+  BK: still open (4 days in trade)
+  NTRS: still open (3 days in trade)
+  PLD: still open (3 days in trade)
+  CINF: still open (3 days in trade)
+  NSC: still open (3 days in trade)
+  BXP: still open (3 days in trade)
+  DVN: still open (2 days in trade)
+  MSFT: still open (2 days in trade)
+  EG: still open (2 days in trade)
+  WST: still open (2 days in trade)
+  PAYX: still open (1 days in trade)
+  TROW: still open (1 days in trade)
+  AIG: still open (1 days in trade)
+  MAA: still open (1 days in trade)
+  MAR: still open (1 days in trade)
+  EQR: still open (1 days in trade)
+  PLD: still open (1 days in trade)
+  ✓ BXP: stop exit on 2026-05-19 | P&L: -2.00% | days: 1
+  EW: still open (1 days in trade)
+  NTRS: still open (1 days in trade)
+  D: still open (1 days in trade)
+  AVB: still open (1 days in trade)
+  WELL: no post-entry price data yet
+  LNT: no post-entry price data yet
+  MET: still open (5 days in trade)
+  NDAQ: still open (5 days in trade)
+
+✓ Pushed 19 new signals to Supabase
+✅ Signal alert sent to Discord
