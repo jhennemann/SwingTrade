@@ -23,14 +23,17 @@ from src.setup_rules import BreakoutSetup
 
 
 CACHE_DIR = Path("cache")
-SCAN_YEARS = [2023, 2024, 2025]
+SCAN_YEARS = [2020, 2021, 2022, 2023, 2024, 2025]
 
-MAX_HOLD_DAYS = 20
+MAX_HOLD_DAYS = 40
 STOP_BUFFER_PCT = 0.005
 
 OUTPUT_TRADES = Path("breakout_trades.csv")
 OUTPUT_SUMMARY = Path("breakout_summary.csv")
 OUTPUT_EQUITY = Path("breakout_equity_curve.csv")
+
+TRAIL_ACTIVATION_PCT = 0.04
+TRAIL_DISTANCE_PCT = 0.03
 
 
 def load_universe_from_web_or_cache() -> list[str]:
@@ -47,6 +50,27 @@ def load_universe_from_web_or_cache() -> list[str]:
         tickers = sorted(path.stem for path in CACHE_DIR.glob("*.csv") if path.stem != "SPY")
         print(f"Cached universe: {len(tickers)} tickers")
         return tickers
+
+
+def calculate_rs_from_cache(ticker: str, signal_date, cache: dict, lookback_days: int = 60) -> float:
+    try:
+        stock = cache.get(ticker)
+        spy = cache.get("SPY")
+        if stock is None or spy is None:
+            return 0.0
+
+        stock = stock[stock.index.date <= signal_date]
+        spy = spy[spy.index.date <= signal_date]
+
+        if len(stock) < lookback_days or len(spy) < lookback_days:
+            return 0.0
+
+        stock_return = (stock["Close"].iloc[-1] / stock["Close"].iloc[-lookback_days]) - 1
+        spy_return = (spy["Close"].iloc[-1] / spy["Close"].iloc[-lookback_days]) - 1
+
+        return float((stock_return - spy_return) * 100)
+    except:
+        return 0.0
 
 
 def load_price_cache(tickers: list[str]) -> dict[str, pd.DataFrame]:
@@ -113,17 +137,31 @@ def detect_breakout_signals(
                 if valid_market_dates is not None and signal_date not in valid_market_dates:
                     continue
 
+                entry_price = float(row["Close"])
+                resistance = float(row["resistance_level"])
+                base_low = float(row["base_low"])
+
+                # Skip if more than 2% above breakout level
+                if entry_price > resistance * 1.02:
+                    continue
+
+                # Skip if stop is more than 5% below entry
+                risk_pct = (entry_price - base_low) / entry_price
+                if risk_pct > 0.05:
+                    continue
+
                 signals.append({
                     "ticker": ticker,
                     "signal_date": signal_date,
-                    "entry_price": float(row["Close"]),
-                    "resistance_level": float(row["resistance_level"]),
-                    "base_low": float(row["base_low"]),
+                    "entry_price": entry_price,
+                    "resistance_level": resistance,
+                    "base_low": base_low,
                     "base_height": float(row["base_height"]),
                     "volume_ratio": float(row["volume_ratio"]),
                     "consolidation_length": int(row["consolidation_length"]),
                     "base_range_pct": float(row["base_range_pct"]),
                     "year": scan_year,
+                    "relative_strength": calculate_rs_from_cache(ticker, signal_date, cache),
                 })
         except Exception as exc:
             print(f"  {ticker}: {exc}")
@@ -158,27 +196,42 @@ def simulate_trade(signal: dict, cache: dict) -> dict | None:
     exit_reason = None
     days_held = 0
 
+    trailing_active = False
+    highest_close = entry_price
+
     for i, (idx, row) in enumerate(future.iterrows(), 1):
         days_held = i
         low = float(row["Low"])
         high = float(row["High"])
         close = float(row["Close"])
 
-        if low <= stop_price and high >= target_price:
-            exit_price = stop_price
-            exit_date = idx.date()
-            exit_reason = "Stop Loss"
-            break
-        if low <= stop_price:
-            exit_price = stop_price
-            exit_date = idx.date()
-            exit_reason = "Stop Loss"
-            break
+        # Check profit target first
         if high >= target_price:
             exit_price = target_price
             exit_date = idx.date()
             exit_reason = "Profit Target"
             break
+
+        # Activate trailing stop once up TRAIL_ACTIVATION_PCT
+        if not trailing_active and close >= entry_price * (1 + TRAIL_ACTIVATION_PCT):
+            trailing_active = True
+
+        if trailing_active:
+            highest_close = max(highest_close, close)
+            trail_stop = highest_close * (1 - TRAIL_DISTANCE_PCT)
+            if low <= trail_stop:
+                exit_price = trail_stop
+                exit_date = idx.date()
+                exit_reason = "Trailing Stop"
+                break
+        else:
+            # Still use base low stop before trail activates
+            if low <= stop_price:
+                exit_price = stop_price
+                exit_date = idx.date()
+                exit_reason = "Stop Loss"
+                break
+
         if i >= MAX_HOLD_DAYS:
             exit_price = close
             exit_date = idx.date()
@@ -211,6 +264,7 @@ def simulate_trade(signal: dict, cache: dict) -> dict | None:
         "volume_ratio": round(signal["volume_ratio"], 3),
         "consolidation_length": signal["consolidation_length"],
         "base_range_pct": round(signal["base_range_pct"], 6),
+        "relative_strength": signal["relative_strength"],
         "year": signal["year"],
     }
 
