@@ -1,0 +1,94 @@
+Loading stock universes...
+✓ S&P 500: 501 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 515 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-05-21 (Close=742.72, SMA200=678.29)
+Scanned 100/515 tickers...
+Scanned 200/515 tickers...
+Scanned 300/515 tickers...
+Scanned 400/515 tickers...
+Scanned 500/515 tickers...
+Calculating relative strength scores...
+
+=== SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1    JBL          23.326570 2026-05-21
+    2   AMZN          21.367076 2026-05-21
+    3    NUE          21.194933 2026-05-21
+    4    WST          19.199754 2026-05-21
+    5   STLD          12.673959 2026-05-21
+    6   EQIX           6.005098 2026-05-21
+    7    FOX           3.013137 2026-05-21
+    8     NI          -5.587152 2026-05-21
+    9    PSA          -7.407735 2026-05-21
+   10    REG          -7.851906 2026-05-21
+   11   INCY         -10.427472 2026-05-21
+   12    XEL         -11.667469 2026-05-21
+   13   VICI         -11.980917 2026-05-21
+   14    MTB         -13.527570 2026-05-21
+Saved chart: data/charts/2026/05/2026-05-21/JBL/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-21/AMZN/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-21/NUE/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-21/WST/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-21/STLD/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-21/EQIX/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-21/FOX/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-21/NI/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-21/PSA/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-21/REG/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-21/INCY/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-21/XEL/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-21/VICI/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-21/MTB/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/05/2026-05-21/gallery_2026-05-21.pdf
+
+Saved signals with RS: data/charts/2026/05/2026-05-21/scan_results_2026-05-21.csv
+
+=== CHECKING EXITS FOR 42 OPEN SIGNALS ===
+  BK: still open (5 days in trade)
+  BXP: still open (4 days in trade)
+  NTRS: still open (4 days in trade)
+  PLD: still open (4 days in trade)
+  CINF: still open (4 days in trade)
+  NSC: still open (4 days in trade)
+  EG: still open (3 days in trade)
+  WST: still open (3 days in trade)
+  MSFT: still open (3 days in trade)
+  ✓ PAYX: stop exit on 2026-05-20 | P&L: -2.00% | days: 2
+  TROW: still open (2 days in trade)
+  MAR: still open (2 days in trade)
+  EQR: still open (2 days in trade)
+  PLD: still open (2 days in trade)
+  EW: still open (2 days in trade)
+  AIG: still open (2 days in trade)
+  MAA: still open (2 days in trade)
+  NTRS: still open (2 days in trade)
+  D: still open (2 days in trade)
+  AVB: still open (2 days in trade)
+  WELL: still open (1 days in trade)
+  LNT: still open (1 days in trade)
+  Q: no post-entry price data yet
+  ODFL: no post-entry price data yet
+  ROK: no post-entry price data yet
+  KIM: no post-entry price data yet
+  GLW: no post-entry price data yet
+  IRM: no post-entry price data yet
+  ORCL: no post-entry price data yet
+  HLT: no post-entry price data yet
+  CHRW: no post-entry price data yet
+  ASML: no post-entry price data yet
+  FDX: no post-entry price data yet
+  HWM: no post-entry price data yet
+  BXP: no post-entry price data yet
+  DIS: no post-entry price data yet
+  LRCX: no post-entry price data yet
+  EXR: no post-entry price data yet
+  NDAQ: still open (6 days in trade)
+  STT: no post-entry price data yet
+  CDNS: no post-entry price data yet
+  SNPS: no post-entry price data yet
+
+✓ Pushed 14 new signals to Supabase
+✅ Signal alert sent to Discord

@@ -1,0 +1,104 @@
+Loading stock universes...
+✓ S&P 500: 501 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 515 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-05-22 (Close=745.64, SMA200=678.85)
+Scanned 100/515 tickers...
+Scanned 200/515 tickers...
+Scanned 300/515 tickers...
+Scanned 400/515 tickers...
+Scanned 500/515 tickers...
+Calculating relative strength scores...
+
+=== SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1   MPWR          30.427176 2026-05-22
+    2   TEAM           5.000796 2026-05-22
+    3    TER           3.306535 2026-05-22
+    4   TROW           0.561643 2026-05-22
+    5    KEY          -4.741755 2026-05-22
+    6    BAC          -4.742029 2026-05-22
+    7   NDAQ          -4.779046 2026-05-22
+    8   MSCI          -5.771525 2026-05-22
+    9    JPM          -6.670818 2026-05-22
+   10   FITB          -8.675255 2026-05-22
+   11    KDP         -12.526377 2026-05-22
+   12     DD         -12.532400 2026-05-22
+   13    MCO         -14.656646 2026-05-22
+   14    TXT         -15.608795 2026-05-22
+Saved chart: data/charts/2026/05/2026-05-22/MPWR/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-22/TEAM/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-22/TER/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-22/TROW/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-22/KEY/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-22/BAC/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-22/NDAQ/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-22/MSCI/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-22/JPM/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-22/FITB/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-22/KDP/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-22/DD/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-22/MCO/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-22/TXT/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/05/2026-05-22/gallery_2026-05-22.pdf
+
+Saved signals with RS: data/charts/2026/05/2026-05-22/scan_results_2026-05-22.csv
+
+=== CHECKING EXITS FOR 52 OPEN SIGNALS ===
+  EQIX: no post-entry price data yet
+  FOX: no post-entry price data yet
+  NI: no post-entry price data yet
+  PSA: no post-entry price data yet
+  REG: no post-entry price data yet
+  INCY: no post-entry price data yet
+  XEL: no post-entry price data yet
+  VICI: no post-entry price data yet
+  MTB: no post-entry price data yet
+  JBL: no post-entry price data yet
+  AMZN: no post-entry price data yet
+  NUE: no post-entry price data yet
+  WST: no post-entry price data yet
+  STLD: no post-entry price data yet
+  BK: still open (6 days in trade)
+  NSC: still open (5 days in trade)
+  BXP: still open (5 days in trade)
+  NTRS: still open (5 days in trade)
+  PLD: still open (5 days in trade)
+  CINF: still open (5 days in trade)
+  EG: still open (4 days in trade)
+  WST: still open (4 days in trade)
+  MSFT: still open (4 days in trade)
+  TROW: still open (3 days in trade)
+  EQR: still open (3 days in trade)
+  PLD: still open (3 days in trade)
+  EW: still open (3 days in trade)
+  AIG: still open (3 days in trade)
+  MAA: still open (3 days in trade)
+  MAR: still open (3 days in trade)
+  NTRS: still open (3 days in trade)
+  D: still open (3 days in trade)
+  ✓ AVB: stop exit on 2026-05-21 | P&L: -2.00% | days: 3
+  WELL: still open (2 days in trade)
+  LNT: still open (2 days in trade)
+  ROK: still open (1 days in trade)
+  KIM: still open (1 days in trade)
+  GLW: still open (1 days in trade)
+  DIS: still open (1 days in trade)
+  LRCX: still open (1 days in trade)
+  EXR: still open (1 days in trade)
+  HLT: still open (1 days in trade)
+  ASML: still open (1 days in trade)
+  FDX: still open (1 days in trade)
+  HWM: still open (1 days in trade)
+  BXP: still open (1 days in trade)
+  Q: still open (1 days in trade)
+  ODFL: still open (1 days in trade)
+  NDAQ: still open (7 days in trade)
+  STT: still open (1 days in trade)
+  IRM: still open (1 days in trade)
+  ORCL: still open (1 days in trade)
+
+✓ Pushed 14 new signals to Supabase
+✅ Signal alert sent to Discord
