@@ -6,6 +6,7 @@ import NotFoundPage from './pages/NotFoundPage.jsx'
 import SignalsPage from './pages/SignalsPage.jsx'
 import WatchlistPage from './pages/WatchlistPage.jsx'
 import Layout from './components/Layout.jsx'
+import PaperTradingPage from './pages/PaperTradingPage.jsx'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="about" element={<AboutPage />}/>
         <Route path="signals" element={<SignalsPage />}/>
         <Route path="watchlist" element={<WatchlistPage />}/>
+        <Route path="/paper/" element={<PaperTradingPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>

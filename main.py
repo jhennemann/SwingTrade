@@ -1,5 +1,5 @@
 from src.universe import SP500UniverseStockAnalysis, Nasdaq100Universe
-from src.setup_rules import PullbackUptrendSetup
+from src.setup_rules import PullbackUptrendSetup, HighMomentumSetup
 from src.scanner import SetupScanner
 from src.charting import ChartGenerator
 from src.reporting import PDFGalleryExporter
@@ -15,6 +15,8 @@ from src.market_calendar import market_is_open
 
 import os
 from supabase import create_client
+
+from paper_trade_manager import run_paper_trading
 
 
 # ── Constants ──────────────────────────────────────────────────────────────────
@@ -87,7 +89,7 @@ def check_exits(supabase):
     for signal in open_signals:
         ticker     = signal["ticker"]
         buy_price  = signal["buy_price"]
-        last_date  = signal["last_date"]   # signal date — entry was next day open
+        last_date  = signal["last_date"]
 
         if not buy_price or not last_date:
             print(f"  {ticker}: missing buy_price or last_date, skipping")
@@ -96,7 +98,6 @@ def check_exits(supabase):
         stop_price   = round(buy_price * STOP_PCT, 4)
         target_price = round(buy_price * TARGET_PCT, 4)
 
-        # Download price history from signal date to today
         try:
             df = yf.download(
                 ticker,
@@ -117,8 +118,6 @@ def check_exits(supabase):
         if isinstance(df.columns, pd.MultiIndex):
             df.columns = df.columns.get_level_values(0)
 
-        # Skip the signal date row itself — entry is next day open
-        # so we start checking from the day after the signal
         df = df.iloc[1:].copy()
 
         if df.empty:
@@ -137,45 +136,25 @@ def check_exits(supabase):
             day_close = float(row["Close"])
             day_date  = idx.date() if hasattr(idx, 'date') else idx
 
-            # On day 1, entry was at next-day open — use open as reference
-            entry = day_open if i == 1 else None
-
-            # Check stop (low breached stop price)
             hit_stop   = day_low <= stop_price
-            # Check target (high reached target price)
             hit_target = day_high >= target_price
-            # Check time exit (max days reached)
             hit_time   = i >= MAX_DAYS
 
             if hit_stop and hit_target:
-                # Both hit same day — conservative: stop wins
-                exit_price  = stop_price
-                exit_date   = day_date
-                exit_reason = "stop"
-                days_held   = i
+                exit_price, exit_date, exit_reason, days_held = stop_price, day_date, "stop", i
                 break
             elif hit_stop:
-                exit_price  = stop_price
-                exit_date   = day_date
-                exit_reason = "stop"
-                days_held   = i
+                exit_price, exit_date, exit_reason, days_held = stop_price, day_date, "stop", i
                 break
             elif hit_target:
-                exit_price  = target_price
-                exit_date   = day_date
-                exit_reason = "target"
-                days_held   = i
+                exit_price, exit_date, exit_reason, days_held = target_price, day_date, "target", i
                 break
             elif hit_time:
-                exit_price  = day_close
-                exit_date   = day_date
-                exit_reason = "time"
-                days_held   = i
+                exit_price, exit_date, exit_reason, days_held = day_close, day_date, "time", i
                 break
 
         if exit_price is not None:
             win_loss = round((exit_price - buy_price) / buy_price, 4)
-
             update = {
                 "status":      "closed",
                 "exit_price":  exit_price,
@@ -184,7 +163,6 @@ def check_exits(supabase):
                 "win_loss":    win_loss,
                 "days_held":   days_held,
             }
-
             try:
                 supabase.table("signals").update(update).eq("id", signal["id"]).execute()
                 print(f"  ✓ {ticker}: {exit_reason} exit on {exit_date} | P&L: {win_loss*100:.2f}% | days: {days_held}")
@@ -201,7 +179,7 @@ def main():
         print("Market is closed today. Skipping scan.")
         return
 
-    # Load universes
+    # ── Load universes ─────────────────────────────────────────────────────────
     print("Loading stock universes...")
     sp500 = SP500UniverseStockAnalysis()
     print(f"✓ S&P 500: {len(sp500.tickers)} stocks")
@@ -214,6 +192,7 @@ def main():
     print(f"✓ Combined universe: {len(all_tickers)} stocks ({overlap} overlap)")
     print()
 
+    # ── Pullback Uptrend scan ──────────────────────────────────────────────────
     setup = PullbackUptrendSetup(
         pullback_pct=0.02,
         use_volume=True
@@ -228,8 +207,7 @@ def main():
     market_ok, spy_date, spy_close, spy_sma200 = scanner.market_ok()
 
     results = scanner.scan(all_tickers)
-
-    today = results[results["has_signal_today"]] if not results.empty else pd.DataFrame()
+    today = results[results["has_signal_today"]].copy() if not results.empty else pd.DataFrame()
 
     if not today.empty:
         today = rank_signals(today)
@@ -238,17 +216,47 @@ def main():
         results.update(today_indexed)
         results = results.reset_index()
 
-    print("\n=== SIGNALS TODAY ===")
+    print("\n=== PULLBACK SIGNALS TODAY ===")
     if not today.empty:
         display_cols = [c for c in ["rank", "ticker", "relative_strength", "last_date"] if c in today.columns]
         print(today[display_cols].to_string(index=False))
     else:
         print("No signals today.")
 
-    # Determine run date
-    run_date = date.today() if today.empty else pd.to_datetime(today["last_date"].iloc[0]).date()
+    # ── High Momentum scan (paper trading) ────────────────────────────────────
+    highmom_setup = HighMomentumSetup(
+        near_high_pct=0.02,
+        volume_ratio_min=1.75,
+    )
 
-    # Chart generator
+    highmom_scanner = SetupScanner(
+        setup=highmom_setup,
+        lookback="2y",
+        require_market_ok=True,
+    )
+
+    highmom_results = highmom_scanner.scan(all_tickers)
+    highmom_today = (
+        highmom_results[highmom_results["has_signal_today"]].copy()
+        if not highmom_results.empty
+        else pd.DataFrame()
+    )
+
+    if not highmom_today.empty:
+        highmom_today = rank_signals(highmom_today)
+        highmom_today = highmom_today[highmom_today["relative_strength"] > 50].copy()
+        highmom_today = highmom_today.sort_values("relative_strength", ascending=False).reset_index(drop=True)
+        print(f"\n=== HIGH MOMENTUM SIGNALS (RS > 50): {len(highmom_today)} ===")
+        display_cols = [c for c in ["rank", "ticker", "relative_strength", "last_date"] if c in highmom_today.columns]
+        print(highmom_today[display_cols].to_string(index=False))
+    else:
+        print("\n=== HIGH MOMENTUM SIGNALS: none today ===")
+
+    # ── Run date ───────────────────────────────────────────────────────────────
+    # Always use today's date — don't derive from signal data
+    run_date = date.today()
+
+    # ── Charts ────────────────────────────────────────────────────────────────
     chart_gen = ChartGenerator(base_dir="data/charts")
     chart_paths = []
 
@@ -283,7 +291,7 @@ def main():
         chart_paths.append(chart_path)
         print(f"Saved chart: {chart_path}")
 
-    # Export PDF gallery
+    # ── PDF gallery ───────────────────────────────────────────────────────────
     if chart_paths:
         pdf_out = (
             f"data/charts/"
@@ -307,7 +315,7 @@ def main():
     else:
         print("\nNo charts generated; skipping PDF export.")
 
-    # Save scan results CSV
+    # ── CSV ───────────────────────────────────────────────────────────────────
     csv_path = (
         f"data/charts/"
         f"{run_date.year:04d}/"
@@ -324,17 +332,17 @@ def main():
         print(f"\nNo signals today - skipping CSV save")
 
     # ── Supabase ───────────────────────────────────────────────────────────────
-    supabase_url     = os.environ.get("SUPABASE_URL")
+    supabase_url         = os.environ.get("SUPABASE_URL")
     supabase_service_key = os.environ.get("SUPABASE_SERVICE_KEY")
 
     if supabase_url and supabase_service_key:
         try:
             supabase = create_client(supabase_url, supabase_service_key)
 
-            # 1. Check exits for all currently open signals
+            # 1. Check exits for open pullback signals
             check_exits(supabase)
 
-            # 2. Push today's new signals
+            # 2. Push today's pullback signals
             if not today.empty:
                 supabase.table("signals").delete().eq("last_date", run_date.isoformat()).execute()
 
@@ -345,20 +353,22 @@ def main():
                             record[k] = None
                         elif hasattr(v, 'isoformat'):
                             record[k] = v.isoformat()
-                    # New signals start as open with no exit data
                     record["status"] = "open"
 
                 supabase.table("signals").insert(records).execute()
-                print(f"\n✓ Pushed {len(records)} new signals to Supabase")
+                print(f"\n✓ Pushed {len(records)} new pullback signals to Supabase")
             else:
-                print("\nNo new signals to push to Supabase")
+                print("\nNo new pullback signals to push to Supabase")
+
+            # 3. Paper trading — exits first, then fill slots
+            run_paper_trading(highmom_today, supabase, run_date)
 
         except Exception as e:
             print(f"❌ Supabase error: {e}")
     else:
         print("Supabase credentials not found, skipping")
 
-    # Send Discord signal alert
+    # ── Discord alert ─────────────────────────────────────────────────────────
     send_signal_alert(
         today=today,
         run_date=run_date,

@@ -1,11 +1,12 @@
 import '../App.css'
-import { FaUser, FaChartLine, FaChartBar, FaCode, FaLinkedin, FaGithub, FaPython, FaReact, FaDatabase, FaDiscord } from 'react-icons/fa'
+import { FaUser, FaChartLine, FaChartBar, FaCode, FaLinkedin, FaGithub, FaPython, FaReact, FaDatabase, FaDiscord, FaFlask } from 'react-icons/fa'
 import { useEffect } from 'react'
 
 export default function AboutPage() {
   useEffect(() => {
-      document.title = 'SwingTrade | About'
-    }, [])
+    document.title = 'SwingTrade | About'
+  }, [])
+
   return (
     <div className="about-container">
       <h1 className="mb-4">About</h1>
@@ -19,11 +20,11 @@ export default function AboutPage() {
               <FaUser className="about-icon" /> About Me
             </h5>
             <p className="about-text">
-              I'm Jacob Hennemann, a Senior at the University of Wisconsin–Madison 
-              graduating in May 2026, double majoring in Data Science and Computer Science. 
-              I've always been into the stock market, and SwingTrade started as a way to combine 
-              that with my technical skills, building something automated that actually does something 
-              useful. The frontend dashboard was later added as part of a CS 571 course project, turning 
+              I'm Jacob Hennemann, a Senior at the University of Wisconsin–Madison
+              graduating in May 2026, double majoring in Data Science and Computer Science.
+              I've always been into the stock market, and SwingTrade started as a way to combine
+              that with my technical skills, building something automated that actually does something
+              useful. The frontend dashboard was later added as part of a CS 571 course project, turning
               it into a full-stack application.
             </p>
             <div className="about-links">
@@ -37,20 +38,20 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* About the Project + Strategy */}
+        {/* About the Project + Pullback Strategy */}
         <div className="col-md-6">
           <div className="about-card">
             <h5 className="about-section-title">
               <FaChartLine className="about-icon" /> About the Project
             </h5>
             <p className="about-text">
-              SwingTrade is a fully automated swing trading system that scans the S&P 500 and NASDAQ 100 
-              every weekday after market close. It looks for stocks showing specific short-term trading 
+              SwingTrade is a fully automated swing trading system that scans the S&P 500 and NASDAQ 100
+              every weekday after market close. It looks for stocks showing specific short-term trading
               patterns and surfaces them as signals for review.
             </p>
             <p className="about-text">
-              The backend runs automatically via GitHub Actions, stores results in a PostgreSQL database, 
-              and sends Discord alerts for active positions. This dashboard displays the scan results 
+              The backend runs automatically via GitHub Actions, stores results in a PostgreSQL database,
+              and sends Discord alerts for active positions. This dashboard displays the scan results
               in an interactive, filterable interface.
             </p>
           </div>
@@ -59,11 +60,11 @@ export default function AboutPage() {
         <div className="col-md-6">
           <div className="about-card">
             <h5 className="about-section-title">
-              <FaChartBar className="about-icon" /> The Strategy - Still Changing and Improving
+              <FaChartBar className="about-icon" /> Pullback Uptrend Strategy
             </h5>
             <p className="about-text">
-              The system uses a pullback uptrend strategy, looking for stocks in a strong uptrend that 
-              have temporarily pulled back to their 20-day moving average and are showing signs of recovery.
+              The primary strategy looks for stocks in a strong uptrend that have temporarily pulled
+              back to their 20-day moving average and are showing signs of recovery.
             </p>
             <ul className="about-list">
               <li>Stock must be above its 50-day moving average</li>
@@ -74,6 +75,50 @@ export default function AboutPage() {
               <li>10 day maximum hold time</li>
               <li>Market filter: only active when SPY is above SMA200</li>
             </ul>
+          </div>
+        </div>
+
+        {/* Paper Trading - full width */}
+        <div className="col-12">
+          <div className="about-card">
+            <h5 className="about-section-title">
+              <FaFlask className="about-icon" /> Paper Trading — 52-Week High Momentum
+            </h5>
+            <p className="about-text">
+              A second strategy is being actively paper traded in real time alongside the market.
+              Rather than backtesting only, two independent $1,000 accounts run simultaneously with
+              different exit configurations, so performance can be compared live as signals come in.
+            </p>
+
+            <div className="row g-3 mt-1">
+              <div className="col-md-6">
+                <p className="about-text mb-1" style={{ fontWeight: 600, color: '#2c3a2c' }}>Signal conditions</p>
+                <ul className="about-list">
+                  <li>Stock closes within 2% of its 52-week high</li>
+                  <li>Volume at least 1.75x the 20-day average</li>
+                  <li>Above both the SMA50 and SMA200</li>
+                  <li>Relative strength vs SPY (60d) above 50</li>
+                  <li>Market filter: SPY above SMA200</li>
+                </ul>
+              </div>
+              <div className="col-md-6">
+                <p className="about-text mb-1" style={{ fontWeight: 600, color: '#2c3a2c' }}>Two accounts, same signals</p>
+                <ul className="about-list">
+                  <li>Each account starts at $1,000, max 2 positions</li>
+                  <li>Position size adjusts dynamically with equity</li>
+                  <li>Top RS signals fill open slots each evening</li>
+                  <li><span style={{ color: '#4a7c59', fontWeight: 600 }}>Conservative:</span> 7% target, 10 day max hold</li>
+                  <li><span style={{ color: '#c8a84b', fontWeight: 600 }}>Aggressive:</span> 15% target, 20 day max hold</li>
+                  <li>Both use a 2% stop loss</li>
+                </ul>
+              </div>
+            </div>
+
+            <p className="about-text mt-3" style={{ fontSize: '0.85rem', color: '#5a6b58' }}>
+              Backtest results across 246 trades (2021–2025): ~30% win rate overall, rising to 77.8% when
+              filtered to RS &gt; 50. Live results are tracked on the{' '}
+              <a href="#/paper/" className="about-link" style={{ fontSize: '0.85rem' }}>Paper Trading page</a>.
+            </p>
           </div>
         </div>
 
@@ -108,7 +153,7 @@ export default function AboutPage() {
               <FaDiscord className="about-icon" /> Discord Community
             </h5>
             <p className="about-text">
-              Every weekday after market close, SwingTrade automatically posts scan results 
+              Every weekday after market close, SwingTrade automatically posts scan results
               and position alerts directly to Discord. Join to follow along in real time.
             </p>
 
@@ -123,14 +168,14 @@ export default function AboutPage() {
               </div>
               <div className="discord-message">
                 <p className="discord-title">🚨 SwingTrade Alerts</p>
-                <p className="discord-alert profit">✅ <strong>MRNA HIT PROFIT TARGET</strong><br/>
-                  Entry: $46.93 | Current: $51.13 (+9.0%)<br/>
+                <p className="discord-alert profit">✅ <strong>MRNA HIT PROFIT TARGET</strong><br />
+                  Entry: $46.93 | Current: $51.13 (+9.0%)<br />
                   Target: $50.22 | Day 6/10</p>
-                <p className="discord-alert profit">✅ <strong>FCX HIT PROFIT TARGET</strong><br/>
-                  Entry: $61.40 | Current: $68.81 (+12.1%)<br/>
+                <p className="discord-alert profit">✅ <strong>FCX HIT PROFIT TARGET</strong><br />
+                  Entry: $61.40 | Current: $68.81 (+12.1%)<br />
                   Target: $65.70 | Day 6/10</p>
-                <p className="discord-alert loss">🛑 <strong>ADM HIT STOP LOSS</strong><br/>
-                  Entry: $69.08 | Current: $67.70 (-2.0%)<br/>
+                <p className="discord-alert loss">🛑 <strong>ADM HIT STOP LOSS</strong><br />
+                  Entry: $69.08 | Current: $67.70 (-2.0%)<br />
                   Stop: $67.70 | Day 5/10</p>
               </div>
             </div>
