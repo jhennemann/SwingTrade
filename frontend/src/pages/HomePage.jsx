@@ -290,7 +290,7 @@ export default function HomePage() {
 
           {/* ── Right: In Play ── */}
           <div className="col-12 col-md-8">
-            <div className="stat-card h-100">
+            <div className="stat-card h-100" style={{ overflowX: 'auto' }}>
               <div className="mb-3">
                 <span style={{ fontWeight: 500, color: '#2c3a2c', fontSize: '0.95rem' }}>
                   In Play

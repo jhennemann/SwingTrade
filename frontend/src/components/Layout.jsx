@@ -43,7 +43,7 @@ export default function Layout() {
           SwingTrade
         </Link>
 
-        <div className="d-flex gap-4 position-relative" ref={navRef}>
+        <div className="d-flex gap-2 gap-md-4 position-relative flex-wrap" ref={navRef}>
 
           {/* sliding pill */}
           <div
