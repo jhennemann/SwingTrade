@@ -9,7 +9,7 @@ Called from main.py after the HighMomentumSetup scan runs.
 
 Usage in main.py:
     from paper_trade_manager import run_paper_trading
-    run_paper_trading(highmom_signals, supabase, today)
+    entered, exited, open_trades = run_paper_trading(highmom_signals, supabase, today)
 
 Where highmom_signals is a DataFrame with columns:
     ticker, relative_strength, rank, last_date
@@ -26,14 +26,14 @@ from datetime import date, timedelta
 
 CONFIGS = {
     "conservative": {
-        "stop_pct":    0.02,   # 2% stop loss
-        "target_pct":  0.07,   # 7% profit target
-        "max_days":    10,     # max trading days held
+        "stop_pct":    0.02,
+        "target_pct":  0.07,
+        "max_days":    10,
     },
     "aggressive": {
-        "stop_pct":    0.02,   # 2% stop loss
-        "target_pct":  0.15,   # 15% profit target
-        "max_days":    20,     # max trading days held
+        "stop_pct":    0.02,
+        "target_pct":  0.15,
+        "max_days":    20,
     },
 }
 
@@ -44,7 +44,6 @@ STARTING_EQUITY = 1000.00
 # ── Supabase helpers ───────────────────────────────────────────────────────────
 
 def get_open_trades(supabase, config: str) -> list[dict]:
-    """Fetch all open trades for a given config."""
     res = (
         supabase.table("paper_trades")
         .select("*")
@@ -55,11 +54,17 @@ def get_open_trades(supabase, config: str) -> list[dict]:
     return res.data or []
 
 
+def get_all_open_trades(supabase) -> list[dict]:
+    res = (
+        supabase.table("paper_trades")
+        .select("*")
+        .eq("status", "open")
+        .execute()
+    )
+    return res.data or []
+
+
 def get_account_summary(supabase, config: str) -> dict:
-    """
-    Fetch pre-computed account summary from the Supabase view.
-    Returns available_cash, open_slots, current_equity.
-    """
     res = (
         supabase.table("paper_account_summary")
         .select("*")
@@ -68,7 +73,6 @@ def get_account_summary(supabase, config: str) -> dict:
     )
     if res.data:
         return res.data[0]
-    # Fallback if view returns nothing (no trades yet)
     return {
         "config":          config,
         "starting_equity": STARTING_EQUITY,
@@ -83,14 +87,8 @@ def get_account_summary(supabase, config: str) -> dict:
 # ── Price helpers ──────────────────────────────────────────────────────────────
 
 def get_next_day_open(ticker: str, after_date: date) -> float | None:
-    """
-    Fetch the next trading day's open price after after_date.
-    Downloads a 7-day window to handle weekends and holidays.
-    Matches the yfinance patterns used in main.py.
-    """
     start = after_date + timedelta(days=1)
     end   = after_date + timedelta(days=7)
-
     try:
         df = yf.download(
             ticker,
@@ -103,21 +101,14 @@ def get_next_day_open(ticker: str, after_date: date) -> float | None:
     except Exception as e:
         print(f"  ⚠️  Price download failed for {ticker}: {e}")
         return None
-
     if df is None or df.empty:
         return None
-
     if isinstance(df.columns, pd.MultiIndex):
         df.columns = df.columns.get_level_values(0)
-
     return float(df["Open"].iloc[0])
 
 
 def get_current_open(ticker: str) -> float | None:
-    """
-    Fetch today's open price for exit checks.
-    Uses period='5d' to ensure we get the most recent trading day.
-    """
     try:
         df = yf.download(
             ticker,
@@ -129,21 +120,14 @@ def get_current_open(ticker: str) -> float | None:
     except Exception as e:
         print(f"  ⚠️  Price download failed for {ticker}: {e}")
         return None
-
     if df is None or df.empty:
         return None
-
     if isinstance(df.columns, pd.MultiIndex):
         df.columns = df.columns.get_level_values(0)
-
     return float(df["Open"].iloc[-1])
 
 
 def get_trading_days_held(entry_date: date, today: date) -> int:
-    """
-    Count trading days between entry_date and today (inclusive of today).
-    Uses yfinance SPY calendar as a proxy for market open days.
-    """
     try:
         df = yf.download(
             "SPY",
@@ -154,7 +138,6 @@ def get_trading_days_held(entry_date: date, today: date) -> int:
             progress=False,
         )
         if df is None or df.empty:
-            # Fallback: rough calendar day estimate
             return (today - entry_date).days
         return len(df)
     except Exception:
@@ -163,13 +146,13 @@ def get_trading_days_held(entry_date: date, today: date) -> int:
 
 # ── Exit checker ───────────────────────────────────────────────────────────────
 
-def check_paper_exits(supabase, today: date):
+def check_paper_exits(supabase, today: date) -> list[dict]:
     """
     Check all open paper trades for stop / target / time exits.
-    Uses today's open price as the exit price (matches existing strategy logic).
-    Run this BEFORE fill_paper_slots so freed slots are available immediately.
+    Returns list of trades closed this run (for Discord alert).
     """
     print("\n=== PAPER TRADING: CHECKING EXITS ===")
+    exited = []
 
     for config, cfg in CONFIGS.items():
         open_trades = get_open_trades(supabase, config)
@@ -197,7 +180,6 @@ def check_paper_exits(supabase, today: date):
             exit_price  = None
             exit_reason = None
 
-            # Priority: stop > target > time (conservative on same-day conflicts)
             if today_open <= stop:
                 exit_price, exit_reason = stop, "stop"
             elif today_open >= target:
@@ -226,62 +208,59 @@ def check_paper_exits(supabase, today: date):
                         f" @ ${exit_price:.2f} | P&L: {pnl_pct:+.2f}%"
                         f" (${pnl_dollars:+.2f}) | {days_held}d"
                     )
+
+                    exited.append({
+                        "config":      config,
+                        "ticker":      ticker,
+                        "entry_price": entry,
+                        "exit_price":  exit_price,
+                        "exit_reason": exit_reason,
+                        "pnl_pct":     pnl_pct,
+                        "pnl_dollars": pnl_dollars,
+                        "days_held":   days_held,
+                    })
+
                 except Exception as e:
                     print(f"    ❌ {ticker}: Supabase update failed — {e}")
             else:
                 days_held = get_trading_days_held(entry_date, today)
                 print(f"    {ticker}: still open ({days_held}d held)")
 
+    return exited
+
 
 # ── Slot filler ────────────────────────────────────────────────────────────────
 
-def fill_paper_slots(supabase, signals: pd.DataFrame, today: date):
+def fill_paper_slots(supabase, signals: pd.DataFrame, today: date) -> list[dict]:
     """
     Fill open slots with today's top-ranked HighMomentumSetup signals.
-
-    signals: DataFrame already filtered (RS > 50) and sorted by
-             relative_strength descending. Must have columns:
-             ticker, relative_strength, rank
-
-    Position sizing:
-      - Both slots open:  position_size = available_cash / 2
-      - One slot open:    position_size = all available_cash
-      - No slots open:    log remaining signals as missed
+    Returns list of trades entered this run (for Discord alert).
     """
     print("\n=== PAPER TRADING: FILLING SLOTS ===")
+    entered = []
 
     if signals.empty:
         print("  No signals today — nothing to fill")
-        return
+        return entered
 
     for config, cfg in CONFIGS.items():
-        open_trades     = get_open_trades(supabase, config)
-        slots_open      = MAX_SLOTS - len(open_trades)
-        already_held    = {t["ticker"] for t in open_trades}
-
-        # Get account summary for position sizing
-        summary         = get_account_summary(supabase, config)
-        available_cash  = float(summary["available_cash"])
+        open_trades    = get_open_trades(supabase, config)
+        slots_open     = MAX_SLOTS - len(open_trades)
+        already_held   = {t["ticker"] for t in open_trades}
+        summary        = get_account_summary(supabase, config)
+        available_cash = float(summary["available_cash"])
 
         print(f"\n  {config}: {slots_open} slot(s) open | available cash: ${available_cash:.2f}")
 
         if slots_open == 0:
-            # Log all signals as missed
-            candidates = [
-                row for _, row in signals.iterrows()
-                if row["ticker"] not in already_held
-            ]
+            candidates = [r for _, r in signals.iterrows() if r["ticker"] not in already_held]
             for signal in candidates:
                 _log_missed(supabase, config, signal, today)
             if candidates:
                 print(f"    All {len(candidates)} signal(s) logged as missed (slots full)")
             continue
 
-        # Filter out already-held tickers
-        candidates = [
-            row for _, row in signals.iterrows()
-            if row["ticker"] not in already_held
-        ]
+        candidates = [r for _, r in signals.iterrows() if r["ticker"] not in already_held]
 
         if not candidates:
             print(f"    No new candidates (all signals already held)")
@@ -290,32 +269,24 @@ def fill_paper_slots(supabase, signals: pd.DataFrame, today: date):
         to_enter = candidates[:slots_open]
         to_miss  = candidates[slots_open:]
 
-        # Calculate position size based on slots opening
-        if slots_open == MAX_SLOTS:
-            # Both slots open: split evenly
-            position_size = round(available_cash / 2, 2)
-        else:
-            # One slot open: deploy all available cash
-            position_size = round(available_cash, 2)
+        position_size = round(available_cash / 2, 2) if slots_open == MAX_SLOTS else round(available_cash, 2)
 
         for signal in to_enter:
             ticker = signal["ticker"]
 
-            # Get next day's open as entry price
             entry_price = get_next_day_open(ticker, today)
             if entry_price is None:
                 print(f"    ⚠️  {ticker}: could not fetch entry price, logging as missed")
                 _log_missed(supabase, config, signal, today)
                 continue
 
-            stop_price   = round(entry_price * (1 - cfg["stop_pct"]),  4)
+            stop_price   = round(entry_price * (1 - cfg["stop_pct"]),   4)
             target_price = round(entry_price * (1 + cfg["target_pct"]), 4)
-            shares       = round(position_size / entry_price,           6)
-            cost_basis   = round(shares * entry_price,                  2)
+            shares       = round(position_size / entry_price,            6)
+            cost_basis   = round(shares * entry_price,                   2)
             entry_date   = _next_trading_day(today)
             max_exit     = _add_trading_days(entry_date, cfg["max_days"])
-
-            trade_id = f"PT-{config[:3].upper()}-{ticker}-{today.isoformat()}"
+            trade_id     = f"PT-{config[:3].upper()}-{ticker}-{today.isoformat()}"
 
             try:
                 supabase.table("paper_trades").upsert({
@@ -342,20 +313,31 @@ def fill_paper_slots(supabase, signals: pd.DataFrame, today: date):
                     f" | target ${target_price:.2f}"
                     f" | {shares:.4f} shares @ ${position_size:.2f}"
                 )
+
+                entered.append({
+                    "config":        config,
+                    "ticker":        ticker,
+                    "entry_price":   entry_price,
+                    "stop_price":    stop_price,
+                    "target_price":  target_price,
+                    "position_size": position_size,
+                    "entry_date":    entry_date.isoformat(),
+                })
+
             except Exception as e:
                 print(f"    ❌ {ticker}: Supabase insert failed — {e}")
 
         for signal in to_miss:
             _log_missed(supabase, config, signal, today)
 
+    return entered
+
 
 # ── Missed signal logger ───────────────────────────────────────────────────────
 
 def _log_missed(supabase, config: str, signal, today: date):
-    """Log a signal that couldn't be taken due to full slots."""
     ticker   = signal["ticker"]
     trade_id = f"PT-{config[:3].upper()}-MISS-{ticker}-{today.isoformat()}"
-
     try:
         supabase.table("paper_trades").upsert({
             "id":                trade_id,
@@ -374,15 +356,13 @@ def _log_missed(supabase, config: str, signal, today: date):
 # ── Date helpers ───────────────────────────────────────────────────────────────
 
 def _next_trading_day(from_date: date) -> date:
-    """Return the next weekday after from_date (Mon–Fri proxy for trading day)."""
     d = from_date + timedelta(days=1)
-    while d.weekday() >= 5:  # 5=Sat, 6=Sun
+    while d.weekday() >= 5:
         d += timedelta(days=1)
     return d
 
 
 def _add_trading_days(from_date: date, n: int) -> date:
-    """Add n weekdays to from_date."""
     d = from_date
     added = 0
     while added < n:
@@ -414,25 +394,18 @@ def _safe_int(val) -> int | None:
 def run_paper_trading(highmom_signals: pd.DataFrame, supabase, today: date):
     """
     Main entrypoint called from main.py.
-
-    highmom_signals: DataFrame of today's HighMomentumSetup signals,
-                     already filtered for RS > 50 and ranked.
-                     Expected columns: ticker, relative_strength, rank
-
-    Order of operations:
-      1. Check exits on all open paper trades (frees slots)
-      2. Fill newly open slots with today's signals
+    Returns (entered, exited, open_trades) for Discord alert.
     """
     print("\n" + "=" * 60)
     print("PAPER TRADING — 52-WEEK HIGH MOMENTUM")
     print("=" * 60)
 
-    # Step 1: exits first so freed slots are available this same run
-    check_paper_exits(supabase, today)
-
-    # Step 2: fill slots with today's signals
-    fill_paper_slots(supabase, highmom_signals, today)
+    exited      = check_paper_exits(supabase, today)
+    entered     = fill_paper_slots(supabase, highmom_signals, today)
+    open_trades = get_all_open_trades(supabase)
 
     print("\n" + "=" * 60)
     print("PAPER TRADING COMPLETE")
     print("=" * 60 + "\n")
+
+    return entered, exited, open_trades

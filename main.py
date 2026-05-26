@@ -20,63 +20,111 @@ from paper_trade_manager import run_paper_trading
 
 
 # ── Constants ──────────────────────────────────────────────────────────────────
-STOP_PCT    = 0.98   # 2% below entry
-TARGET_PCT  = 1.07   # 7% above entry
-MAX_DAYS    = 10     # max market days to hold
+STOP_PCT    = 0.98
+TARGET_PCT  = 1.07
+MAX_DAYS    = 10
 
 # ── Discord ────────────────────────────────────────────────────────────────────
 DISCORD_WEBHOOK = os.environ.get("DISCORD_WEBHOOK_URL")
 
-def send_signal_alert(today: pd.DataFrame, run_date: date, market_ok: bool, spy_close: float, spy_sma200: float):
-    """Send daily scan summary to Discord."""
+
+def send_discord(message: str):
+    """Send a chunked message to Discord."""
     if not DISCORD_WEBHOOK:
-        print("No DISCORD_WEBHOOK_URL set — skipping signal alert")
+        print("No DISCORD_WEBHOOK_URL set — skipping Discord alert")
         return
-
-    if market_ok:
-        market_line = f"SPY ✅ ${spy_close:.2f} (SMA200: ${spy_sma200:.2f})"
-    else:
-        market_line = f"SPY 🚫 ${spy_close:.2f} below SMA200 ${spy_sma200:.2f} — no trades"
-
-    lines = [
-        f"📊 **SwingTrade Scan — {run_date.isoformat()}**",
-        market_line,
-        "",
-    ]
-
-    if not today.empty:
-        lines.append(f"**{len(today)} signal{'s' if len(today) != 1 else ''} today:**")
-        for _, row in today.iterrows():
-            rank = int(row["rank"]) if "rank" in row and pd.notna(row["rank"]) else "—"
-            ticker = row["ticker"]
-            rs = f"{row['relative_strength']:.1f}" if "relative_strength" in row and pd.notna(row["relative_strength"]) else "—"
-            lines.append(f"#{rank}  {ticker}  |  RS: {rs}  |  Buy tomorrow's open")
-    else:
-        lines.append("No signals today.")
-
-    message = "\n".join(lines)
-
     chunks = [message[i:i+1900] for i in range(0, len(message), 1900)]
     try:
         for chunk in chunks:
-            response = requests.post(
+            requests.post(
                 DISCORD_WEBHOOK,
                 json={"content": chunk},
-                timeout=10
-            )
-            response.raise_for_status()
-        print("✅ Signal alert sent to Discord")
+                timeout=10,
+            ).raise_for_status()
+        print("✅ Alert sent to Discord")
     except Exception as e:
-        print(f"❌ Failed to send signal alert: {e}")
+        print(f"❌ Failed to send Discord alert: {e}")
 
 
-# ── Exit logic ─────────────────────────────────────────────────────────────────
+def send_paper_trading_alert(
+    entered: list[dict],
+    exited: list[dict],
+    open_trades: list[dict],
+    run_date: date,
+):
+    """Send a Discord alert summarizing paper trading activity for the day."""
+    if not DISCORD_WEBHOOK:
+        print("No DISCORD_WEBHOOK_URL set — skipping paper trading alert")
+        return
+
+    lines = [
+        f"📈 **Paper Trading Update — {run_date.isoformat()}**",
+        f"*52-Week High Momentum · 2 accounts · $1,000 each*",
+        "",
+    ]
+
+    # ── Exits ──────────────────────────────────────────────────────────────────
+    if exited:
+        lines.append("**— Closed Today —**")
+        for t in exited:
+            cfg_label = "CON" if t["config"] == "conservative" else "AGG"
+            pnl_pct     = float(t.get("pnl_pct") or 0)
+            pnl_dollars = float(t.get("pnl_dollars") or 0)
+
+            if t["exit_reason"] == "target":
+                emoji = "🎯"
+            elif t["exit_reason"] == "stop":
+                emoji = "🛑"
+            else:
+                emoji = "⏱️"
+
+            lines.append(
+                f"{emoji} **{t['ticker']}** [{cfg_label}] — {t['exit_reason'].upper()}\n"
+                f"   Entry: ${float(t['entry_price']):.2f} | Exit: ${float(t['exit_price']):.2f} | "
+                f"P&L: {pnl_pct:+.2f}% (${pnl_dollars:+.2f}) | Day {t['days_held']}"
+            )
+        lines.append("")
+
+    # ── Entries ────────────────────────────────────────────────────────────────
+    if entered:
+        lines.append("**— Entering Tomorrow at Open —**")
+        for t in entered:
+            cfg_label = "CON" if t["config"] == "conservative" else "AGG"
+            lines.append(
+                f"🟢 **{t['ticker']}** [{cfg_label}]\n"
+                f"   Entry ~${float(t['entry_price']):.2f} | "
+                f"Stop: ${float(t['stop_price']):.2f} | "
+                f"Target: ${float(t['target_price']):.2f} | "
+                f"Size: ${float(t['position_size']):.2f}"
+            )
+        lines.append("")
+
+    # ── Open positions ─────────────────────────────────────────────────────────
+    if open_trades:
+        lines.append("**— Open Positions —**")
+        for t in open_trades:
+            cfg_label = "CON" if t["config"] == "conservative" else "AGG"
+            days      = (run_date - date.fromisoformat(t["entry_date"])).days
+            max_days  = 10 if t["config"] == "conservative" else 20
+            rs        = float(t.get("relative_strength") or 0)
+            lines.append(
+                f"📊 **{t['ticker']}** [{cfg_label}] | RS: {rs:.1f} | "
+                f"Entry: ${float(t['entry_price']):.2f} | "
+                f"Stop: ${float(t['stop_price']):.2f} | "
+                f"Target: ${float(t['target_price']):.2f} | "
+                f"Day {days}/{max_days}"
+            )
+        lines.append("")
+
+    if not exited and not entered and not open_trades:
+        lines.append("No activity today — no open positions, no signals.")
+
+    send_discord("\n".join(lines))
+
+
+# ── Exit logic (pullback strategy) ─────────────────────────────────────────────
 
 def check_exits(supabase):
-    """
-    Fetch all open signals, check each for stop/target/time exit,
-    and update Supabase rows with exit data when triggered.
-    """
     response = supabase.table("signals").select("*").eq("status", "open").execute()
     open_signals = response.data
 
@@ -87,9 +135,9 @@ def check_exits(supabase):
     print(f"\n=== CHECKING EXITS FOR {len(open_signals)} OPEN SIGNALS ===")
 
     for signal in open_signals:
-        ticker     = signal["ticker"]
-        buy_price  = signal["buy_price"]
-        last_date  = signal["last_date"]
+        ticker    = signal["ticker"]
+        buy_price = signal["buy_price"]
+        last_date = signal["last_date"]
 
         if not buy_price or not last_date:
             print(f"  {ticker}: missing buy_price or last_date, skipping")
@@ -130,7 +178,6 @@ def check_exits(supabase):
         days_held   = None
 
         for i, (idx, row) in enumerate(df.iterrows(), start=1):
-            day_open  = float(row["Open"])
             day_high  = float(row["High"])
             day_low   = float(row["Low"])
             day_close = float(row["Close"])
@@ -155,16 +202,15 @@ def check_exits(supabase):
 
         if exit_price is not None:
             win_loss = round((exit_price - buy_price) / buy_price, 4)
-            update = {
-                "status":      "closed",
-                "exit_price":  exit_price,
-                "exit_date":   exit_date.isoformat(),
-                "exit_reason": exit_reason,
-                "win_loss":    win_loss,
-                "days_held":   days_held,
-            }
             try:
-                supabase.table("signals").update(update).eq("id", signal["id"]).execute()
+                supabase.table("signals").update({
+                    "status":      "closed",
+                    "exit_price":  exit_price,
+                    "exit_date":   exit_date.isoformat(),
+                    "exit_reason": exit_reason,
+                    "win_loss":    win_loss,
+                    "days_held":   days_held,
+                }).eq("id", signal["id"]).execute()
                 print(f"  ✓ {ticker}: {exit_reason} exit on {exit_date} | P&L: {win_loss*100:.2f}% | days: {days_held}")
             except Exception as e:
                 print(f"  ❌ {ticker}: failed to update Supabase — {e}")
@@ -193,19 +239,9 @@ def main():
     print()
 
     # ── Pullback Uptrend scan ──────────────────────────────────────────────────
-    setup = PullbackUptrendSetup(
-        pullback_pct=0.02,
-        use_volume=True
-    )
-
-    scanner = SetupScanner(
-        setup=setup,
-        lookback="2y",
-        require_market_ok=True
-    )
-
+    setup = PullbackUptrendSetup(pullback_pct=0.02, use_volume=True)
+    scanner = SetupScanner(setup=setup, lookback="2y", require_market_ok=True)
     market_ok, spy_date, spy_close, spy_sma200 = scanner.market_ok()
-
     results = scanner.scan(all_tickers)
     today = results[results["has_signal_today"]].copy() if not results.empty else pd.DataFrame()
 
@@ -223,23 +259,13 @@ def main():
     else:
         print("No signals today.")
 
-    # ── High Momentum scan (paper trading) ────────────────────────────────────
-    highmom_setup = HighMomentumSetup(
-        near_high_pct=0.02,
-        volume_ratio_min=1.75,
-    )
-
-    highmom_scanner = SetupScanner(
-        setup=highmom_setup,
-        lookback="2y",
-        require_market_ok=True,
-    )
-
+    # ── High Momentum scan ─────────────────────────────────────────────────────
+    highmom_setup   = HighMomentumSetup(near_high_pct=0.02, volume_ratio_min=1.75)
+    highmom_scanner = SetupScanner(setup=highmom_setup, lookback="2y", require_market_ok=True)
     highmom_results = highmom_scanner.scan(all_tickers)
-    highmom_today = (
+    highmom_today   = (
         highmom_results[highmom_results["has_signal_today"]].copy()
-        if not highmom_results.empty
-        else pd.DataFrame()
+        if not highmom_results.empty else pd.DataFrame()
     )
 
     if not highmom_today.empty:
@@ -253,52 +279,33 @@ def main():
         print("\n=== HIGH MOMENTUM SIGNALS: none today ===")
 
     # ── Run date ───────────────────────────────────────────────────────────────
-    # Always use today's date — don't derive from signal data
     run_date = date.today()
 
-    # ── Charts ────────────────────────────────────────────────────────────────
+    # ── Charts ─────────────────────────────────────────────────────────────────
     chart_gen = ChartGenerator(base_dir="data/charts")
     chart_paths = []
 
     for _, row in today.iterrows():
         ticker = row["ticker"]
         signal_date = pd.to_datetime(row["most_recent_signal_date"])
-
-        df = yf.download(
-            ticker,
-            period="1y",
-            interval="1d",
-            auto_adjust=False,
-            progress=False
-        )
-
+        df = yf.download(ticker, period="1y", interval="1d", auto_adjust=False, progress=False)
         if df is None or df.empty:
             continue
-
         if isinstance(df.columns, pd.MultiIndex):
             df.columns = df.columns.get_level_values(0)
-
         df = setup.prepare(df)
-
         chart_path = chart_gen.save_chart(
-            df=df,
-            ticker=ticker,
-            signal_date=signal_date,
-            run_date=run_date,
-            filename="pullback_setup.png"
+            df=df, ticker=ticker, signal_date=signal_date,
+            run_date=run_date, filename="pullback_setup.png"
         )
-
         chart_paths.append(chart_path)
         print(f"Saved chart: {chart_path}")
 
-    # ── PDF gallery ───────────────────────────────────────────────────────────
+    # ── PDF gallery ────────────────────────────────────────────────────────────
     if chart_paths:
         pdf_out = (
-            f"data/charts/"
-            f"{run_date.year:04d}/"
-            f"{run_date.month:02d}/"
-            f"{run_date.isoformat()}/"
-            f"gallery_{run_date.isoformat()}.pdf"
+            f"data/charts/{run_date.year:04d}/{run_date.month:02d}/"
+            f"{run_date.isoformat()}/gallery_{run_date.isoformat()}.pdf"
         )
         exporter = PDFGalleryExporter(cols=2, rows=2)
         pdf_path = exporter.export(
@@ -315,15 +322,11 @@ def main():
     else:
         print("\nNo charts generated; skipping PDF export.")
 
-    # ── CSV ───────────────────────────────────────────────────────────────────
+    # ── CSV ────────────────────────────────────────────────────────────────────
     csv_path = (
-        f"data/charts/"
-        f"{run_date.year:04d}/"
-        f"{run_date.month:02d}/"
-        f"{run_date.isoformat()}/"
-        f"scan_results_{run_date.isoformat()}.csv"
+        f"data/charts/{run_date.year:04d}/{run_date.month:02d}/"
+        f"{run_date.isoformat()}/scan_results_{run_date.isoformat()}.csv"
     )
-
     if not today.empty:
         os.makedirs(os.path.dirname(csv_path), exist_ok=True)
         today.to_csv(csv_path, index=False)
@@ -335,6 +338,8 @@ def main():
     supabase_url         = os.environ.get("SUPABASE_URL")
     supabase_service_key = os.environ.get("SUPABASE_SERVICE_KEY")
 
+    entered, exited, open_trades = [], [], []
+
     if supabase_url and supabase_service_key:
         try:
             supabase = create_client(supabase_url, supabase_service_key)
@@ -345,7 +350,6 @@ def main():
             # 2. Push today's pullback signals
             if not today.empty:
                 supabase.table("signals").delete().eq("last_date", run_date.isoformat()).execute()
-
                 records = today.to_dict(orient="records")
                 for record in records:
                     for k, v in record.items():
@@ -354,28 +358,21 @@ def main():
                         elif hasattr(v, 'isoformat'):
                             record[k] = v.isoformat()
                     record["status"] = "open"
-
                 supabase.table("signals").insert(records).execute()
                 print(f"\n✓ Pushed {len(records)} new pullback signals to Supabase")
             else:
                 print("\nNo new pullback signals to push to Supabase")
 
             # 3. Paper trading — exits first, then fill slots
-            run_paper_trading(highmom_today, supabase, run_date)
+            entered, exited, open_trades = run_paper_trading(highmom_today, supabase, run_date)
 
         except Exception as e:
             print(f"❌ Supabase error: {e}")
     else:
         print("Supabase credentials not found, skipping")
 
-    # ── Discord alert ─────────────────────────────────────────────────────────
-    send_signal_alert(
-        today=today,
-        run_date=run_date,
-        market_ok=market_ok,
-        spy_close=spy_close or 0.0,
-        spy_sma200=spy_sma200 or 0.0,
-    )
+    # ── Discord alerts ─────────────────────────────────────────────────────────
+    send_paper_trading_alert(entered, exited, open_trades, run_date)
 
 
 if __name__ == "__main__":
