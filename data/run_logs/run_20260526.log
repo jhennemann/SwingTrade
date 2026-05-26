@@ -1,0 +1,166 @@
+$DELL: possibly delisted; no price data found  (1d 2026-05-27 -> 2026-06-02) (Yahoo error = "Data doesn't exist for startDate = 1779854400, endDate = 1780372800")
+
+1 Failed download:
+['DELL']: possibly delisted; no price data found  (1d 2026-05-27 -> 2026-06-02) (Yahoo error = "Data doesn't exist for startDate = 1779854400, endDate = 1780372800")
+$HPE: possibly delisted; no price data found  (1d 2026-05-27 -> 2026-06-02) (Yahoo error = "Data doesn't exist for startDate = 1779854400, endDate = 1780372800")
+
+1 Failed download:
+['HPE']: possibly delisted; no price data found  (1d 2026-05-27 -> 2026-06-02) (Yahoo error = "Data doesn't exist for startDate = 1779854400, endDate = 1780372800")
+$DELL: possibly delisted; no price data found  (1d 2026-05-27 -> 2026-06-02) (Yahoo error = "Data doesn't exist for startDate = 1779854400, endDate = 1780372800")
+
+1 Failed download:
+['DELL']: possibly delisted; no price data found  (1d 2026-05-27 -> 2026-06-02) (Yahoo error = "Data doesn't exist for startDate = 1779854400, endDate = 1780372800")
+$HPE: possibly delisted; no price data found  (1d 2026-05-27 -> 2026-06-02) (Yahoo error = "Data doesn't exist for startDate = 1779854400, endDate = 1780372800")
+
+1 Failed download:
+['HPE']: possibly delisted; no price data found  (1d 2026-05-27 -> 2026-06-02) (Yahoo error = "Data doesn't exist for startDate = 1779854400, endDate = 1780372800")
+Loading stock universes...
+✓ S&P 500: 501 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 515 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-05-22 (Close=745.64, SMA200=678.85)
+Scanned 100/515 tickers...
+Scanned 200/515 tickers...
+Scanned 300/515 tickers...
+Scanned 400/515 tickers...
+Scanned 500/515 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1    JBL          28.800296 2026-05-22
+    2    NUE          22.466901 2026-05-22
+    3    WST          15.712814 2026-05-22
+    4   STLD          15.588691 2026-05-22
+    5   EQIX           2.136348 2026-05-22
+    6     NI          -7.532677 2026-05-22
+    7    REG          -8.898002 2026-05-22
+    8    PSA          -9.284926 2026-05-22
+    9    MTB         -10.446781 2026-05-22
+   10    XEL         -11.430589 2026-05-22
+   11   VICI         -14.355840 2026-05-22
+Market filter passed: SPY > SMA200 on 2026-05-22 (Close=745.64, SMA200=678.85)
+Scanned 100/515 tickers...
+Scanned 200/515 tickers...
+Scanned 300/515 tickers...
+Scanned 400/515 tickers...
+Scanned 500/515 tickers...
+Calculating relative strength scores...
+
+=== HIGH MOMENTUM SIGNALS (RS > 50): 2 ===
+ rank ticker  relative_strength  last_date
+    1   DELL          90.649482 2026-05-22
+    2    HPE          66.339481 2026-05-22
+Saved chart: data/charts/2026/05/2026-05-26/JBL/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-26/NUE/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-26/WST/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-26/STLD/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-26/EQIX/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-26/NI/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-26/REG/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-26/PSA/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-26/MTB/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-26/XEL/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-26/VICI/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/05/2026-05-26/gallery_2026-05-26.pdf
+
+Saved signals with RS: data/charts/2026/05/2026-05-26/scan_results_2026-05-26.csv
+
+=== CHECKING EXITS FOR 65 OPEN SIGNALS ===
+  JBL: still open (1 days in trade)
+  AMZN: still open (1 days in trade)
+  NUE: still open (1 days in trade)
+  WST: still open (1 days in trade)
+  STLD: still open (1 days in trade)
+  EQIX: still open (1 days in trade)
+  FOX: still open (1 days in trade)
+  NI: still open (1 days in trade)
+  PSA: still open (1 days in trade)
+  REG: still open (1 days in trade)
+  INCY: still open (1 days in trade)
+  XEL: still open (1 days in trade)
+  VICI: still open (1 days in trade)
+  MTB: still open (1 days in trade)
+  BK: still open (7 days in trade)
+  KEY: no post-entry price data yet
+  KDP: no post-entry price data yet
+  DD: no post-entry price data yet
+  MCO: no post-entry price data yet
+  TXT: no post-entry price data yet
+  MPWR: no post-entry price data yet
+  TEAM: no post-entry price data yet
+  TER: no post-entry price data yet
+  TROW: no post-entry price data yet
+  BAC: no post-entry price data yet
+  NDAQ: no post-entry price data yet
+  MSCI: no post-entry price data yet
+  JPM: no post-entry price data yet
+  FITB: no post-entry price data yet
+  CINF: still open (6 days in trade)
+  NSC: still open (6 days in trade)
+  BXP: still open (6 days in trade)
+  NTRS: still open (6 days in trade)
+  PLD: still open (6 days in trade)
+  EG: still open (5 days in trade)
+  WST: still open (5 days in trade)
+  MSFT: still open (5 days in trade)
+  TROW: still open (4 days in trade)
+  EW: still open (4 days in trade)
+  AIG: still open (4 days in trade)
+  MAA: still open (4 days in trade)
+  MAR: still open (4 days in trade)
+  EQR: still open (4 days in trade)
+  PLD: still open (4 days in trade)
+  NTRS: still open (4 days in trade)
+  D: still open (4 days in trade)
+  WELL: still open (3 days in trade)
+  LNT: still open (3 days in trade)
+  ✓ GLW: target exit on 2026-05-22 | P&L: 7.00% | days: 2
+  DIS: still open (2 days in trade)
+  STT: still open (2 days in trade)
+  NDAQ: still open (8 days in trade)
+  HLT: still open (2 days in trade)
+  ASML: still open (2 days in trade)
+  ROK: still open (2 days in trade)
+  KIM: still open (2 days in trade)
+  LRCX: still open (2 days in trade)
+  EXR: still open (2 days in trade)
+  Q: still open (2 days in trade)
+  BXP: still open (2 days in trade)
+  FDX: still open (2 days in trade)
+  HWM: still open (2 days in trade)
+  IRM: still open (2 days in trade)
+  ORCL: still open (2 days in trade)
+  ODFL: still open (2 days in trade)
+
+✓ Pushed 11 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: FILLING SLOTS ===
+
+  conservative: 2 slot(s) open | available cash: $1000.00
+    ⚠️  DELL: could not fetch entry price, logging as missed
+    — MISSED DELL [conservative] (logged)
+    ⚠️  HPE: could not fetch entry price, logging as missed
+    — MISSED HPE [conservative] (logged)
+
+  aggressive: 2 slot(s) open | available cash: $1000.00
+    ⚠️  DELL: could not fetch entry price, logging as missed
+    — MISSED DELL [aggressive] (logged)
+    ⚠️  HPE: could not fetch entry price, logging as missed
+    — MISSED HPE [aggressive] (logged)
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
