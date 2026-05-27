@@ -67,7 +67,7 @@ def send_paper_trading_alert(
     if exited:
         lines.append("**— Closed Today —**")
         for t in exited:
-            cfg_label = "CON" if t["config"] == "conservative" else "AGG"
+            cfg_label   = "CON" if t["config"] == "conservative" else "AGG"
             pnl_pct     = float(t.get("pnl_pct") or 0)
             pnl_dollars = float(t.get("pnl_dollars") or 0)
 
@@ -90,12 +90,11 @@ def send_paper_trading_alert(
         lines.append("**— Entering Tomorrow at Open —**")
         for t in entered:
             cfg_label = "CON" if t["config"] == "conservative" else "AGG"
+            rs        = float(t.get("relative_strength") or 0)
             lines.append(
-                f"🟢 **{t['ticker']}** [{cfg_label}]\n"
-                f"   Entry ~${float(t['entry_price']):.2f} | "
-                f"Stop: ${float(t['stop_price']):.2f} | "
-                f"Target: ${float(t['target_price']):.2f} | "
-                f"Size: ${float(t['position_size']):.2f}"
+                f"⏳ **{t['ticker']}** [{cfg_label}]\n"
+                f"   RS: {rs:.1f} | Size: ${float(t['position_size']):.2f} | "
+                f"Entry price fetched tomorrow at open"
             )
         lines.append("")
 

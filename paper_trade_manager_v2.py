@@ -7,16 +7,14 @@ Max 2 simultaneous positions per account at $500 each (dynamic sizing).
 
 Called from main.py after the HighMomentumSetup scan runs.
 
-Usage in main.py:
-    from paper_trade_manager import run_paper_trading
-    entered, exited, open_trades = run_paper_trading(highmom_signals, supabase, today)
+Entry flow:
+  Evening (6 PM): main.py logs new trades as 'pending' — no entry price yet
+  Morning (9:45 AM): entry_price.py fetches real open, converts 'pending' → 'open'
 
-Where highmom_signals is a DataFrame with columns:
-    ticker, relative_strength, rank, last_date
-Already filtered for RS > 50 and sorted by relative_strength descending.
+Usage in main.py:
+    entered, exited, open_trades = run_paper_trading(highmom_signals, supabase, today)
 """
 
-import yfinance as yf
 import pandas as pd
 import numpy as np
 from datetime import date, timedelta
@@ -26,14 +24,14 @@ from datetime import date, timedelta
 
 CONFIGS = {
     "conservative": {
-        "stop_pct":    0.02,
-        "target_pct":  0.07,
-        "max_days":    10,
+        "stop_pct":   0.02,
+        "target_pct": 0.07,
+        "max_days":   10,
     },
     "aggressive": {
-        "stop_pct":    0.02,
-        "target_pct":  0.15,
-        "max_days":    20,
+        "stop_pct":   0.02,
+        "target_pct": 0.15,
+        "max_days":   20,
     },
 }
 
@@ -44,6 +42,7 @@ STARTING_EQUITY = 1000.00
 # ── Supabase helpers ───────────────────────────────────────────────────────────
 
 def get_open_trades(supabase, config: str) -> list[dict]:
+    """Fetch all open trades for a given config."""
     res = (
         supabase.table("paper_trades")
         .select("*")
@@ -54,7 +53,23 @@ def get_open_trades(supabase, config: str) -> list[dict]:
     return res.data or []
 
 
+def get_active_trades(supabase, config: str) -> list[dict]:
+    """
+    Fetch open + pending trades for a given config.
+    Both count toward slot usage — pending means we already committed to entering.
+    """
+    res = (
+        supabase.table("paper_trades")
+        .select("*")
+        .eq("config", config)
+        .in_("status", ["open", "pending"])
+        .execute()
+    )
+    return res.data or []
+
+
 def get_all_open_trades(supabase) -> list[dict]:
+    """Fetch all open trades across both configs for the Discord alert."""
     res = (
         supabase.table("paper_trades")
         .select("*")
@@ -65,6 +80,7 @@ def get_all_open_trades(supabase) -> list[dict]:
 
 
 def get_account_summary(supabase, config: str) -> dict:
+    """Fetch pre-computed account summary from the Supabase view."""
     res = (
         supabase.table("paper_account_summary")
         .select("*")
@@ -84,31 +100,12 @@ def get_account_summary(supabase, config: str) -> dict:
     }
 
 
-# ── Price helpers ──────────────────────────────────────────────────────────────
+# ── Exit checker ───────────────────────────────────────────────────────────────
 
-def get_next_day_open(ticker: str, after_date: date) -> float | None:
-    start = after_date + timedelta(days=1)
-    end   = after_date + timedelta(days=7)
-    try:
-        df = yf.download(
-            ticker,
-            start=start.isoformat(),
-            end=end.isoformat(),
-            interval="1d",
-            auto_adjust=False,
-            progress=False,
-        )
-    except Exception as e:
-        print(f"  ⚠️  Price download failed for {ticker}: {e}")
-        return None
-    if df is None or df.empty:
-        return None
-    if isinstance(df.columns, pd.MultiIndex):
-        df.columns = df.columns.get_level_values(0)
-    return float(df["Open"].iloc[0])
-
+import yfinance as yf
 
 def get_current_open(ticker: str) -> float | None:
+    """Fetch today's open price for exit checks."""
     try:
         df = yf.download(
             ticker,
@@ -128,6 +125,7 @@ def get_current_open(ticker: str) -> float | None:
 
 
 def get_trading_days_held(entry_date: date, today: date) -> int:
+    """Count trading days between entry_date and today using SPY calendar."""
     try:
         df = yf.download(
             "SPY",
@@ -144,17 +142,16 @@ def get_trading_days_held(entry_date: date, today: date) -> int:
         return (today - entry_date).days
 
 
-# ── Exit checker ───────────────────────────────────────────────────────────────
-
 def check_paper_exits(supabase, today: date) -> list[dict]:
     """
     Check all open paper trades for stop / target / time exits.
     Returns list of trades closed this run (for Discord alert).
+    Note: only checks 'open' trades — 'pending' trades have no entry price yet.
     """
     print("\n=== PAPER TRADING: CHECKING EXITS ===")
     exited = []
 
-    for config, cfg in CONFIGS.items():
+    for config in CONFIGS:
         open_trades = get_open_trades(supabase, config)
 
         if not open_trades:
@@ -233,8 +230,9 @@ def check_paper_exits(supabase, today: date) -> list[dict]:
 
 def fill_paper_slots(supabase, signals: pd.DataFrame, today: date) -> list[dict]:
     """
-    Fill open slots with today's top-ranked HighMomentumSetup signals.
-    Returns list of trades entered this run (for Discord alert).
+    Log today's top signals as 'pending' trades.
+    entry_price.py will fetch the real open tomorrow morning and convert to 'open'.
+    Returns list of pending trades entered this run (for Discord alert).
     """
     print("\n=== PAPER TRADING: FILLING SLOTS ===")
     entered = []
@@ -244,9 +242,10 @@ def fill_paper_slots(supabase, signals: pd.DataFrame, today: date) -> list[dict]
         return entered
 
     for config, cfg in CONFIGS.items():
-        open_trades    = get_open_trades(supabase, config)
-        slots_open     = MAX_SLOTS - len(open_trades)
-        already_held   = {t["ticker"] for t in open_trades}
+        # Count both open AND pending toward slot usage
+        active_trades  = get_active_trades(supabase, config)
+        slots_open     = MAX_SLOTS - len(active_trades)
+        already_held   = {t["ticker"] for t in active_trades}
         summary        = get_account_summary(supabase, config)
         available_cash = float(summary["available_cash"])
 
@@ -272,56 +271,34 @@ def fill_paper_slots(supabase, signals: pd.DataFrame, today: date) -> list[dict]
         position_size = round(available_cash / 2, 2) if slots_open == MAX_SLOTS else round(available_cash, 2)
 
         for signal in to_enter:
-            ticker = signal["ticker"]
-
-            entry_price = get_next_day_open(ticker, today)
-            if entry_price is None:
-                print(f"    ⚠️  {ticker}: could not fetch entry price, logging as missed")
-                _log_missed(supabase, config, signal, today)
-                continue
-
-            stop_price   = round(entry_price * (1 - cfg["stop_pct"]),   4)
-            target_price = round(entry_price * (1 + cfg["target_pct"]), 4)
-            shares       = round(position_size / entry_price,            6)
-            cost_basis   = round(shares * entry_price,                   2)
-            entry_date   = _next_trading_day(today)
-            max_exit     = _add_trading_days(entry_date, cfg["max_days"])
-            trade_id     = f"PT-{config[:3].upper()}-{ticker}-{today.isoformat()}"
+            ticker   = signal["ticker"]
+            trade_id = f"PT-{config[:3].upper()}-{ticker}-{today.isoformat()}"
 
             try:
                 supabase.table("paper_trades").upsert({
-                    "id":                 trade_id,
-                    "config":             config,
-                    "ticker":             ticker,
-                    "signal_date":        today.isoformat(),
-                    "entry_date":         entry_date.isoformat(),
-                    "entry_price":        entry_price,
-                    "stop_price":         stop_price,
-                    "target_price":       target_price,
-                    "max_exit_date":      max_exit.isoformat(),
-                    "relative_strength":  _safe_float(signal.get("relative_strength")),
-                    "rank":               _safe_int(signal.get("rank")),
-                    "position_size":      position_size,
-                    "shares":             shares,
-                    "cost_basis":         cost_basis,
-                    "status":             "open",
+                    "id":                trade_id,
+                    "config":            config,
+                    "ticker":            ticker,
+                    "signal_date":       today.isoformat(),
+                    "status":            "pending",   # entry_price.py activates tomorrow
+                    "position_size":     position_size,
+                    "relative_strength": _safe_float(signal.get("relative_strength")),
+                    "rank":              _safe_int(signal.get("rank")),
+                    # entry_price, stop_price, target_price, shares, cost_basis,
+                    # entry_date, max_exit_date all filled by entry_price.py tomorrow
                 }).execute()
 
                 print(
-                    f"    ✓ ENTER {ticker} [{config}]:"
-                    f" ${entry_price:.2f} | stop ${stop_price:.2f}"
-                    f" | target ${target_price:.2f}"
-                    f" | {shares:.4f} shares @ ${position_size:.2f}"
+                    f"    ⏳ PENDING {ticker} [{config}]: "
+                    f"${position_size:.2f} allocated | RS: {_safe_float(signal.get('relative_strength')):.1f} | "
+                    f"entry price fetched tomorrow at open"
                 )
 
                 entered.append({
-                    "config":        config,
-                    "ticker":        ticker,
-                    "entry_price":   entry_price,
-                    "stop_price":    stop_price,
-                    "target_price":  target_price,
-                    "position_size": position_size,
-                    "entry_date":    entry_date.isoformat(),
+                    "config":            config,
+                    "ticker":            ticker,
+                    "position_size":     position_size,
+                    "relative_strength": _safe_float(signal.get("relative_strength")),
                 })
 
             except Exception as e:
