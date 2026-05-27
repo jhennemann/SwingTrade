@@ -1,0 +1,165 @@
+$MRVL: possibly delisted; no price data found  (1d 2026-05-27 -> 2026-06-02) (Yahoo error = "Data doesn't exist for startDate = 1779854400, endDate = 1780372800")
+
+1 Failed download:
+['MRVL']: possibly delisted; no price data found  (1d 2026-05-27 -> 2026-06-02) (Yahoo error = "Data doesn't exist for startDate = 1779854400, endDate = 1780372800")
+$MRVL: possibly delisted; no price data found  (1d 2026-05-27 -> 2026-06-02) (Yahoo error = "Data doesn't exist for startDate = 1779854400, endDate = 1780372800")
+
+1 Failed download:
+['MRVL']: possibly delisted; no price data found  (1d 2026-05-27 -> 2026-06-02) (Yahoo error = "Data doesn't exist for startDate = 1779854400, endDate = 1780372800")
+Loading stock universes...
+✓ S&P 500: 501 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 515 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-05-26 (Close=750.59, SMA200=679.44)
+Scanned 100/515 tickers...
+Scanned 200/515 tickers...
+Scanned 300/515 tickers...
+Scanned 400/515 tickers...
+Scanned 500/515 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1   MPWR          36.191169 2026-05-26
+    2    TER          10.075508 2026-05-26
+    3   TEAM           5.712864 2026-05-26
+    4   TROW           0.021439 2026-05-26
+    5    BAC          -4.556648 2026-05-26
+    6    KEY          -5.242012 2026-05-26
+    7   NDAQ          -6.187663 2026-05-26
+    8    JPM          -6.269790 2026-05-26
+    9   MSCI          -6.803821 2026-05-26
+   10   FITB          -9.395009 2026-05-26
+   11     DD          -9.717491 2026-05-26
+   12    KDP         -10.756281 2026-05-26
+   13    MCO         -12.573073 2026-05-26
+   14     GD         -14.876011 2026-05-26
+   15    TXT         -17.300847 2026-05-26
+Market filter passed: SPY > SMA200 on 2026-05-26 (Close=750.59, SMA200=679.44)
+Scanned 100/515 tickers...
+Scanned 200/515 tickers...
+Scanned 300/515 tickers...
+Scanned 400/515 tickers...
+Scanned 500/515 tickers...
+Calculating relative strength scores...
+
+=== HIGH MOMENTUM SIGNALS (RS > 50): 1 ===
+ rank ticker  relative_strength  last_date
+    1   MRVL         148.201382 2026-05-26
+Saved chart: data/charts/2026/05/2026-05-26/MPWR/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-26/TER/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-26/TEAM/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-26/TROW/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-26/BAC/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-26/KEY/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-26/NDAQ/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-26/JPM/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-26/MSCI/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-26/FITB/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-26/DD/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-26/KDP/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-26/MCO/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-26/GD/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-26/TXT/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/05/2026-05-26/gallery_2026-05-26.pdf
+
+Saved signals with RS: data/charts/2026/05/2026-05-26/scan_results_2026-05-26.csv
+
+=== CHECKING EXITS FOR 69 OPEN SIGNALS ===
+  JBL: still open (1 days in trade)
+  NUE: still open (1 days in trade)
+  WST: still open (1 days in trade)
+  EQIX: still open (1 days in trade)
+  FOX: still open (1 days in trade)
+  NI: still open (1 days in trade)
+  PSA: still open (1 days in trade)
+  REG: still open (1 days in trade)
+  INCY: still open (1 days in trade)
+  XEL: still open (1 days in trade)
+  VICI: still open (1 days in trade)
+  MTB: still open (1 days in trade)
+  BK: still open (7 days in trade)
+  BAC: no post-entry price data yet
+  NDAQ: no post-entry price data yet
+  MSCI: no post-entry price data yet
+  JPM: no post-entry price data yet
+  FITB: no post-entry price data yet
+  KEY: no post-entry price data yet
+  KDP: no post-entry price data yet
+  DD: no post-entry price data yet
+  MCO: no post-entry price data yet
+  TXT: no post-entry price data yet
+  MPWR: no post-entry price data yet
+  TEAM: no post-entry price data yet
+  TROW: no post-entry price data yet
+  BXP: still open (6 days in trade)
+  NTRS: still open (6 days in trade)
+  CINF: still open (6 days in trade)
+  PLD: still open (6 days in trade)
+  JBL: missing buy_price or last_date, skipping
+  NUE: missing buy_price or last_date, skipping
+  WST: missing buy_price or last_date, skipping
+  STLD: missing buy_price or last_date, skipping
+  EQIX: missing buy_price or last_date, skipping
+  NI: missing buy_price or last_date, skipping
+  REG: missing buy_price or last_date, skipping
+  PSA: missing buy_price or last_date, skipping
+  MTB: missing buy_price or last_date, skipping
+  XEL: missing buy_price or last_date, skipping
+  VICI: missing buy_price or last_date, skipping
+  NSC: still open (6 days in trade)
+  EG: still open (5 days in trade)
+  WST: still open (5 days in trade)
+  MSFT: still open (5 days in trade)
+  TROW: still open (4 days in trade)
+  AIG: still open (4 days in trade)
+  MAA: still open (4 days in trade)
+  MAR: still open (4 days in trade)
+  EQR: still open (4 days in trade)
+  PLD: still open (4 days in trade)
+  EW: still open (4 days in trade)
+  NTRS: still open (4 days in trade)
+  D: still open (4 days in trade)
+  WELL: still open (3 days in trade)
+  LNT: still open (3 days in trade)
+  ROK: still open (2 days in trade)
+  KIM: still open (2 days in trade)
+  EXR: still open (2 days in trade)
+  DIS: still open (2 days in trade)
+  FDX: still open (2 days in trade)
+  HWM: still open (2 days in trade)
+  IRM: still open (2 days in trade)
+  ORCL: still open (2 days in trade)
+  ODFL: still open (2 days in trade)
+  BXP: still open (2 days in trade)
+  STT: still open (2 days in trade)
+  HLT: still open (2 days in trade)
+  ASML: still open (2 days in trade)
+
+✓ Pushed 15 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: FILLING SLOTS ===
+
+  conservative: 2 slot(s) open | available cash: $1000.00
+    ⚠️  MRVL: could not fetch entry price, logging as missed
+    — MISSED MRVL [conservative] (logged)
+
+  aggressive: 2 slot(s) open | available cash: $1000.00
+    ⚠️  MRVL: could not fetch entry price, logging as missed
+    — MISSED MRVL [aggressive] (logged)
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
