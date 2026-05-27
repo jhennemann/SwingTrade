@@ -1,0 +1,160 @@
+Loading stock universes...
+✓ S&P 500: 501 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 515 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-05-27 (Close=750.46, SMA200=680.01)
+Scanned 100/515 tickers...
+Scanned 200/515 tickers...
+Scanned 300/515 tickers...
+Scanned 400/515 tickers...
+Scanned 500/515 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1   MCHP          25.355024 2026-05-27
+    2   AVGO          24.110576 2026-05-27
+    3    CAT          15.689441 2026-05-27
+    4    URI           8.261124 2026-05-27
+    5   FOXA           3.847978 2026-05-27
+    6    TGT          -4.074791 2026-05-27
+    7    CFG          -4.611180 2026-05-27
+    8    UNP          -5.211175 2026-05-27
+    9    FTV          -7.068528 2026-05-27
+   10    FER          -9.305771 2026-05-27
+   11    SWK         -12.966567 2026-05-27
+   12    EMR         -14.981772 2026-05-27
+   13    PKG         -16.111531 2026-05-27
+Market filter passed: SPY > SMA200 on 2026-05-27 (Close=750.46, SMA200=680.01)
+Scanned 100/515 tickers...
+Scanned 200/515 tickers...
+Scanned 300/515 tickers...
+Scanned 400/515 tickers...
+Scanned 500/515 tickers...
+Calculating relative strength scores...
+
+=== HIGH MOMENTUM SIGNALS (RS > 50): 0 ===
+Empty DataFrame
+Columns: [rank, ticker, relative_strength, last_date]
+Index: []
+Saved chart: data/charts/2026/05/2026-05-27/MCHP/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-27/AVGO/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-27/CAT/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-27/URI/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-27/FOXA/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-27/TGT/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-27/CFG/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-27/UNP/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-27/FTV/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-27/FER/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-27/SWK/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-27/EMR/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-27/PKG/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/05/2026-05-27/gallery_2026-05-27.pdf
+
+Saved signals with RS: data/charts/2026/05/2026-05-27/scan_results_2026-05-27.csv
+
+=== CHECKING EXITS FOR 74 OPEN SIGNALS ===
+  WST: still open (2 days in trade)
+  EQIX: still open (2 days in trade)
+  FOX: still open (2 days in trade)
+  NI: still open (2 days in trade)
+  PSA: still open (2 days in trade)
+  REG: still open (2 days in trade)
+  INCY: still open (2 days in trade)
+  XEL: still open (2 days in trade)
+  VICI: still open (2 days in trade)
+  MTB: still open (2 days in trade)
+  JBL: still open (2 days in trade)
+  BK: still open (8 days in trade)
+  TROW: still open (1 days in trade)
+  BAC: still open (1 days in trade)
+  NDAQ: still open (1 days in trade)
+  MSCI: still open (1 days in trade)
+  FITB: still open (1 days in trade)
+  KEY: still open (1 days in trade)
+  KDP: still open (1 days in trade)
+  DD: still open (1 days in trade)
+  MCO: still open (1 days in trade)
+  TXT: still open (1 days in trade)
+  ✓ MPWR: target exit on 2026-05-26 | P&L: 7.00% | days: 1
+  ✓ TEAM: stop exit on 2026-05-26 | P&L: -2.00% | days: 1
+  JBL: missing buy_price or last_date, skipping
+  NUE: missing buy_price or last_date, skipping
+  WST: missing buy_price or last_date, skipping
+  STLD: missing buy_price or last_date, skipping
+  EQIX: missing buy_price or last_date, skipping
+  NI: missing buy_price or last_date, skipping
+  REG: missing buy_price or last_date, skipping
+  PSA: missing buy_price or last_date, skipping
+  XEL: missing buy_price or last_date, skipping
+  VICI: missing buy_price or last_date, skipping
+  NSC: still open (7 days in trade)
+  BXP: still open (7 days in trade)
+  NTRS: still open (7 days in trade)
+  MTB: missing buy_price or last_date, skipping
+  PLD: still open (7 days in trade)
+  MCO: no post-entry price data yet
+  GD: no post-entry price data yet
+  TXT: no post-entry price data yet
+  TEAM: no post-entry price data yet
+  TROW: no post-entry price data yet
+  KEY: no post-entry price data yet
+  NDAQ: no post-entry price data yet
+  JPM: no post-entry price data yet
+  MSCI: no post-entry price data yet
+  FITB: no post-entry price data yet
+  KDP: no post-entry price data yet
+  WST: still open (6 days in trade)
+  MSFT: still open (6 days in trade)
+  TROW: still open (5 days in trade)
+  EW: still open (5 days in trade)
+  MAA: still open (5 days in trade)
+  EQR: still open (5 days in trade)
+  PLD: still open (5 days in trade)
+  NTRS: still open (5 days in trade)
+  D: still open (5 days in trade)
+  WELL: still open (4 days in trade)
+  LNT: still open (4 days in trade)
+  KIM: still open (3 days in trade)
+  EXR: still open (3 days in trade)
+  DIS: still open (3 days in trade)
+  FDX: still open (3 days in trade)
+  HWM: still open (3 days in trade)
+  ORCL: still open (3 days in trade)
+  IRM: still open (3 days in trade)
+  ODFL: still open (3 days in trade)
+  HLT: still open (3 days in trade)
+  BXP: still open (3 days in trade)
+  STT: still open (3 days in trade)
+  ASML: still open (3 days in trade)
+  ROK: still open (3 days in trade)
+
+✓ Pushed 13 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: checking 2 open trade(s)
+    DELL: still open (1d held)
+    HPE: still open (1d held)
+  aggressive: checking 2 open trade(s)
+    DELL: still open (1d held)
+    HPE: still open (1d held)
+
+=== PAPER TRADING: CHECKING MISSED TRADE EXITS (2) ===
+    📋 MRVL [aggressive] (hypothetical): still open (1d)
+    📋 MRVL [conservative] (hypothetical): still open (1d)
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
