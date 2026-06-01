@@ -1,0 +1,120 @@
+Loading stock universes...
+✓ S&P 500: 501 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 515 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-06-01 (Close=758.54, SMA200=681.74)
+Scanned 100/515 tickers...
+Scanned 200/515 tickers...
+Scanned 300/515 tickers...
+Scanned 400/515 tickers...
+Scanned 500/515 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1      C           8.362953 2026-06-01
+Market filter passed: SPY > SMA200 on 2026-06-01 (Close=758.54, SMA200=681.74)
+Scanned 100/515 tickers...
+Scanned 200/515 tickers...
+Scanned 300/515 tickers...
+Scanned 400/515 tickers...
+Scanned 500/515 tickers...
+Calculating relative strength scores...
+
+=== HIGH MOMENTUM SIGNALS (RS > 50): 2 ===
+ rank ticker  relative_strength  last_date
+    1   DELL         205.290686 2026-06-01
+    2    HPE         109.618391 2026-06-01
+Saved chart: data/charts/2026/06/2026-06-01/C/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/06/2026-06-01/gallery_2026-06-01.pdf
+
+Saved signals with RS: data/charts/2026/06/2026-06-01/scan_results_2026-06-01.csv
+
+=== CHECKING EXITS FOR 50 OPEN SIGNALS ===
+  FOX: still open (5 days in trade)
+  MTB: still open (5 days in trade)
+  JBL: still open (5 days in trade)
+  TXT: still open (4 days in trade)
+  TROW: still open (4 days in trade)
+  FITB: still open (4 days in trade)
+  NDAQ: still open (4 days in trade)
+  KDP: still open (4 days in trade)
+  DD: still open (4 days in trade)
+  MCO: still open (4 days in trade)
+  STLD: missing buy_price or last_date, skipping
+  EQIX: missing buy_price or last_date, skipping
+  NI: missing buy_price or last_date, skipping
+  REG: missing buy_price or last_date, skipping
+  PSA: missing buy_price or last_date, skipping
+  XEL: missing buy_price or last_date, skipping
+  VICI: missing buy_price or last_date, skipping
+  MTB: missing buy_price or last_date, skipping
+  JBL: missing buy_price or last_date, skipping
+  NUE: missing buy_price or last_date, skipping
+  WST: missing buy_price or last_date, skipping
+  NDAQ: still open (3 days in trade)
+  KDP: still open (3 days in trade)
+  MCO: still open (3 days in trade)
+  GD: still open (3 days in trade)
+  TROW: still open (3 days in trade)
+  SWK: still open (2 days in trade)
+  EMR: still open (2 days in trade)
+  PKG: still open (2 days in trade)
+  URI: still open (2 days in trade)
+  ✓ NWS: stop exit on 2026-05-29 | P&L: -2.00% | days: 1
+  NWSA: still open (1 days in trade)
+  PSKY: still open (1 days in trade)
+  ✓ UNH: stop exit on 2026-05-29 | P&L: -2.00% | days: 1
+  ADM: still open (1 days in trade)
+  MSFT: no post-entry price data yet
+  PSX: no post-entry price data yet
+  AXP: no post-entry price data yet
+  WDAY: no post-entry price data yet
+  GD: no post-entry price data yet
+  DIS: still open (6 days in trade)
+  HWM: still open (6 days in trade)
+  BXP: still open (6 days in trade)
+  KIM: still open (6 days in trade)
+  STT: still open (6 days in trade)
+  ASML: still open (6 days in trade)
+  IRM: still open (6 days in trade)
+  HLT: still open (6 days in trade)
+  ROK: still open (6 days in trade)
+  EXR: still open (6 days in trade)
+
+✓ Pushed 1 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: checking 2 open trade(s)
+    DELL: still open (1d held)
+    HPE: still open (1d held)
+  aggressive: checking 2 open trade(s)
+    ✓ HPE [aggressive]: target exit @ $43.48 | P&L: +15.00% ($+75.00) | 4d
+    DELL: still open (1d held)
+
+=== PAPER TRADING: CHECKING MISSED TRADE EXITS (6) ===
+    📋 MRVL [aggressive] (hypothetical): stop @ $200.34 | P&L: -2.00% | 2d
+    📋 PANW [aggressive] (hypothetical): still open (1d)
+    📋 NTAP [aggressive] (hypothetical): still open (1d)
+    📋 MRVL [conservative] (hypothetical): stop @ $200.34 | P&L: -2.00% | 2d
+    📋 PANW [conservative] (hypothetical): still open (1d)
+    📋 NTAP [conservative] (hypothetical): still open (1d)
+
+=== PAPER TRADING: FILLING SLOTS ===
+
+  conservative: 0 slot(s) open | available cash: $0.00
+
+  aggressive: 1 slot(s) open | available cash: $575.00
+    ⏳ PENDING HPE [aggressive]: $575.00 allocated | RS: 109.6 | entry price fetched tomorrow at open
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
