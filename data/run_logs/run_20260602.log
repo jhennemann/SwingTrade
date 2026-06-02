@@ -1,0 +1,108 @@
+Loading stock universes...
+✓ S&P 500: 502 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 516 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-06-02 (Close=759.57, SMA200=682.31)
+Scanned 100/516 tickers...
+Scanned 200/516 tickers...
+Scanned 300/516 tickers...
+Scanned 400/516 tickers...
+Scanned 500/516 tickers...
+
+=== PULLBACK SIGNALS TODAY ===
+No signals today.
+Market filter passed: SPY > SMA200 on 2026-06-02 (Close=759.57, SMA200=682.31)
+Scanned 100/516 tickers...
+Scanned 200/516 tickers...
+Scanned 300/516 tickers...
+Scanned 400/516 tickers...
+Scanned 500/516 tickers...
+Calculating relative strength scores...
+
+=== HIGH MOMENTUM SIGNALS (RS > 50): 2 ===
+ rank ticker  relative_strength  last_date
+    1   MRVL         201.872237 2026-06-02
+    2    HPE         145.464349 2026-06-02
+
+No charts generated; skipping PDF export.
+
+No signals today - skipping CSV save
+
+=== CHECKING EXITS FOR 40 OPEN SIGNALS ===
+  FOX: still open (6 days in trade)
+  MTB: still open (6 days in trade)
+  JBL: still open (6 days in trade)
+  DD: still open (5 days in trade)
+  MCO: still open (5 days in trade)
+  TXT: still open (5 days in trade)
+  TROW: still open (5 days in trade)
+  FITB: still open (5 days in trade)
+  KDP: still open (5 days in trade)
+  EQIX: missing buy_price or last_date, skipping
+  NI: missing buy_price or last_date, skipping
+  REG: missing buy_price or last_date, skipping
+  PSA: missing buy_price or last_date, skipping
+  XEL: missing buy_price or last_date, skipping
+  VICI: missing buy_price or last_date, skipping
+  MTB: missing buy_price or last_date, skipping
+  JBL: missing buy_price or last_date, skipping
+  NUE: missing buy_price or last_date, skipping
+  WST: missing buy_price or last_date, skipping
+  STLD: missing buy_price or last_date, skipping
+  KDP: still open (4 days in trade)
+  MCO: still open (4 days in trade)
+  TROW: still open (4 days in trade)
+  ✓ SWK: stop exit on 2026-06-01 | P&L: -2.00% | days: 3
+  EMR: still open (3 days in trade)
+  PKG: still open (3 days in trade)
+  URI: still open (3 days in trade)
+  NWSA: still open (2 days in trade)
+  PSKY: still open (2 days in trade)
+  ADM: still open (2 days in trade)
+  PSX: still open (1 days in trade)
+  AXP: still open (1 days in trade)
+  GD: still open (1 days in trade)
+  EXR: still open (7 days in trade)
+  BXP: still open (7 days in trade)
+  IRM: still open (7 days in trade)
+  KIM: still open (7 days in trade)
+  C: no post-entry price data yet
+  STT: still open (7 days in trade)
+  HLT: still open (7 days in trade)
+
+No new pullback signals to push to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: checking 2 open trade(s)
+    ✓ DELL [conservative]: target exit @ $455.98 | P&L: +7.00% ($+37.45) | 2d
+    ✓ HPE [conservative]: target exit @ $47.27 | P&L: +7.00% ($+37.45) | 2d
+  aggressive: checking 2 open trade(s)
+    DELL: still open (2d held)
+    HPE: still open (1d held)
+
+=== PAPER TRADING: CHECKING MISSED TRADE EXITS (4) ===
+    📋 PANW [aggressive] (hypothetical): still open (2d)
+    📋 NTAP [aggressive] (hypothetical): still open (2d)
+    📋 PANW [conservative] (hypothetical): still open (2d)
+    📋 NTAP [conservative] (hypothetical): still open (2d)
+
+=== PAPER TRADING: FILLING SLOTS ===
+
+  conservative: 2 slot(s) open | available cash: $1144.90
+    ⏳ PENDING MRVL [conservative]: $572.45 allocated | RS: 201.9 | entry price fetched tomorrow at open
+    ⏳ PENDING HPE [conservative]: $572.45 allocated | RS: 145.5 | entry price fetched tomorrow at open
+
+  aggressive: 0 slot(s) open | available cash: $0.00
+    — MISSED MRVL [aggressive] (logged)
+    All 1 signal(s) logged as missed (slots full)
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
