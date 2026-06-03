@@ -1,0 +1,116 @@
+Loading stock universes...
+✓ S&P 500: 502 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 516 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-06-03 (Close=754.24, SMA200=682.87)
+Scanned 100/516 tickers...
+Scanned 200/516 tickers...
+Scanned 300/516 tickers...
+Scanned 400/516 tickers...
+Scanned 500/516 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1   COHR          48.776214 2026-06-03
+    2   FANG           6.684033 2026-06-03
+    3    ETN           5.279735 2026-06-03
+    4    BXP           2.580042 2026-06-03
+    5   EQIX           1.269110 2026-06-03
+    6    IEX          -1.394354 2026-06-03
+    7   NDSN          -5.143759 2026-06-03
+    8      D          -7.027560 2026-06-03
+    9    KIM          -8.745690 2026-06-03
+   10    LII         -10.707485 2026-06-03
+Market filter passed: SPY > SMA200 on 2026-06-03 (Close=754.24, SMA200=682.87)
+Scanned 100/516 tickers...
+Scanned 200/516 tickers...
+Scanned 300/516 tickers...
+Scanned 400/516 tickers...
+Scanned 500/516 tickers...
+Calculating relative strength scores...
+
+=== HIGH MOMENTUM SIGNALS (RS > 50): 1 ===
+ rank ticker  relative_strength  last_date
+    1   MRVL         211.932336 2026-06-03
+Saved chart: data/charts/2026/06/2026-06-03/COHR/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-03/FANG/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-03/ETN/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-03/BXP/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-03/EQIX/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-03/IEX/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-03/NDSN/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-03/D/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-03/KIM/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-03/LII/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/06/2026-06-03/gallery_2026-06-03.pdf
+
+Saved signals with RS: data/charts/2026/06/2026-06-03/scan_results_2026-06-03.csv
+
+=== CHECKING EXITS FOR 30 OPEN SIGNALS ===
+  FOX: still open (7 days in trade)
+  MTB: still open (7 days in trade)
+  JBL: still open (7 days in trade)
+  MCO: still open (6 days in trade)
+  TXT: still open (6 days in trade)
+  TROW: still open (6 days in trade)
+  FITB: still open (6 days in trade)
+  DD: still open (6 days in trade)
+  NI: missing buy_price or last_date, skipping
+  REG: missing buy_price or last_date, skipping
+  PSA: missing buy_price or last_date, skipping
+  XEL: missing buy_price or last_date, skipping
+  VICI: missing buy_price or last_date, skipping
+  MTB: missing buy_price or last_date, skipping
+  JBL: missing buy_price or last_date, skipping
+  NUE: missing buy_price or last_date, skipping
+  WST: missing buy_price or last_date, skipping
+  STLD: missing buy_price or last_date, skipping
+  EQIX: missing buy_price or last_date, skipping
+  KDP: still open (5 days in trade)
+  MCO: still open (5 days in trade)
+  TROW: still open (5 days in trade)
+  PKG: still open (4 days in trade)
+  EMR: still open (4 days in trade)
+  ADM: still open (3 days in trade)
+  NWSA: still open (3 days in trade)
+  PSKY: still open (3 days in trade)
+  ✓ GD: stop exit on 2026-06-02 | P&L: -2.00% | days: 2
+  PSX: still open (2 days in trade)
+  C: still open (1 days in trade)
+
+✓ Pushed 10 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: checking 2 open trade(s)
+    MRVL: still open (1d held)
+    HPE: still open (1d held)
+  aggressive: checking 2 open trade(s)
+    DELL: still open (3d held)
+    ✓ HPE [aggressive]: stop exit @ $61.80 | P&L: -2.00% ($-11.50) | 2d
+
+=== PAPER TRADING: CHECKING MISSED TRADE EXITS (5) ===
+    📋 PANW [aggressive] (hypothetical): still open (3d)
+    📋 NTAP [aggressive] (hypothetical): still open (3d)
+    📋 PANW [conservative] (hypothetical): still open (3d)
+    📋 NTAP [conservative] (hypothetical): still open (3d)
+    📋 MRVL [aggressive] (hypothetical): still open (1d)
+
+=== PAPER TRADING: FILLING SLOTS ===
+
+  conservative: 0 slot(s) open | available cash: $0.00
+
+  aggressive: 1 slot(s) open | available cash: $563.50
+    ⏳ PENDING MRVL [aggressive]: $563.50 allocated | RS: 211.9 | entry price fetched tomorrow at open
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
