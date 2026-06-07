@@ -1,17 +1,15 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 import { supabase } from '../supabase.js'
-import WatchlistButton from '../components/WatchlistButton.jsx'
 import '../App.css'
 
-function DashStatCard({ label, value, sub, highlight }) {
+function StatCard({ label, value, sub, color }) {
   return (
     <div className="col">
       <div className="stat-card h-100">
         <div className="stat-label">{label}</div>
         <div
           className="stat-value"
-          style={highlight === 'green' ? { color: '#4a7c59' } : undefined}
+          style={color ? { color } : undefined}
         >
           {value ?? '...'}
         </div>
@@ -25,146 +23,145 @@ function DashStatCard({ label, value, sub, highlight }) {
   )
 }
 
-// Returns the next market open date after a given YYYY-MM-DD string
-function nextMarketOpen(dateStr) {
-  const d = new Date(dateStr + 'T12:00:00')
-  d.setDate(d.getDate() + 1)
-  // Skip weekends
-  while (d.getDay() === 0 || d.getDay() === 6) {
-    d.setDate(d.getDate() + 1)
-  }
-  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+function AccountPanel({ config, summary, allTrades }) {
+  const label = config === 'aggressive' ? 'Aggressive' : 'Conservative'
+  const equity = summary?.current_equity
+  const startingEquity = summary?.starting_equity ?? 1000
+  const equityChange = equity != null ? equity - startingEquity : null
+  const equityChangePct = equityChange != null ? (equityChange / startingEquity) * 100 : null
+  const openSlots = summary?.open_slots ?? '...'
+  const closedPnl = summary?.closed_pnl
+
+  // Include closed + missed trades that have pnl_pct for stats
+  const scoredTrades = allTrades.filter(
+    t => t.config === config && (t.status === 'closed' || t.status === 'missed') && t.pnl_pct != null
+  )
+  const totalTrades = scoredTrades.length
+  const wins = scoredTrades.filter(t => t.pnl_pct > 0).length
+  const winRate = totalTrades > 0 ? (wins / totalTrades) * 100 : null
+  const avgPnl = totalTrades > 0
+    ? scoredTrades.reduce((sum, t) => sum + t.pnl_pct, 0) / totalTrades
+    : null
+
+  // Compounded $1,000 across all scored trades sorted by entry date
+  const sorted = [...scoredTrades].sort((a, b) => (a.entry_date ?? '').localeCompare(b.entry_date ?? ''))
+  const compounded = sorted.reduce((acc, t) => acc * (1 + t.pnl_pct / 100), 1000)
+
+  const POS = '#5a6b58'
+  const NEG = '#a85c4a'
+
+  return (
+    <div className="stat-card h-100">
+      <div className="d-flex justify-content-between align-items-center mb-3">
+        <span style={{ fontWeight: 600, fontSize: '0.95rem', color: '#2c3a2c' }}>
+          {label}
+        </span>
+        <span
+          style={{
+            fontSize: '0.7rem',
+            padding: '2px 8px',
+            borderRadius: '20px',
+            background: config === 'aggressive' ? '#2a1a1a' : '#1a2a1a',
+            color: config === 'aggressive' ? '#a85c4a' : '#5a6b58',
+            fontWeight: 600,
+            letterSpacing: '0.05em',
+          }}
+        >
+          {label.toUpperCase()}
+        </span>
+      </div>
+
+      <div className="row g-2">
+        <div className="col-6">
+          <div style={{ fontSize: '0.72rem', color: '#5a6b58', marginBottom: '2px' }}>Current Equity</div>
+          <div style={{ fontSize: '1.1rem', fontWeight: 700, color: '#e8f0e8' }}>
+            {equity != null ? `$${equity.toFixed(2)}` : '...'}
+          </div>
+          {equityChangePct != null && (
+            <div style={{ fontSize: '0.75rem', color: equityChangePct >= 0 ? POS : NEG }}>
+              {equityChangePct >= 0 ? '+' : ''}{equityChangePct.toFixed(2)}%
+            </div>
+          )}
+        </div>
+        <div className="col-6">
+          <div style={{ fontSize: '0.72rem', color: '#5a6b58', marginBottom: '2px' }}>Closed P&L</div>
+          <div style={{ fontSize: '1.1rem', fontWeight: 700, color: (closedPnl ?? 0) >= 0 ? POS : NEG }}>
+            {closedPnl != null ? `${closedPnl >= 0 ? '+' : ''}$${closedPnl.toFixed(2)}` : '...'}
+          </div>
+        </div>
+        <div className="col-6">
+          <div style={{ fontSize: '0.72rem', color: '#5a6b58', marginBottom: '2px' }}>Win Rate</div>
+          <div style={{ fontSize: '1.0rem', fontWeight: 600, color: winRate != null ? POS : '#e8f0e8' }}>
+            {winRate != null ? `${winRate.toFixed(0)}%` : totalTrades === 0 ? 'No trades' : '...'}
+          </div>
+          {totalTrades > 0 && (
+            <div style={{ fontSize: '0.7rem', color: '#5a6b58' }}>incl. missed</div>
+          )}
+        </div>
+        <div className="col-6">
+          <div style={{ fontSize: '0.72rem', color: '#5a6b58', marginBottom: '2px' }}>Avg P&L</div>
+          <div style={{ fontSize: '1.0rem', fontWeight: 600, color: (avgPnl ?? 0) >= 0 ? POS : NEG }}>
+            {avgPnl != null ? `${avgPnl >= 0 ? '+' : ''}${avgPnl.toFixed(2)}%` : totalTrades === 0 ? '—' : '...'}
+          </div>
+          {totalTrades > 0 && (
+            <div style={{ fontSize: '0.7rem', color: '#5a6b58' }}>incl. missed</div>
+          )}
+        </div>
+        <div className="col-6">
+          <div style={{ fontSize: '0.72rem', color: '#5a6b58', marginBottom: '2px' }}>Open Slots</div>
+          <div style={{ fontSize: '1.0rem', fontWeight: 600, color: '#e8f0e8' }}>
+            {openSlots} / 2
+          </div>
+        </div>
+        <div className="col-6">
+          <div style={{ fontSize: '0.72rem', color: '#5a6b58', marginBottom: '2px' }}>$1,000 Compounded</div>
+          <div style={{ fontSize: '1.0rem', fontWeight: 600, color: compounded >= 1000 ? POS : NEG }}>
+            {totalTrades > 0 ? `$${compounded.toFixed(2)}` : '—'}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
 }
 
 export default function HomePage() {
-  const [stats, setStats] = useState({
-    totalSignals: null,
-    todaySignals: null,
-    lastScanDate: null,
-    totalDaysScanned: null,
-    avgSignalsPerDay: null,
-    winRateRS50: null,
-    avgPLRS50: null,
-    winRateAll: null,
-    avgPLAll: null,
-  })
+  const [summaries, setSummaries] = useState({ aggressive: null, conservative: null })
 
-  const [latestSignals, setLatestSignals] = useState([])
-  const [latestDate, setLatestDate] = useState(null)
-  const [prevSignals, setPrevSignals] = useState([])
-  const [prevDate, setPrevDate] = useState(null)
+  const [openTrades, setOpenTrades] = useState([])
+  const [closedTrades, setClosedTrades] = useState([])
+  const [allTrades, setAllTrades] = useState([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetchStats()
-    fetchSignals()
+    fetchAll()
     document.title = 'SwingTrade | Dashboard'
   }, [])
 
-  async function fetchStats() {
-    const { data: scanStats } = await supabase
-      .from('scan_stats')
-      .select('*')
-      .single()
-
-    const totalSignals     = scanStats?.total_signals ?? null
-    const totalDaysScanned = scanStats?.total_days_scanned ?? null
-
-    const { data: latestRow } = await supabase
-      .from('signals')
-      .select('last_date')
-      .order('last_date', { ascending: false })
-      .limit(1)
-
-    const lastScanDate = latestRow?.[0]?.last_date ?? null
-
-    const { count: todayCount } = await supabase
-      .from('signals')
-      .select('*', { count: 'exact', head: true })
-      .eq('last_date', lastScanDate)
-      .eq('has_signal_today', true)
-
-    const avgSignalsPerDay =
-      totalDaysScanned > 0 ? (totalSignals / totalDaysScanned).toFixed(1) : 0
-
-    const { data: closedRS50 } = await supabase
-      .from('signals')
-      .select('win_loss')
-      .eq('status', 'closed')
-      .gt('relative_strength', 50)
-
-    const rs50     = closedRS50 ?? []
-    const winsRS50 = rs50.filter(s => (s.win_loss ?? 0) > 0).length
-    const winRateRS50 = rs50.length > 0
-      ? ((winsRS50 / rs50.length) * 100).toFixed(0) + '%' : 'N/A'
-    const sumPLRS50 = rs50.reduce((acc, s) => acc + (s.win_loss ?? 0), 0)
-    const avgPLRS50 = rs50.length > 0
-      ? (sumPLRS50 >= 0 ? '+' : '') + ((sumPLRS50 / rs50.length) * 100).toFixed(2) + '%' : 'N/A'
-
-    const { data: closedAll } = await supabase
-      .from('signals')
-      .select('win_loss')
-      .eq('status', 'closed')
-
-    const all     = closedAll ?? []
-    const winsAll = all.filter(s => (s.win_loss ?? 0) > 0).length
-    const winRateAll = all.length > 0
-      ? ((winsAll / all.length) * 100).toFixed(0) + '%' : 'N/A'
-    const sumPLAll = all.reduce((acc, s) => acc + (s.win_loss ?? 0), 0)
-    const avgPLAll = all.length > 0
-      ? (sumPLAll >= 0 ? '+' : '') + ((sumPLAll / all.length) * 100).toFixed(2) + '%' : 'N/A'
-
-    setStats({
-      totalSignals,
-      todaySignals: todayCount,
-      lastScanDate,
-      totalDaysScanned,
-      avgSignalsPerDay,
-      winRateRS50,
-      avgPLRS50,
-      winRateAll,
-      avgPLAll,
-    })
-  }
-
-  async function fetchSignals() {
+  async function fetchAll() {
     setLoading(true)
 
-    const { data: dateRows } = await supabase
-      .from('signals')
-      .select('last_date')
-      .order('last_date', { ascending: false })
-      .limit(100)
+    const [summaryRes, openRes, closedRes, allRes] = await Promise.all([
+      supabase.from('paper_account_summary').select('*'),
+      supabase.from('paper_trades').select('*').eq('status', 'open').order('entry_date', { ascending: false }),
+      supabase.from('paper_trades').select('*').eq('status', 'closed').order('exit_date', { ascending: false }).limit(10),
+      supabase.from('paper_trades').select('id,config,status,pnl_pct,entry_date').in('status', ['closed', 'missed']),
+    ])
 
-    const uniqueDates = [...new Set(dateRows?.map(r => r.last_date) ?? [])]
-    const d0 = uniqueDates[0] ?? null
-    const d1 = uniqueDates[1] ?? null
+    const summaryData = summaryRes.data ?? []
 
-    if (d0) {
-      const { data } = await supabase
-        .from('signals')
-        .select('ticker, relative_strength, rank')
-        .eq('last_date', d0)
-        .eq('has_signal_today', true)
-        .order('rank', { ascending: true })
-
-      setLatestSignals(data ?? [])
-      setLatestDate(d0)
-    }
-
-    if (d1) {
-      const { data } = await supabase
-        .from('signals')
-        .select('ticker, relative_strength, rank, buy_price, current_price')
-        .eq('last_date', d1)
-        .eq('has_signal_today', true)
-        .order('rank', { ascending: true })
-
-      setPrevSignals(data ?? [])
-      setPrevDate(d1)
-    }
-
+    setSummaries({
+      aggressive: summaryData.find(r => r.config === 'aggressive') ?? null,
+      conservative: summaryData.find(r => r.config === 'conservative') ?? null,
+    })
+    setOpenTrades(openRes.data ?? [])
+    setClosedTrades(closedRes.data ?? [])
+    setAllTrades(allRes.data ?? [])
     setLoading(false)
+  }
+
+  function formatDate(dateStr) {
+    if (!dateStr) return '—'
+    return new Date(dateStr + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
   }
 
   function timeSince(dateStr) {
@@ -175,10 +172,13 @@ export default function HomePage() {
     return `${days} days ago`
   }
 
-  function pnl(buy, current) {
-    if (buy == null || current == null) return null
-    return (current - buy) / buy
-  }
+  // Most recent signal date from open or closed trades
+  const allDates = [...openTrades, ...closedTrades]
+    .map(t => t.signal_date)
+    .filter(Boolean)
+    .sort()
+    .reverse()
+  const lastScanDate = allDates[0] ?? null
 
   return (
     <div>
@@ -188,169 +188,183 @@ export default function HomePage() {
         <div>
           <h1 className="mb-1">Dashboard</h1>
           <span className="last-scanned-text">
-            Last scanned: {stats.lastScanDate ?? '...'}
-            {stats.lastScanDate ? ` · 6:00 PM CT (${timeSince(stats.lastScanDate)})` : ''}
+            Last scanned: {lastScanDate ?? '...'}
+            {lastScanDate ? ` · 6:00 PM CT (${timeSince(lastScanDate)})` : ''}
           </span>
         </div>
-        <Link
-          to="/signals/"
-          className="btn btn-sm fw-semibold"
+        <div
           style={{
-            background: '#4a7c59',
-            color: '#fff',
+            fontSize: '0.75rem',
+            padding: '5px 12px',
             borderRadius: '8px',
-            fontSize: '0.8rem',
-            padding: '7px 14px',
-            textDecoration: 'none',
+            background: '#1a2a1a',
+            color: '#4a7c59',
+            fontWeight: 600,
+            border: '1px solid #2a3a2a',
             marginTop: '4px',
           }}
         >
-          View all signals →
-        </Link>
+          52-Week High Momentum · Live Paper Trading
+        </div>
       </div>
 
-      {/* ── Stat cards ── */}
-      <div className="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-3 mb-4">
-        <DashStatCard
-          label="Latest signals"
-          value={stats.todaySignals ?? '...'}
-          sub="All signals today"
+      {/* ── Strategy stat cards ── */}
+      <div className="row row-cols-2 row-cols-md-4 g-3 mb-4">
+        <StatCard
+          label="Backtest Win Rate (RS>50)"
+          value="26.9%"
+          sub="197 trades, 2020–2025"
+          color="#22c55e"
         />
-        <DashStatCard
-          label="Total signals"
-          value={stats.totalSignals?.toLocaleString() ?? '...'}
-          sub="All time"
+        <StatCard
+          label="Backtest Avg P&L (RS>50)"
+          value="+2.51%"
+          sub="vs +0.60% unfiltered"
+          color="#22c55e"
         />
-        <DashStatCard
-          label="Days scanned"
-          value={stats.totalDaysScanned ?? '...'}
-          sub={`Avg ${stats.avgSignalsPerDay ?? '...'} / day`}
+        <StatCard
+          label="RS Filter"
+          value="≥ 50"
+          sub="Relative strength vs SPY"
         />
-        <DashStatCard
-          label="Win rate (RS>50)"
-          value={stats.winRateRS50 ?? '...'}
-          sub={`vs ${stats.winRateAll ?? '...'} unfiltered`}
-          highlight="green"
-        />
-        <DashStatCard
-          label="Avg P&L (RS>50)"
-          value={stats.avgPLRS50 ?? '...'}
-          sub={`vs ${stats.avgPLAll ?? '...'} unfiltered`}
-          highlight="green"
-        />
-        <DashStatCard
+        <StatCard
           label="Universe"
           value="517"
-          sub="S&P 500 + NDX"
+          sub="S&P 500 + NDX 100"
         />
       </div>
 
-      {/* ── Two-panel signals row ── */}
       {loading ? (
         <p className="text-secondary">Loading...</p>
       ) : (
-        <div className="row g-3 align-items-start">
+        <>
+          {/* ── Account panels ── */}
+          <div className="row g-3 mb-4">
+            <div className="col-12 col-md-6">
+              <AccountPanel
+                config="conservative"
+                summary={summaries.conservative}
+                allTrades={allTrades}
+              />
+            </div>
+            <div className="col-12 col-md-6">
+              <AccountPanel
+                config="aggressive"
+                summary={summaries.aggressive}
+                allTrades={allTrades}
+              />
+            </div>
+          </div>
 
-          {/* ── Left: Buy at Open ── */}
-          <div className="col-12 col-md-4">
-            <div className="stat-card h-100">
-              <div className="mb-3">
-                <span style={{ fontWeight: 500, color: '#2c3a2c', fontSize: '0.95rem' }}>
-                  {latestDate ? `Buy ${nextMarketOpen(latestDate)} at Open` : 'Latest Signals'}
-                </span>
-                <div className="last-scanned-text" style={{ fontSize: '0.75rem', marginTop: '2px' }}>
-                  {latestDate ?? '...'}
-                </div>
-              </div>
-
-              {latestSignals.length === 0 ? (
-                <p className="text-secondary" style={{ fontSize: '0.85rem' }}>No signals from the latest scan.</p>
-              ) : (
+          {/* ── Open Positions ── */}
+          <div className="stat-card mb-4">
+            <div className="mb-3" style={{ fontWeight: 600, fontSize: '0.95rem', color: '#2c3a2c' }}>
+              Open Positions
+            </div>
+            {openTrades.length === 0 ? (
+              <p className="text-secondary" style={{ fontSize: '0.85rem' }}>No open positions.</p>
+            ) : (
+              <div style={{ overflowX: 'auto' }}>
                 <table className="w-100 signals-table">
                   <thead>
                     <tr>
+                      <th>Config</th>
                       <th>Ticker</th>
+                      <th>Entry</th>
+                      <th>Stop</th>
+                      <th>Target</th>
                       <th>RS</th>
-                      <th scope="col"><span className="visually-hidden">Watchlist</span></th>
+                      <th>Signal Date</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {latestSignals.map(s => (
-                      <tr key={s.ticker}>
-                        <td className="ticker-cell">{s.ticker}</td>
-                        <td className="rs-cell">{s.relative_strength?.toFixed(1)}</td>
-                        <td><WatchlistButton ticker={s.ticker} /></td>
+                    {openTrades.map(t => (
+                      <tr key={t.id}>
+                        <td>
+                          <span style={{
+                            fontSize: '0.7rem',
+                            padding: '1px 6px',
+                            borderRadius: '10px',
+                            background: t.config === 'aggressive' ? '#2a1a1a' : '#1a2a1a',
+                            color: t.config === 'aggressive' ? '#a85c4a' : '#5a6b58',
+                            fontWeight: 600,
+                          }}>
+                            {t.config === 'aggressive' ? 'AGG' : 'CON'}
+                          </span>
+                        </td>
+                        <td className="ticker-cell">{t.ticker}</td>
+                        <td className="text-secondary">${t.entry_price?.toFixed(2) ?? '—'}</td>
+                        <td style={{ color: '#a85c4a' }}>${t.stop_price?.toFixed(2) ?? '—'}</td>
+                        <td style={{ color: '#5a6b58' }}>${t.target_price?.toFixed(2) ?? '—'}</td>
+                        <td className="rs-cell">{t.relative_strength?.toFixed(1) ?? '—'}</td>
+                        <td className="text-secondary">{formatDate(t.signal_date)}</td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
-              )}
-            </div>
+              </div>
+            )}
           </div>
 
-          {/* ── Right: In Play ── */}
-          <div className="col-12 col-md-8">
-            <div className="stat-card h-100" style={{ overflowX: 'auto' }}>
-              <div className="mb-3">
-                <span style={{ fontWeight: 500, color: '#2c3a2c', fontSize: '0.95rem' }}>
-                  In Play
-                </span>
-                <div className="last-scanned-text" style={{ fontSize: '0.75rem', marginTop: '2px' }}>
-                  {prevDate ?? '...'}
-                </div>
-              </div>
-
-              {prevSignals.length === 0 ? (
-                <p className="text-secondary" style={{ fontSize: '0.85rem' }}>No signals from the previous scan.</p>
-              ) : (
+          {/* ── Recent Closed Trades ── */}
+          <div className="stat-card">
+            <div className="mb-3" style={{ fontWeight: 600, fontSize: '0.95rem', color: '#2c3a2c' }}>
+              Recent Closed Trades
+            </div>
+            {closedTrades.length === 0 ? (
+              <p className="text-secondary" style={{ fontSize: '0.85rem' }}>No closed trades yet.</p>
+            ) : (
+              <div style={{ overflowX: 'auto' }}>
                 <table className="w-100 signals-table">
                   <thead>
                     <tr>
+                      <th>Config</th>
                       <th>Ticker</th>
-                      <th>RS</th>
-                      <th>Buy Price</th>
-                      <th>Current</th>
-                      <th>P&amp;L</th>
-                      <th scope="col"><span className="visually-hidden">Watchlist</span></th>
+                      <th>Entry</th>
+                      <th>Exit</th>
+                      <th>P&L</th>
+                      <th>Days</th>
+                      <th>Reason</th>
+                      <th>Exit Date</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {prevSignals.map(s => {
-                      const pl = pnl(s.buy_price, s.current_price)
-                      return (
-                        <tr key={s.ticker}>
-                          <td className="ticker-cell">{s.ticker}</td>
-                          <td className="rs-cell">{s.relative_strength?.toFixed(1)}</td>
-                          <td className="text-secondary">
-                            {s.buy_price != null ? `$${s.buy_price.toFixed(2)}` : '—'}
-                          </td>
-                          <td className="text-secondary">
-                            {s.current_price != null ? `$${s.current_price.toFixed(2)}` : '—'}
-                          </td>
-                          <td>
-                            {pl != null ? (
-                              <span className={pl >= 0 ? 'rs-cell' : 'loss-cell'}>
-                                {pl >= 0 ? '+' : ''}${((s.current_price - s.buy_price)).toFixed(2)}
-                                {' '}
-                                <span style={{ fontSize: '0.8em', color: '#5a6b58' }}>
-                                  ({pl >= 0 ? '+' : ''}{(pl * 100).toFixed(2)}%)
-                                </span>
-                              </span>
-                            ) : '—'}
-                          </td>
-                          <td><WatchlistButton ticker={s.ticker} /></td>
-                        </tr>
-                      )
-                    })}
+                    {closedTrades.map(t => (
+                      <tr key={t.id}>
+                        <td>
+                          <span style={{
+                            fontSize: '0.7rem',
+                            padding: '1px 6px',
+                            borderRadius: '10px',
+                            background: t.config === 'aggressive' ? '#2a1a1a' : '#1a2a1a',
+                            color: t.config === 'aggressive' ? '#a85c4a' : '#5a6b58',
+                            fontWeight: 600,
+                          }}>
+                            {t.config === 'aggressive' ? 'AGG' : 'CON'}
+                          </span>
+                        </td>
+                        <td className="ticker-cell">{t.ticker}</td>
+                        <td className="text-secondary">${t.entry_price?.toFixed(2) ?? '—'}</td>
+                        <td className="text-secondary">${t.exit_price?.toFixed(2) ?? '—'}</td>
+                        <td>
+                          <span style={{ color: (t.pnl_pct ?? 0) >= 0 ? '#5a6b58' : '#a85c4a', fontWeight: 600 }}>
+                            {t.pnl_pct != null ? `${t.pnl_pct >= 0 ? '+' : ''}${t.pnl_pct.toFixed(2)}%` : '—'}
+                          </span>
+                        </td>
+                        <td className="text-secondary">{t.days_held ?? '—'}</td>
+                        <td className="text-secondary" style={{ fontSize: '0.8rem' }}>
+                          {t.exit_reason ?? '—'}
+                        </td>
+                        <td className="text-secondary">{formatDate(t.exit_date)}</td>
+                      </tr>
+                    ))}
                   </tbody>
                 </table>
-              )}
-            </div>
+              </div>
+            )}
           </div>
-
-        </div>
+        </>
       )}
-
     </div>
   )
 }

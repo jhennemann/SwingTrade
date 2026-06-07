@@ -1,169 +1,87 @@
 """
 price_updater.py
-Runs hourly during market hours (9 AM - 4 PM CT, Mon-Fri).
-For all open signals within the last 14 days:
-  - Fetches current price via yfinance
-  - Checks exit conditions (7% target, 2% stop, 10 trading days held)
-  - If exit hit: sets status='closed', clears current_price
-  - Otherwise: updates current_price and current_price_updated_at
-For any signals older than 14 days still showing a price: clears it.
+
+Fetches current prices for all open paper trades and updates
+current_price, pnl_pct, and days_held in Supabase.
+Runs every 15 minutes during market hours via GitHub Actions.
 """
 
 import os
+from datetime import date
+from dotenv import load_dotenv
+load_dotenv()
+
 import yfinance as yf
 import pandas as pd
-from datetime import datetime, date, timedelta, timezone
 from supabase import create_client
 
-# ── Supabase ───────────────────────────────────────────────────────────────────
-supabase = create_client(
-    os.environ["SUPABASE_URL"],
-    os.environ["SUPABASE_SERVICE_KEY"],
-)
+SUPABASE_URL = os.environ.get("SUPABASE_URL")
+SUPABASE_KEY = os.environ.get("SUPABASE_SERVICE_KEY")
 
-# ── Constants ──────────────────────────────────────────────────────────────────
-TARGET_PCT  =  0.07   # 7% profit target
-STOP_PCT    = -0.02   # 2% stop loss
-MAX_DAYS    = 14      # calendar day buffer (covers ~10 trading days)
-
-
-def get_current_price(ticker: str) -> float | None:
-    """Fetch the most recent price via the last 1-minute bar."""
-    try:
-        df = yf.download(
-            ticker,
-            period="1d",
-            interval="1m",
-            auto_adjust=False,
-            progress=False,
-        )
-
-        if df is None or df.empty:
-            print(f"  ⚠️  {ticker}: no intraday data returned")
-            return None
-
-        if isinstance(df.columns, pd.MultiIndex):
-            df.columns = df.columns.get_level_values(0)
-
-        # Use the Close of the most recent 1-minute bar
-        price = float(df["Close"].iloc[-1])
-        return round(price, 4)
-
-    except Exception as e:
-        print(f"  ❌ {ticker}: error fetching price — {e}")
-        return None
-
-
-def is_exit_hit(current_price: float, buy_price: float, signal_date: date) -> tuple[bool, str]:
-    """
-    Returns (should_close, reason).
-    Checks target, stop, and max hold period.
-    """
-    if buy_price and buy_price > 0:
-        pct_change = (current_price - buy_price) / buy_price
-
-        if pct_change >= TARGET_PCT:
-            return True, f"target hit ({pct_change:+.1%})"
-
-        if pct_change <= STOP_PCT:
-            return True, f"stop hit ({pct_change:+.1%})"
-
-    # Max hold: 14 calendar days as a buffer over the 10 trading day rule
-    days_held = (date.today() - signal_date).days
-    if days_held >= MAX_DAYS:
-        return True, f"max hold reached ({days_held} days)"
-
-    return False, ""
+supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 
 def main():
-    cutoff = (date.today() - timedelta(days=MAX_DAYS)).isoformat()
-    now_utc = datetime.now(timezone.utc).isoformat()
+    print("=== Update Open Trade Prices ===\n")
 
-    print(f"📈 Price updater running at {now_utc}")
-    print(f"   Fetching open signals since {cutoff}...\n")
-
-    # ── 1. Update open signals ─────────────────────────────────────────────────
-    open_response = (
-        supabase.table("signals")
-        .select("id, ticker, last_date, buy_price, status")
-        .eq("status", "open")
-        .gte("last_date", cutoff)
+    response = supabase.table("paper_trades") \
+        .select("id, ticker, entry_price, entry_date") \
+        .eq("status", "open") \
         .execute()
-    )
 
-    open_rows = open_response.data
-    print(f"  Found {len(open_rows)} open signal(s)\n")
+    trades = response.data or []
+    print(f"Found {len(trades)} open trades\n")
 
-    for row in open_rows:
-        ticker      = row["ticker"]
-        signal_id   = row["id"]
-        buy_price   = row.get("buy_price")
-        signal_date = date.fromisoformat(row["last_date"])
+    if not trades:
+        print("Nothing to update.")
+        return
 
-        print(f"  {ticker} (signal: {signal_date})")
+    # Fetch unique tickers in one batch
+    tickers = list(set(t["ticker"] for t in trades))
+    print(f"Fetching prices for: {', '.join(tickers)}")
 
-        current_price = get_current_price(ticker)
+    prices = {}
+    for ticker in tickers:
+        try:
+            data = yf.download(ticker, period="2d", interval="1d", auto_adjust=False, progress=False)
+            if data is not None and not data.empty:
+                if isinstance(data.columns, pd.MultiIndex):
+                    data.columns = data.columns.get_level_values(0)
+                prices[ticker] = float(data["Close"].iloc[-1])
+                print(f"  {ticker}: ${prices[ticker]:.2f}")
+        except Exception as e:
+            print(f"  ⚠ {ticker}: {e}")
 
-        if current_price is None:
-            print(f"    ⚠️  Skipping — no price data\n")
+    # Update each trade
+    updated = 0
+    today = date.today()
+
+    for trade in trades:
+        ticker = trade["ticker"]
+        entry_price = trade.get("entry_price")
+        entry_date = trade.get("entry_date")
+        price = prices.get(ticker)
+
+        if price is None:
+            print(f"  ⚠ No price for {ticker}, skipping")
             continue
 
-        should_close, reason = is_exit_hit(current_price, buy_price, signal_date)
+        pnl_pct = round((price - entry_price) / entry_price * 100, 4) if entry_price else None
+        days_held = (today - date.fromisoformat(entry_date)).days if entry_date else None
 
-        if should_close:
-            pct_change = (current_price - buy_price) / buy_price if buy_price else None
-            days_held = (date.today() - signal_date).days
-
-            supabase.table("signals").update({
-                "status": "closed",
-                "exit_price": current_price,
-                "exit_date": date.today().isoformat(),
-                "exit_reason": reason,
-                "win_loss": round(pct_change, 6) if pct_change is not None else None,
+        supabase.table("paper_trades") \
+            .update({
+                "current_price": round(price, 4),
+                "pnl_pct": pnl_pct,
                 "days_held": days_held,
-                "current_price": None,
-                "current_price_updated_at": None,
-            }).eq("id", signal_id).execute()
-            print(f"    🔴 Closed — {reason}\n")
+            }) \
+            .eq("id", trade["id"]) \
+            .execute()
 
-        else:
-            supabase.table("signals").update({
-                "current_price": current_price,
-                "current_price_updated_at": now_utc,
-            }).eq("id", signal_id).execute()
-            print(f"    ✅ Updated — ${current_price:.4f}\n")
+        print(f"  ✓ {ticker}: ${price:.2f} | {pnl_pct:+.2f}% | {days_held} days")
+        updated += 1
 
-    # ── 2. Clean up stale open signals older than cutoff ──────────────────────
-    stale_response = (
-        supabase.table("signals")
-        .select("id, ticker, current_price, buy_price, last_date")
-        .eq("status", "open")
-        .lt("last_date", cutoff)
-        .execute()
-    )
-
-    stale_rows = stale_response.data
-    if stale_rows:
-        print(f"  Cleaning up {len(stale_rows)} stale signal(s)...")
-        for row in stale_rows:
-            current = row.get("current_price")
-            buy = row.get("buy_price")
-            pct = (current - buy) / buy if current and buy else None
-            days = (date.today() - date.fromisoformat(row["last_date"])).days
-
-            supabase.table("signals").update({
-                "status": "closed",
-                "exit_price": current,
-                "exit_date": date.today().isoformat(),
-                "exit_reason": "max hold reached",
-                "win_loss": round(pct, 6) if pct is not None else None,
-                "days_held": days,
-                "current_price": None,
-                "current_price_updated_at": None,
-            }).eq("id", row["id"]).execute()
-
-    print("\n✅ Price update complete.")
+    print(f"\nDone. {updated}/{len(trades)} trades updated.")
 
 
 if __name__ == "__main__":

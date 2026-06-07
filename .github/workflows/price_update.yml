@@ -2,10 +2,8 @@ name: Price Updater
 
 on:
   schedule:
-    # Every hour 9 AM - 4 PM CT (13:00 - 21:00 UTC), Mon-Fri
-    # Wide window covers both CST (UTC-6) and CDT (UTC-5) year-round
-    - cron: '0 13-21 * * 1-5'
-  workflow_dispatch: # allow manual trigger for testing
+    - cron: '0,15,30,45 13-21 * * 1-5'
+  workflow_dispatch:
 
 jobs:
   price-update:
@@ -24,8 +22,14 @@ jobs:
         run: |
           pip install yfinance pandas supabase python-dotenv
 
-      - name: Run price updater
+      - name: Run price updater (signals)
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
         run: python price_updater.py
+
+      - name: Update open paper trade prices
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: python update_prices.py

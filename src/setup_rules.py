@@ -211,16 +211,15 @@ class HighMomentumSetup:
     def apply(self, df: pd.DataFrame) -> pd.DataFrame:
         df = df.copy()
 
-        # Trend filter
         uptrend = (df["Close"] > df["SMA50"]) & (df["Close"] > df["SMA200"])
 
-        # Price near 52-week high (using prior days only via shift(1))
-        near_high = df["Close"] >= df["high_52w"] * (1 - self.near_high_pct)
+        if self.near_high_pct == 0.0:
+            near_high = df["Close"] > df["high_52w"]  # strict new high
+        else:
+            near_high = df["Close"] >= df["high_52w"] * (1 - self.near_high_pct)
 
-        # Volume confirmation
         volume_ok = df["volume_ratio"] >= self.volume_ratio_min
 
         signal = uptrend & near_high & volume_ok
-
         df["signal"] = signal.fillna(False)
         return df

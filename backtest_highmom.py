@@ -32,6 +32,8 @@ OUTPUT_TRADES = Path("highmom_trades.csv")
 OUTPUT_SUMMARY = Path("highmom_summary.csv")
 OUTPUT_EQUITY = Path("highmom_equity_curve.csv")
 
+COOLDOWN_DAYS = 10  # trading days to block re-entry after a stop loss
+
 
 def load_universe_from_web_or_cache() -> list[str]:
     try:
@@ -289,6 +291,40 @@ def summarize(trades: pd.DataFrame, equity_curve: pd.DataFrame) -> pd.DataFrame:
 
     return pd.DataFrame(rows)
 
+def apply_cooldown_filter(signals: list[dict], trades: list[dict], cooldown_days: int) -> list[dict]:
+    """
+    Remove signals where the same ticker had a stop-loss exit within
+    cooldown_days calendar days prior to the signal date.
+    """
+    from datetime import timedelta
+
+    # Build a lookup: ticker -> list of stop-loss exit dates
+    stop_exits = {}
+    for t in trades:
+        if t["exit_reason"] == "Stop Loss":
+            ticker = t["ticker"]
+            exit_date = date.fromisoformat(t["exit_date"])
+            stop_exits.setdefault(ticker, []).append(exit_date)
+
+    filtered = []
+    skipped = 0
+    for signal in signals:
+        ticker = signal["ticker"]
+        signal_date = signal["signal_date"]
+        exits = stop_exits.get(ticker, [])
+
+        too_soon = any(
+            0 < (signal_date - ex).days <= cooldown_days * 1.4  # ~1.4x to approximate trading days
+            for ex in exits
+        )
+
+        if too_soon:
+            skipped += 1
+        else:
+            filtered.append(signal)
+
+    print(f"  Cooldown filter: {skipped} signals removed, {len(filtered)} remaining")
+    return filtered
 
 def main():
     print("=" * 60)
@@ -308,35 +344,109 @@ def main():
     for year in SCAN_YEARS:
         all_signals.extend(detect_highmom_signals(cache, tickers, year, setup))
 
-    print(f"\nTotal signals: {len(all_signals)}")
+    print(f"\nTotal signals (before cooldown): {len(all_signals)}")
     if not all_signals:
         print("No signals found.")
         return
 
-    trades = []
-    for signal in all_signals:
-        trade = simulate_trade(signal, cache)
-        if trade:
-            trades.append(trade)
+    # --- Baseline run (no cooldown) ---
+    print("\n--- Baseline (no cooldown) ---")
+    baseline_trades = [t for s in all_signals if (t := simulate_trade(s, cache))]
+    baseline_df = pd.DataFrame(baseline_trades)
+    baseline_equity = build_equity_curve(baseline_df)
+    baseline_summary = summarize(baseline_df, baseline_equity)
+    print(baseline_summary.to_string(index=False))
 
-    if not trades:
-        print("No completed trades to summarize.")
+    # --- Cooldown run ---
+    print(f"\n--- With {COOLDOWN_DAYS}-day cooldown after stop loss ---")
+    filtered_signals = apply_cooldown_filter(all_signals, baseline_trades, COOLDOWN_DAYS)
+    cooldown_trades = [t for s in filtered_signals if (t := simulate_trade(s, cache))]
+    cooldown_df = pd.DataFrame(cooldown_trades)
+    cooldown_equity = build_equity_curve(cooldown_df)
+    cooldown_summary = summarize(cooldown_df, cooldown_equity)
+    print(cooldown_summary.to_string(index=False))
+
+    # Save cooldown version as primary output
+    cooldown_df.to_csv(OUTPUT_TRADES, index=False)
+    cooldown_summary.to_csv(OUTPUT_SUMMARY, index=False)
+    cooldown_equity.to_csv(OUTPUT_EQUITY, index=False)
+
+    baseline_df.to_csv("highmom_trades_baseline.csv", index=False)
+
+    print(f"\nSaved cooldown trades → {OUTPUT_TRADES}")
+    print(f"Saved baseline trades → highmom_trades_baseline.csv")
+
+def main():
+    print("=" * 60)
+    print("  52-Week High Momentum Strategy Backtest")
+    print("=" * 60 + "\n")
+
+    tickers = load_universe_from_web_or_cache()
+    cache = load_price_cache(tickers)
+
+    setup = HighMomentumSetup(
+        near_high_pct=0.02,
+        volume_ratio_min=1.75,
+        lookback_days=252,
+    )
+
+    all_signals = []
+    for year in SCAN_YEARS:
+        all_signals.extend(detect_highmom_signals(cache, tickers, year, setup))
+
+    print(f"\nTotal signals (before cooldown): {len(all_signals)}")
+    if not all_signals:
+        print("No signals found.")
         return
 
-    trades_df = pd.DataFrame(trades)
-    equity_curve = build_equity_curve(trades_df)
-    summary = summarize(trades_df, equity_curve)
+    # --- Baseline run (no cooldown) ---
+    print("\n--- Baseline (no cooldown) ---")
+    baseline_trades = [t for s in all_signals if (t := simulate_trade(s, cache))]
+    baseline_df = pd.DataFrame(baseline_trades)
+    baseline_equity = build_equity_curve(baseline_df)
+    baseline_summary = summarize(baseline_df, baseline_equity)
+    print(baseline_summary.to_string(index=False))
 
-    trades_df.to_csv(OUTPUT_TRADES, index=False)
-    summary.to_csv(OUTPUT_SUMMARY, index=False)
-    equity_curve.to_csv(OUTPUT_EQUITY, index=False)
+    # --- Option A: Require actual new high ---
+    print("\n--- Option A: Require new 52-week high (Close > prior high) ---")
+    setup_a = HighMomentumSetup(
+        near_high_pct=0.0,
+        volume_ratio_min=1.75,
+        lookback_days=252,
+    )
+    signals_a = []
+    for year in SCAN_YEARS:
+        signals_a.extend(detect_highmom_signals(cache, tickers, year, setup_a))
+    print(f"Signals: {len(signals_a)}")
+    trades_a = [t for s in signals_a if (t := simulate_trade(s, cache))]
+    df_a = pd.DataFrame(trades_a)
+    equity_a = build_equity_curve(df_a)
+    print(summarize(df_a, equity_a).to_string(index=False))
 
-    print(f"\nCompleted trades: {len(trades_df)}")
-    print(summary.to_string(index=False))
-    print(f"\nSaved: {OUTPUT_TRADES}")
-    print(f"Saved: {OUTPUT_SUMMARY}")
-    print(f"Saved: {OUTPUT_EQUITY}")
+    # --- Option B: Tighten near_high_pct to 0.5% ---
+    print("\n--- Option B: Within 0.5% of 52-week high ---")
+    setup_b = HighMomentumSetup(
+        near_high_pct=0.005,
+        volume_ratio_min=1.75,
+        lookback_days=252,
+    )
+    signals_b = []
+    for year in SCAN_YEARS:
+        signals_b.extend(detect_highmom_signals(cache, tickers, year, setup_b))
+    print(f"Signals: {len(signals_b)}")
+    trades_b = [t for s in signals_b if (t := simulate_trade(s, cache))]
+    df_b = pd.DataFrame(trades_b)
+    equity_b = build_equity_curve(df_b)
+    print(summarize(df_b, equity_b).to_string(index=False))
 
+    baseline_df.to_csv("highmom_trades_baseline.csv", index=False)
+
+    print(f"\nSaved cooldown trades → {OUTPUT_TRADES}")
+    print(f"Saved baseline trades → highmom_trades_baseline.csv")
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as e:
+        import traceback
+        traceback.print_exc()

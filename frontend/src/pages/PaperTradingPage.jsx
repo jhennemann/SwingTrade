@@ -116,6 +116,28 @@ export default function PaperTradingPage() {
     return acc
   }, [])
 
+  // Forward-fill missing config values so lines stay continuous
+  const configs = ['conservative', 'aggressive']
+  configs.forEach(cfg => {
+    let last = null
+    chartData.forEach(row => {
+      if (row[cfg] != null) {
+        last = row[cfg]
+      } else if (last != null) {
+        row[cfg] = last
+      }
+    })
+  })
+
+  // Prepend $1,000 starting point for both configs
+  if (chartData.length > 0) {
+    chartData.unshift({
+      date: 'Start',
+      conservative: 1000,
+      aggressive: 1000,
+    })
+  }
+
   function getSummary(config) {
     return summary.find(s => s.config === config) ?? {}
   }
@@ -225,7 +247,6 @@ export default function PaperTradingPage() {
         {tabBtn('open',   'Open Positions')}
         {tabBtn('closed', 'Closed Trades')}
         {tabBtn('missed', 'Missed Trades')}
-        {tabBtn('equity', 'Equity Curve')}
       </div>
 
       {/* ── OPEN POSITIONS ── */}
@@ -360,7 +381,7 @@ export default function PaperTradingPage() {
 
           {/* Config filter */}
           <div className="d-flex gap-2 mb-3">
-            {['all', 'conservative', 'aggressive'].map(f => (
+            {['all','conservative', 'aggressive'].map(f => (
               <button
                 key={f}
                 onClick={() => setCfg(f)}
@@ -441,47 +462,50 @@ export default function PaperTradingPage() {
         </div>
       )}
 
-      {/* ── EQUITY CURVE ── */}
-      {tab === 'equity' && (
-        <div className="stat-card">
-          {chartData.length === 0 ? (
-            <p className="text-secondary" style={{ fontSize: '0.85rem' }}>
-              No closed trades yet — equity curve will appear here once trades close.
-            </p>
-          ) : (
-            <>
-              <ResponsiveContainer width="100%" height={340}>
-                <LineChart data={chartData} margin={{ top: 8, right: 16, bottom: 8, left: 24 }}>
-                  <XAxis
-                    dataKey="date"
-                    tick={{ fill: '#5a6b58', fontSize: 11 }}
-                    tickLine={false}
-                    axisLine={{ stroke: '#c8d4c0' }}
-                  />
-                  <YAxis
-                    tickFormatter={v => `$${v}`}
-                    tick={{ fill: '#5a6b58', fontSize: 11 }}
-                    tickLine={false}
-                    axisLine={false}
-                    width={80}
-                  />
-                  <Tooltip content={<EquityTooltip />} />
-                  <Legend
-                    wrapperStyle={{ fontSize: '0.8rem', color: '#5a6b58', paddingTop: '8px' }}
-                    formatter={val => <span style={{ textTransform: 'capitalize', color: CONFIG_META[val]?.color }}>{val}</span>}
-                  />
-                  <ReferenceLine y={1000} stroke="#c8d4c0" strokeDasharray="4 4" />
-                  <Line type="monotone" dataKey="conservative" stroke={CONFIG_META.conservative.color} strokeWidth={2} dot={false} activeDot={{ r: 4 }} />
-                  <Line type="monotone" dataKey="aggressive"   stroke={CONFIG_META.aggressive.color}   strokeWidth={2} dot={false} activeDot={{ r: 4 }} />
-                </LineChart>
-              </ResponsiveContainer>
-              <div className="last-scanned-text mt-2" style={{ fontSize: '0.75rem' }}>
-                Each account starts at $1,000 · Dynamic position sizing · Max 2 simultaneous positions
-              </div>
-            </>
-          )}
+      {/* ── EQUITY CURVE (always visible below tabs) ── */}
+      <div className="stat-card mt-4">
+        <div className="mb-3" style={{ fontWeight: 600, fontSize: '0.95rem', color: '#2c3a2c' }}>
+          Equity Curve
         </div>
-      )}
+        {chartData.length === 0 ? (
+          <p className="text-secondary" style={{ fontSize: '0.85rem' }}>
+            No closed trades yet — equity curve will appear here once trades close.
+          </p>
+        ) : (
+          <>
+            <ResponsiveContainer width="100%" height={340}>
+              <LineChart data={chartData} margin={{ top: 16, right: 16, bottom: 8, left: 24 }}>
+                <XAxis
+                  dataKey="date"
+                  tick={{ fill: '#5a6b58', fontSize: 11 }}
+                  tickLine={false}
+                  axisLine={{ stroke: '#c8d4c0' }}
+                />
+                <YAxis
+                  tickFormatter={v => `$${v}`}
+                  tick={{ fill: '#5a6b58', fontSize: 11 }}
+                  tickLine={false}
+                  axisLine={false}
+                  width={80}
+                  domain={['auto', dataMax => Math.ceil(dataMax * 1.05)]}
+                />
+                <Tooltip content={<EquityTooltip />} />
+                <Legend
+                  wrapperStyle={{ fontSize: '0.8rem', color: '#5a6b58', paddingTop: '8px' }}
+                  formatter={val => <span style={{ textTransform: 'capitalize', color: CONFIG_META[val]?.color }}>{val}</span>}
+                />
+                <ReferenceLine y={1000} stroke="#c8d4c0" strokeDasharray="4 4" />
+                <Line type="monotone" dataKey="conservative" stroke={CONFIG_META.conservative.color} strokeWidth={2} dot={false} activeDot={{ r: 4 }} />
+                <Line type="monotone" dataKey="aggressive"   stroke={CONFIG_META.aggressive.color}   strokeWidth={2} dot={false} activeDot={{ r: 4 }} />
+              </LineChart>
+            </ResponsiveContainer>
+            <div className="last-scanned-text mt-2" style={{ fontSize: '0.75rem' }}>
+              Each account starts at $1,000 · Dynamic position sizing · Max 2 simultaneous positions
+            </div>
+          </>
+        )}
+      </div>
+
     </div>
   )
 }
