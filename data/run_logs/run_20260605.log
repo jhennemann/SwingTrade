@@ -1,0 +1,88 @@
+Loading stock universes...
+✓ S&P 500: 502 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 516 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-06-05 (Close=737.55, SMA200=683.93)
+Scanned 100/516 tickers...
+Scanned 200/516 tickers...
+Scanned 300/516 tickers...
+Scanned 400/516 tickers...
+Scanned 500/516 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1    CVS          15.374268 2026-06-05
+    2    MET          12.089814 2026-06-05
+    3    NWS           6.258485 2026-06-05
+    4   FOXA           5.113630 2026-06-05
+    5   NWSA           4.873182 2026-06-05
+    6    FOX           3.367347 2026-06-05
+    7    PRU           2.565420 2026-06-05
+    8     RF           1.983959 2026-06-05
+    9    AVB           0.188161 2026-06-05
+   10    PSA          -6.723055 2026-06-05
+Market filter passed: SPY > SMA200 on 2026-06-05 (Close=737.55, SMA200=683.93)
+Scanned 100/516 tickers...
+Scanned 200/516 tickers...
+Scanned 300/516 tickers...
+Scanned 400/516 tickers...
+Scanned 500/516 tickers...
+
+=== HIGH MOMENTUM SIGNALS: none today ===
+Saved chart: data/charts/2026/06/2026-06-05/CVS/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-05/MET/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-05/NWS/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-05/FOXA/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-05/NWSA/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-05/FOX/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-05/PRU/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-05/RF/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-05/AVB/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-05/PSA/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/06/2026-06-05/gallery_2026-06-05.pdf
+
+Saved signals with RS: data/charts/2026/06/2026-06-05/scan_results_2026-06-05.csv
+
+=== CHECKING EXITS FOR 14 OPEN SIGNALS ===
+  IEX: still open (1 days in trade)
+  D: still open (1 days in trade)
+  KIM: still open (1 days in trade)
+  BXP: still open (1 days in trade)
+  EQIX: still open (1 days in trade)
+  WST: no post-entry price data yet
+  MAA: no post-entry price data yet
+  EXR: no post-entry price data yet
+  KDP: still open (7 days in trade)
+  PKG: still open (6 days in trade)
+  EMR: still open (6 days in trade)
+  ADM: still open (5 days in trade)
+  PSX: still open (4 days in trade)
+  C: still open (3 days in trade)
+
+✓ Pushed 10 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: checking 1 open trade(s)
+    MRVL: still open (1d held)
+  aggressive: checking 1 open trade(s)
+    MRVL: still open (2d held)
+
+=== PAPER TRADING: CHECKING MISSED TRADE EXITS (2) ===
+    📋 NTAP [aggressive] (hypothetical): still open (5d)
+    📋 NTAP [conservative] (hypothetical): still open (5d)
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord

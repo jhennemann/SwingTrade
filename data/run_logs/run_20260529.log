@@ -1,0 +1,149 @@
+Loading stock universes...
+✓ S&P 500: 501 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 515 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-05-29 (Close=756.48, SMA200=681.17)
+Scanned 100/515 tickers...
+Scanned 200/515 tickers...
+Scanned 300/515 tickers...
+Scanned 400/515 tickers...
+Scanned 500/515 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1   MSFT          -1.400351 2026-05-29
+    2    PSX          -5.361439 2026-05-29
+    3    AXP          -8.018926 2026-05-29
+    4   WDAY         -11.705793 2026-05-29
+    5     GD         -14.881229 2026-05-29
+Market filter passed: SPY > SMA200 on 2026-05-29 (Close=756.48, SMA200=681.17)
+Scanned 100/515 tickers...
+Scanned 200/515 tickers...
+Scanned 300/515 tickers...
+Scanned 400/515 tickers...
+Scanned 500/515 tickers...
+Calculating relative strength scores...
+
+=== HIGH MOMENTUM SIGNALS (RS > 50): 4 ===
+ rank ticker  relative_strength  last_date
+    1   DELL         176.238202 2026-05-29
+    2    HPE          89.432623 2026-05-29
+    3   PANW          61.613325 2026-05-29
+    4   NTAP          59.655311 2026-05-29
+Saved chart: data/charts/2026/05/2026-05-29/MSFT/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-29/PSX/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-29/AXP/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-29/WDAY/pullback_setup.png
+Saved chart: data/charts/2026/05/2026-05-29/GD/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/05/2026-05-29/gallery_2026-05-29.pdf
+
+Saved signals with RS: data/charts/2026/05/2026-05-29/scan_results_2026-05-29.csv
+
+=== CHECKING EXITS FOR 67 OPEN SIGNALS ===
+  XEL: still open (4 days in trade)
+  VICI: still open (4 days in trade)
+  MTB: still open (4 days in trade)
+  JBL: still open (4 days in trade)
+  EQIX: still open (4 days in trade)
+  FOX: still open (4 days in trade)
+  PSA: still open (4 days in trade)
+  REG: still open (4 days in trade)
+  INCY: still open (4 days in trade)
+  NDAQ: still open (3 days in trade)
+  KEY: still open (3 days in trade)
+  KDP: still open (3 days in trade)
+  DD: still open (3 days in trade)
+  MCO: still open (3 days in trade)
+  TXT: still open (3 days in trade)
+  TROW: still open (3 days in trade)
+  ✓ BAC: stop exit on 2026-05-28 | P&L: -2.00% | days: 3
+  FITB: still open (3 days in trade)
+  NI: missing buy_price or last_date, skipping
+  REG: missing buy_price or last_date, skipping
+  PSA: missing buy_price or last_date, skipping
+  XEL: missing buy_price or last_date, skipping
+  VICI: missing buy_price or last_date, skipping
+  MTB: missing buy_price or last_date, skipping
+  JBL: missing buy_price or last_date, skipping
+  NUE: missing buy_price or last_date, skipping
+  WST: missing buy_price or last_date, skipping
+  STLD: missing buy_price or last_date, skipping
+  EQIX: missing buy_price or last_date, skipping
+  TXT: still open (2 days in trade)
+  TROW: still open (2 days in trade)
+  NDAQ: still open (2 days in trade)
+  MSCI: still open (2 days in trade)
+  FITB: still open (2 days in trade)
+  KDP: still open (2 days in trade)
+  MCO: still open (2 days in trade)
+  GD: still open (2 days in trade)
+  FER: still open (1 days in trade)
+  SWK: still open (1 days in trade)
+  EMR: still open (1 days in trade)
+  PKG: still open (1 days in trade)
+  AVGO: still open (1 days in trade)
+  URI: still open (1 days in trade)
+  TROW: still open (7 days in trade)
+  NWSA: no post-entry price data yet
+  MAS: no post-entry price data yet
+  PSKY: no post-entry price data yet
+  UNH: no post-entry price data yet
+  AMZN: no post-entry price data yet
+  ADM: no post-entry price data yet
+  MAA: still open (7 days in trade)
+  EQR: still open (7 days in trade)
+  PLD: still open (7 days in trade)
+  NWS: no post-entry price data yet
+  NTRS: still open (7 days in trade)
+  D: still open (7 days in trade)
+  ROK: still open (5 days in trade)
+  EXR: still open (5 days in trade)
+  DIS: still open (5 days in trade)
+  FDX: still open (5 days in trade)
+  HWM: still open (5 days in trade)
+  BXP: still open (5 days in trade)
+  KIM: still open (5 days in trade)
+  STT: still open (5 days in trade)
+  ASML: still open (5 days in trade)
+  IRM: still open (5 days in trade)
+  HLT: still open (5 days in trade)
+
+✓ Pushed 5 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: checking 2 open trade(s)
+    ✓ DELL [conservative]: target exit @ $329.00 | P&L: +7.00% ($+35.00) | 3d
+    ✓ HPE [conservative]: target exit @ $40.46 | P&L: +7.00% ($+35.00) | 3d
+  aggressive: checking 2 open trade(s)
+    ✓ DELL [aggressive]: target exit @ $353.60 | P&L: +15.00% ($+75.00) | 3d
+    HPE: still open (3d held)
+
+=== PAPER TRADING: CHECKING MISSED TRADE EXITS (2) ===
+    📋 MRVL [aggressive] (hypothetical): still open (1d)
+    📋 MRVL [conservative] (hypothetical): still open (1d)
+
+=== PAPER TRADING: FILLING SLOTS ===
+
+  conservative: 2 slot(s) open | available cash: $1070.00
+    ⏳ PENDING DELL [conservative]: $535.00 allocated | RS: 176.2 | entry price fetched tomorrow at open
+    ⏳ PENDING HPE [conservative]: $535.00 allocated | RS: 89.4 | entry price fetched tomorrow at open
+    — MISSED PANW [conservative] (logged)
+    — MISSED NTAP [conservative] (logged)
+
+  aggressive: 1 slot(s) open | available cash: $575.00
+    ⏳ PENDING DELL [aggressive]: $575.00 allocated | RS: 176.2 | entry price fetched tomorrow at open
+    — MISSED PANW [aggressive] (logged)
+    — MISSED NTAP [aggressive] (logged)
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
