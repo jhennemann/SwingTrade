@@ -1,0 +1,5 @@
+ticker,has_signal_today,last_date,most_recent_signal_date,signals_in_lookback,relative_strength,rank
+MDLZ,True,2026-06-08,2026-06-08,8,0.608690638670506,1
+UNP,True,2026-06-08,2026-06-08,4,-0.796580550673176,2
+ALL,True,2026-06-08,2026-06-08,5,-7.32317963922835,3
+SJM,True,2026-06-08,2026-06-08,5,-15.678732890013592,4
