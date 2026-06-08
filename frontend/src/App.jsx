@@ -6,6 +6,8 @@ import NotFoundPage from './pages/NotFoundPage.jsx'
 import SignalsFeedPage from './pages/SignalsPage.jsx'
 import Layout from './components/Layout.jsx'
 import PaperTradingPage from './pages/PaperTradingPage.jsx'
+import TaxTrackerPage from './pages/TaxTrackerPage.jsx'
+
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
         <Route path="about" element={<AboutPage />}/>
         <Route path="signals" element={<SignalsFeedPage />}/>
         <Route path="/paper/" element={<PaperTradingPage />} />
+        <Route path="tax" element={<TaxTrackerPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
