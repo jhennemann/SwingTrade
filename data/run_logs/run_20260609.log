@@ -1,0 +1,86 @@
+Loading stock universes...
+✓ S&P 500: 502 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 516 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-06-09 (Close=737.05, SMA200=684.94)
+Scanned 100/516 tickers...
+Scanned 200/516 tickers...
+Scanned 300/516 tickers...
+Scanned 400/516 tickers...
+Scanned 500/516 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1    JBL          30.290415 2026-06-09
+    2   IBKR          16.268320 2026-06-09
+    3     EL         -12.645551 2026-06-09
+Market filter passed: SPY > SMA200 on 2026-06-09 (Close=737.05, SMA200=684.94)
+Scanned 100/516 tickers...
+Scanned 200/516 tickers...
+Scanned 300/516 tickers...
+Scanned 400/516 tickers...
+Scanned 500/516 tickers...
+Calculating relative strength scores...
+
+=== HIGH MOMENTUM SIGNALS (RS > 50): 0 ===
+Empty DataFrame
+Columns: [rank, ticker, relative_strength, last_date]
+Index: []
+Saved chart: data/charts/2026/06/2026-06-09/JBL/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-09/IBKR/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-09/EL/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/06/2026-06-09/gallery_2026-06-09.pdf
+
+Saved signals with RS: data/charts/2026/06/2026-06-09/scan_results_2026-06-09.csv
+
+=== CHECKING EXITS FOR 28 OPEN SIGNALS ===
+  IEX: still open (3 days in trade)
+  D: still open (3 days in trade)
+  KIM: still open (3 days in trade)
+  BXP: still open (3 days in trade)
+  EQIX: still open (3 days in trade)
+  WST: still open (2 days in trade)
+  MAA: still open (2 days in trade)
+  EXR: still open (2 days in trade)
+  CVS: still open (1 days in trade)
+  MET: still open (1 days in trade)
+  ✓ NWS: stop exit on 2026-06-08 | P&L: -2.00% | days: 1
+  FOXA: still open (1 days in trade)
+  ✓ NWSA: stop exit on 2026-06-08 | P&L: -2.00% | days: 1
+  FOX: still open (1 days in trade)
+  PRU: still open (1 days in trade)
+  RF: still open (1 days in trade)
+  AVB: still open (1 days in trade)
+  PSA: still open (1 days in trade)
+  UNP: no post-entry price data yet
+  ALL: no post-entry price data yet
+  SJM: no post-entry price data yet
+  KDP: still open (9 days in trade)
+  MDLZ: no post-entry price data yet
+  PKG: still open (8 days in trade)
+  EMR: still open (8 days in trade)
+  ADM: still open (7 days in trade)
+  PSX: still open (6 days in trade)
+  C: still open (5 days in trade)
+
+✓ Pushed 3 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord

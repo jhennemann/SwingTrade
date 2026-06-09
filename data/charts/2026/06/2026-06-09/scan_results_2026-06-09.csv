@@ -1,0 +1,4 @@
+ticker,has_signal_today,last_date,most_recent_signal_date,signals_in_lookback,relative_strength,rank
+JBL,True,2026-06-09,2026-06-09,6,30.290414749036998,1
+IBKR,True,2026-06-09,2026-06-09,6,16.26832000697338,2
+EL,True,2026-06-09,2026-06-09,5,-12.645550543520834,3
