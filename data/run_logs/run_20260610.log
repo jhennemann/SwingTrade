@@ -1,0 +1,97 @@
+Loading stock universes...
+✓ S&P 500: 502 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 516 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-06-10 (Close=725.43, SMA200=685.34)
+Scanned 100/516 tickers...
+Scanned 200/516 tickers...
+Scanned 300/516 tickers...
+Scanned 400/516 tickers...
+Scanned 500/516 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1    DVA          24.232028 2026-06-10
+    2     KO          -0.398787 2026-06-10
+    3      D          -2.211943 2026-06-10
+    4   BIIB          -3.315349 2026-06-10
+    5    LIN          -5.087224 2026-06-10
+    6   CINF          -7.138164 2026-06-10
+    7    CHD          -7.241290 2026-06-10
+    8    DRI          -8.253540 2026-06-10
+Market filter passed: SPY > SMA200 on 2026-06-10 (Close=725.43, SMA200=685.34)
+Scanned 100/516 tickers...
+Scanned 200/516 tickers...
+Scanned 300/516 tickers...
+Scanned 400/516 tickers...
+Scanned 500/516 tickers...
+Calculating relative strength scores...
+
+=== HIGH MOMENTUM SIGNALS (RS > 50): 0 ===
+Empty DataFrame
+Columns: [rank, ticker, relative_strength, last_date]
+Index: []
+Saved chart: data/charts/2026/06/2026-06-10/DVA/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-10/KO/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-10/D/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-10/BIIB/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-10/LIN/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-10/CINF/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-10/CHD/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-10/DRI/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/06/2026-06-10/gallery_2026-06-10.pdf
+
+Saved signals with RS: data/charts/2026/06/2026-06-10/scan_results_2026-06-10.csv
+
+=== CHECKING EXITS FOR 29 OPEN SIGNALS ===
+  IEX: still open (4 days in trade)
+  D: still open (4 days in trade)
+  KIM: still open (4 days in trade)
+  ✓ BXP: target exit on 2026-06-09 | P&L: 7.00% | days: 4
+  ✓ EQIX: stop exit on 2026-06-09 | P&L: -2.00% | days: 4
+  WST: still open (3 days in trade)
+  MAA: still open (3 days in trade)
+  EXR: still open (3 days in trade)
+  CVS: still open (2 days in trade)
+  MET: still open (2 days in trade)
+  FOXA: still open (2 days in trade)
+  FOX: still open (2 days in trade)
+  PRU: still open (2 days in trade)
+  RF: still open (2 days in trade)
+  ✓ AVB: stop exit on 2026-06-09 | P&L: -2.00% | days: 2
+  PSA: still open (2 days in trade)
+  UNP: still open (1 days in trade)
+  ALL: still open (1 days in trade)
+  ✓ SJM: target exit on 2026-06-09 | P&L: 7.00% | days: 1
+  ✓ KDP: time exit on 2026-06-09 | P&L: 5.82% | days: 10
+  MDLZ: still open (1 days in trade)
+  PKG: still open (9 days in trade)
+  EMR: still open (9 days in trade)
+  JBL: no post-entry price data yet
+  IBKR: no post-entry price data yet
+  EL: no post-entry price data yet
+  ADM: still open (8 days in trade)
+  PSX: still open (7 days in trade)
+  C: still open (6 days in trade)
+
+✓ Pushed 8 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
