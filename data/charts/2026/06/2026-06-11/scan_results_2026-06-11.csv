@@ -1,0 +1,4 @@
+ticker,has_signal_today,last_date,most_recent_signal_date,signals_in_lookback,relative_strength,rank
+AIZ,True,2026-06-11,2026-06-11,3,10.336319281420714,1
+TRGP,True,2026-06-11,2026-06-11,4,3.5850738204699306,2
+LYV,True,2026-06-11,2026-06-11,6,-1.4040219307033253,3
