@@ -1,0 +1,114 @@
+Loading stock universes...
+✓ S&P 500: 502 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 516 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-06-12 (Close=741.75, SMA200=686.30)
+Scanned 100/516 tickers...
+Scanned 200/516 tickers...
+Scanned 300/516 tickers...
+Scanned 400/516 tickers...
+Scanned 500/516 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1    ARM         180.916477 2026-06-12
+    2   CSCO          41.827428 2026-06-12
+    3    JBL          32.624990 2026-06-12
+    4    BEN          22.183673 2026-06-12
+    5    DAL          15.344519 2026-06-12
+    6    IVZ          11.646495 2026-06-12
+    7    UAL          10.277385 2026-06-12
+    8   ANET           7.379958 2026-06-12
+    9    FDX           5.476483 2026-06-12
+   10    UPS          -0.469313 2026-06-12
+   11    RCL          -4.192490 2026-06-12
+   12   NDSN          -4.561445 2026-06-12
+   13    TDG          -7.041797 2026-06-12
+   14    AES          -8.674845 2026-06-12
+   15     GD          -9.391517 2026-06-12
+   16   VRTX         -15.285840 2026-06-12
+   17    NKE         -28.344831 2026-06-12
+Market filter passed: SPY > SMA200 on 2026-06-12 (Close=741.75, SMA200=686.30)
+Scanned 100/516 tickers...
+Scanned 200/516 tickers...
+Scanned 300/516 tickers...
+Scanned 400/516 tickers...
+Scanned 500/516 tickers...
+
+=== HIGH MOMENTUM SIGNALS: none today ===
+Saved chart: data/charts/2026/06/2026-06-12/ARM/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-12/CSCO/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-12/JBL/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-12/BEN/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-12/DAL/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-12/IVZ/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-12/UAL/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-12/ANET/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-12/FDX/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-12/UPS/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-12/RCL/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-12/NDSN/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-12/TDG/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-12/AES/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-12/GD/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-12/VRTX/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-12/NKE/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/06/2026-06-12/gallery_2026-06-12.pdf
+
+Saved signals with RS: data/charts/2026/06/2026-06-12/scan_results_2026-06-12.csv
+
+=== CHECKING EXITS FOR 32 OPEN SIGNALS ===
+  ✓ IEX: stop exit on 2026-06-11 | P&L: -2.00% | days: 6
+  D: still open (6 days in trade)
+  ✓ KIM: target exit on 2026-06-11 | P&L: 7.00% | days: 6
+  WST: still open (5 days in trade)
+  MAA: still open (5 days in trade)
+  EXR: still open (5 days in trade)
+  CVS: still open (4 days in trade)
+  MET: still open (4 days in trade)
+  FOXA: still open (4 days in trade)
+  FOX: still open (4 days in trade)
+  PRU: still open (4 days in trade)
+  RF: still open (4 days in trade)
+  PSA: still open (4 days in trade)
+  UNP: still open (3 days in trade)
+  ALL: still open (3 days in trade)
+  MDLZ: still open (3 days in trade)
+  IBKR: still open (2 days in trade)
+  EL: still open (2 days in trade)
+  DVA: still open (1 days in trade)
+  KO: still open (1 days in trade)
+  ✓ ADM: time exit on 2026-06-11 | P&L: -1.26% | days: 10
+  D: still open (1 days in trade)
+  BIIB: still open (1 days in trade)
+  LIN: still open (1 days in trade)
+  CINF: still open (1 days in trade)
+  CHD: still open (1 days in trade)
+  DRI: still open (1 days in trade)
+  PSX: still open (9 days in trade)
+  AIZ: no post-entry price data yet
+  TRGP: no post-entry price data yet
+  LYV: no post-entry price data yet
+  ✓ C: target exit on 2026-06-11 | P&L: 7.00% | days: 8
+
+✓ Pushed 17 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
