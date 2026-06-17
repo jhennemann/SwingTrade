@@ -1,0 +1,102 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 517 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-06-17 (Close=740.96, SMA200=687.83)
+Scanned 100/517 tickers...
+Scanned 200/517 tickers...
+Scanned 300/517 tickers...
+Scanned 400/517 tickers...
+Scanned 500/517 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1      V          -4.675377 2026-06-17
+Market filter passed: SPY > SMA200 on 2026-06-17 (Close=740.96, SMA200=687.83)
+Scanned 100/517 tickers...
+Scanned 200/517 tickers...
+Scanned 300/517 tickers...
+Scanned 400/517 tickers...
+Scanned 500/517 tickers...
+Calculating relative strength scores...
+
+=== HIGH MOMENTUM SIGNALS (RS > 50): 1 ===
+ rank ticker  relative_strength  last_date
+    1    WDC         123.109884 2026-06-17
+Saved chart: data/charts/2026/06/2026-06-17/V/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/06/2026-06-17/gallery_2026-06-17.pdf
+
+Saved signals with RS: data/charts/2026/06/2026-06-17/scan_results_2026-06-17.csv
+
+=== CHECKING EXITS FOR 42 OPEN SIGNALS ===
+  TXN: no post-entry price data yet
+  CMI: no post-entry price data yet
+  PWR: no post-entry price data yet
+  XYZ: no post-entry price data yet
+  MSCI: no post-entry price data yet
+  EW: no post-entry price data yet
+  HON: no post-entry price data yet
+  D: still open (9 days in trade)
+  WST: still open (8 days in trade)
+  MAA: still open (8 days in trade)
+  EXR: still open (8 days in trade)
+  MET: still open (7 days in trade)
+  PRU: still open (7 days in trade)
+  RF: still open (7 days in trade)
+  PSA: still open (7 days in trade)
+  UNP: still open (6 days in trade)
+  ALL: still open (6 days in trade)
+  MDLZ: still open (6 days in trade)
+  EL: still open (5 days in trade)
+  DVA: still open (4 days in trade)
+  D: still open (4 days in trade)
+  BIIB: still open (4 days in trade)
+  LIN: still open (4 days in trade)
+  CINF: still open (4 days in trade)
+  CHD: still open (4 days in trade)
+  DRI: still open (4 days in trade)
+  AIZ: still open (3 days in trade)
+  LYV: still open (3 days in trade)
+  BEN: still open (2 days in trade)
+  IVZ: still open (2 days in trade)
+  ✓ UAL: stop exit on 2026-06-16 | P&L: -2.00% | days: 2
+  ANET: still open (2 days in trade)
+  FDX: still open (2 days in trade)
+  UPS: still open (2 days in trade)
+  RCL: still open (2 days in trade)
+  NDSN: still open (2 days in trade)
+  TDG: still open (2 days in trade)
+  AES: still open (2 days in trade)
+  GD: still open (2 days in trade)
+  VRTX: still open (2 days in trade)
+  NKE: still open (2 days in trade)
+  ✓ KEYS: stop exit on 2026-06-16 | P&L: -2.00% | days: 1
+
+✓ Pushed 1 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: checking 1 open trade(s)
+    WDC: still open (1d held)
+  aggressive: checking 1 open trade(s)
+    WDC: still open (1d held)
+
+=== PAPER TRADING: FILLING SLOTS ===
+
+  conservative: 1 slot(s) open | available cash: $555.39
+    No new candidates (all signals already held)
+
+  aggressive: 1 slot(s) open | available cash: $557.86
+    No new candidates (all signals already held)
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
