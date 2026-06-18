@@ -1,0 +1,122 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 517 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-06-18 (Close=746.74, SMA200=688.36)
+Scanned 100/517 tickers...
+Scanned 200/517 tickers...
+Scanned 300/517 tickers...
+Scanned 400/517 tickers...
+Scanned 500/517 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1      Q          26.822016 2026-06-18
+    2   GNRC          22.374328 2026-06-18
+Market filter passed: SPY > SMA200 on 2026-06-18 (Close=746.74, SMA200=688.36)
+Scanned 100/517 tickers...
+Scanned 200/517 tickers...
+Scanned 300/517 tickers...
+Scanned 400/517 tickers...
+Scanned 500/517 tickers...
+Calculating relative strength scores...
+
+=== HIGH MOMENTUM SIGNALS (RS > 50): 8 ===
+ rank ticker  relative_strength  last_date
+    1   MRVL         201.779576 2026-06-18
+    2    ARM         166.095863 2026-06-18
+    3    STX         145.307421 2026-06-18
+    4    WDC         138.295327 2026-06-18
+    5   KLAC          54.438201 2026-06-18
+    6   AMAT          53.394325 2026-06-18
+    7   LRCX          52.957909 2026-06-18
+    8    TXN          50.389678 2026-06-18
+Saved chart: data/charts/2026/06/2026-06-18/Q/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-18/GNRC/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/06/2026-06-18/gallery_2026-06-18.pdf
+
+Saved signals with RS: data/charts/2026/06/2026-06-18/scan_results_2026-06-18.csv
+
+=== CHECKING EXITS FOR 41 OPEN SIGNALS ===
+  ✓ TXN: stop exit on 2026-06-17 | P&L: -2.00% | days: 1
+  CMI: still open (1 days in trade)
+  ✓ PWR: stop exit on 2026-06-17 | P&L: -2.00% | days: 1
+  ✓ XYZ: stop exit on 2026-06-17 | P&L: -2.00% | days: 1
+  ✓ MSCI: stop exit on 2026-06-17 | P&L: -2.00% | days: 1
+  EW: still open (1 days in trade)
+  HON: still open (1 days in trade)
+  ✓ D: time exit on 2026-06-17 | P&L: 3.67% | days: 10
+  WST: still open (9 days in trade)
+  ✓ MAA: stop exit on 2026-06-17 | P&L: -2.00% | days: 9
+  EXR: still open (9 days in trade)
+  V: no post-entry price data yet
+  MET: still open (8 days in trade)
+  PRU: still open (8 days in trade)
+  RF: still open (8 days in trade)
+  PSA: still open (8 days in trade)
+  ✓ UNP: stop exit on 2026-06-17 | P&L: -2.00% | days: 7
+  ALL: still open (7 days in trade)
+  ✓ MDLZ: stop exit on 2026-06-17 | P&L: -2.00% | days: 7
+  ✓ EL: stop exit on 2026-06-17 | P&L: -2.00% | days: 6
+  DVA: still open (5 days in trade)
+  D: still open (5 days in trade)
+  BIIB: still open (5 days in trade)
+  LIN: still open (5 days in trade)
+  CINF: still open (5 days in trade)
+  CHD: still open (5 days in trade)
+  DRI: still open (5 days in trade)
+  AIZ: still open (4 days in trade)
+  LYV: still open (4 days in trade)
+  BEN: still open (3 days in trade)
+  ✓ IVZ: stop exit on 2026-06-17 | P&L: -2.00% | days: 3
+  ANET: still open (3 days in trade)
+  ✓ FDX: stop exit on 2026-06-17 | P&L: -2.00% | days: 3
+  ✓ UPS: stop exit on 2026-06-17 | P&L: -2.00% | days: 3
+  ✓ RCL: stop exit on 2026-06-17 | P&L: -2.00% | days: 3
+  NDSN: still open (3 days in trade)
+  TDG: still open (3 days in trade)
+  AES: still open (3 days in trade)
+  GD: still open (3 days in trade)
+  VRTX: still open (3 days in trade)
+  ✓ NKE: stop exit on 2026-06-17 | P&L: -2.00% | days: 3
+
+✓ Pushed 2 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: FILLING SLOTS ===
+
+  conservative: 2 slot(s) open | available cash: $1149.66
+    ⏳ PENDING MRVL [conservative]: $574.83 allocated | RS: 201.8 | entry price fetched tomorrow at open
+    ⏳ PENDING ARM [conservative]: $574.83 allocated | RS: 166.1 | entry price fetched tomorrow at open
+    — MISSED STX [conservative] (logged)
+    — MISSED WDC [conservative] (logged)
+    — MISSED KLAC [conservative] (logged)
+    — MISSED AMAT [conservative] (logged)
+    — MISSED LRCX [conservative] (logged)
+    — MISSED TXN [conservative] (logged)
+
+  aggressive: 2 slot(s) open | available cash: $1199.41
+    ⏳ PENDING MRVL [aggressive]: $599.71 allocated | RS: 201.8 | entry price fetched tomorrow at open
+    ⏳ PENDING ARM [aggressive]: $599.71 allocated | RS: 166.1 | entry price fetched tomorrow at open
+    — MISSED STX [aggressive] (logged)
+    — MISSED WDC [aggressive] (logged)
+    — MISSED KLAC [aggressive] (logged)
+    — MISSED AMAT [aggressive] (logged)
+    — MISSED LRCX [aggressive] (logged)
+    — MISSED TXN [aggressive] (logged)
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
