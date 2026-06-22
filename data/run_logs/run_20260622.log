@@ -1,0 +1,105 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 517 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-06-22 (Close=744.39, SMA200=688.86)
+Scanned 100/517 tickers...
+Scanned 200/517 tickers...
+Scanned 300/517 tickers...
+Scanned 400/517 tickers...
+Scanned 500/517 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1   COHR          59.492750 2026-06-22
+    2    TXN          56.407635 2026-06-22
+    3   MCHP          44.591231 2026-06-22
+    4    IRM          16.190478 2026-06-22
+    5   DLTR          -7.901923 2026-06-22
+    6     ES         -12.214853 2026-06-22
+    7   FAST         -13.154231 2026-06-22
+Market filter passed: SPY > SMA200 on 2026-06-22 (Close=744.39, SMA200=688.86)
+Scanned 100/517 tickers...
+Scanned 200/517 tickers...
+Scanned 300/517 tickers...
+Scanned 400/517 tickers...
+Scanned 500/517 tickers...
+
+=== HIGH MOMENTUM SIGNALS: none today ===
+Saved chart: data/charts/2026/06/2026-06-22/COHR/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-22/TXN/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-22/MCHP/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-22/IRM/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-22/DLTR/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-22/ES/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-22/FAST/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/06/2026-06-22/gallery_2026-06-22.pdf
+
+Saved signals with RS: data/charts/2026/06/2026-06-22/scan_results_2026-06-22.csv
+
+=== CHECKING EXITS FOR 29 OPEN SIGNALS ===
+  CMI: still open (2 days in trade)
+  EW: still open (2 days in trade)
+  HON: still open (2 days in trade)
+  ✓ WST: time exit on 2026-06-18 | P&L: 3.98% | days: 10
+  ✓ EXR: time exit on 2026-06-18 | P&L: 0.23% | days: 10
+  V: still open (1 days in trade)
+  MET: still open (9 days in trade)
+  PRU: still open (9 days in trade)
+  RF: still open (9 days in trade)
+  PSA: still open (9 days in trade)
+  Q: no post-entry price data yet
+  GNRC: no post-entry price data yet
+  ALL: still open (8 days in trade)
+  DVA: still open (6 days in trade)
+  D: still open (6 days in trade)
+  BIIB: still open (6 days in trade)
+  LIN: still open (6 days in trade)
+  CINF: still open (6 days in trade)
+  ✓ CHD: stop exit on 2026-06-18 | P&L: -2.00% | days: 6
+  DRI: still open (6 days in trade)
+  AIZ: still open (5 days in trade)
+  ✓ LYV: stop exit on 2026-06-18 | P&L: -2.00% | days: 5
+  BEN: still open (4 days in trade)
+  ANET: still open (4 days in trade)
+  NDSN: still open (4 days in trade)
+  TDG: still open (4 days in trade)
+  AES: still open (4 days in trade)
+  ✓ GD: stop exit on 2026-06-18 | P&L: -2.00% | days: 4
+  VRTX: still open (4 days in trade)
+
+✓ Pushed 7 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: CHECKING MISSED TRADE EXITS (12) ===
+    📋 STX [aggressive] (hypothetical): stop @ $1110.69 | P&L: -2.00% | 1d
+    📋 WDC [aggressive] (hypothetical): still open (1d)
+    📋 KLAC [aggressive] (hypothetical): still open (1d)
+    📋 AMAT [aggressive] (hypothetical): still open (1d)
+    📋 LRCX [aggressive] (hypothetical): still open (1d)
+    📋 TXN [aggressive] (hypothetical): still open (1d)
+    📋 STX [conservative] (hypothetical): stop @ $1110.69 | P&L: -2.00% | 1d
+    📋 WDC [conservative] (hypothetical): still open (1d)
+    📋 KLAC [conservative] (hypothetical): still open (1d)
+    📋 AMAT [conservative] (hypothetical): still open (1d)
+    📋 LRCX [conservative] (hypothetical): still open (1d)
+    📋 TXN [conservative] (hypothetical): still open (1d)
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
