@@ -1,0 +1,87 @@
+Loading stock universes...
+✓ S&P 500: 502 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 516 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-06-24 (Close=733.24, SMA200=689.72)
+Scanned 100/516 tickers...
+Scanned 200/516 tickers...
+Scanned 300/516 tickers...
+Scanned 400/516 tickers...
+Scanned 500/516 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1    SJM           1.270867 2026-06-24
+    2    UDR          -1.972212 2026-06-24
+    3     EW          -3.244620 2026-06-24
+    4    AES         -11.316939 2026-06-24
+    5    TKO         -11.879373 2026-06-24
+Market filter passed: SPY > SMA200 on 2026-06-24 (Close=733.24, SMA200=689.72)
+Scanned 100/516 tickers...
+Scanned 200/516 tickers...
+Scanned 300/516 tickers...
+Scanned 400/516 tickers...
+Scanned 500/516 tickers...
+
+=== HIGH MOMENTUM SIGNALS: none today ===
+Saved chart: data/charts/2026/06/2026-06-24/SJM/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-24/UDR/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-24/EW/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-24/AES/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-24/TKO/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/06/2026-06-24/gallery_2026-06-24.pdf
+
+Saved signals with RS: data/charts/2026/06/2026-06-24/scan_results_2026-06-24.csv
+
+=== CHECKING EXITS FOR 23 OPEN SIGNALS ===
+  ✓ CMI: stop exit on 2026-06-23 | P&L: -2.00% | days: 4
+  ✓ HON: stop exit on 2026-06-23 | P&L: -2.00% | days: 4
+  V: still open (3 days in trade)
+  ✓ COHR: stop exit on 2026-06-23 | P&L: -2.00% | days: 1
+  ✓ ALL: target exit on 2026-06-23 | P&L: 7.00% | days: 10
+  ✓ TXN: stop exit on 2026-06-23 | P&L: -2.00% | days: 1
+  ✓ MCHP: stop exit on 2026-06-23 | P&L: -2.00% | days: 1
+  IRM: still open (1 days in trade)
+  DLTR: still open (1 days in trade)
+  ES: still open (1 days in trade)
+  FAST: still open (1 days in trade)
+  D: still open (8 days in trade)
+  BIIB: still open (8 days in trade)
+  LIN: still open (8 days in trade)
+  CINF: still open (8 days in trade)
+  DRI: still open (8 days in trade)
+  AIZ: still open (7 days in trade)
+  BEN: still open (6 days in trade)
+  ✓ ANET: stop exit on 2026-06-23 | P&L: -2.00% | days: 6
+  ✓ NDSN: stop exit on 2026-06-23 | P&L: -2.00% | days: 6
+  TDG: still open (6 days in trade)
+  AES: still open (6 days in trade)
+  VRTX: still open (6 days in trade)
+
+✓ Pushed 5 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: CHECKING MISSED TRADE EXITS (4) ===
+    📋 KLAC [aggressive] (hypothetical): stop @ $246.73 | P&L: -2.00% | 3d
+    📋 TXN [aggressive] (hypothetical): stop @ $306.85 | P&L: -2.00% | 3d
+    📋 KLAC [conservative] (hypothetical): stop @ $246.73 | P&L: -2.00% | 3d
+    📋 TXN [conservative] (hypothetical): stop @ $306.85 | P&L: -2.00% | 3d
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
