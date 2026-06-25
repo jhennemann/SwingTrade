@@ -1,0 +1,98 @@
+Loading stock universes...
+✓ S&P 500: 502 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 516 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-06-25 (Close=734.30, SMA200=690.14)
+Scanned 100/516 tickers...
+Scanned 200/516 tickers...
+Scanned 300/516 tickers...
+Scanned 400/516 tickers...
+Scanned 500/516 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1   COHR          58.052428 2026-06-25
+    2   RVTY          16.675498 2026-06-25
+    3    WAT          13.647939 2026-06-25
+    4   INVH           7.452007 2026-06-25
+    5    ESS           5.093972 2026-06-25
+    6   ZBRA           3.499822 2026-06-25
+    7    CPT           3.401522 2026-06-25
+    8    MAA           0.158948 2026-06-25
+    9    TMO         -10.017156 2026-06-25
+   10    DHR         -11.006155 2026-06-25
+   11   FAST         -11.789481 2026-06-25
+   12    CPB         -12.550936 2026-06-25
+   13     LH         -13.086319 2026-06-25
+Market filter passed: SPY > SMA200 on 2026-06-25 (Close=734.30, SMA200=690.14)
+Scanned 100/516 tickers...
+Scanned 200/516 tickers...
+Scanned 300/516 tickers...
+Scanned 400/516 tickers...
+Scanned 500/516 tickers...
+Calculating relative strength scores...
+
+=== HIGH MOMENTUM SIGNALS (RS > 50): 0 ===
+Empty DataFrame
+Columns: [rank, ticker, relative_strength, last_date]
+Index: []
+Saved chart: data/charts/2026/06/2026-06-25/COHR/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-25/RVTY/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-25/WAT/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-25/INVH/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-25/ESS/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-25/ZBRA/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-25/CPT/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-25/MAA/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-25/TMO/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-25/DHR/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-25/FAST/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-25/CPB/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-25/LH/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/06/2026-06-25/gallery_2026-06-25.pdf
+
+Saved signals with RS: data/charts/2026/06/2026-06-25/scan_results_2026-06-25.csv
+
+=== CHECKING EXITS FOR 20 OPEN SIGNALS ===
+  V: still open (4 days in trade)
+  IRM: still open (2 days in trade)
+  DLTR: still open (2 days in trade)
+  ES: still open (2 days in trade)
+  FAST: still open (2 days in trade)
+  SJM: no post-entry price data yet
+  UDR: no post-entry price data yet
+  EW: no post-entry price data yet
+  AES: no post-entry price data yet
+  TKO: no post-entry price data yet
+  D: still open (9 days in trade)
+  BIIB: still open (9 days in trade)
+  LIN: still open (9 days in trade)
+  ✓ CINF: target exit on 2026-06-24 | P&L: 7.00% | days: 9
+  DRI: still open (9 days in trade)
+  AIZ: still open (8 days in trade)
+  BEN: still open (7 days in trade)
+  TDG: still open (7 days in trade)
+  AES: still open (7 days in trade)
+  ✓ VRTX: target exit on 2026-06-24 | P&L: 7.00% | days: 7
+
+✓ Pushed 13 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
