@@ -1,0 +1,102 @@
+Loading stock universes...
+✓ S&P 500: 502 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 516 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-06-29 (Close=741.00, SMA200=690.98)
+Scanned 100/516 tickers...
+Scanned 200/516 tickers...
+Scanned 300/516 tickers...
+Scanned 400/516 tickers...
+Scanned 500/516 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1    MGM          22.482321 2026-06-29
+    2   FFIV          22.355416 2026-06-29
+    3   JBHT          20.971812 2026-06-29
+    4   TROW          13.862690 2026-06-29
+    5   AXON          10.702272 2026-06-29
+    6    MET           8.605595 2026-06-29
+    7    IFF          -7.367376 2026-06-29
+Market filter passed: SPY > SMA200 on 2026-06-29 (Close=741.00, SMA200=690.98)
+Scanned 100/516 tickers...
+Scanned 200/516 tickers...
+Scanned 300/516 tickers...
+Scanned 400/516 tickers...
+Scanned 500/516 tickers...
+Calculating relative strength scores...
+
+=== HIGH MOMENTUM SIGNALS (RS > 50): 0 ===
+Empty DataFrame
+Columns: [rank, ticker, relative_strength, last_date]
+Index: []
+Saved chart: data/charts/2026/06/2026-06-29/MGM/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-29/FFIV/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-29/JBHT/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-29/TROW/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-29/AXON/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-29/MET/pullback_setup.png
+Saved chart: data/charts/2026/06/2026-06-29/IFF/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/06/2026-06-29/gallery_2026-06-29.pdf
+
+Saved signals with RS: data/charts/2026/06/2026-06-29/scan_results_2026-06-29.csv
+
+=== CHECKING EXITS FOR 36 OPEN SIGNALS ===
+  EQR: no post-entry price data yet
+  V: still open (6 days in trade)
+  IRM: still open (4 days in trade)
+  ✓ DLTR: target exit on 2026-06-26 | P&L: 7.00% | days: 4
+  ES: still open (4 days in trade)
+  FAST: still open (4 days in trade)
+  SJM: still open (2 days in trade)
+  UDR: still open (2 days in trade)
+  EW: still open (2 days in trade)
+  AES: still open (2 days in trade)
+  TKO: still open (2 days in trade)
+  ✓ WAT: stop exit on 2026-06-26 | P&L: -2.00% | days: 1
+  INVH: still open (1 days in trade)
+  ESS: still open (1 days in trade)
+  ZBRA: still open (1 days in trade)
+  CPT: still open (1 days in trade)
+  ✓ AIZ: time exit on 2026-06-26 | P&L: 2.01% | days: 10
+  MAA: still open (1 days in trade)
+  TMO: still open (1 days in trade)
+  DHR: still open (1 days in trade)
+  FAST: still open (1 days in trade)
+  CPB: still open (1 days in trade)
+  LH: still open (1 days in trade)
+  ✓ COHR: stop exit on 2026-06-26 | P&L: -2.00% | days: 1
+  RVTY: still open (1 days in trade)
+  BEN: still open (9 days in trade)
+  TDG: still open (9 days in trade)
+  AES: still open (9 days in trade)
+  ASML: no post-entry price data yet
+  ARE: no post-entry price data yet
+  VTRS: no post-entry price data yet
+  AVB: no post-entry price data yet
+  CSX: no post-entry price data yet
+  UPS: no post-entry price data yet
+  FTV: no post-entry price data yet
+  J: no post-entry price data yet
+
+✓ Pushed 7 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
