@@ -1,0 +1,90 @@
+Loading stock universes...
+✓ S&P 500: 502 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 516 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-06-30 (Close=746.77, SMA200=691.43)
+Scanned 100/516 tickers...
+Scanned 200/516 tickers...
+Scanned 300/516 tickers...
+Scanned 400/516 tickers...
+Scanned 500/516 tickers...
+
+=== PULLBACK SIGNALS TODAY ===
+No signals today.
+Market filter passed: SPY > SMA200 on 2026-06-30 (Close=746.77, SMA200=691.43)
+Scanned 100/516 tickers...
+Scanned 200/516 tickers...
+Scanned 300/516 tickers...
+Scanned 400/516 tickers...
+Scanned 500/516 tickers...
+Calculating relative strength scores...
+
+=== HIGH MOMENTUM SIGNALS (RS > 50): 0 ===
+Empty DataFrame
+Columns: [rank, ticker, relative_strength, last_date]
+Index: []
+
+No charts generated; skipping PDF export.
+
+No signals today - skipping CSV save
+
+=== CHECKING EXITS FOR 39 OPEN SIGNALS ===
+  EQR: still open (1 days in trade)
+  V: still open (7 days in trade)
+  MGM: no post-entry price data yet
+  FFIV: no post-entry price data yet
+  JBHT: no post-entry price data yet
+  TROW: no post-entry price data yet
+  AXON: no post-entry price data yet
+  MET: no post-entry price data yet
+  IFF: no post-entry price data yet
+  IRM: still open (5 days in trade)
+  ES: still open (5 days in trade)
+  FAST: still open (5 days in trade)
+  SJM: still open (3 days in trade)
+  UDR: still open (3 days in trade)
+  EW: still open (3 days in trade)
+  AES: still open (3 days in trade)
+  ✓ TKO: target exit on 2026-06-29 | P&L: 7.00% | days: 3
+  INVH: still open (2 days in trade)
+  ESS: still open (2 days in trade)
+  ZBRA: still open (2 days in trade)
+  CPT: still open (2 days in trade)
+  MAA: still open (2 days in trade)
+  TMO: still open (2 days in trade)
+  DHR: still open (2 days in trade)
+  FAST: still open (2 days in trade)
+  CPB: still open (2 days in trade)
+  LH: still open (2 days in trade)
+  RVTY: still open (2 days in trade)
+  ✓ BEN: time exit on 2026-06-29 | P&L: 0.73% | days: 10
+  ✓ TDG: time exit on 2026-06-29 | P&L: 3.93% | days: 10
+  ✓ AES: time exit on 2026-06-29 | P&L: -0.34% | days: 10
+  ASML: still open (1 days in trade)
+  ARE: still open (1 days in trade)
+  VTRS: still open (1 days in trade)
+  AVB: still open (1 days in trade)
+  CSX: still open (1 days in trade)
+  UPS: still open (1 days in trade)
+  FTV: still open (1 days in trade)
+  J: still open (1 days in trade)
+
+No new pullback signals to push to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
