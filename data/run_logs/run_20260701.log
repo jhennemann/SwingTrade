@@ -1,0 +1,93 @@
+Loading stock universes...
+✓ S&P 500: 502 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 516 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-07-01 (Close=745.76, SMA200=691.87)
+Scanned 100/516 tickers...
+Scanned 200/516 tickers...
+Scanned 300/516 tickers...
+Scanned 400/516 tickers...
+Scanned 500/516 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1   EXPD           2.287842 2026-07-01
+    2    FTV          -4.458748 2026-07-01
+    3    LIN          -5.250412 2026-07-01
+    4     GD          -8.986210 2026-07-01
+    5   VRSK         -11.624879 2026-07-01
+Market filter passed: SPY > SMA200 on 2026-07-01 (Close=745.76, SMA200=691.87)
+Scanned 100/516 tickers...
+Scanned 200/516 tickers...
+Scanned 300/516 tickers...
+Scanned 400/516 tickers...
+Scanned 500/516 tickers...
+
+=== HIGH MOMENTUM SIGNALS: none today ===
+Saved chart: data/charts/2026/07/2026-07-01/EXPD/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-01/FTV/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-01/LIN/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-01/GD/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-01/VRSK/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/07/2026-07-01/gallery_2026-07-01.pdf
+
+Saved signals with RS: data/charts/2026/07/2026-07-01/scan_results_2026-07-01.csv
+
+=== CHECKING EXITS FOR 35 OPEN SIGNALS ===
+  EQR: still open (2 days in trade)
+  V: still open (8 days in trade)
+  ✓ MGM: stop exit on 2026-06-30 | P&L: -2.00% | days: 1
+  FFIV: still open (1 days in trade)
+  JBHT: still open (1 days in trade)
+  TROW: still open (1 days in trade)
+  ✓ AXON: target exit on 2026-06-30 | P&L: 7.00% | days: 1
+  MET: still open (1 days in trade)
+  IFF: still open (1 days in trade)
+  ✓ IRM: stop exit on 2026-06-30 | P&L: -2.00% | days: 6
+  ES: still open (6 days in trade)
+  FAST: still open (6 days in trade)
+  SJM: still open (4 days in trade)
+  UDR: still open (4 days in trade)
+  EW: still open (4 days in trade)
+  AES: still open (4 days in trade)
+  INVH: still open (3 days in trade)
+  ESS: still open (3 days in trade)
+  ✓ ZBRA: target exit on 2026-06-30 | P&L: 7.00% | days: 3
+  CPT: still open (3 days in trade)
+  MAA: still open (3 days in trade)
+  ✓ TMO: stop exit on 2026-06-30 | P&L: -2.00% | days: 3
+  DHR: still open (3 days in trade)
+  FAST: still open (3 days in trade)
+  CPB: still open (3 days in trade)
+  LH: still open (3 days in trade)
+  ✓ RVTY: stop exit on 2026-06-30 | P&L: -2.00% | days: 3
+  ✓ ASML: target exit on 2026-06-30 | P&L: 7.00% | days: 2
+  ✓ ARE: stop exit on 2026-06-30 | P&L: -2.00% | days: 2
+  ✓ VTRS: stop exit on 2026-06-30 | P&L: -2.00% | days: 2
+  AVB: still open (2 days in trade)
+  CSX: still open (2 days in trade)
+  UPS: still open (2 days in trade)
+  FTV: still open (2 days in trade)
+  ✓ J: stop exit on 2026-06-30 | P&L: -2.00% | days: 2
+
+✓ Pushed 5 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
