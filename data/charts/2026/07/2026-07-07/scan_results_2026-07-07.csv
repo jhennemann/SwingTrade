@@ -1,0 +1,5 @@
+ticker,has_signal_today,last_date,most_recent_signal_date,signals_in_lookback,relative_strength,rank
+MS,True,2026-07-07,2026-07-07,6,14.949626199764365,1
+EL,True,2026-07-07,2026-07-07,6,6.1517699473862875,2
+DXCM,True,2026-07-07,2026-07-07,6,4.872477832431343,3
+ZBH,True,2026-07-07,2026-07-07,3,-14.028846515995752,4
