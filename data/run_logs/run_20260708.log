@@ -1,0 +1,89 @@
+Loading stock universes...
+✓ S&P 500: 502 stocks
+✓ NASDAQ 100: 102 stocks
+✓ Combined universe: 517 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-07-08 (Close=745.40, SMA200=693.60)
+Scanned 100/517 tickers...
+Scanned 200/517 tickers...
+Scanned 300/517 tickers...
+Scanned 400/517 tickers...
+Scanned 500/517 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1   TRGP           6.886434 2026-07-08
+Market filter passed: SPY > SMA200 on 2026-07-08 (Close=745.40, SMA200=693.60)
+Scanned 100/517 tickers...
+Scanned 200/517 tickers...
+Scanned 300/517 tickers...
+Scanned 400/517 tickers...
+Scanned 500/517 tickers...
+
+=== HIGH MOMENTUM SIGNALS: none today ===
+Saved chart: data/charts/2026/07/2026-07-08/TRGP/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/07/2026-07-08/gallery_2026-07-08.pdf
+
+Saved signals with RS: data/charts/2026/07/2026-07-08/scan_results_2026-07-08.csv
+
+=== CHECKING EXITS FOR 39 OPEN SIGNALS ===
+  EQR: still open (6 days in trade)
+  FFIV: still open (5 days in trade)
+  TROW: still open (5 days in trade)
+  ✓ MET: target exit on 2026-07-07 | P&L: 7.00% | days: 5
+  ✓ ES: target exit on 2026-07-07 | P&L: 7.00% | days: 10
+  ✓ FAST: time exit on 2026-07-07 | P&L: 2.12% | days: 10
+  FTV: still open (3 days in trade)
+  LIN: still open (3 days in trade)
+  GD: still open (3 days in trade)
+  VRSK: still open (3 days in trade)
+  SJM: still open (8 days in trade)
+  ✓ UDR: target exit on 2026-07-07 | P&L: 7.00% | days: 8
+  EW: still open (8 days in trade)
+  AES: still open (8 days in trade)
+  UPS: still open (2 days in trade)
+  MET: still open (2 days in trade)
+  PAYX: still open (2 days in trade)
+  PFG: still open (2 days in trade)
+  ✓ MPC: stop exit on 2026-07-07 | P&L: -2.00% | days: 2
+  INVH: still open (7 days in trade)
+  ESS: still open (7 days in trade)
+  CPT: still open (7 days in trade)
+  MAA: still open (7 days in trade)
+  DHR: still open (7 days in trade)
+  FAST: still open (7 days in trade)
+  CPB: still open (7 days in trade)
+  AAPL: still open (1 days in trade)
+  CPAY: still open (1 days in trade)
+  MDT: still open (1 days in trade)
+  SRE: still open (1 days in trade)
+  PCG: still open (1 days in trade)
+  MS: no post-entry price data yet
+  EL: no post-entry price data yet
+  DXCM: no post-entry price data yet
+  ZBH: no post-entry price data yet
+  AVB: still open (6 days in trade)
+  CSX: still open (6 days in trade)
+  UPS: still open (6 days in trade)
+  FTV: still open (6 days in trade)
+
+✓ Pushed 1 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
