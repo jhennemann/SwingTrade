@@ -1,0 +1,104 @@
+Loading stock universes...
+✓ S&P 500: 502 stocks
+✓ NASDAQ 100: 103 stocks
+✓ Combined universe: 519 stocks (86 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-07-13 (Close=749.17, SMA200=694.91)
+Scanned 100/519 tickers...
+Scanned 200/519 tickers...
+Scanned 300/519 tickers...
+Scanned 400/519 tickers...
+Scanned 500/519 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1     MO           3.900302 2026-07-13
+    2    TGT           1.993339 2026-07-13
+    3    FTV          -2.311742 2026-07-13
+    4    AEE          -5.746861 2026-07-13
+    5    REG          -6.406993 2026-07-13
+    6   DECK          -7.260332 2026-07-13
+    7    XEL          -7.474357 2026-07-13
+    8    CAG          -9.288093 2026-07-13
+    9   OTIS         -15.780883 2026-07-13
+Market filter passed: SPY > SMA200 on 2026-07-13 (Close=749.17, SMA200=694.91)
+Scanned 100/519 tickers...
+Scanned 200/519 tickers...
+Scanned 300/519 tickers...
+Scanned 400/519 tickers...
+Scanned 500/519 tickers...
+
+=== HIGH MOMENTUM SIGNALS: none today ===
+Saved chart: data/charts/2026/07/2026-07-13/MO/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-13/TGT/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-13/FTV/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-13/AEE/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-13/REG/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-13/DECK/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-13/XEL/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-13/CAG/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-13/OTIS/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/07/2026-07-13/gallery_2026-07-13.pdf
+
+Saved signals with RS: data/charts/2026/07/2026-07-13/scan_results_2026-07-13.csv
+
+=== CHECKING EXITS FOR 38 OPEN SIGNALS ===
+  EQR: still open (9 days in trade)
+  ✓ TRGP: stop exit on 2026-07-10 | P&L: -2.00% | days: 2
+  FFIV: still open (8 days in trade)
+  TROW: still open (8 days in trade)
+  AMD: no post-entry price data yet
+  URI: no post-entry price data yet
+  CDNS: no post-entry price data yet
+  JBHT: no post-entry price data yet
+  A: no post-entry price data yet
+  FTV: still open (6 days in trade)
+  GD: still open (6 days in trade)
+  VRSK: still open (6 days in trade)
+  KEY: no post-entry price data yet
+  TFC: no post-entry price data yet
+  IP: no post-entry price data yet
+  HD: no post-entry price data yet
+  UPS: still open (5 days in trade)
+  MET: still open (5 days in trade)
+  DG: no post-entry price data yet
+  PAYX: still open (5 days in trade)
+  PFG: still open (5 days in trade)
+  VST: no post-entry price data yet
+  ZBH: no post-entry price data yet
+  ALGN: no post-entry price data yet
+  BKNG: no post-entry price data yet
+  BX: no post-entry price data yet
+  ✓ ESS: time exit on 2026-07-10 | P&L: 1.74% | days: 10
+  ✓ CPT: time exit on 2026-07-10 | P&L: -1.18% | days: 10
+  ALAB: no post-entry price data yet
+  CPAY: no post-entry price data yet
+  ✓ DHR: time exit on 2026-07-10 | P&L: 3.23% | days: 10
+  SRE: still open (4 days in trade)
+  PCG: still open (4 days in trade)
+  MS: still open (3 days in trade)
+  AVB: still open (9 days in trade)
+  CSX: still open (9 days in trade)
+  UPS: still open (9 days in trade)
+  FTV: still open (9 days in trade)
+
+✓ Pushed 9 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
