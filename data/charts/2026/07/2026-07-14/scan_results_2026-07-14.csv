@@ -1,0 +1,4 @@
+ticker,has_signal_today,last_date,most_recent_signal_date,signals_in_lookback,relative_strength,rank
+INVH,True,2026-07-14,2026-07-14,4,5.968019597619945,1
+JCI,True,2026-07-14,2026-07-14,4,-2.768515218587253,2
+DUK,True,2026-07-14,2026-07-14,6,-7.1672416408322,3

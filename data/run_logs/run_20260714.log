@@ -1,0 +1,97 @@
+Loading stock universes...
+✓ S&P 500: 502 stocks
+✓ NASDAQ 100: 104 stocks
+✓ Combined universe: 520 stocks (86 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-07-14 (Close=751.83, SMA200=695.37)
+Scanned 100/520 tickers...
+Scanned 200/520 tickers...
+Scanned 300/520 tickers...
+Scanned 400/520 tickers...
+Scanned 500/520 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1   INVH           5.968020 2026-07-14
+    2    JCI          -2.768515 2026-07-14
+    3    DUK          -7.167242 2026-07-14
+Market filter passed: SPY > SMA200 on 2026-07-14 (Close=751.83, SMA200=695.37)
+Scanned 100/520 tickers...
+Scanned 200/520 tickers...
+Scanned 300/520 tickers...
+Scanned 400/520 tickers...
+Scanned 500/520 tickers...
+
+=== HIGH MOMENTUM SIGNALS: none today ===
+Saved chart: data/charts/2026/07/2026-07-14/INVH/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-14/JCI/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-14/DUK/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/07/2026-07-14/gallery_2026-07-14.pdf
+
+Saved signals with RS: data/charts/2026/07/2026-07-14/scan_results_2026-07-14.csv
+
+=== CHECKING EXITS FOR 43 OPEN SIGNALS ===
+  ✓ EQR: time exit on 2026-07-13 | P&L: 3.32% | days: 10
+  FFIV: still open (9 days in trade)
+  TROW: still open (9 days in trade)
+  AMD: still open (1 days in trade)
+  URI: still open (1 days in trade)
+  ✓ CDNS: stop exit on 2026-07-13 | P&L: -2.00% | days: 1
+  JBHT: still open (1 days in trade)
+  A: still open (1 days in trade)
+  FTV: still open (7 days in trade)
+  GD: still open (7 days in trade)
+  VRSK: still open (7 days in trade)
+  KEY: still open (1 days in trade)
+  TFC: still open (1 days in trade)
+  ✓ IP: stop exit on 2026-07-13 | P&L: -2.00% | days: 1
+  ✓ HD: stop exit on 2026-07-13 | P&L: -2.00% | days: 1
+  UPS: still open (6 days in trade)
+  MET: still open (6 days in trade)
+  DG: still open (1 days in trade)
+  ✓ PAYX: target exit on 2026-07-13 | P&L: 7.00% | days: 6
+  PFG: still open (6 days in trade)
+  VST: still open (1 days in trade)
+  ZBH: still open (1 days in trade)
+  ALGN: still open (1 days in trade)
+  ✓ BKNG: stop exit on 2026-07-13 | P&L: -2.00% | days: 1
+  BX: still open (1 days in trade)
+  ✓ ALAB: stop exit on 2026-07-13 | P&L: -2.00% | days: 1
+  CPAY: still open (1 days in trade)
+  SRE: still open (5 days in trade)
+  PCG: still open (5 days in trade)
+  MO: no post-entry price data yet
+  TGT: no post-entry price data yet
+  FTV: no post-entry price data yet
+  AEE: no post-entry price data yet
+  REG: no post-entry price data yet
+  DECK: no post-entry price data yet
+  XEL: no post-entry price data yet
+  CAG: no post-entry price data yet
+  OTIS: no post-entry price data yet
+  MS: still open (4 days in trade)
+  ✓ AVB: time exit on 2026-07-13 | P&L: 2.65% | days: 10
+  ✓ CSX: time exit on 2026-07-13 | P&L: 4.09% | days: 10
+  ✓ UPS: time exit on 2026-07-13 | P&L: 4.49% | days: 10
+  ✓ FTV: time exit on 2026-07-13 | P&L: 1.93% | days: 10
+
+✓ Pushed 3 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
