@@ -1,0 +1,134 @@
+Loading stock universes...
+✓ S&P 500: 502 stocks
+✓ NASDAQ 100: 103 stocks
+✓ Combined universe: 519 stocks (86 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-07-17 (Close=743.29, SMA200=696.69)
+Scanned 100/519 tickers...
+Scanned 200/519 tickers...
+Scanned 300/519 tickers...
+Scanned 400/519 tickers...
+Scanned 500/519 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1    SWK          14.604313 2026-07-17
+    2    LYV          12.038563 2026-07-17
+    3    WSM          11.263123 2026-07-17
+    4   ZBRA          11.196864 2026-07-17
+    5    UDR          10.702366 2026-07-17
+    6    FRT           9.917786 2026-07-17
+    7     MO           9.343325 2026-07-17
+    8     CL           8.397708 2026-07-17
+    9    KIM           6.308226 2026-07-17
+   10    IEX           5.954441 2026-07-17
+   11    AIG           1.368643 2026-07-17
+   12    CHD           1.054505 2026-07-17
+   13     PG           0.480626 2026-07-17
+   14    EXR           0.351731 2026-07-17
+   15     ED          -0.589405 2026-07-17
+   16      L          -1.076368 2026-07-17
+   17    AWK          -1.475464 2026-07-17
+   18    AME          -1.672817 2026-07-17
+   19    HIG          -2.953891 2026-07-17
+   20    FTV          -2.998953 2026-07-17
+   21   BALL          -4.446789 2026-07-17
+   22    MDT          -4.534654 2026-07-17
+   23     WY          -5.641019 2026-07-17
+   24   ALLE          -9.816618 2026-07-17
+   25    MSI         -10.929583 2026-07-17
+Market filter passed: SPY > SMA200 on 2026-07-17 (Close=743.29, SMA200=696.69)
+Scanned 100/519 tickers...
+Scanned 200/519 tickers...
+Scanned 300/519 tickers...
+Scanned 400/519 tickers...
+Scanned 500/519 tickers...
+Calculating relative strength scores...
+
+=== HIGH MOMENTUM SIGNALS (RS > 50): 0 ===
+Empty DataFrame
+Columns: [rank, ticker, relative_strength, last_date]
+Index: []
+Saved chart: data/charts/2026/07/2026-07-17/SWK/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-17/LYV/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-17/WSM/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-17/ZBRA/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-17/UDR/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-17/FRT/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-17/MO/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-17/CL/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-17/KIM/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-17/IEX/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-17/AIG/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-17/CHD/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-17/PG/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-17/EXR/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-17/ED/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-17/L/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-17/AWK/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-17/AME/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-17/HIG/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-17/FTV/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-17/BALL/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-17/MDT/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-17/WY/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-17/ALLE/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-17/MSI/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/07/2026-07-17/gallery_2026-07-17.pdf
+
+Saved signals with RS: data/charts/2026/07/2026-07-17/scan_results_2026-07-17.csv
+
+=== CHECKING EXITS FOR 32 OPEN SIGNALS ===
+  INVH: still open (2 days in trade)
+  MRK: no post-entry price data yet
+  DUK: still open (2 days in trade)
+  COO: no post-entry price data yet
+  AMGN: no post-entry price data yet
+  BKNG: no post-entry price data yet
+  A: still open (4 days in trade)
+  ✓ GD: time exit on 2026-07-16 | P&L: 0.96% | days: 10
+  ✓ VRSK: target exit on 2026-07-16 | P&L: 7.00% | days: 10
+  KEY: still open (4 days in trade)
+  TFC: still open (4 days in trade)
+  UPS: still open (9 days in trade)
+  MET: still open (9 days in trade)
+  DG: still open (4 days in trade)
+  PFG: still open (9 days in trade)
+  ✓ VST: stop exit on 2026-07-16 | P&L: -2.00% | days: 4
+  BX: still open (4 days in trade)
+  ✓ HWM: stop exit on 2026-07-16 | P&L: -2.00% | days: 1
+  SPG: still open (1 days in trade)
+  CPAY: still open (4 days in trade)
+  ✓ ETN: stop exit on 2026-07-16 | P&L: -2.00% | days: 1
+  IR: still open (1 days in trade)
+  HRL: no post-entry price data yet
+  SRE: still open (8 days in trade)
+  PCG: still open (8 days in trade)
+  TGT: still open (3 days in trade)
+  REG: still open (3 days in trade)
+  XEL: still open (3 days in trade)
+  ✓ GS: stop exit on 2026-07-16 | P&L: -2.00% | days: 1
+  MAS: still open (1 days in trade)
+  MS: still open (7 days in trade)
+  SOLV: no post-entry price data yet
+
+✓ Pushed 25 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
