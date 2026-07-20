@@ -1,0 +1,103 @@
+Loading stock universes...
+✓ S&P 500: 502 stocks
+✓ NASDAQ 100: 103 stocks
+✓ Combined universe: 519 stocks (86 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-07-20 (Close=742.09, SMA200=697.07)
+Scanned 100/519 tickers...
+Scanned 200/519 tickers...
+Scanned 300/519 tickers...
+Scanned 400/519 tickers...
+Scanned 500/519 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1   NTAP          43.923192 2026-07-20
+    2    HST           9.442395 2026-07-20
+Market filter passed: SPY > SMA200 on 2026-07-20 (Close=742.09, SMA200=697.07)
+Scanned 100/519 tickers...
+Scanned 200/519 tickers...
+Scanned 300/519 tickers...
+Scanned 400/519 tickers...
+Scanned 500/519 tickers...
+
+=== HIGH MOMENTUM SIGNALS: none today ===
+Saved chart: data/charts/2026/07/2026-07-20/NTAP/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-20/HST/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/07/2026-07-20/gallery_2026-07-20.pdf
+
+Saved signals with RS: data/charts/2026/07/2026-07-20/scan_results_2026-07-20.csv
+
+=== CHECKING EXITS FOR 51 OPEN SIGNALS ===
+  INVH: still open (3 days in trade)
+  MRK: still open (1 days in trade)
+  DUK: still open (3 days in trade)
+  ✓ COO: stop exit on 2026-07-17 | P&L: -2.00% | days: 1
+  ✓ AMGN: stop exit on 2026-07-17 | P&L: -2.00% | days: 1
+  ✓ BKNG: stop exit on 2026-07-17 | P&L: -2.00% | days: 1
+  AWK: no post-entry price data yet
+  AME: no post-entry price data yet
+  HIG: no post-entry price data yet
+  FTV: no post-entry price data yet
+  MDT: no post-entry price data yet
+  WY: no post-entry price data yet
+  A: still open (5 days in trade)
+  KEY: still open (5 days in trade)
+  TFC: still open (5 days in trade)
+  ✓ UPS: target exit on 2026-07-17 | P&L: 7.00% | days: 10
+  ✓ MET: target exit on 2026-07-17 | P&L: 7.00% | days: 10
+  ✓ DG: target exit on 2026-07-17 | P&L: 7.00% | days: 5
+  ✓ PFG: time exit on 2026-07-17 | P&L: 4.21% | days: 10
+  BX: still open (5 days in trade)
+  SPG: still open (2 days in trade)
+  CPAY: still open (5 days in trade)
+  IR: still open (2 days in trade)
+  ✓ HRL: stop exit on 2026-07-17 | P&L: -2.00% | days: 1
+  L: no post-entry price data yet
+  BALL: no post-entry price data yet
+  ALLE: no post-entry price data yet
+  MSI: no post-entry price data yet
+  SRE: still open (9 days in trade)
+  PCG: still open (9 days in trade)
+  TGT: still open (4 days in trade)
+  REG: still open (4 days in trade)
+  ✓ XEL: stop exit on 2026-07-17 | P&L: -2.00% | days: 4
+  SWK: no post-entry price data yet
+  LYV: no post-entry price data yet
+  MAS: still open (2 days in trade)
+  ✓ MS: stop exit on 2026-07-17 | P&L: -2.00% | days: 8
+  WSM: no post-entry price data yet
+  ZBRA: no post-entry price data yet
+  UDR: no post-entry price data yet
+  FRT: no post-entry price data yet
+  MO: no post-entry price data yet
+  CL: no post-entry price data yet
+  KIM: no post-entry price data yet
+  IEX: no post-entry price data yet
+  AIG: no post-entry price data yet
+  CHD: no post-entry price data yet
+  PG: no post-entry price data yet
+  EXR: no post-entry price data yet
+  ED: no post-entry price data yet
+  SOLV: still open (1 days in trade)
+
+✓ Pushed 2 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
