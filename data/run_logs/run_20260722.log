@@ -1,0 +1,99 @@
+Loading stock universes...
+✓ S&P 500: 502 stocks
+✓ NASDAQ 100: 103 stocks
+✓ Combined universe: 519 stocks (86 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-07-22 (Close=747.41, SMA200=697.86)
+Scanned 100/519 tickers...
+Scanned 200/519 tickers...
+Scanned 300/519 tickers...
+Scanned 400/519 tickers...
+Scanned 500/519 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1   IBKR          15.997208 2026-07-22
+    2    WST          14.092243 2026-07-22
+    3     GS          12.594589 2026-07-22
+    4    HWM          11.627694 2026-07-22
+    5    MRK          11.132005 2026-07-22
+    6   ANET          -3.116475 2026-07-22
+    7    VST          -4.411966 2026-07-22
+Market filter passed: SPY > SMA200 on 2026-07-22 (Close=747.41, SMA200=697.86)
+Scanned 100/519 tickers...
+Scanned 200/519 tickers...
+Scanned 300/519 tickers...
+Scanned 400/519 tickers...
+Scanned 500/519 tickers...
+Calculating relative strength scores...
+
+=== HIGH MOMENTUM SIGNALS (RS > 50): 0 ===
+Empty DataFrame
+Columns: [rank, ticker, relative_strength, last_date]
+Index: []
+Saved chart: data/charts/2026/07/2026-07-22/IBKR/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-22/WST/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-22/GS/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-22/HWM/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-22/MRK/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-22/ANET/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-22/VST/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/07/2026-07-22/gallery_2026-07-22.pdf
+
+Saved signals with RS: data/charts/2026/07/2026-07-22/scan_results_2026-07-22.csv
+
+=== CHECKING EXITS FOR 33 OPEN SIGNALS ===
+  INVH: still open (5 days in trade)
+  DUK: still open (5 days in trade)
+  ✓ AWK: stop exit on 2026-07-21 | P&L: -2.00% | days: 2
+  AME: still open (2 days in trade)
+  HIG: still open (2 days in trade)
+  FTV: still open (2 days in trade)
+  MDT: still open (2 days in trade)
+  ✓ KEY: stop exit on 2026-07-21 | P&L: -2.00% | days: 7
+  BX: still open (7 days in trade)
+  SPG: still open (4 days in trade)
+  CPAY: still open (7 days in trade)
+  ✓ IR: stop exit on 2026-07-21 | P&L: -2.00% | days: 4
+  L: still open (2 days in trade)
+  BALL: still open (2 days in trade)
+  SJM: no post-entry price data yet
+  NTAP: still open (1 days in trade)
+  HST: still open (1 days in trade)
+  DASH: no post-entry price data yet
+  KMI: no post-entry price data yet
+  TGT: still open (6 days in trade)
+  REG: still open (6 days in trade)
+  ✓ LYV: stop exit on 2026-07-21 | P&L: -2.00% | days: 2
+  MAS: still open (4 days in trade)
+  UDR: still open (2 days in trade)
+  FRT: still open (2 days in trade)
+  MO: still open (2 days in trade)
+  ✓ CL: stop exit on 2026-07-21 | P&L: -2.00% | days: 2
+  KIM: still open (2 days in trade)
+  AIG: still open (2 days in trade)
+  ✓ CHD: stop exit on 2026-07-21 | P&L: -2.00% | days: 2
+  PG: still open (2 days in trade)
+  ✓ EXR: stop exit on 2026-07-21 | P&L: -2.00% | days: 2
+  ✓ ED: stop exit on 2026-07-21 | P&L: -2.00% | days: 2
+
+✓ Pushed 7 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
