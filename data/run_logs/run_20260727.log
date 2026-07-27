@@ -1,0 +1,14 @@
+Loading stock universes...
+Traceback (most recent call last):
+  File "/home/runner/work/SwingTrade/SwingTrade/main.py", line 378, in <module>
+    main()
+  File "/home/runner/work/SwingTrade/SwingTrade/main.py", line 229, in main
+    sp500 = SP500UniverseStockAnalysis()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/SwingTrade/SwingTrade/src/universe.py", line 8, in __init__
+    self.tickers = self._load()
+                   ^^^^^^^^^^^^
+  File "/home/runner/work/SwingTrade/SwingTrade/src/universe.py", line 34, in _load
+    symbol = cols[1].text.strip()  # "Symbol" column
+             ~~~~^^^
+IndexError: list index out of range
