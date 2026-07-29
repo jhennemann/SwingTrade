@@ -1,0 +1,110 @@
+Loading stock universes...
+✓ S&P 500: 502 stocks
+✓ NASDAQ 100: 103 stocks
+✓ Combined universe: 519 stocks (86 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-07-29 (Close=729.46, SMA200=699.52)
+Scanned 100/519 tickers...
+Scanned 200/519 tickers...
+Scanned 300/519 tickers...
+Scanned 400/519 tickers...
+Scanned 500/519 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1    CRL          34.663433 2026-07-29
+    2   MNST          27.700535 2026-07-29
+    3    WAT          24.110893 2026-07-29
+    4    COO          17.163436 2026-07-29
+    5    IFF          12.016387 2026-07-29
+    6   DASH          10.551103 2026-07-29
+    7    ESS          10.544948 2026-07-29
+    8     RF          10.263595 2026-07-29
+    9    CPT           9.892193 2026-07-29
+   10    GIS           8.541816 2026-07-29
+   11     CL           7.916845 2026-07-29
+   12   INVH           3.869416 2026-07-29
+   13   GILD          -1.564547 2026-07-29
+Market filter passed: SPY > SMA200 on 2026-07-29 (Close=729.46, SMA200=699.52)
+Scanned 100/519 tickers...
+Scanned 200/519 tickers...
+Scanned 300/519 tickers...
+Scanned 400/519 tickers...
+Scanned 500/519 tickers...
+Calculating relative strength scores...
+
+=== HIGH MOMENTUM SIGNALS (RS > 50): 0 ===
+Empty DataFrame
+Columns: [rank, ticker, relative_strength, last_date]
+Index: []
+Saved chart: data/charts/2026/07/2026-07-29/CRL/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-29/MNST/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-29/WAT/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-29/COO/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-29/IFF/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-29/DASH/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-29/ESS/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-29/RF/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-29/CPT/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-29/GIS/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-29/CL/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-29/INVH/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-29/GILD/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/07/2026-07-29/gallery_2026-07-29.pdf
+
+Saved signals with RS: data/charts/2026/07/2026-07-29/scan_results_2026-07-29.csv
+
+=== CHECKING EXITS FOR 32 OPEN SIGNALS ===
+  ✓ INVH: stop exit on 2026-07-22 | P&L: -2.00% | days: 6
+  ✓ DUK: time exit on 2026-07-28 | P&L: 2.40% | days: 10
+  AME: still open (7 days in trade)
+  ✓ HIG: stop exit on 2026-07-24 | P&L: -2.00% | days: 5
+  ✓ FTV: stop exit on 2026-07-22 | P&L: -2.00% | days: 3
+  ✓ MDT: target exit on 2026-07-28 | P&L: 7.00% | days: 7
+  ✓ BX: stop exit on 2026-07-23 | P&L: -2.00% | days: 9
+  SPG: still open (9 days in trade)
+  ✓ CPAY: stop exit on 2026-07-23 | P&L: -2.00% | days: 9
+  L: still open (7 days in trade)
+  ✓ BALL: target exit on 2026-07-28 | P&L: 7.00% | days: 7
+  ✓ SJM: stop exit on 2026-07-23 | P&L: -2.00% | days: 2
+  NTAP: still open (6 days in trade)
+  HST: still open (6 days in trade)
+  ✓ DASH: stop exit on 2026-07-22 | P&L: -2.00% | days: 1
+  ✓ KMI: stop exit on 2026-07-23 | P&L: -2.00% | days: 2
+  ✓ IBKR: stop exit on 2026-07-28 | P&L: -2.00% | days: 4
+  ✓ WST: stop exit on 2026-07-23 | P&L: -2.00% | days: 1
+  ✓ GS: stop exit on 2026-07-27 | P&L: -2.00% | days: 3
+  HWM: still open (4 days in trade)
+  MRK: still open (4 days in trade)
+  ✓ ANET: stop exit on 2026-07-27 | P&L: -2.00% | days: 3
+  ✓ VST: stop exit on 2026-07-24 | P&L: -2.00% | days: 2
+  ✓ TGT: stop exit on 2026-07-23 | P&L: -2.00% | days: 8
+  ✓ REG: time exit on 2026-07-27 | P&L: 2.60% | days: 10
+  ✓ MAS: target exit on 2026-07-28 | P&L: 7.00% | days: 9
+  ✓ UDR: stop exit on 2026-07-28 | P&L: -2.00% | days: 7
+  FRT: still open (7 days in trade)
+  ✓ MO: stop exit on 2026-07-22 | P&L: -2.00% | days: 3
+  KIM: still open (7 days in trade)
+  ✓ AIG: stop exit on 2026-07-22 | P&L: -2.00% | days: 3
+  ✓ PG: stop exit on 2026-07-23 | P&L: -2.00% | days: 4
+
+✓ Pushed 13 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
