@@ -1,0 +1,80 @@
+Loading stock universes...
+✓ S&P 500: 502 stocks
+✓ NASDAQ 100: 103 stocks
+✓ Combined universe: 519 stocks (86 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-07-30 (Close=741.69, SMA200=699.97)
+Scanned 100/519 tickers...
+Scanned 200/519 tickers...
+Scanned 300/519 tickers...
+Scanned 400/519 tickers...
+Scanned 500/519 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1    CMG          16.744130 2026-07-30
+    2     GL          16.234339 2026-07-30
+    3    LYV          14.247977 2026-07-30
+Market filter passed: SPY > SMA200 on 2026-07-30 (Close=741.69, SMA200=699.97)
+Scanned 100/519 tickers...
+Scanned 200/519 tickers...
+Scanned 300/519 tickers...
+Scanned 400/519 tickers...
+Scanned 500/519 tickers...
+Calculating relative strength scores...
+
+=== HIGH MOMENTUM SIGNALS (RS > 50): 0 ===
+Empty DataFrame
+Columns: [rank, ticker, relative_strength, last_date]
+Index: []
+Saved chart: data/charts/2026/07/2026-07-30/CMG/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-30/GL/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-30/LYV/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/07/2026-07-30/gallery_2026-07-30.pdf
+
+Saved signals with RS: data/charts/2026/07/2026-07-30/scan_results_2026-07-30.csv
+
+=== CHECKING EXITS FOR 22 OPEN SIGNALS ===
+  AME: still open (8 days in trade)
+  ✓ SPG: time exit on 2026-07-29 | P&L: 5.65% | days: 10
+  L: still open (8 days in trade)
+  ✓ NTAP: target exit on 2026-07-29 | P&L: 7.00% | days: 7
+  HST: still open (7 days in trade)
+  ✓ HWM: stop exit on 2026-07-29 | P&L: -2.00% | days: 5
+  MRK: still open (5 days in trade)
+  FRT: still open (8 days in trade)
+  KIM: still open (8 days in trade)
+  CRL: no post-entry price data yet
+  MNST: no post-entry price data yet
+  WAT: no post-entry price data yet
+  COO: no post-entry price data yet
+  IFF: no post-entry price data yet
+  DASH: no post-entry price data yet
+  ESS: no post-entry price data yet
+  RF: no post-entry price data yet
+  CPT: no post-entry price data yet
+  GIS: no post-entry price data yet
+  CL: no post-entry price data yet
+  INVH: no post-entry price data yet
+  GILD: no post-entry price data yet
+
+✓ Pushed 3 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord

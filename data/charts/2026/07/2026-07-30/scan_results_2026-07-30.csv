@@ -1,0 +1,4 @@
+ticker,has_signal_today,last_date,most_recent_signal_date,signals_in_lookback,relative_strength,rank
+CMG,True,2026-07-30,2026-07-30,5,16.74412981564959,1
+GL,True,2026-07-30,2026-07-30,9,16.234338851003184,2
+LYV,True,2026-07-30,2026-07-30,8,14.247977012119083,3
