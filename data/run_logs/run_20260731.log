@@ -1,0 +1,82 @@
+Loading stock universes...
+✓ S&P 500: 502 stocks
+✓ NASDAQ 100: 103 stocks
+✓ Combined universe: 519 stocks (86 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-07-31 (Close=747.03, SMA200=700.39)
+Scanned 100/519 tickers...
+Scanned 200/519 tickers...
+Scanned 300/519 tickers...
+Scanned 400/519 tickers...
+Scanned 500/519 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1    DAL          17.426751 2026-07-31
+    2    BNY          15.179668 2026-07-31
+    3    CFG           7.390486 2026-07-31
+    4    TDY          -0.022744 2026-07-31
+Market filter passed: SPY > SMA200 on 2026-07-31 (Close=747.03, SMA200=700.39)
+Scanned 100/519 tickers...
+Scanned 200/519 tickers...
+Scanned 300/519 tickers...
+Scanned 400/519 tickers...
+Scanned 500/519 tickers...
+Calculating relative strength scores...
+
+=== HIGH MOMENTUM SIGNALS (RS > 50): 0 ===
+Empty DataFrame
+Columns: [rank, ticker, relative_strength, last_date]
+Index: []
+Saved chart: data/charts/2026/07/2026-07-31/DAL/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-31/BNY/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-31/CFG/pullback_setup.png
+Saved chart: data/charts/2026/07/2026-07-31/TDY/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/07/2026-07-31/gallery_2026-07-31.pdf
+
+Saved signals with RS: data/charts/2026/07/2026-07-31/scan_results_2026-07-31.csv
+
+=== CHECKING EXITS FOR 22 OPEN SIGNALS ===
+  AME: still open (9 days in trade)
+  L: still open (9 days in trade)
+  HST: still open (8 days in trade)
+  MRK: still open (6 days in trade)
+  ✓ FRT: stop exit on 2026-07-30 | P&L: -2.00% | days: 9
+  ✓ KIM: stop exit on 2026-07-30 | P&L: -2.00% | days: 9
+  ✓ CRL: stop exit on 2026-07-30 | P&L: -2.00% | days: 1
+  MNST: still open (1 days in trade)
+  WAT: still open (1 days in trade)
+  COO: still open (1 days in trade)
+  ✓ IFF: stop exit on 2026-07-30 | P&L: -2.00% | days: 1
+  DASH: still open (1 days in trade)
+  ✓ ESS: stop exit on 2026-07-30 | P&L: -2.00% | days: 1
+  RF: still open (1 days in trade)
+  ✓ CPT: stop exit on 2026-07-30 | P&L: -2.00% | days: 1
+  ✓ GIS: stop exit on 2026-07-30 | P&L: -2.00% | days: 1
+  ✓ CL: stop exit on 2026-07-30 | P&L: -2.00% | days: 1
+  ✓ INVH: stop exit on 2026-07-30 | P&L: -2.00% | days: 1
+  GILD: still open (1 days in trade)
+  CMG: no post-entry price data yet
+  GL: no post-entry price data yet
+  LYV: no post-entry price data yet
+
+✓ Pushed 4 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
