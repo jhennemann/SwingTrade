@@ -1,0 +1,5 @@
+ticker,has_signal_today,last_date,most_recent_signal_date,signals_in_lookback,relative_strength,rank
+ANET,True,2026-08-03,2026-08-03,13,26.86761289711921,1
+HSIC,True,2026-08-03,2026-08-03,6,19.142973782110072,2
+GE,True,2026-08-03,2026-08-03,6,18.341686895969666,3
+URI,True,2026-08-03,2026-08-03,9,14.630595544587987,4
