@@ -1,0 +1,94 @@
+Loading stock universes...
+✓ S&P 500: 502 stocks
+✓ NASDAQ 100: 103 stocks
+✓ Combined universe: 519 stocks (86 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-08-04 (Close=771.33, SMA200=701.39)
+Scanned 100/519 tickers...
+Scanned 200/519 tickers...
+Scanned 300/519 tickers...
+Scanned 400/519 tickers...
+Scanned 500/519 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1   PANW          71.656556 2026-08-04
+    2   CRWD          55.514774 2026-08-04
+    3    UAL          28.609239 2026-08-04
+    4    CAH          22.601149 2026-08-04
+    5    GPC          22.005525 2026-08-04
+    6    PNC          12.626108 2026-08-04
+    7    WFC          12.286054 2026-08-04
+    8     RF          11.065079 2026-08-04
+    9    PHM           7.450301 2026-08-04
+   10    CPB           4.642945 2026-08-04
+   11    EFX          -3.836447 2026-08-04
+Market filter passed: SPY > SMA200 on 2026-08-04 (Close=771.33, SMA200=701.39)
+Scanned 100/519 tickers...
+Scanned 200/519 tickers...
+Scanned 300/519 tickers...
+Scanned 400/519 tickers...
+Scanned 500/519 tickers...
+Calculating relative strength scores...
+
+=== HIGH MOMENTUM SIGNALS (RS > 50): 1 ===
+ rank ticker  relative_strength  last_date
+    1   ZBRA          58.607342 2026-08-04
+Saved chart: data/charts/2026/08/2026-08-04/PANW/pullback_setup.png
+Saved chart: data/charts/2026/08/2026-08-04/CRWD/pullback_setup.png
+Saved chart: data/charts/2026/08/2026-08-04/UAL/pullback_setup.png
+Saved chart: data/charts/2026/08/2026-08-04/CAH/pullback_setup.png
+Saved chart: data/charts/2026/08/2026-08-04/GPC/pullback_setup.png
+Saved chart: data/charts/2026/08/2026-08-04/PNC/pullback_setup.png
+Saved chart: data/charts/2026/08/2026-08-04/WFC/pullback_setup.png
+Saved chart: data/charts/2026/08/2026-08-04/RF/pullback_setup.png
+Saved chart: data/charts/2026/08/2026-08-04/PHM/pullback_setup.png
+Saved chart: data/charts/2026/08/2026-08-04/CPB/pullback_setup.png
+Saved chart: data/charts/2026/08/2026-08-04/EFX/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/08/2026-08-04/gallery_2026-08-04.pdf
+
+Saved signals with RS: data/charts/2026/08/2026-08-04/scan_results_2026-08-04.csv
+
+=== CHECKING EXITS FOR 16 OPEN SIGNALS ===
+  ✓ HST: time exit on 2026-08-03 | P&L: 3.63% | days: 10
+  MRK: still open (8 days in trade)
+  ✓ MNST: stop exit on 2026-08-03 | P&L: -2.00% | days: 3
+  WAT: still open (3 days in trade)
+  ✓ DASH: target exit on 2026-08-03 | P&L: 7.00% | days: 3
+  RF: still open (3 days in trade)
+  GILD: still open (3 days in trade)
+  GL: still open (2 days in trade)
+  DAL: still open (1 days in trade)
+  BNY: still open (1 days in trade)
+  CFG: still open (1 days in trade)
+  TDY: still open (1 days in trade)
+  ANET: no post-entry price data yet
+  HSIC: no post-entry price data yet
+  GE: no post-entry price data yet
+  URI: no post-entry price data yet
+
+✓ Pushed 11 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: FILLING SLOTS ===
+
+  conservative: 2 slot(s) open | available cash: $1178.40
+    ⏳ PENDING ZBRA [conservative]: $589.20 allocated | RS: 58.6 | entry price fetched tomorrow at open
+
+  aggressive: 2 slot(s) open | available cash: $1175.43
+    ⏳ PENDING ZBRA [aggressive]: $587.72 allocated | RS: 58.6 | entry price fetched tomorrow at open
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
