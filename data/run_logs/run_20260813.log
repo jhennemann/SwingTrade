@@ -1,0 +1,90 @@
+Loading stock universes...
+✓ S&P 500: 501 stocks
+✓ NASDAQ 100: 102 stocks
+✓ Combined universe: 518 stocks (85 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-08-13 (Close=777.88, SMA200=705.00)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1    SJM          11.053833 2026-08-13
+    2    AXP           5.084926 2026-08-13
+    3   BIIB           4.525406 2026-08-13
+    4    BEN           3.953565 2026-08-13
+    5    KEY           3.877633 2026-08-13
+    6   CBOE         -25.272242 2026-08-13
+Market filter passed: SPY > SMA200 on 2026-08-13 (Close=777.88, SMA200=705.00)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+
+=== HIGH MOMENTUM SIGNALS: none today ===
+Saved chart: data/charts/2026/08/2026-08-13/SJM/pullback_setup.png
+Saved chart: data/charts/2026/08/2026-08-13/AXP/pullback_setup.png
+Saved chart: data/charts/2026/08/2026-08-13/BIIB/pullback_setup.png
+Saved chart: data/charts/2026/08/2026-08-13/BEN/pullback_setup.png
+Saved chart: data/charts/2026/08/2026-08-13/KEY/pullback_setup.png
+Saved chart: data/charts/2026/08/2026-08-13/CBOE/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/08/2026-08-13/gallery_2026-08-13.pdf
+
+Saved signals with RS: data/charts/2026/08/2026-08-13/scan_results_2026-08-13.csv
+
+=== CHECKING EXITS FOR 28 OPEN SIGNALS ===
+  ✓ RF: time exit on 2026-08-12 | P&L: 1.51% | days: 10
+  ✓ GILD: time exit on 2026-08-12 | P&L: 4.50% | days: 10
+  ✓ GL: stop exit on 2026-08-12 | P&L: -2.00% | days: 9
+  DAL: still open (8 days in trade)
+  BNY: still open (8 days in trade)
+  CFG: still open (7 days in trade)
+  TDY: still open (8 days in trade)
+  AJG: still open (1 days in trade)
+  URI: still open (7 days in trade)
+  FFIV: still open (1 days in trade)
+  GPC: still open (6 days in trade)
+  ✓ XYL: stop exit on 2026-08-12 | P&L: -2.00% | days: 1
+  CVX: still open (1 days in trade)
+  PHM: still open (6 days in trade)
+  UNP: still open (5 days in trade)
+  FITB: no post-entry price data yet
+  HBAN: no post-entry price data yet
+  TFC: no post-entry price data yet
+  CAG: no post-entry price data yet
+  SBUX: no post-entry price data yet
+  OTIS: still open (4 days in trade)
+  JNJ: still open (4 days in trade)
+  NTRS: still open (4 days in trade)
+  ✓ CB: stop exit on 2026-08-12 | P&L: -2.00% | days: 4
+  ✓ PGR: stop exit on 2026-08-12 | P&L: -2.00% | days: 3
+  APD: still open (3 days in trade)
+  WST: still open (2 days in trade)
+  OKE: no post-entry price data yet
+
+✓ Pushed 6 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: checking 1 open trade(s)
+    ZBRA: still open (7d held)
+  aggressive: checking 1 open trade(s)
+    ZBRA: still open (7d held)
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
