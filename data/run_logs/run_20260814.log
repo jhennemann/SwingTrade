@@ -1,0 +1,92 @@
+Loading stock universes...
+✓ S&P 500: 501 stocks
+✓ NASDAQ 100: 102 stocks
+✓ Combined universe: 518 stocks (85 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-08-14 (Close=776.34, SMA200=705.46)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1    CDW          26.534342 2026-08-14
+    2    KMB           9.695455 2026-08-14
+    3    PHM           7.239256 2026-08-14
+    4    HWM           5.973961 2026-08-14
+    5      V           5.364361 2026-08-14
+    6   GDDY          -0.882269 2026-08-14
+    7   INVH          -0.894335 2026-08-14
+Market filter passed: SPY > SMA200 on 2026-08-14 (Close=776.34, SMA200=705.46)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+
+=== HIGH MOMENTUM SIGNALS: none today ===
+Saved chart: data/charts/2026/08/2026-08-14/CDW/pullback_setup.png
+Saved chart: data/charts/2026/08/2026-08-14/KMB/pullback_setup.png
+Saved chart: data/charts/2026/08/2026-08-14/PHM/pullback_setup.png
+Saved chart: data/charts/2026/08/2026-08-14/HWM/pullback_setup.png
+Saved chart: data/charts/2026/08/2026-08-14/V/pullback_setup.png
+Saved chart: data/charts/2026/08/2026-08-14/GDDY/pullback_setup.png
+Saved chart: data/charts/2026/08/2026-08-14/INVH/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/08/2026-08-14/gallery_2026-08-14.pdf
+
+Saved signals with RS: data/charts/2026/08/2026-08-14/scan_results_2026-08-14.csv
+
+=== CHECKING EXITS FOR 28 OPEN SIGNALS ===
+  DAL: still open (9 days in trade)
+  BNY: still open (9 days in trade)
+  CFG: still open (9 days in trade)
+  TDY: still open (8 days in trade)
+  AJG: still open (2 days in trade)
+  URI: still open (8 days in trade)
+  FFIV: still open (2 days in trade)
+  GPC: still open (7 days in trade)
+  AXP: no post-entry price data yet
+  CVX: still open (2 days in trade)
+  PHM: still open (7 days in trade)
+  UNP: still open (6 days in trade)
+  FITB: still open (1 days in trade)
+  HBAN: still open (1 days in trade)
+  TFC: still open (1 days in trade)
+  CAG: still open (1 days in trade)
+  SBUX: still open (1 days in trade)
+  OTIS: still open (6 days in trade)
+  JNJ: still open (5 days in trade)
+  NTRS: still open (5 days in trade)
+  BIIB: no post-entry price data yet
+  BEN: no post-entry price data yet
+  APD: still open (4 days in trade)
+  WST: still open (3 days in trade)
+  OKE: still open (1 days in trade)
+  SJM: no post-entry price data yet
+  KEY: no post-entry price data yet
+  CBOE: no post-entry price data yet
+
+✓ Pushed 7 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: checking 1 open trade(s)
+    ZBRA: still open (8d held)
+  aggressive: checking 1 open trade(s)
+    ZBRA: still open (8d held)
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
