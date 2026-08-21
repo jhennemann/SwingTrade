@@ -1,0 +1,4 @@
+ticker,has_signal_today,last_date,most_recent_signal_date,signals_in_lookback,relative_strength,rank
+GEN,True,2026-08-21,2026-08-21,3,16.367517621746863,1
+WELL,True,2026-08-21,2026-08-21,11,12.2835688478935,2
+CSX,True,2026-08-21,2026-08-21,8,11.143701604202484,3
