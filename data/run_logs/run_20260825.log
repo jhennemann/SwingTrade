@@ -1,0 +1,117 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 102 stocks
+✓ Combined universe: 518 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-08-25 (Close=765.91, SMA200=708.43)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1   CCEP          21.505814 2026-08-25
+    2   CTAS          17.455235 2026-08-25
+    3     EG          14.589910 2026-08-25
+    4    AWK          12.625367 2026-08-25
+    5    KMB          12.371940 2026-08-25
+    6   ACGL          12.348208 2026-08-25
+    7     PM          11.341611 2026-08-25
+    8   KVUE          10.440498 2026-08-25
+    9    LYV           8.603057 2026-08-25
+   10    CHD           6.646440 2026-08-25
+   11   ULTA           6.307184 2026-08-25
+   12   VRSN          -1.929152 2026-08-25
+Market filter passed: SPY > SMA200 on 2026-08-25 (Close=765.91, SMA200=708.43)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+
+=== HIGH MOMENTUM SIGNALS: none today ===
+Saved chart: data/charts/2026/08/2026-08-25/CCEP/pullback_setup.png
+Saved chart: data/charts/2026/08/2026-08-25/CTAS/pullback_setup.png
+Saved chart: data/charts/2026/08/2026-08-25/EG/pullback_setup.png
+Saved chart: data/charts/2026/08/2026-08-25/AWK/pullback_setup.png
+Saved chart: data/charts/2026/08/2026-08-25/KMB/pullback_setup.png
+Saved chart: data/charts/2026/08/2026-08-25/ACGL/pullback_setup.png
+Saved chart: data/charts/2026/08/2026-08-25/PM/pullback_setup.png
+Saved chart: data/charts/2026/08/2026-08-25/KVUE/pullback_setup.png
+Saved chart: data/charts/2026/08/2026-08-25/LYV/pullback_setup.png
+Saved chart: data/charts/2026/08/2026-08-25/CHD/pullback_setup.png
+Saved chart: data/charts/2026/08/2026-08-25/ULTA/pullback_setup.png
+Saved chart: data/charts/2026/08/2026-08-25/VRSN/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/08/2026-08-25/gallery_2026-08-25.pdf
+
+Saved signals with RS: data/charts/2026/08/2026-08-25/scan_results_2026-08-25.csv
+
+=== CHECKING EXITS FOR 45 OPEN SIGNALS ===
+  ✓ AJG: target exit on 2026-08-24 | P&L: 7.00% | days: 9
+  BIIB: still open (7 days in trade)
+  BEN: still open (7 days in trade)
+  OKE: still open (8 days in trade)
+  KMB: still open (6 days in trade)
+  V: still open (6 days in trade)
+  ✓ GDDY: target exit on 2026-08-24 | P&L: 7.00% | days: 6
+  INVH: still open (6 days in trade)
+  BBY: still open (5 days in trade)
+  EOG: still open (5 days in trade)
+  TRGP: still open (5 days in trade)
+  INCY: still open (4 days in trade)
+  UNP: still open (4 days in trade)
+  NSC: still open (4 days in trade)
+  GEN: still open (1 days in trade)
+  WELL: still open (1 days in trade)
+  TRI: still open (3 days in trade)
+  CSX: still open (1 days in trade)
+  COR: still open (3 days in trade)
+  EFX: still open (3 days in trade)
+  ✓ AWK: stop exit on 2026-08-24 | P&L: -2.00% | days: 3
+  MCO: still open (3 days in trade)
+  PCG: still open (3 days in trade)
+  TRMB: still open (3 days in trade)
+  GDDY: still open (3 days in trade)
+  ORLY: still open (3 days in trade)
+  AJG: still open (2 days in trade)
+  BRO: still open (2 days in trade)
+  AMCR: still open (2 days in trade)
+  SJM: still open (2 days in trade)
+  MRSH: still open (2 days in trade)
+  IFF: still open (2 days in trade)
+  AOS: still open (2 days in trade)
+  CMG: still open (2 days in trade)
+  INVH: still open (2 days in trade)
+  TAP: still open (2 days in trade)
+  AMP: no post-entry price data yet
+  STT: no post-entry price data yet
+  COR: no post-entry price data yet
+  BALL: no post-entry price data yet
+  WAB: no post-entry price data yet
+  VTR: no post-entry price data yet
+  EMR: no post-entry price data yet
+  SBUX: no post-entry price data yet
+  XYZ: no post-entry price data yet
+
+✓ Pushed 12 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
