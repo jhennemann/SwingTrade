@@ -1,0 +1,104 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 102 stocks
+✓ Combined universe: 518 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-08-27 (Close=771.10, SMA200=709.41)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1   SBUX           9.621979 2026-08-27
+    2   FAST           7.837821 2026-08-27
+Market filter passed: SPY > SMA200 on 2026-08-27 (Close=771.10, SMA200=709.41)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+Calculating relative strength scores...
+
+=== HIGH MOMENTUM SIGNALS (RS > 50): 0 ===
+Empty DataFrame
+Columns: [rank, ticker, relative_strength, last_date]
+Index: []
+Saved chart: data/charts/2026/08/2026-08-28/SBUX/pullback_setup.png
+Saved chart: data/charts/2026/08/2026-08-28/FAST/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/08/2026-08-28/gallery_2026-08-28.pdf
+
+Saved signals with RS: data/charts/2026/08/2026-08-28/scan_results_2026-08-28.csv
+
+=== CHECKING EXITS FOR 48 OPEN SIGNALS ===
+  ✓ BIIB: time exit on 2026-08-27 | P&L: 5.98% | days: 10
+  ✓ BEN: time exit on 2026-08-27 | P&L: 3.20% | days: 10
+  KMB: still open (9 days in trade)
+  V: still open (9 days in trade)
+  ✓ INVH: stop exit on 2026-08-27 | P&L: -2.00% | days: 9
+  INCY: still open (7 days in trade)
+  UNP: still open (7 days in trade)
+  NSC: still open (7 days in trade)
+  GEN: still open (4 days in trade)
+  WELL: still open (4 days in trade)
+  ✓ CCEP: stop exit on 2026-08-27 | P&L: -2.00% | days: 2
+  CSX: still open (4 days in trade)
+  COR: still open (6 days in trade)
+  EFX: still open (6 days in trade)
+  CTAS: still open (2 days in trade)
+  MCO: still open (6 days in trade)
+  PCG: still open (6 days in trade)
+  TRMB: still open (6 days in trade)
+  ORLY: still open (6 days in trade)
+  AJG: still open (5 days in trade)
+  BRO: still open (5 days in trade)
+  MRSH: still open (5 days in trade)
+  EG: still open (2 days in trade)
+  IFF: still open (5 days in trade)
+  ✓ AOS: stop exit on 2026-08-27 | P&L: -2.00% | days: 5
+  AWK: still open (2 days in trade)
+  ✓ INVH: stop exit on 2026-08-27 | P&L: -2.00% | days: 5
+  ✓ TAP: stop exit on 2026-08-27 | P&L: -2.00% | days: 5
+  AMP: still open (3 days in trade)
+  STT: still open (3 days in trade)
+  COR: still open (3 days in trade)
+  ✓ BALL: stop exit on 2026-08-27 | P&L: -2.00% | days: 3
+  ✓ VTR: stop exit on 2026-08-27 | P&L: -2.00% | days: 3
+  SBUX: still open (3 days in trade)
+  XYZ: still open (3 days in trade)
+  ✓ KMB: stop exit on 2026-08-27 | P&L: -2.00% | days: 2
+  ✓ ACGL: stop exit on 2026-08-27 | P&L: -2.00% | days: 2
+  ✓ PM: stop exit on 2026-08-27 | P&L: -2.00% | days: 2
+  ✓ KVUE: stop exit on 2026-08-27 | P&L: -2.00% | days: 2
+  CHD: still open (2 days in trade)
+  ULTA: still open (2 days in trade)
+  VRSN: still open (2 days in trade)
+  CAH: missing buy_price or last_date, skipping
+  ANET: missing buy_price or last_date, skipping
+  HPQ: missing buy_price or last_date, skipping
+  PHM: missing buy_price or last_date, skipping
+  VTRS: missing buy_price or last_date, skipping
+  HPE: missing buy_price or last_date, skipping
+
+✓ Pushed 2 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
