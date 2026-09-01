@@ -1,0 +1,101 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 102 stocks
+✓ Combined universe: 518 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-08-31 (Close=767.05, SMA200=710.27)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1    BRO          18.613247 2026-08-31
+    2    RJF          13.643059 2026-08-31
+    3   CCEP          10.017581 2026-08-31
+    4    LYB          -3.100501 2026-08-31
+    5   FISV          -6.057416 2026-08-31
+    6   CSGP          -9.370044 2026-08-31
+Market filter passed: SPY > SMA200 on 2026-08-31 (Close=767.05, SMA200=710.27)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+Calculating relative strength scores...
+
+=== HIGH MOMENTUM SIGNALS (RS > 50): 0 ===
+Empty DataFrame
+Columns: [rank, ticker, relative_strength, last_date]
+Index: []
+Saved chart: data/charts/2026/09/2026-09-01/BRO/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-01/RJF/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-01/CCEP/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-01/LYB/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-01/FISV/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-01/CSGP/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/09/2026-09-01/gallery_2026-09-01.pdf
+
+Saved signals with RS: data/charts/2026/09/2026-09-01/scan_results_2026-09-01.csv
+
+=== CHECKING EXITS FOR 37 OPEN SIGNALS ===
+  ✓ KMB: time exit on 2026-08-28 | P&L: 0.26% | days: 10
+  ✓ V: time exit on 2026-08-28 | P&L: 5.17% | days: 10
+  ✓ INCY: stop exit on 2026-08-31 | P&L: -2.00% | days: 9
+  UNP: still open (9 days in trade)
+  NSC: still open (9 days in trade)
+  ✓ GEN: target exit on 2026-08-28 | P&L: 7.00% | days: 5
+  ✓ WELL: stop exit on 2026-08-31 | P&L: -2.00% | days: 6
+  ✓ CSX: stop exit on 2026-08-31 | P&L: -2.00% | days: 6
+  COR: still open (8 days in trade)
+  EFX: still open (8 days in trade)
+  ✓ CTAS: stop exit on 2026-08-31 | P&L: -2.00% | days: 4
+  MCO: still open (8 days in trade)
+  ✓ PCG: stop exit on 2026-08-28 | P&L: -2.00% | days: 7
+  TRMB: still open (8 days in trade)
+  ORLY: still open (8 days in trade)
+  AJG: still open (7 days in trade)
+  BRO: still open (7 days in trade)
+  MRSH: still open (7 days in trade)
+  EG: still open (4 days in trade)
+  IFF: still open (7 days in trade)
+  AWK: still open (4 days in trade)
+  AMP: still open (5 days in trade)
+  STT: still open (5 days in trade)
+  COR: still open (5 days in trade)
+  SBUX: still open (5 days in trade)
+  XYZ: still open (5 days in trade)
+  ✓ CHD: stop exit on 2026-08-31 | P&L: -2.00% | days: 4
+  ✓ ULTA: stop exit on 2026-08-28 | P&L: -2.00% | days: 3
+  VRSN: still open (4 days in trade)
+  CAH: missing buy_price or last_date, skipping
+  ANET: missing buy_price or last_date, skipping
+  HPQ: missing buy_price or last_date, skipping
+  PHM: missing buy_price or last_date, skipping
+  VTRS: missing buy_price or last_date, skipping
+  HPE: missing buy_price or last_date, skipping
+  SBUX: still open (2 days in trade)
+  ✓ FAST: stop exit on 2026-08-28 | P&L: -2.00% | days: 1
+
+✓ Pushed 6 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
