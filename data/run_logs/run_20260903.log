@@ -1,0 +1,110 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 102 stocks
+✓ Combined universe: 518 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-09-03 (Close=773.17, SMA200=711.63)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1    CRL          50.888623 2026-09-03
+    2    GPN          40.321582 2026-09-03
+    3    GPC          33.234168 2026-09-03
+    4   CPAY          13.674673 2026-09-03
+    5    STT          13.283106 2026-09-03
+    6   HSIC           8.650532 2026-09-03
+    7    MET           8.628651 2026-09-03
+    8   BALL           8.422730 2026-09-03
+    9    DHR           8.340382 2026-09-03
+   10   NVDA           7.404707 2026-09-03
+   11    WAT           7.290988 2026-09-03
+   12   CCEP           5.356313 2026-09-03
+   13   ERIE           4.795057 2026-09-03
+   14    DPZ           3.667833 2026-09-03
+   15   SWKS          -4.859485 2026-09-03
+   16   FOXA          -7.007395 2026-09-03
+Market filter passed: SPY > SMA200 on 2026-09-03 (Close=773.17, SMA200=711.63)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+Calculating relative strength scores...
+
+=== HIGH MOMENTUM SIGNALS (RS > 50): 0 ===
+Empty DataFrame
+Columns: [rank, ticker, relative_strength, last_date]
+Index: []
+Saved chart: data/charts/2026/09/2026-09-03/CRL/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-03/GPN/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-03/GPC/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-03/CPAY/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-03/STT/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-03/HSIC/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-03/MET/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-03/BALL/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-03/DHR/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-03/NVDA/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-03/WAT/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-03/CCEP/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-03/ERIE/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-03/DPZ/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-03/SWKS/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-03/FOXA/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/09/2026-09-03/gallery_2026-09-03.pdf
+
+Saved signals with RS: data/charts/2026/09/2026-09-03/scan_results_2026-09-03.csv
+
+=== CHECKING EXITS FOR 26 OPEN SIGNALS ===
+  ✓ COR: target exit on 2026-09-02 | P&L: 7.00% | days: 10
+  ✓ MCO: stop exit on 2026-09-02 | P&L: -2.00% | days: 10
+  ✓ TRMB: time exit on 2026-09-02 | P&L: 0.46% | days: 10
+  ✓ ORLY: stop exit on 2026-09-02 | P&L: -2.00% | days: 10
+  AJG: still open (9 days in trade)
+  BRO: still open (9 days in trade)
+  EG: still open (6 days in trade)
+  IFF: still open (9 days in trade)
+  AWK: still open (6 days in trade)
+  COR: still open (7 days in trade)
+  SBUX: still open (7 days in trade)
+  ✓ VRSN: stop exit on 2026-09-02 | P&L: -2.00% | days: 6
+  CAH: missing buy_price or last_date, skipping
+  ANET: missing buy_price or last_date, skipping
+  HPQ: missing buy_price or last_date, skipping
+  PHM: missing buy_price or last_date, skipping
+  VTRS: missing buy_price or last_date, skipping
+  HPE: missing buy_price or last_date, skipping
+  BRO: still open (2 days in trade)
+  CCEP: still open (2 days in trade)
+  FISV: still open (2 days in trade)
+  ✓ CSGP: stop exit on 2026-09-02 | P&L: -2.00% | days: 2
+  BRO: still open (1 days in trade)
+  LYB: still open (1 days in trade)
+  ✓ CSGP: stop exit on 2026-09-02 | P&L: -2.00% | days: 1
+  CAH: no post-entry price data yet
+
+✓ Pushed 16 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
