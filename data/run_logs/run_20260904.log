@@ -1,0 +1,103 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 102 stocks
+✓ Combined universe: 518 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-09-04 (Close=770.19, SMA200=712.15)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1    TMO          24.641816 2026-09-04
+    2    TRV          17.140957 2026-09-04
+    3    IVZ          12.500688 2026-09-04
+    4    PRU          10.166270 2026-09-04
+    5    JPM          10.006644 2026-09-04
+    6    AIZ           6.141976 2026-09-04
+    7    SYF           6.097828 2026-09-04
+    8  BRK-B          -0.229330 2026-09-04
+    9   FISV          -4.508820 2026-09-04
+   10   ORCL         -18.149136 2026-09-04
+Market filter passed: SPY > SMA200 on 2026-09-04 (Close=770.19, SMA200=712.15)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+
+=== HIGH MOMENTUM SIGNALS: none today ===
+Saved chart: data/charts/2026/09/2026-09-04/TMO/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-04/TRV/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-04/IVZ/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-04/PRU/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-04/JPM/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-04/AIZ/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-04/SYF/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-04/BRK-B/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-04/FISV/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-04/ORCL/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/09/2026-09-04/gallery_2026-09-04.pdf
+
+Saved signals with RS: data/charts/2026/09/2026-09-04/scan_results_2026-09-04.csv
+
+=== CHECKING EXITS FOR 35 OPEN SIGNALS ===
+  ✓ AJG: time exit on 2026-09-03 | P&L: 2.78% | days: 10
+  ✓ BRO: time exit on 2026-09-03 | P&L: 0.81% | days: 10
+  EG: still open (7 days in trade)
+  ✓ IFF: time exit on 2026-09-03 | P&L: 2.81% | days: 10
+  AWK: still open (7 days in trade)
+  COR: still open (8 days in trade)
+  SBUX: still open (8 days in trade)
+  NVDA: no post-entry price data yet
+  WAT: no post-entry price data yet
+  CAH: missing buy_price or last_date, skipping
+  ANET: missing buy_price or last_date, skipping
+  HPQ: missing buy_price or last_date, skipping
+  PHM: missing buy_price or last_date, skipping
+  VTRS: missing buy_price or last_date, skipping
+  HPE: missing buy_price or last_date, skipping
+  CCEP: no post-entry price data yet
+  ERIE: no post-entry price data yet
+  BRO: still open (3 days in trade)
+  DPZ: no post-entry price data yet
+  CCEP: still open (3 days in trade)
+  SWKS: no post-entry price data yet
+  FISV: still open (3 days in trade)
+  FOXA: no post-entry price data yet
+  BRO: still open (2 days in trade)
+  LYB: still open (2 days in trade)
+  CAH: still open (1 days in trade)
+  CRL: no post-entry price data yet
+  GPN: no post-entry price data yet
+  GPC: no post-entry price data yet
+  CPAY: no post-entry price data yet
+  STT: no post-entry price data yet
+  HSIC: no post-entry price data yet
+  MET: no post-entry price data yet
+  BALL: no post-entry price data yet
+  DHR: no post-entry price data yet
+
+✓ Pushed 10 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
