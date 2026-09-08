@@ -1,0 +1,89 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 102 stocks
+✓ Combined universe: 518 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-09-08 (Close=765.96, SMA200=712.68)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+
+=== PULLBACK SIGNALS TODAY ===
+No signals today.
+Market filter passed: SPY > SMA200 on 2026-09-08 (Close=765.96, SMA200=712.68)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+
+=== HIGH MOMENTUM SIGNALS: none today ===
+
+No charts generated; skipping PDF export.
+
+No signals today - skipping CSV save
+
+=== CHECKING EXITS FOR 42 OPEN SIGNALS ===
+  EG: still open (8 days in trade)
+  AWK: still open (8 days in trade)
+  COR: still open (9 days in trade)
+  ✓ SBUX: stop exit on 2026-09-04 | P&L: -2.00% | days: 9
+  NVDA: still open (1 days in trade)
+  WAT: still open (1 days in trade)
+  CAH: missing buy_price or last_date, skipping
+  ANET: missing buy_price or last_date, skipping
+  HPQ: missing buy_price or last_date, skipping
+  PHM: missing buy_price or last_date, skipping
+  VTRS: missing buy_price or last_date, skipping
+  HPE: missing buy_price or last_date, skipping
+  CCEP: still open (1 days in trade)
+  ERIE: still open (1 days in trade)
+  ✓ BRO: stop exit on 2026-09-04 | P&L: -2.00% | days: 4
+  DPZ: still open (1 days in trade)
+  ✓ CCEP: stop exit on 2026-09-04 | P&L: -2.00% | days: 4
+  SWKS: still open (1 days in trade)
+  ✓ FISV: stop exit on 2026-09-04 | P&L: -2.00% | days: 4
+  ✓ FOXA: stop exit on 2026-09-04 | P&L: -2.00% | days: 1
+  BRO: still open (3 days in trade)
+  ✓ LYB: stop exit on 2026-09-04 | P&L: -2.00% | days: 3
+  CAH: still open (2 days in trade)
+  CRL: still open (1 days in trade)
+  GPN: still open (1 days in trade)
+  GPC: still open (1 days in trade)
+  CPAY: still open (1 days in trade)
+  STT: still open (1 days in trade)
+  HSIC: still open (1 days in trade)
+  MET: still open (1 days in trade)
+  BALL: still open (1 days in trade)
+  DHR: still open (1 days in trade)
+  TMO: no post-entry price data yet
+  TRV: no post-entry price data yet
+  IVZ: no post-entry price data yet
+  PRU: no post-entry price data yet
+  JPM: no post-entry price data yet
+  AIZ: no post-entry price data yet
+  SYF: no post-entry price data yet
+  BRK-B: no post-entry price data yet
+  FISV: no post-entry price data yet
+  ORCL: no post-entry price data yet
+
+No new pullback signals to push to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
