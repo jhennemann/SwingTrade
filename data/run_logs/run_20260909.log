@@ -1,0 +1,92 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 102 stocks
+✓ Combined universe: 518 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-09-09 (Close=762.40, SMA200=713.18)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1   LITE           2.312906 2026-09-09
+    2   KEYS          -8.267400 2026-09-09
+    3   CRWV         -12.032767 2026-09-09
+    4    STX         -14.045672 2026-09-09
+Market filter passed: SPY > SMA200 on 2026-09-09 (Close=762.40, SMA200=713.18)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+
+=== HIGH MOMENTUM SIGNALS: none today ===
+Saved chart: data/charts/2026/09/2026-09-09/LITE/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-09/KEYS/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-09/CRWV/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-09/STX/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/09/2026-09-09/gallery_2026-09-09.pdf
+
+Saved signals with RS: data/charts/2026/09/2026-09-09/scan_results_2026-09-09.csv
+
+=== CHECKING EXITS FOR 36 OPEN SIGNALS ===
+  EG: still open (9 days in trade)
+  AWK: still open (9 days in trade)
+  ✓ COR: time exit on 2026-09-08 | P&L: 0.62% | days: 10
+  ✓ NVDA: stop exit on 2026-09-08 | P&L: -2.00% | days: 2
+  ✓ WAT: stop exit on 2026-09-08 | P&L: -2.00% | days: 2
+  CAH: missing buy_price or last_date, skipping
+  ANET: missing buy_price or last_date, skipping
+  HPQ: missing buy_price or last_date, skipping
+  PHM: missing buy_price or last_date, skipping
+  VTRS: missing buy_price or last_date, skipping
+  HPE: missing buy_price or last_date, skipping
+  CCEP: still open (2 days in trade)
+  ✓ ERIE: stop exit on 2026-09-08 | P&L: -2.00% | days: 2
+  ✓ DPZ: stop exit on 2026-09-08 | P&L: -2.00% | days: 2
+  SWKS: still open (2 days in trade)
+  ✓ BRO: stop exit on 2026-09-08 | P&L: -2.00% | days: 4
+  ✓ CAH: stop exit on 2026-09-08 | P&L: -2.00% | days: 3
+  ✓ CRL: stop exit on 2026-09-08 | P&L: -2.00% | days: 2
+  GPN: still open (2 days in trade)
+  GPC: still open (2 days in trade)
+  CPAY: still open (2 days in trade)
+  STT: still open (2 days in trade)
+  HSIC: still open (2 days in trade)
+  ✓ MET: stop exit on 2026-09-08 | P&L: -2.00% | days: 2
+  ✓ BALL: stop exit on 2026-09-08 | P&L: -2.00% | days: 2
+  ✓ DHR: stop exit on 2026-09-08 | P&L: -2.00% | days: 2
+  ✓ TMO: stop exit on 2026-09-08 | P&L: -2.00% | days: 1
+  ✓ TRV: stop exit on 2026-09-08 | P&L: -2.00% | days: 1
+  IVZ: still open (1 days in trade)
+  ✓ PRU: stop exit on 2026-09-08 | P&L: -2.00% | days: 1
+  ✓ JPM: stop exit on 2026-09-08 | P&L: -2.00% | days: 1
+  AIZ: still open (1 days in trade)
+  SYF: still open (1 days in trade)
+  BRK-B: still open (1 days in trade)
+  ✓ FISV: stop exit on 2026-09-08 | P&L: -2.00% | days: 1
+  ✓ ORCL: target exit on 2026-09-08 | P&L: 7.00% | days: 1
+
+✓ Pushed 4 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
