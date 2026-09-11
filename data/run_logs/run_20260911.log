@@ -1,0 +1,74 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 102 stocks
+✓ Combined universe: 518 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-09-11 (Close=764.29, SMA200=714.23)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1   FANG           7.359263 2026-09-11
+    2   NTRS           4.990860 2026-09-11
+    3     PM           3.327087 2026-09-11
+Market filter passed: SPY > SMA200 on 2026-09-11 (Close=764.29, SMA200=714.23)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+Calculating relative strength scores...
+
+=== HIGH MOMENTUM SIGNALS (RS > 50): 0 ===
+Empty DataFrame
+Columns: [rank, ticker, relative_strength, last_date]
+Index: []
+Saved chart: data/charts/2026/09/2026-09-11/FANG/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-11/NTRS/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-11/PM/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/09/2026-09-11/gallery_2026-09-11.pdf
+
+Saved signals with RS: data/charts/2026/09/2026-09-11/scan_results_2026-09-11.csv
+
+=== CHECKING EXITS FOR 16 OPEN SIGNALS ===
+  CAH: missing buy_price or last_date, skipping
+  ANET: missing buy_price or last_date, skipping
+  HPQ: missing buy_price or last_date, skipping
+  PHM: missing buy_price or last_date, skipping
+  VTRS: missing buy_price or last_date, skipping
+  HPE: missing buy_price or last_date, skipping
+  ✓ SWKS: target exit on 2026-09-10 | P&L: 7.00% | days: 4
+  STT: still open (4 days in trade)
+  ✓ LITE: stop exit on 2026-09-10 | P&L: -2.00% | days: 1
+  KEYS: still open (1 days in trade)
+  CRWV: still open (1 days in trade)
+  ✓ IVZ: stop exit on 2026-09-10 | P&L: -2.00% | days: 3
+  STX: still open (1 days in trade)
+  BRK-B: still open (3 days in trade)
+  XOM: no post-entry price data yet
+  EOG: no post-entry price data yet
+
+✓ Pushed 3 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
