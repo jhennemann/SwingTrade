@@ -1,0 +1,86 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 518 stocks (86 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-09-15 (Close=757.39, SMA200=715.11)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1    NOW          50.817834 2026-09-15
+    2   CRWD          41.857776 2026-09-15
+    3   RVTY          39.802474 2026-09-15
+    4    MCK          19.024232 2026-09-15
+    5   FTNT          16.810585 2026-09-15
+    6    MDT          16.520292 2026-09-15
+    7    WAT          14.677887 2026-09-15
+    8      V          13.262786 2026-09-15
+    9   ABBV          12.613855 2026-09-15
+Market filter passed: SPY > SMA200 on 2026-09-15 (Close=757.39, SMA200=715.11)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+Calculating relative strength scores...
+
+=== HIGH MOMENTUM SIGNALS (RS > 50): 0 ===
+Empty DataFrame
+Columns: [rank, ticker, relative_strength, last_date]
+Index: []
+Saved chart: data/charts/2026/09/2026-09-15/NOW/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-15/CRWD/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-15/RVTY/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-15/MCK/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-15/FTNT/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-15/MDT/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-15/WAT/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-15/V/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-15/ABBV/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/09/2026-09-15/gallery_2026-09-15.pdf
+
+Saved signals with RS: data/charts/2026/09/2026-09-15/scan_results_2026-09-15.csv
+
+=== CHECKING EXITS FOR 16 OPEN SIGNALS ===
+  CAH: missing buy_price or last_date, skipping
+  ANET: missing buy_price or last_date, skipping
+  HPQ: missing buy_price or last_date, skipping
+  PHM: missing buy_price or last_date, skipping
+  VTRS: missing buy_price or last_date, skipping
+  HPE: missing buy_price or last_date, skipping
+  BRK-B: still open (5 days in trade)
+  XOM: still open (2 days in trade)
+  EOG: still open (2 days in trade)
+  PM: still open (1 days in trade)
+  MSFT: no post-entry price data yet
+  TRV: no post-entry price data yet
+  CDW: no post-entry price data yet
+  COIN: no post-entry price data yet
+  PGR: no post-entry price data yet
+  NUE: no post-entry price data yet
+
+✓ Pushed 9 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
