@@ -1,0 +1,80 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 102 stocks
+✓ Combined universe: 518 stocks (87 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-09-14 (Close=760.88, SMA200=714.69)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1   MSFT          31.319405 2026-09-14
+    2    TRV          20.925703 2026-09-14
+    3    CDW          16.280464 2026-09-14
+    4   COIN          15.373372 2026-09-14
+    5    PGR           5.989486 2026-09-14
+    6    NUE           2.535751 2026-09-14
+Market filter passed: SPY > SMA200 on 2026-09-14 (Close=760.88, SMA200=714.69)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+Calculating relative strength scores...
+
+=== HIGH MOMENTUM SIGNALS (RS > 50): 0 ===
+Empty DataFrame
+Columns: [rank, ticker, relative_strength, last_date]
+Index: []
+Saved chart: data/charts/2026/09/2026-09-15/MSFT/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-15/TRV/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-15/CDW/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-15/COIN/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-15/PGR/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-15/NUE/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/09/2026-09-15/gallery_2026-09-15.pdf
+
+Saved signals with RS: data/charts/2026/09/2026-09-15/scan_results_2026-09-15.csv
+
+=== CHECKING EXITS FOR 16 OPEN SIGNALS ===
+  CAH: missing buy_price or last_date, skipping
+  ANET: missing buy_price or last_date, skipping
+  HPQ: missing buy_price or last_date, skipping
+  PHM: missing buy_price or last_date, skipping
+  VTRS: missing buy_price or last_date, skipping
+  HPE: missing buy_price or last_date, skipping
+  ✓ STT: stop exit on 2026-09-14 | P&L: -2.00% | days: 6
+  ✓ KEYS: stop exit on 2026-09-14 | P&L: -2.00% | days: 3
+  ✓ CRWV: stop exit on 2026-09-14 | P&L: -2.00% | days: 3
+  ✓ STX: stop exit on 2026-09-11 | P&L: -2.00% | days: 2
+  BRK-B: still open (5 days in trade)
+  XOM: still open (2 days in trade)
+  EOG: still open (2 days in trade)
+  ✓ NTRS: stop exit on 2026-09-14 | P&L: -2.00% | days: 1
+  ✓ FANG: stop exit on 2026-09-14 | P&L: -2.00% | days: 1
+  PM: still open (1 days in trade)
+
+✓ Pushed 6 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
