@@ -1,0 +1,83 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 518 stocks (86 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-09-17 (Close=762.60, SMA200=715.87)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1   GILD          16.553538 2026-09-17
+    2      A          14.768165 2026-09-17
+    3   TSLA          -6.488629 2026-09-17
+Market filter passed: SPY > SMA200 on 2026-09-17 (Close=762.60, SMA200=715.87)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+Calculating relative strength scores...
+
+=== HIGH MOMENTUM SIGNALS (RS > 50): 0 ===
+Empty DataFrame
+Columns: [rank, ticker, relative_strength, last_date]
+Index: []
+Saved chart: data/charts/2026/09/2026-09-17/GILD/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-17/A/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-17/TSLA/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/09/2026-09-17/gallery_2026-09-17.pdf
+
+Saved signals with RS: data/charts/2026/09/2026-09-17/scan_results_2026-09-17.csv
+
+=== CHECKING EXITS FOR 25 OPEN SIGNALS ===
+  CAH: missing buy_price or last_date, skipping
+  ANET: missing buy_price or last_date, skipping
+  HPQ: missing buy_price or last_date, skipping
+  PHM: missing buy_price or last_date, skipping
+  VTRS: missing buy_price or last_date, skipping
+  HPE: missing buy_price or last_date, skipping
+  BRK-B: still open (7 days in trade)
+  XOM: still open (4 days in trade)
+  EOG: still open (4 days in trade)
+  ✓ MSFT: stop exit on 2026-09-16 | P&L: -2.00% | days: 2
+  TRV: still open (2 days in trade)
+  ✓ CDW: stop exit on 2026-09-16 | P&L: -2.00% | days: 2
+  PGR: still open (2 days in trade)
+  NUE: still open (2 days in trade)
+  NOW: still open (1 days in trade)
+  CRWD: still open (1 days in trade)
+  RVTY: still open (1 days in trade)
+  MCK: still open (1 days in trade)
+  FTNT: still open (1 days in trade)
+  MDT: still open (1 days in trade)
+  WAT: still open (1 days in trade)
+  V: still open (1 days in trade)
+  ABBV: still open (1 days in trade)
+  TMO: no post-entry price data yet
+  NTAP: no post-entry price data yet
+
+✓ Pushed 3 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
