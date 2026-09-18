@@ -1,0 +1,98 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 518 stocks (86 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-09-18 (Close=761.69, SMA200=716.28)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1   MRNA         154.077435 2026-09-18
+    2   MSTR          76.651955 2026-09-18
+    3   PLTR          61.870740 2026-09-18
+    4   SMCI          19.660066 2026-09-18
+    5    JNJ           6.523911 2026-09-18
+Market filter passed: SPY > SMA200 on 2026-09-18 (Close=761.69, SMA200=716.28)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+Calculating relative strength scores...
+
+=== HIGH MOMENTUM SIGNALS (RS > 50): 3 ===
+ rank ticker  relative_strength  last_date
+    1    MPC          63.839728 2026-09-18
+    2    VLO          58.302379 2026-09-18
+    3    PSX          55.288321 2026-09-18
+Saved chart: data/charts/2026/09/2026-09-18/MRNA/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-18/MSTR/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-18/PLTR/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-18/SMCI/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-18/JNJ/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/09/2026-09-18/gallery_2026-09-18.pdf
+
+Saved signals with RS: data/charts/2026/09/2026-09-18/scan_results_2026-09-18.csv
+
+=== CHECKING EXITS FOR 26 OPEN SIGNALS ===
+  CAH: missing buy_price or last_date, skipping
+  ANET: missing buy_price or last_date, skipping
+  HPQ: missing buy_price or last_date, skipping
+  PHM: missing buy_price or last_date, skipping
+  VTRS: missing buy_price or last_date, skipping
+  HPE: missing buy_price or last_date, skipping
+  BRK-B: still open (8 days in trade)
+  ✓ XOM: stop exit on 2026-09-17 | P&L: -2.00% | days: 5
+  ✓ EOG: stop exit on 2026-09-17 | P&L: -2.00% | days: 5
+  TRV: still open (3 days in trade)
+  ✓ PGR: stop exit on 2026-09-17 | P&L: -2.00% | days: 3
+  NUE: still open (3 days in trade)
+  ✓ NOW: stop exit on 2026-09-17 | P&L: -2.00% | days: 2
+  CRWD: still open (2 days in trade)
+  RVTY: still open (2 days in trade)
+  ✓ MCK: stop exit on 2026-09-17 | P&L: -2.00% | days: 2
+  FTNT: still open (2 days in trade)
+  MDT: still open (2 days in trade)
+  WAT: still open (2 days in trade)
+  V: still open (2 days in trade)
+  ABBV: still open (2 days in trade)
+  TMO: still open (1 days in trade)
+  NTAP: still open (1 days in trade)
+  GILD: no post-entry price data yet
+  A: no post-entry price data yet
+  TSLA: no post-entry price data yet
+
+✓ Pushed 5 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: FILLING SLOTS ===
+
+  conservative: 2 slot(s) open | available cash: $1143.29
+    ⏳ PENDING MPC [conservative]: $571.64 allocated | RS: 63.8 | entry price fetched tomorrow at open
+    ⏳ PENDING VLO [conservative]: $571.64 allocated | RS: 58.3 | entry price fetched tomorrow at open
+    — MISSED PSX [conservative] (logged)
+
+  aggressive: 2 slot(s) open | available cash: $1140.41
+    ⏳ PENDING MPC [aggressive]: $570.21 allocated | RS: 63.8 | entry price fetched tomorrow at open
+    ⏳ PENDING VLO [aggressive]: $570.21 allocated | RS: 58.3 | entry price fetched tomorrow at open
+    — MISSED PSX [aggressive] (logged)
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
