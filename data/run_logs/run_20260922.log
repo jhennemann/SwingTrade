@@ -1,0 +1,94 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 518 stocks (86 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-09-18 (Close=761.69, SMA200=716.28)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1    JNJ                NaN 2026-09-18
+    2      P                NaN 2026-09-18
+    3   PLTR                NaN 2026-09-18
+    4   SMCI                NaN 2026-09-18
+    5   MRNA                NaN 2026-09-18
+    6   MSTR                NaN 2026-09-18
+Market filter passed: SPY > SMA200 on 2026-09-18 (Close=761.69, SMA200=716.28)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+Calculating relative strength scores...
+
+=== HIGH MOMENTUM SIGNALS (RS > 50): 0 ===
+Empty DataFrame
+Columns: [rank, ticker, relative_strength, last_date]
+Index: []
+Saved chart: data/charts/2026/09/2026-09-22/JNJ/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-22/P/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-22/PLTR/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-22/SMCI/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-22/MRNA/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-22/MSTR/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/09/2026-09-22/gallery_2026-09-22.pdf
+
+Saved signals with RS: data/charts/2026/09/2026-09-22/scan_results_2026-09-22.csv
+
+=== CHECKING EXITS FOR 26 OPEN SIGNALS ===
+  CAH: missing buy_price or last_date, skipping
+  ANET: missing buy_price or last_date, skipping
+  HPQ: missing buy_price or last_date, skipping
+  PHM: missing buy_price or last_date, skipping
+  VTRS: missing buy_price or last_date, skipping
+  HPE: missing buy_price or last_date, skipping
+  ❌ BRK-B: failed to update Supabase — Out of range float values are not JSON compliant: nan
+  TRV: still open (5 days in trade)
+  ✓ NUE: stop exit on 2026-09-18 | P&L: -2.00% | days: 4
+  ✓ CRWD: stop exit on 2026-09-21 | P&L: -2.00% | days: 4
+  RVTY: still open (4 days in trade)
+  FTNT: still open (4 days in trade)
+  ✓ MDT: stop exit on 2026-09-21 | P&L: -2.00% | days: 4
+  WAT: still open (4 days in trade)
+  ✓ V: stop exit on 2026-09-18 | P&L: -2.00% | days: 3
+  ABBV: still open (4 days in trade)
+  TMO: still open (3 days in trade)
+  NTAP: still open (3 days in trade)
+  GILD: still open (2 days in trade)
+  A: still open (2 days in trade)
+  ✓ TSLA: stop exit on 2026-09-18 | P&L: -2.00% | days: 1
+  ✓ MRNA: target exit on 2026-09-21 | P&L: 7.00% | days: 1
+  MSTR: still open (1 days in trade)
+  PLTR: still open (1 days in trade)
+  SMCI: still open (1 days in trade)
+  JNJ: still open (1 days in trade)
+
+✓ Pushed 6 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: CHECKING MISSED TRADE EXITS (2) ===
+    📋 PSX [conservative] (hypothetical): still open (1d)
+    📋 PSX [aggressive] (hypothetical): still open (1d)
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
