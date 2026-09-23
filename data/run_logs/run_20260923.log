@@ -1,0 +1,76 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 518 stocks (86 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-09-23 (Close=767.81, SMA200=717.61)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+
+=== PULLBACK SIGNALS TODAY ===
+No signals today.
+Market filter passed: SPY > SMA200 on 2026-09-23 (Close=767.81, SMA200=717.61)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+Calculating relative strength scores...
+
+=== HIGH MOMENTUM SIGNALS (RS > 50): 0 ===
+Empty DataFrame
+Columns: [rank, ticker, relative_strength, last_date]
+Index: []
+
+No charts generated; skipping PDF export.
+
+No signals today - skipping CSV save
+
+=== CHECKING EXITS FOR 25 OPEN SIGNALS ===
+  CAH: missing buy_price or last_date, skipping
+  ANET: missing buy_price or last_date, skipping
+  HPQ: missing buy_price or last_date, skipping
+  PHM: missing buy_price or last_date, skipping
+  VTRS: missing buy_price or last_date, skipping
+  HPE: missing buy_price or last_date, skipping
+  ✓ TRV: stop exit on 2026-09-22 | P&L: -2.00% | days: 6
+  RVTY: still open (5 days in trade)
+  FTNT: still open (5 days in trade)
+  WAT: still open (5 days in trade)
+  ABBV: still open (5 days in trade)
+  TMO: still open (4 days in trade)
+  NTAP: still open (4 days in trade)
+  GILD: still open (3 days in trade)
+  ✓ A: target exit on 2026-09-22 | P&L: 7.00% | days: 3
+  MSTR: still open (2 days in trade)
+  PLTR: still open (2 days in trade)
+  SMCI: still open (2 days in trade)
+  JNJ: still open (2 days in trade)
+  JNJ: missing buy_price or last_date, skipping
+  P: missing buy_price or last_date, skipping
+  PLTR: missing buy_price or last_date, skipping
+  SMCI: missing buy_price or last_date, skipping
+  MRNA: missing buy_price or last_date, skipping
+  MSTR: missing buy_price or last_date, skipping
+
+No new pullback signals to push to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
