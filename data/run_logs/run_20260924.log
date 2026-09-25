@@ -1,0 +1,85 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 518 stocks (86 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-09-24 (Close=767.18, SMA200=718.01)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1    MET                NaN 2026-09-24
+    2   NDSN                NaN 2026-09-24
+    3    PFE                NaN 2026-09-24
+    4   ZBRA                NaN 2026-09-24
+    5   SNPS                NaN 2026-09-24
+Market filter passed: SPY > SMA200 on 2026-09-23 (Close=767.81, SMA200=717.61)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+Calculating relative strength scores...
+
+=== HIGH MOMENTUM SIGNALS (RS > 50): 0 ===
+Empty DataFrame
+Columns: [rank, ticker, relative_strength, last_date]
+Index: []
+Saved chart: data/charts/2026/09/2026-09-25/MET/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-25/NDSN/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-25/PFE/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-25/ZBRA/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-25/SNPS/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/09/2026-09-25/gallery_2026-09-25.pdf
+
+Saved signals with RS: data/charts/2026/09/2026-09-25/scan_results_2026-09-25.csv
+
+=== CHECKING EXITS FOR 23 OPEN SIGNALS ===
+  CAH: missing buy_price or last_date, skipping
+  ANET: missing buy_price or last_date, skipping
+  HPQ: missing buy_price or last_date, skipping
+  PHM: missing buy_price or last_date, skipping
+  VTRS: missing buy_price or last_date, skipping
+  HPE: missing buy_price or last_date, skipping
+  ✓ RVTY: target exit on 2026-09-24 | P&L: 7.00% | days: 6
+  ✓ FTNT: target exit on 2026-09-24 | P&L: 7.00% | days: 6
+  WAT: still open (6 days in trade)
+  ABBV: still open (6 days in trade)
+  TMO: still open (5 days in trade)
+  NTAP: still open (5 days in trade)
+  GILD: still open (4 days in trade)
+  ✓ MSTR: stop exit on 2026-09-24 | P&L: -2.00% | days: 4
+  ✓ PLTR: target exit on 2026-09-23 | P&L: 7.00% | days: 3
+  SMCI: still open (4 days in trade)
+  JNJ: still open (3 days in trade)
+  JNJ: missing buy_price or last_date, skipping
+  P: missing buy_price or last_date, skipping
+  PLTR: missing buy_price or last_date, skipping
+  SMCI: missing buy_price or last_date, skipping
+  MRNA: missing buy_price or last_date, skipping
+  MSTR: missing buy_price or last_date, skipping
+
+✓ Pushed 5 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
