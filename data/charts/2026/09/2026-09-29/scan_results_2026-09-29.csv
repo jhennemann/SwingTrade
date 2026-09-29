@@ -1,0 +1,4 @@
+ticker,has_signal_today,last_date,most_recent_signal_date,signals_in_lookback,relative_strength,rank
+MRK,True,2026-09-25,2026-09-25,8,,1
+ALNY,True,2026-09-25,2026-09-25,4,,2
+AMGN,True,2026-09-25,2026-09-25,4,,3

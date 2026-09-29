@@ -1,0 +1,78 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 518 stocks (86 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-09-25 (Close=771.35, SMA200=718.45)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1    MRK                NaN 2026-09-25
+    2   ALNY                NaN 2026-09-25
+    3   AMGN                NaN 2026-09-25
+Market filter passed: SPY > SMA200 on 2026-09-25 (Close=771.35, SMA200=718.45)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+
+=== HIGH MOMENTUM SIGNALS: none today ===
+Saved chart: data/charts/2026/09/2026-09-29/MRK/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-29/ALNY/pullback_setup.png
+Saved chart: data/charts/2026/09/2026-09-29/AMGN/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/09/2026-09-29/gallery_2026-09-29.pdf
+
+Saved signals with RS: data/charts/2026/09/2026-09-29/scan_results_2026-09-29.csv
+
+=== CHECKING EXITS FOR 24 OPEN SIGNALS ===
+  CAH: missing buy_price or last_date, skipping
+  ANET: missing buy_price or last_date, skipping
+  HPQ: missing buy_price or last_date, skipping
+  PHM: missing buy_price or last_date, skipping
+  VTRS: missing buy_price or last_date, skipping
+  HPE: missing buy_price or last_date, skipping
+  WAT: still open (9 days in trade)
+  ABBV: still open (9 days in trade)
+  TMO: still open (8 days in trade)
+  NTAP: still open (8 days in trade)
+  GILD: still open (7 days in trade)
+  ✓ MET: stop exit on 2026-09-28 | P&L: -2.00% | days: 2
+  ✓ SMCI: target exit on 2026-09-25 | P&L: 7.00% | days: 5
+  ✓ JNJ: stop exit on 2026-09-22 | P&L: -2.00% | days: 2
+  JNJ: missing buy_price or last_date, skipping
+  P: missing buy_price or last_date, skipping
+  PLTR: missing buy_price or last_date, skipping
+  SMCI: missing buy_price or last_date, skipping
+  MRNA: missing buy_price or last_date, skipping
+  MSTR: missing buy_price or last_date, skipping
+  NDSN: still open (2 days in trade)
+  PFE: still open (2 days in trade)
+  ZBRA: still open (2 days in trade)
+  ✓ SNPS: stop exit on 2026-09-25 | P&L: -2.00% | days: 1
+
+✓ Pushed 3 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
