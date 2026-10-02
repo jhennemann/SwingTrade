@@ -1,0 +1,75 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 518 stocks (86 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-09-30 (Close=762.63, SMA200=719.62)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+
+=== PULLBACK SIGNALS TODAY ===
+No signals today.
+Market filter passed: SPY > SMA200 on 2026-09-30 (Close=762.63, SMA200=719.62)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+Calculating relative strength scores...
+
+=== HIGH MOMENTUM SIGNALS (RS > 50): 0 ===
+Empty DataFrame
+Columns: [rank, ticker, relative_strength, last_date]
+Index: []
+
+No charts generated; skipping PDF export.
+
+No signals today - skipping CSV save
+
+=== CHECKING EXITS FOR 24 OPEN SIGNALS ===
+  CAH: missing buy_price or last_date, skipping
+  ANET: missing buy_price or last_date, skipping
+  HPQ: missing buy_price or last_date, skipping
+  PHM: missing buy_price or last_date, skipping
+  VTRS: missing buy_price or last_date, skipping
+  HPE: missing buy_price or last_date, skipping
+  ✓ TMO: time exit on 2026-09-30 | P&L: 2.79% | days: 10
+  ✓ GILD: stop exit on 2026-10-01 | P&L: -2.00% | days: 10
+  JNJ: missing buy_price or last_date, skipping
+  P: missing buy_price or last_date, skipping
+  PLTR: missing buy_price or last_date, skipping
+  SMCI: missing buy_price or last_date, skipping
+  MRNA: missing buy_price or last_date, skipping
+  MSTR: missing buy_price or last_date, skipping
+  NDSN: still open (5 days in trade)
+  PFE: still open (5 days in trade)
+  ZBRA: still open (5 days in trade)
+  MRK: missing buy_price or last_date, skipping
+  ALNY: missing buy_price or last_date, skipping
+  AMGN: missing buy_price or last_date, skipping
+  PG: missing buy_price or last_date, skipping
+  MSFT: missing buy_price or last_date, skipping
+  ULTA: missing buy_price or last_date, skipping
+  VRTX: missing buy_price or last_date, skipping
+
+No new pullback signals to push to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
