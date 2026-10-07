@@ -1,0 +1,6 @@
+ticker,has_signal_today,last_date,most_recent_signal_date,signals_in_lookback,relative_strength,rank
+BIIB,True,2026-10-06,2026-10-06,11,12.492961577523932,1
+HUM,True,2026-10-06,2026-10-06,2,-4.240418829809112,2
+ABBV,True,2026-10-05,2026-10-05,8,,3
+SPCX,True,2026-10-05,2026-10-05,1,,4
+DELL,True,2026-10-05,2026-10-05,1,,5
