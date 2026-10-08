@@ -1,0 +1,90 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 519 stocks (85 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-10-06 (Close=779.09, SMA200=721.49)
+Scanned 100/519 tickers...
+Scanned 200/519 tickers...
+Scanned 300/519 tickers...
+Scanned 400/519 tickers...
+Scanned 500/519 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1   BIIB                NaN 2026-10-06
+    2    NOW                NaN 2026-10-06
+    3   GDDY                NaN 2026-10-06
+    4    HUM                NaN 2026-10-06
+Market filter passed: SPY > SMA200 on 2026-10-06 (Close=779.09, SMA200=721.49)
+Scanned 100/519 tickers...
+Scanned 200/519 tickers...
+Scanned 300/519 tickers...
+Scanned 400/519 tickers...
+Scanned 500/519 tickers...
+Calculating relative strength scores...
+
+=== HIGH MOMENTUM SIGNALS (RS > 50): 0 ===
+Empty DataFrame
+Columns: [rank, ticker, relative_strength, last_date]
+Index: []
+Saved chart: data/charts/2026/10/2026-10-08/BIIB/pullback_setup.png
+Saved chart: data/charts/2026/10/2026-10-08/NOW/pullback_setup.png
+Saved chart: data/charts/2026/10/2026-10-08/GDDY/pullback_setup.png
+Saved chart: data/charts/2026/10/2026-10-08/HUM/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/10/2026-10-08/gallery_2026-10-08.pdf
+
+Saved signals with RS: data/charts/2026/10/2026-10-08/scan_results_2026-10-08.csv
+
+=== CHECKING EXITS FOR 30 OPEN SIGNALS ===
+  CAH: missing buy_price or last_date, skipping
+  ANET: missing buy_price or last_date, skipping
+  HPQ: missing buy_price or last_date, skipping
+  PHM: missing buy_price or last_date, skipping
+  VTRS: missing buy_price or last_date, skipping
+  HPE: missing buy_price or last_date, skipping
+  BIIB: still open (1 days in trade)
+  ✓ HUM: stop exit on 2026-10-07 | P&L: -2.00% | days: 1
+  DELL: still open (2 days in trade)
+  ✓ SPCX: stop exit on 2026-10-07 | P&L: -2.00% | days: 2
+  HCA: still open (2 days in trade)
+  JNJ: missing buy_price or last_date, skipping
+  P: missing buy_price or last_date, skipping
+  PLTR: missing buy_price or last_date, skipping
+  SMCI: missing buy_price or last_date, skipping
+  MRNA: missing buy_price or last_date, skipping
+  MSTR: missing buy_price or last_date, skipping
+  NDSN: still open (9 days in trade)
+  ZBRA: still open (9 days in trade)
+  AAPL: still open (2 days in trade)
+  MRK: missing buy_price or last_date, skipping
+  ALNY: missing buy_price or last_date, skipping
+  AMGN: missing buy_price or last_date, skipping
+  PG: missing buy_price or last_date, skipping
+  MSFT: missing buy_price or last_date, skipping
+  ULTA: missing buy_price or last_date, skipping
+  VRTX: missing buy_price or last_date, skipping
+  ABBV: missing buy_price or last_date, skipping
+  SPCX: missing buy_price or last_date, skipping
+  DELL: missing buy_price or last_date, skipping
+
+✓ Pushed 4 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
