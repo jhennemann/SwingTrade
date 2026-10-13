@@ -1,0 +1,4 @@
+ticker,has_signal_today,last_date,most_recent_signal_date,signals_in_lookback,relative_strength,rank
+UHS,True,2026-10-12,2026-10-12,2,13.860986743099346,1
+GILD,True,2026-10-12,2026-10-12,7,8.074442179260277,2
+ELV,True,2026-10-12,2026-10-12,2,5.575767970170853,3
