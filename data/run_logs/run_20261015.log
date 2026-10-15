@@ -3,7 +3,7 @@ Loading stock universes...
 ✓ NASDAQ 100: 101 stocks
 ✓ Combined universe: 518 stocks (86 overlap)
 
-Market filter passed: SPY > SMA200 on 2026-10-13 (Close=778.01, SMA200=723.82)
+Market filter passed: SPY > SMA200 on 2026-10-15 (Close=771.79, SMA200=724.63)
 Scanned 100/518 tickers...
 Scanned 200/518 tickers...
 Scanned 300/518 tickers...
@@ -13,16 +13,21 @@ Calculating relative strength scores...
 
 === PULLBACK SIGNALS TODAY ===
  rank ticker  relative_strength  last_date
-    1   META                NaN 2026-10-13
-Market filter passed: SPY > SMA200 on 2026-10-13 (Close=778.01, SMA200=723.82)
+    1    TMO          17.142813 2026-10-15
+    2   GILD          15.705199 2026-10-15
+Market filter passed: SPY > SMA200 on 2026-10-15 (Close=771.79, SMA200=724.63)
 Scanned 100/518 tickers...
 Scanned 200/518 tickers...
 Scanned 300/518 tickers...
 Scanned 400/518 tickers...
 Scanned 500/518 tickers...
+Calculating relative strength scores...
 
-=== HIGH MOMENTUM SIGNALS: none today ===
-Saved chart: data/charts/2026/10/2026-10-15/META/pullback_setup.png
+=== HIGH MOMENTUM SIGNALS (RS > 50): 1 ===
+ rank ticker  relative_strength  last_date
+    1   VEEV          69.759194 2026-10-15
+Saved chart: data/charts/2026/10/2026-10-15/TMO/pullback_setup.png
+Saved chart: data/charts/2026/10/2026-10-15/GILD/pullback_setup.png
 
 Saved PDF gallery: data/charts/2026/10/2026-10-15/gallery_2026-10-15.pdf
 
@@ -35,7 +40,6 @@ Saved signals with RS: data/charts/2026/10/2026-10-15/scan_results_2026-10-15.cs
   PHM: missing buy_price or last_date, skipping
   VTRS: missing buy_price or last_date, skipping
   HPE: missing buy_price or last_date, skipping
-  ✓ HCA: target exit on 2026-10-14 | P&L: 7.00% | days: 7
   JNJ: missing buy_price or last_date, skipping
   P: missing buy_price or last_date, skipping
   PLTR: missing buy_price or last_date, skipping
@@ -64,8 +68,9 @@ Saved signals with RS: data/charts/2026/10/2026-10-15/scan_results_2026-10-15.cs
   ELV: still open (2 days in trade)
   UHS: missing buy_price or last_date, skipping
   ELV: missing buy_price or last_date, skipping
+  META: missing buy_price or last_date, skipping
 
-✓ Pushed 1 new pullback signals to Supabase
+✓ Pushed 2 new pullback signals to Supabase
 
 ============================================================
 PAPER TRADING — 52-WEEK HIGH MOMENTUM
@@ -76,7 +81,12 @@ PAPER TRADING — 52-WEEK HIGH MOMENTUM
   aggressive: no open trades
 
 === PAPER TRADING: FILLING SLOTS ===
-  No signals today — nothing to fill
+
+  conservative: 2 slot(s) open | available cash: $1120.43
+    ⏳ PENDING VEEV [conservative]: $560.22 allocated | RS: 69.8 | entry price fetched tomorrow at open
+
+  aggressive: 2 slot(s) open | available cash: $1117.61
+    ⏳ PENDING VEEV [aggressive]: $558.80 allocated | RS: 69.8 | entry price fetched tomorrow at open
 
 ============================================================
 PAPER TRADING COMPLETE
