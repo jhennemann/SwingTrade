@@ -1,0 +1,4 @@
+ticker,has_signal_today,last_date,most_recent_signal_date,signals_in_lookback,relative_strength,rank
+IQV,True,2026-10-16,2026-10-16,11,24.99521830990501,1
+BBY,True,2026-10-16,2026-10-16,4,5.136702634165902,2
+VTRS,True,2026-10-16,2026-10-16,6,4.916415558662668,3
