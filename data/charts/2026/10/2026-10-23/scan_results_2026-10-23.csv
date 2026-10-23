@@ -1,0 +1,5 @@
+ticker,has_signal_today,last_date,most_recent_signal_date,signals_in_lookback,relative_strength,rank
+NXPI,True,2026-10-21,2026-10-21,6,,1
+RVTY,True,2026-10-21,2026-10-21,6,,2
+ZBRA,True,2026-10-21,2026-10-21,6,,3
+TECH,True,2026-10-21,2026-10-21,4,,4
