@@ -1,0 +1,6 @@
+ticker,has_signal_today,last_date,most_recent_signal_date,signals_in_lookback,relative_strength,rank
+QCOM,True,2026-10-27,2026-10-27,8,,1
+FTNT,True,2026-10-27,2026-10-27,8,,2
+MSFT,True,2026-10-27,2026-10-27,5,,3
+DDOG,True,2026-10-27,2026-10-27,4,,4
+RCL,True,2026-10-27,2026-10-27,2,,5
