@@ -1,0 +1,8 @@
+ticker,has_signal_today,last_date,most_recent_signal_date,signals_in_lookback,relative_strength,rank
+PCG,True,2026-11-10,2026-11-10,11,,1
+HST,True,2026-11-10,2026-11-10,10,,2
+WAB,True,2026-11-10,2026-11-10,8,,3
+RVTY,True,2026-11-10,2026-11-10,7,,4
+AAPL,True,2026-11-10,2026-11-10,5,,5
+EMR,True,2026-11-10,2026-11-10,4,,6
+HIG,True,2026-11-10,2026-11-10,3,,7
