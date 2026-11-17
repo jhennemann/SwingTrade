@@ -1,0 +1,129 @@
+Loading stock universes...
+✓ S&P 500: 503 stocks
+✓ NASDAQ 100: 101 stocks
+✓ Combined universe: 518 stocks (86 overlap)
+
+Market filter passed: SPY > SMA200 on 2026-11-16 (Close=739.95, SMA200=732.16)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+Calculating relative strength scores...
+
+=== PULLBACK SIGNALS TODAY ===
+ rank ticker  relative_strength  last_date
+    1    CMS           6.544569 2026-11-16
+    2    FOX           1.716808 2026-11-16
+    3    BRO           1.593128 2026-11-16
+    4   FOXA           1.260117 2026-11-16
+    5    GIS         -10.800069 2026-11-16
+    6    PCG         -21.380958 2026-11-16
+Market filter passed: SPY > SMA200 on 2026-11-16 (Close=739.95, SMA200=732.16)
+Scanned 100/518 tickers...
+Scanned 200/518 tickers...
+Scanned 300/518 tickers...
+Scanned 400/518 tickers...
+Scanned 500/518 tickers...
+Calculating relative strength scores...
+
+=== HIGH MOMENTUM SIGNALS (RS > 50): 0 ===
+Empty DataFrame
+Columns: [rank, ticker, relative_strength, last_date]
+Index: []
+Saved chart: data/charts/2026/11/2026-11-17/CMS/pullback_setup.png
+Saved chart: data/charts/2026/11/2026-11-17/FOX/pullback_setup.png
+Saved chart: data/charts/2026/11/2026-11-17/BRO/pullback_setup.png
+Saved chart: data/charts/2026/11/2026-11-17/FOXA/pullback_setup.png
+Saved chart: data/charts/2026/11/2026-11-17/GIS/pullback_setup.png
+Saved chart: data/charts/2026/11/2026-11-17/PCG/pullback_setup.png
+
+Saved PDF gallery: data/charts/2026/11/2026-11-17/gallery_2026-11-17.pdf
+
+Saved signals with RS: data/charts/2026/11/2026-11-17/scan_results_2026-11-17.csv
+
+=== CHECKING EXITS FOR 65 OPEN SIGNALS ===
+  CAH: missing buy_price or last_date, skipping
+  ANET: missing buy_price or last_date, skipping
+  HPQ: missing buy_price or last_date, skipping
+  PHM: missing buy_price or last_date, skipping
+  VTRS: missing buy_price or last_date, skipping
+  HPE: missing buy_price or last_date, skipping
+  JNJ: missing buy_price or last_date, skipping
+  P: missing buy_price or last_date, skipping
+  PLTR: missing buy_price or last_date, skipping
+  SMCI: missing buy_price or last_date, skipping
+  MRNA: missing buy_price or last_date, skipping
+  MSTR: missing buy_price or last_date, skipping
+  ULTA: missing buy_price or last_date, skipping
+  PG: missing buy_price or last_date, skipping
+  MRK: missing buy_price or last_date, skipping
+  ALNY: missing buy_price or last_date, skipping
+  AMGN: missing buy_price or last_date, skipping
+  PG: missing buy_price or last_date, skipping
+  MSFT: missing buy_price or last_date, skipping
+  ULTA: missing buy_price or last_date, skipping
+  VRTX: missing buy_price or last_date, skipping
+  ABBV: missing buy_price or last_date, skipping
+  SPCX: missing buy_price or last_date, skipping
+  DELL: missing buy_price or last_date, skipping
+  BIIB: missing buy_price or last_date, skipping
+  NOW: missing buy_price or last_date, skipping
+  GDDY: missing buy_price or last_date, skipping
+  HUM: missing buy_price or last_date, skipping
+  GILD: missing buy_price or last_date, skipping
+  UHS: missing buy_price or last_date, skipping
+  ELV: missing buy_price or last_date, skipping
+  META: missing buy_price or last_date, skipping
+  IQV: missing buy_price or last_date, skipping
+  VTRS: missing buy_price or last_date, skipping
+  BBY: missing buy_price or last_date, skipping
+  NXPI: missing buy_price or last_date, skipping
+  RVTY: missing buy_price or last_date, skipping
+  ZBRA: missing buy_price or last_date, skipping
+  TECH: missing buy_price or last_date, skipping
+  QCOM: missing buy_price or last_date, skipping
+  FTNT: missing buy_price or last_date, skipping
+  MSFT: missing buy_price or last_date, skipping
+  DDOG: missing buy_price or last_date, skipping
+  RCL: missing buy_price or last_date, skipping
+  ROK: missing buy_price or last_date, skipping
+  MCHP: missing buy_price or last_date, skipping
+  ILMN: missing buy_price or last_date, skipping
+  IEX: missing buy_price or last_date, skipping
+  DECK: missing buy_price or last_date, skipping
+  TEL: missing buy_price or last_date, skipping
+  A: missing buy_price or last_date, skipping
+  ✓ HUM: target exit on 2026-11-16 | P&L: 7.00% | days: 5
+  HUM: missing buy_price or last_date, skipping
+  PCG: missing buy_price or last_date, skipping
+  HST: missing buy_price or last_date, skipping
+  WAB: missing buy_price or last_date, skipping
+  RVTY: missing buy_price or last_date, skipping
+  AAPL: missing buy_price or last_date, skipping
+  EMR: missing buy_price or last_date, skipping
+  HIG: missing buy_price or last_date, skipping
+  NDSN: missing buy_price or last_date, skipping
+  AIG: missing buy_price or last_date, skipping
+  VRSN: missing buy_price or last_date, skipping
+  CNC: missing buy_price or last_date, skipping
+  BSX: missing buy_price or last_date, skipping
+
+✓ Pushed 6 new pullback signals to Supabase
+
+============================================================
+PAPER TRADING — 52-WEEK HIGH MOMENTUM
+============================================================
+
+=== PAPER TRADING: CHECKING EXITS ===
+  conservative: no open trades
+  aggressive: no open trades
+
+=== PAPER TRADING: FILLING SLOTS ===
+  No signals today — nothing to fill
+
+============================================================
+PAPER TRADING COMPLETE
+============================================================
+
+✅ Alert sent to Discord
